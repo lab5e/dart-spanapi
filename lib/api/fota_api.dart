@@ -78,7 +78,7 @@ class FotaApi {
   /// * [String] collectionId (required):
   ///
   /// * [String] deviceId (required):
-  Future<ClearFirmwareErrorResponse> spanClearFirmwareError(String collectionId, String deviceId) async {
+  Future<Object> spanClearFirmwareError(String collectionId, String deviceId) async {
     final response = await spanClearFirmwareErrorWithHttpInfo(collectionId, deviceId);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
@@ -87,9 +87,9 @@ class FotaApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'ClearFirmwareErrorResponse') as ClearFirmwareErrorResponse;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Object') as Object;
         }
-    return Future<ClearFirmwareErrorResponse>.value(null);
+    return Future<Object>.value(null);
   }
 
   /// Create firmware

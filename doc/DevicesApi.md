@@ -266,7 +266,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **spanSendMessage**
-> SendMessageResponse spanSendMessage(collectionId, deviceId, body)
+> Object spanSendMessage(collectionId, deviceId, body)
 
 Send message
 
@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SendMessageResponse**](SendMessageResponse.md)
+[**Object**](Object.md)
 
 ### Authorization
 

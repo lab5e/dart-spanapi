@@ -520,7 +520,7 @@ class DevicesApi {
   /// * [String] deviceId (required):
   ///
   /// * [SendMessageRequest] body (required):
-  Future<SendMessageResponse> spanSendMessage(String collectionId, String deviceId, SendMessageRequest body) async {
+  Future<Object> spanSendMessage(String collectionId, String deviceId, SendMessageRequest body) async {
     final response = await spanSendMessageWithHttpInfo(collectionId, deviceId, body);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
@@ -529,9 +529,9 @@ class DevicesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'SendMessageResponse') as SendMessageResponse;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Object') as Object;
         }
-    return Future<SendMessageResponse>.value(null);
+    return Future<Object>.value(null);
   }
 
   /// Update device

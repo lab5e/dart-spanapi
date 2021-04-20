@@ -23,8 +23,8 @@ class DatadumpApi {
   ///
   /// Parameters:
   ///
-  /// * [DataDumpRequest] body (required):
-  Future<Response> spanDataDumpWithHttpInfo(DataDumpRequest body) async {
+  /// * [Object] body (required):
+  Future<Response> spanDataDumpWithHttpInfo(Object body) async {
     // Verify required params are set.
     if (body == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: body');
@@ -72,8 +72,8 @@ class DatadumpApi {
   ///
   /// Parameters:
   ///
-  /// * [DataDumpRequest] body (required):
-  Future<DataDumpResponse> spanDataDump(DataDumpRequest body) async {
+  /// * [Object] body (required):
+  Future<DataDumpResponse> spanDataDump(Object body) async {
     final response = await spanDataDumpWithHttpInfo(body);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));

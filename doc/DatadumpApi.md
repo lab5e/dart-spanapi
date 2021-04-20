@@ -28,7 +28,7 @@ import 'package:spanapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('APIToken').apiKeyPrefix = 'Bearer';
 
 final api_instance = DatadumpApi();
-final body = DataDumpRequest(); // DataDumpRequest | 
+final body = Object(); // Object | 
 
 try { 
     final result = api_instance.spanDataDump(body);
@@ -42,7 +42,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**DataDumpRequest**](DataDumpRequest.md)|  | 
+ **body** | **Object**|  | 
 
 ### Return type
 

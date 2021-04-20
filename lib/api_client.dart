@@ -158,8 +158,6 @@ class ApiClient {
           return value is double ? value : double.parse('$value');
         case 'BroadcastMessageRequest':
           return BroadcastMessageRequest.fromJson(value);
-        case 'ClearFirmwareErrorResponse':
-          return ClearFirmwareErrorResponse.fromJson(value);
         case 'CoAPMetadata':
           return CoAPMetadata.fromJson(value);
         case 'Collection':
@@ -171,8 +169,6 @@ class ApiClient {
           
         case 'CreateFirmwareRequest':
           return CreateFirmwareRequest.fromJson(value);
-        case 'DataDumpRequest':
-          return DataDumpRequest.fromJson(value);
         case 'DataDumpResponse':
           return DataDumpResponse.fromJson(value);
         case 'Device':
@@ -229,8 +225,6 @@ class ApiClient {
           return RpcStatus.fromJson(value);
         case 'SendMessageRequest':
           return SendMessageRequest.fromJson(value);
-        case 'SendMessageResponse':
-          return SendMessageResponse.fromJson(value);
         case 'SystemInfoResponse':
           return SystemInfoResponse.fromJson(value);
         case 'UDPMetadata':

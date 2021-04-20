@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 
 # **spanClearFirmwareError**
-> ClearFirmwareErrorResponse spanClearFirmwareError(collectionId, deviceId)
+> Object spanClearFirmwareError(collectionId, deviceId)
 
 Clear FOTA error
 
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ClearFirmwareErrorResponse**](ClearFirmwareErrorResponse.md)
+[**Object**](Object.md)
 
 ### Authorization
 
