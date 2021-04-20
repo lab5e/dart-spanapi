@@ -24,7 +24,7 @@ class OutputsApi {
   /// * [String] collectionId (required):
   ///
   /// * [Output] body (required):
-  Future<Response> createOutputWithHttpInfo(String collectionId, Output body) async {
+  Future<Response> spanCreateOutputWithHttpInfo(String collectionId, Output body) async {
     // Verify required params are set.
     if (collectionId == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
@@ -77,8 +77,8 @@ class OutputsApi {
   /// * [String] collectionId (required):
   ///
   /// * [Output] body (required):
-  Future<Output> createOutput(String collectionId, Output body) async {
-    final response = await createOutputWithHttpInfo(collectionId, body);
+  Future<Output> spanCreateOutput(String collectionId, Output body) async {
+    final response = await spanCreateOutputWithHttpInfo(collectionId, body);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -100,7 +100,7 @@ class OutputsApi {
   /// * [String] collectionId (required):
   ///
   /// * [String] outputId (required):
-  Future<Response> deleteOutputWithHttpInfo(String collectionId, String outputId) async {
+  Future<Response> spanDeleteOutputWithHttpInfo(String collectionId, String outputId) async {
     // Verify required params are set.
     if (collectionId == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
@@ -154,8 +154,8 @@ class OutputsApi {
   /// * [String] collectionId (required):
   ///
   /// * [String] outputId (required):
-  Future<Output> deleteOutput(String collectionId, String outputId) async {
-    final response = await deleteOutputWithHttpInfo(collectionId, outputId);
+  Future<Output> spanDeleteOutput(String collectionId, String outputId) async {
+    final response = await spanDeleteOutputWithHttpInfo(collectionId, outputId);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -175,7 +175,7 @@ class OutputsApi {
   /// Parameters:
   ///
   /// * [String] collectionId (required):
-  Future<Response> listOutputsWithHttpInfo(String collectionId) async {
+  Future<Response> spanListOutputsWithHttpInfo(String collectionId) async {
     // Verify required params are set.
     if (collectionId == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
@@ -223,8 +223,8 @@ class OutputsApi {
   /// Parameters:
   ///
   /// * [String] collectionId (required):
-  Future<ListOutputResponse> listOutputs(String collectionId) async {
-    final response = await listOutputsWithHttpInfo(collectionId);
+  Future<ListOutputResponse> spanListOutputs(String collectionId) async {
+    final response = await spanListOutputsWithHttpInfo(collectionId);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -246,7 +246,7 @@ class OutputsApi {
   /// * [String] collectionId (required):
   ///
   /// * [String] outputId (required):
-  Future<Response> logsWithHttpInfo(String collectionId, String outputId) async {
+  Future<Response> spanLogsWithHttpInfo(String collectionId, String outputId) async {
     // Verify required params are set.
     if (collectionId == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
@@ -300,8 +300,8 @@ class OutputsApi {
   /// * [String] collectionId (required):
   ///
   /// * [String] outputId (required):
-  Future<OutputLogResponse> logs(String collectionId, String outputId) async {
-    final response = await logsWithHttpInfo(collectionId, outputId);
+  Future<OutputLogResponse> spanLogs(String collectionId, String outputId) async {
+    final response = await spanLogsWithHttpInfo(collectionId, outputId);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -323,7 +323,7 @@ class OutputsApi {
   /// * [String] collectionId (required):
   ///
   /// * [String] outputId (required):
-  Future<Response> retrieveOutputWithHttpInfo(String collectionId, String outputId) async {
+  Future<Response> spanRetrieveOutputWithHttpInfo(String collectionId, String outputId) async {
     // Verify required params are set.
     if (collectionId == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
@@ -377,8 +377,8 @@ class OutputsApi {
   /// * [String] collectionId (required):
   ///
   /// * [String] outputId (required):
-  Future<Output> retrieveOutput(String collectionId, String outputId) async {
-    final response = await retrieveOutputWithHttpInfo(collectionId, outputId);
+  Future<Output> spanRetrieveOutput(String collectionId, String outputId) async {
+    final response = await spanRetrieveOutputWithHttpInfo(collectionId, outputId);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -400,7 +400,7 @@ class OutputsApi {
   /// * [String] collectionId (required):
   ///
   /// * [String] outputId (required):
-  Future<Response> statusWithHttpInfo(String collectionId, String outputId) async {
+  Future<Response> spanStatusWithHttpInfo(String collectionId, String outputId) async {
     // Verify required params are set.
     if (collectionId == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
@@ -454,8 +454,8 @@ class OutputsApi {
   /// * [String] collectionId (required):
   ///
   /// * [String] outputId (required):
-  Future<OutputStatusResponse> status(String collectionId, String outputId) async {
-    final response = await statusWithHttpInfo(collectionId, outputId);
+  Future<OutputStatusResponse> spanStatus(String collectionId, String outputId) async {
+    final response = await spanStatusWithHttpInfo(collectionId, outputId);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -481,7 +481,7 @@ class OutputsApi {
   /// * [String] outputId (required):
   ///
   /// * [Output] body (required):
-  Future<Response> updateOutputWithHttpInfo(String collectionId, String outputId, Output body) async {
+  Future<Response> spanUpdateOutputWithHttpInfo(String collectionId, String outputId, Output body) async {
     // Verify required params are set.
     if (collectionId == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
@@ -542,8 +542,8 @@ class OutputsApi {
   /// * [String] outputId (required):
   ///
   /// * [Output] body (required):
-  Future<Output> updateOutput(String collectionId, String outputId, Output body) async {
-    final response = await updateOutputWithHttpInfo(collectionId, outputId, body);
+  Future<Output> spanUpdateOutput(String collectionId, String outputId, Output body) async {
+    final response = await spanUpdateOutputWithHttpInfo(collectionId, outputId, body);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }

@@ -9,11 +9,11 @@ All URIs are relative to *https://api.lab5e.com/span*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**dataDump**](DatadumpApi.md#datadump) | **POST** /datadump | Data dump
+[**spanDataDump**](DatadumpApi.md#spandatadump) | **POST** /datadump | Data dump
 
 
-# **dataDump**
-> DataDumpResponse dataDump(body)
+# **spanDataDump**
+> DataDumpResponse spanDataDump(body)
 
 Data dump
 
@@ -31,10 +31,10 @@ final api_instance = DatadumpApi();
 final body = DataDumpRequest(); // DataDumpRequest | 
 
 try { 
-    final result = api_instance.dataDump(body);
+    final result = api_instance.spanDataDump(body);
     print(result);
 } catch (e) {
-    print('Exception when calling DatadumpApi->dataDump: $e\n');
+    print('Exception when calling DatadumpApi->spanDataDump: $e\n');
 }
 ```
 

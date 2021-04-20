@@ -24,7 +24,7 @@ class FotaApi {
   /// * [String] collectionId (required):
   ///
   /// * [String] deviceId (required):
-  Future<Response> clearFirmwareErrorWithHttpInfo(String collectionId, String deviceId) async {
+  Future<Response> spanClearFirmwareErrorWithHttpInfo(String collectionId, String deviceId) async {
     // Verify required params are set.
     if (collectionId == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
@@ -78,8 +78,8 @@ class FotaApi {
   /// * [String] collectionId (required):
   ///
   /// * [String] deviceId (required):
-  Future<ClearFirmwareErrorResponse> clearFirmwareError(String collectionId, String deviceId) async {
-    final response = await clearFirmwareErrorWithHttpInfo(collectionId, deviceId);
+  Future<ClearFirmwareErrorResponse> spanClearFirmwareError(String collectionId, String deviceId) async {
+    final response = await spanClearFirmwareErrorWithHttpInfo(collectionId, deviceId);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -103,7 +103,7 @@ class FotaApi {
   /// * [String] collectionId (required):
   ///
   /// * [CreateFirmwareRequest] body (required):
-  Future<Response> createFirmwareWithHttpInfo(String collectionId, CreateFirmwareRequest body) async {
+  Future<Response> spanCreateFirmwareWithHttpInfo(String collectionId, CreateFirmwareRequest body) async {
     // Verify required params are set.
     if (collectionId == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
@@ -158,8 +158,8 @@ class FotaApi {
   /// * [String] collectionId (required):
   ///
   /// * [CreateFirmwareRequest] body (required):
-  Future<Firmware> createFirmware(String collectionId, CreateFirmwareRequest body) async {
-    final response = await createFirmwareWithHttpInfo(collectionId, body);
+  Future<Firmware> spanCreateFirmware(String collectionId, CreateFirmwareRequest body) async {
+    final response = await spanCreateFirmwareWithHttpInfo(collectionId, body);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -181,7 +181,7 @@ class FotaApi {
   /// * [String] collectionId (required):
   ///
   /// * [String] imageId (required):
-  Future<Response> deleteFirmwareWithHttpInfo(String collectionId, String imageId) async {
+  Future<Response> spanDeleteFirmwareWithHttpInfo(String collectionId, String imageId) async {
     // Verify required params are set.
     if (collectionId == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
@@ -235,8 +235,8 @@ class FotaApi {
   /// * [String] collectionId (required):
   ///
   /// * [String] imageId (required):
-  Future<Firmware> deleteFirmware(String collectionId, String imageId) async {
-    final response = await deleteFirmwareWithHttpInfo(collectionId, imageId);
+  Future<Firmware> spanDeleteFirmware(String collectionId, String imageId) async {
+    final response = await spanDeleteFirmwareWithHttpInfo(collectionId, imageId);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -260,7 +260,7 @@ class FotaApi {
   /// * [String] collectionId (required):
   ///
   /// * [String] imageId (required):
-  Future<Response> firmwareUsageWithHttpInfo(String collectionId, String imageId) async {
+  Future<Response> spanFirmwareUsageWithHttpInfo(String collectionId, String imageId) async {
     // Verify required params are set.
     if (collectionId == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
@@ -316,8 +316,8 @@ class FotaApi {
   /// * [String] collectionId (required):
   ///
   /// * [String] imageId (required):
-  Future<FirmwareUsageResponse> firmwareUsage(String collectionId, String imageId) async {
-    final response = await firmwareUsageWithHttpInfo(collectionId, imageId);
+  Future<FirmwareUsageResponse> spanFirmwareUsage(String collectionId, String imageId) async {
+    final response = await spanFirmwareUsageWithHttpInfo(collectionId, imageId);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -339,7 +339,7 @@ class FotaApi {
   /// Parameters:
   ///
   /// * [String] collectionId (required):
-  Future<Response> listFirmwareWithHttpInfo(String collectionId) async {
+  Future<Response> spanListFirmwareWithHttpInfo(String collectionId) async {
     // Verify required params are set.
     if (collectionId == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
@@ -389,8 +389,8 @@ class FotaApi {
   /// Parameters:
   ///
   /// * [String] collectionId (required):
-  Future<ListFirmwareResponse> listFirmware(String collectionId) async {
-    final response = await listFirmwareWithHttpInfo(collectionId);
+  Future<ListFirmwareResponse> spanListFirmware(String collectionId) async {
+    final response = await spanListFirmwareWithHttpInfo(collectionId);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -414,7 +414,7 @@ class FotaApi {
   /// * [String] collectionId (required):
   ///
   /// * [String] imageId (required):
-  Future<Response> retrieveFirmwareWithHttpInfo(String collectionId, String imageId) async {
+  Future<Response> spanRetrieveFirmwareWithHttpInfo(String collectionId, String imageId) async {
     // Verify required params are set.
     if (collectionId == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
@@ -470,8 +470,8 @@ class FotaApi {
   /// * [String] collectionId (required):
   ///
   /// * [String] imageId (required):
-  Future<Firmware> retrieveFirmware(String collectionId, String imageId) async {
-    final response = await retrieveFirmwareWithHttpInfo(collectionId, imageId);
+  Future<Firmware> spanRetrieveFirmware(String collectionId, String imageId) async {
+    final response = await spanRetrieveFirmwareWithHttpInfo(collectionId, imageId);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -497,7 +497,7 @@ class FotaApi {
   ///   Firmware image ID
   ///
   /// * [Firmware] body (required):
-  Future<Response> updateFirmwareWithHttpInfo(String collectionId, String imageId, Firmware body) async {
+  Future<Response> spanUpdateFirmwareWithHttpInfo(String collectionId, String imageId, Firmware body) async {
     // Verify required params are set.
     if (collectionId == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
@@ -558,8 +558,8 @@ class FotaApi {
   ///   Firmware image ID
   ///
   /// * [Firmware] body (required):
-  Future<Firmware> updateFirmware(String collectionId, String imageId, Firmware body) async {
-    final response = await updateFirmwareWithHttpInfo(collectionId, imageId, body);
+  Future<Firmware> spanUpdateFirmware(String collectionId, String imageId, Firmware body) async {
+    final response = await spanUpdateFirmwareWithHttpInfo(collectionId, imageId, body);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }

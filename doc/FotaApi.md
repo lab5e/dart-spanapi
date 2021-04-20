@@ -9,17 +9,17 @@ All URIs are relative to *https://api.lab5e.com/span*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**clearFirmwareError**](FotaApi.md#clearfirmwareerror) | **DELETE** /collections/{collectionId}/devices/{deviceId}/fwerror | Clear FOTA error
-[**createFirmware**](FotaApi.md#createfirmware) | **POST** /collections/{collectionId}/firmware | Create firmware
-[**deleteFirmware**](FotaApi.md#deletefirmware) | **DELETE** /collections/{collectionId}/firmware/{imageId} | Delete firmware
-[**firmwareUsage**](FotaApi.md#firmwareusage) | **PATCH** /collections/{collectionId}/firmware/{imageId}/usage | Firmware usage
-[**listFirmware**](FotaApi.md#listfirmware) | **GET** /collections/{collectionId}/firmware | List firmware
-[**retrieveFirmware**](FotaApi.md#retrievefirmware) | **GET** /collections/{collectionId}/firmware/{imageId} | Retrieve firmware
-[**updateFirmware**](FotaApi.md#updatefirmware) | **PATCH** /collections/{collectionId}/firmware/{imageId} | Update firmware
+[**spanClearFirmwareError**](FotaApi.md#spanclearfirmwareerror) | **DELETE** /collections/{collectionId}/devices/{deviceId}/fwerror | Clear FOTA error
+[**spanCreateFirmware**](FotaApi.md#spancreatefirmware) | **POST** /collections/{collectionId}/firmware | Create firmware
+[**spanDeleteFirmware**](FotaApi.md#spandeletefirmware) | **DELETE** /collections/{collectionId}/firmware/{imageId} | Delete firmware
+[**spanFirmwareUsage**](FotaApi.md#spanfirmwareusage) | **PATCH** /collections/{collectionId}/firmware/{imageId}/usage | Firmware usage
+[**spanListFirmware**](FotaApi.md#spanlistfirmware) | **GET** /collections/{collectionId}/firmware | List firmware
+[**spanRetrieveFirmware**](FotaApi.md#spanretrievefirmware) | **GET** /collections/{collectionId}/firmware/{imageId} | Retrieve firmware
+[**spanUpdateFirmware**](FotaApi.md#spanupdatefirmware) | **PATCH** /collections/{collectionId}/firmware/{imageId} | Update firmware
 
 
-# **clearFirmwareError**
-> ClearFirmwareErrorResponse clearFirmwareError(collectionId, deviceId)
+# **spanClearFirmwareError**
+> ClearFirmwareErrorResponse spanClearFirmwareError(collectionId, deviceId)
 
 Clear FOTA error
 
@@ -36,10 +36,10 @@ final collectionId = collectionId_example; // String |
 final deviceId = deviceId_example; // String | 
 
 try { 
-    final result = api_instance.clearFirmwareError(collectionId, deviceId);
+    final result = api_instance.spanClearFirmwareError(collectionId, deviceId);
     print(result);
 } catch (e) {
-    print('Exception when calling FotaApi->clearFirmwareError: $e\n');
+    print('Exception when calling FotaApi->spanClearFirmwareError: $e\n');
 }
 ```
 
@@ -65,8 +65,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **createFirmware**
-> Firmware createFirmware(collectionId, body)
+# **spanCreateFirmware**
+> Firmware spanCreateFirmware(collectionId, body)
 
 Create firmware
 
@@ -85,10 +85,10 @@ final collectionId = collectionId_example; // String |
 final body = CreateFirmwareRequest(); // CreateFirmwareRequest | 
 
 try { 
-    final result = api_instance.createFirmware(collectionId, body);
+    final result = api_instance.spanCreateFirmware(collectionId, body);
     print(result);
 } catch (e) {
-    print('Exception when calling FotaApi->createFirmware: $e\n');
+    print('Exception when calling FotaApi->spanCreateFirmware: $e\n');
 }
 ```
 
@@ -114,8 +114,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **deleteFirmware**
-> Firmware deleteFirmware(collectionId, imageId)
+# **spanDeleteFirmware**
+> Firmware spanDeleteFirmware(collectionId, imageId)
 
 Delete firmware
 
@@ -132,10 +132,10 @@ final collectionId = collectionId_example; // String |
 final imageId = imageId_example; // String | 
 
 try { 
-    final result = api_instance.deleteFirmware(collectionId, imageId);
+    final result = api_instance.spanDeleteFirmware(collectionId, imageId);
     print(result);
 } catch (e) {
-    print('Exception when calling FotaApi->deleteFirmware: $e\n');
+    print('Exception when calling FotaApi->spanDeleteFirmware: $e\n');
 }
 ```
 
@@ -161,8 +161,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **firmwareUsage**
-> FirmwareUsageResponse firmwareUsage(collectionId, imageId)
+# **spanFirmwareUsage**
+> FirmwareUsageResponse spanFirmwareUsage(collectionId, imageId)
 
 Firmware usage
 
@@ -181,10 +181,10 @@ final collectionId = collectionId_example; // String |
 final imageId = imageId_example; // String | 
 
 try { 
-    final result = api_instance.firmwareUsage(collectionId, imageId);
+    final result = api_instance.spanFirmwareUsage(collectionId, imageId);
     print(result);
 } catch (e) {
-    print('Exception when calling FotaApi->firmwareUsage: $e\n');
+    print('Exception when calling FotaApi->spanFirmwareUsage: $e\n');
 }
 ```
 
@@ -210,8 +210,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **listFirmware**
-> ListFirmwareResponse listFirmware(collectionId)
+# **spanListFirmware**
+> ListFirmwareResponse spanListFirmware(collectionId)
 
 List firmware
 
@@ -229,10 +229,10 @@ final api_instance = FotaApi();
 final collectionId = collectionId_example; // String | 
 
 try { 
-    final result = api_instance.listFirmware(collectionId);
+    final result = api_instance.spanListFirmware(collectionId);
     print(result);
 } catch (e) {
-    print('Exception when calling FotaApi->listFirmware: $e\n');
+    print('Exception when calling FotaApi->spanListFirmware: $e\n');
 }
 ```
 
@@ -257,8 +257,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **retrieveFirmware**
-> Firmware retrieveFirmware(collectionId, imageId)
+# **spanRetrieveFirmware**
+> Firmware spanRetrieveFirmware(collectionId, imageId)
 
 Retrieve firmware
 
@@ -277,10 +277,10 @@ final collectionId = collectionId_example; // String |
 final imageId = imageId_example; // String | 
 
 try { 
-    final result = api_instance.retrieveFirmware(collectionId, imageId);
+    final result = api_instance.spanRetrieveFirmware(collectionId, imageId);
     print(result);
 } catch (e) {
-    print('Exception when calling FotaApi->retrieveFirmware: $e\n');
+    print('Exception when calling FotaApi->spanRetrieveFirmware: $e\n');
 }
 ```
 
@@ -306,8 +306,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **updateFirmware**
-> Firmware updateFirmware(collectionId, imageId, body)
+# **spanUpdateFirmware**
+> Firmware spanUpdateFirmware(collectionId, imageId, body)
 
 Update firmware
 
@@ -325,10 +325,10 @@ final imageId = imageId_example; // String | Firmware image ID
 final body = Firmware(); // Firmware | 
 
 try { 
-    final result = api_instance.updateFirmware(collectionId, imageId, body);
+    final result = api_instance.spanUpdateFirmware(collectionId, imageId, body);
     print(result);
 } catch (e) {
-    print('Exception when calling FotaApi->updateFirmware: $e\n');
+    print('Exception when calling FotaApi->spanUpdateFirmware: $e\n');
 }
 ```
 
