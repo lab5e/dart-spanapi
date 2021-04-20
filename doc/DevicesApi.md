@@ -9,17 +9,17 @@ All URIs are relative to *https://api.lab5e.com/span*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**spanCreateDevice**](DevicesApi.md#spancreatedevice) | **POST** /collections/{collectionId}/devices | Create device
-[**spanDeleteDevice**](DevicesApi.md#spandeletedevice) | **DELETE** /collections/{collectionId}/devices/{deviceId} | Remove device
-[**spanListDeviceData**](DevicesApi.md#spanlistdevicedata) | **GET** /collections/{collectionId}/devices/{deviceId}/data | Get payloads
-[**spanListDevices**](DevicesApi.md#spanlistdevices) | **GET** /collections/{collectionId}/devices | List devices
-[**spanRetrieveDevice**](DevicesApi.md#spanretrievedevice) | **GET** /collections/{collectionId}/devices/{deviceId} | Retrieve device
-[**spanSendMessage**](DevicesApi.md#spansendmessage) | **POST** /collections/{collectionId}/devices/{deviceId}/to | Send message
-[**spanUpdateDevice**](DevicesApi.md#spanupdatedevice) | **PATCH** /collections/{existingCollectionId}/devices/{deviceId} | Update device
+[**createDevice**](DevicesApi.md#createdevice) | **POST** /collections/{collectionId}/devices | Create device
+[**deleteDevice**](DevicesApi.md#deletedevice) | **DELETE** /collections/{collectionId}/devices/{deviceId} | Remove device
+[**listDeviceData**](DevicesApi.md#listdevicedata) | **GET** /collections/{collectionId}/devices/{deviceId}/data | Get payloads
+[**listDevices**](DevicesApi.md#listdevices) | **GET** /collections/{collectionId}/devices | List devices
+[**retrieveDevice**](DevicesApi.md#retrievedevice) | **GET** /collections/{collectionId}/devices/{deviceId} | Retrieve device
+[**sendMessage**](DevicesApi.md#sendmessage) | **POST** /collections/{collectionId}/devices/{deviceId}/to | Send message
+[**updateDevice**](DevicesApi.md#updatedevice) | **PATCH** /collections/{existingCollectionId}/devices/{deviceId} | Update device
 
 
-# **spanCreateDevice**
-> Device spanCreateDevice(collectionId, body)
+# **createDevice**
+> Device createDevice(collectionId, body)
 
 Create device
 
@@ -38,10 +38,10 @@ final collectionId = collectionId_example; // String | This is the containing co
 final body = Device(); // Device | 
 
 try { 
-    final result = api_instance.spanCreateDevice(collectionId, body);
+    final result = api_instance.createDevice(collectionId, body);
     print(result);
 } catch (e) {
-    print('Exception when calling DevicesApi->spanCreateDevice: $e\n');
+    print('Exception when calling DevicesApi->createDevice: $e\n');
 }
 ```
 
@@ -67,8 +67,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **spanDeleteDevice**
-> Device spanDeleteDevice(collectionId, deviceId)
+# **deleteDevice**
+> Device deleteDevice(collectionId, deviceId)
 
 Remove device
 
@@ -85,10 +85,10 @@ final collectionId = collectionId_example; // String |
 final deviceId = deviceId_example; // String | 
 
 try { 
-    final result = api_instance.spanDeleteDevice(collectionId, deviceId);
+    final result = api_instance.deleteDevice(collectionId, deviceId);
     print(result);
 } catch (e) {
-    print('Exception when calling DevicesApi->spanDeleteDevice: $e\n');
+    print('Exception when calling DevicesApi->deleteDevice: $e\n');
 }
 ```
 
@@ -114,8 +114,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **spanListDeviceData**
-> ListDataResponse spanListDeviceData(collectionId, deviceId, limit, start, end, offset)
+# **listDeviceData**
+> ListDataResponse listDeviceData(collectionId, deviceId, limit, start, end, offset)
 
 Get payloads
 
@@ -138,10 +138,10 @@ final end = end_example; // String | End of time range. The default is the curre
 final offset = offset_example; // String | The message offset based on the message ID. This parameter can't be combined with the start and end parameters. If no parameter is set the first N messages will be returned. If this parameter is set the next N messages (from newest to oldest) with message ID less than the offset will be returned.
 
 try { 
-    final result = api_instance.spanListDeviceData(collectionId, deviceId, limit, start, end, offset);
+    final result = api_instance.listDeviceData(collectionId, deviceId, limit, start, end, offset);
     print(result);
 } catch (e) {
-    print('Exception when calling DevicesApi->spanListDeviceData: $e\n');
+    print('Exception when calling DevicesApi->listDeviceData: $e\n');
 }
 ```
 
@@ -171,8 +171,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **spanListDevices**
-> ListDevicesResponse spanListDevices(collectionId)
+# **listDevices**
+> ListDevicesResponse listDevices(collectionId)
 
 List devices
 
@@ -188,10 +188,10 @@ final api_instance = DevicesApi();
 final collectionId = collectionId_example; // String | 
 
 try { 
-    final result = api_instance.spanListDevices(collectionId);
+    final result = api_instance.listDevices(collectionId);
     print(result);
 } catch (e) {
-    print('Exception when calling DevicesApi->spanListDevices: $e\n');
+    print('Exception when calling DevicesApi->listDevices: $e\n');
 }
 ```
 
@@ -216,8 +216,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **spanRetrieveDevice**
-> Device spanRetrieveDevice(collectionId, deviceId)
+# **retrieveDevice**
+> Device retrieveDevice(collectionId, deviceId)
 
 Retrieve device
 
@@ -236,10 +236,10 @@ final collectionId = collectionId_example; // String |
 final deviceId = deviceId_example; // String | 
 
 try { 
-    final result = api_instance.spanRetrieveDevice(collectionId, deviceId);
+    final result = api_instance.retrieveDevice(collectionId, deviceId);
     print(result);
 } catch (e) {
-    print('Exception when calling DevicesApi->spanRetrieveDevice: $e\n');
+    print('Exception when calling DevicesApi->retrieveDevice: $e\n');
 }
 ```
 
@@ -265,8 +265,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **spanSendMessage**
-> Object spanSendMessage(collectionId, deviceId, body)
+# **sendMessage**
+> SendMessageResponse sendMessage(collectionId, deviceId, body)
 
 Send message
 
@@ -286,10 +286,10 @@ final deviceId = deviceId_example; // String |
 final body = SendMessageRequest(); // SendMessageRequest | 
 
 try { 
-    final result = api_instance.spanSendMessage(collectionId, deviceId, body);
+    final result = api_instance.sendMessage(collectionId, deviceId, body);
     print(result);
 } catch (e) {
-    print('Exception when calling DevicesApi->spanSendMessage: $e\n');
+    print('Exception when calling DevicesApi->sendMessage: $e\n');
 }
 ```
 
@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Object**](Object.md)
+[**SendMessageResponse**](SendMessageResponse.md)
 
 ### Authorization
 
@@ -316,8 +316,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **spanUpdateDevice**
-> Device spanUpdateDevice(existingCollectionId, deviceId, body)
+# **updateDevice**
+> Device updateDevice(existingCollectionId, deviceId, body)
 
 Update device
 
@@ -335,10 +335,10 @@ final deviceId = deviceId_example; // String |
 final body = UpdateDeviceRequest(); // UpdateDeviceRequest | 
 
 try { 
-    final result = api_instance.spanUpdateDevice(existingCollectionId, deviceId, body);
+    final result = api_instance.updateDevice(existingCollectionId, deviceId, body);
     print(result);
 } catch (e) {
-    print('Exception when calling DevicesApi->spanUpdateDevice: $e\n');
+    print('Exception when calling DevicesApi->updateDevice: $e\n');
 }
 ```
 

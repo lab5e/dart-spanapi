@@ -18,7 +18,7 @@ class SystemApi {
   /// System information
   ///
   /// Note: This method returns the HTTP [Response].
-  Future<Response> spanGetSystemInfoWithHttpInfo() async {
+  Future<Response> getSystemInfoWithHttpInfo() async {
     final path = r'/system';
 
     Object postBody;
@@ -56,8 +56,8 @@ class SystemApi {
   }
 
   /// System information
-  Future<SystemInfoResponse> spanGetSystemInfo() async {
-    final response = await spanGetSystemInfoWithHttpInfo();
+  Future<SystemInfoResponse> getSystemInfo() async {
+    final response = await getSystemInfoWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }

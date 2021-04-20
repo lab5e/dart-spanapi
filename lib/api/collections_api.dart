@@ -26,7 +26,7 @@ class CollectionsApi {
   /// * [String] collectionId (required):
   ///
   /// * [BroadcastMessageRequest] body (required):
-  Future<Response> spanBroadcastMessageWithHttpInfo(String collectionId, BroadcastMessageRequest body) async {
+  Future<Response> broadcastMessageWithHttpInfo(String collectionId, BroadcastMessageRequest body) async {
     // Verify required params are set.
     if (collectionId == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
@@ -81,8 +81,8 @@ class CollectionsApi {
   /// * [String] collectionId (required):
   ///
   /// * [BroadcastMessageRequest] body (required):
-  Future<MultiSendMessageResponse> spanBroadcastMessage(String collectionId, BroadcastMessageRequest body) async {
-    final response = await spanBroadcastMessageWithHttpInfo(collectionId, body);
+  Future<MultiSendMessageResponse> broadcastMessage(String collectionId, BroadcastMessageRequest body) async {
+    final response = await broadcastMessageWithHttpInfo(collectionId, body);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -104,7 +104,7 @@ class CollectionsApi {
   /// Parameters:
   ///
   /// * [Collection] body (required):
-  Future<Response> spanCreateCollectionWithHttpInfo(Collection body) async {
+  Future<Response> createCollectionWithHttpInfo(Collection body) async {
     // Verify required params are set.
     if (body == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: body');
@@ -153,8 +153,8 @@ class CollectionsApi {
   /// Parameters:
   ///
   /// * [Collection] body (required):
-  Future<Collection> spanCreateCollection(Collection body) async {
-    final response = await spanCreateCollectionWithHttpInfo(body);
+  Future<Collection> createCollection(Collection body) async {
+    final response = await createCollectionWithHttpInfo(body);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -177,7 +177,7 @@ class CollectionsApi {
   ///
   /// * [String] collectionId (required):
   ///   The ID of the collection you want to delete
-  Future<Response> spanDeleteCollectionWithHttpInfo(String collectionId) async {
+  Future<Response> deleteCollectionWithHttpInfo(String collectionId) async {
     // Verify required params are set.
     if (collectionId == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
@@ -228,8 +228,8 @@ class CollectionsApi {
   ///
   /// * [String] collectionId (required):
   ///   The ID of the collection you want to delete
-  Future<Collection> spanDeleteCollection(String collectionId) async {
-    final response = await spanDeleteCollectionWithHttpInfo(collectionId);
+  Future<Collection> deleteCollection(String collectionId) async {
+    final response = await deleteCollectionWithHttpInfo(collectionId);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -264,7 +264,7 @@ class CollectionsApi {
   ///
   /// * [String] offset:
   ///   The message offset based on the message ID. This parameter can't be combined with the start and end parameters. If no parameter is set the first N messages will be returned. If this parameter is set the next N messages (from newest to oldest) with message ID less than the offset will be returned.
-  Future<Response> spanListCollectionDataWithHttpInfo(String collectionId, { int limit, String start, String end, String offset }) async {
+  Future<Response> listCollectionDataWithHttpInfo(String collectionId, { int limit, String start, String end, String offset }) async {
     // Verify required params are set.
     if (collectionId == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
@@ -340,8 +340,8 @@ class CollectionsApi {
   ///
   /// * [String] offset:
   ///   The message offset based on the message ID. This parameter can't be combined with the start and end parameters. If no parameter is set the first N messages will be returned. If this parameter is set the next N messages (from newest to oldest) with message ID less than the offset will be returned.
-  Future<ListDataResponse> spanListCollectionData(String collectionId, { int limit, String start, String end, String offset }) async {
-    final response = await spanListCollectionDataWithHttpInfo(collectionId,  limit: limit, start: start, end: end, offset: offset );
+  Future<ListDataResponse> listCollectionData(String collectionId, { int limit, String start, String end, String offset }) async {
+    final response = await listCollectionDataWithHttpInfo(collectionId,  limit: limit, start: start, end: end, offset: offset );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -359,7 +359,7 @@ class CollectionsApi {
   /// Lists all the collections that one of your teams owns.
   ///
   /// Note: This method returns the HTTP [Response].
-  Future<Response> spanListCollectionsWithHttpInfo() async {
+  Future<Response> listCollectionsWithHttpInfo() async {
     final path = r'/collections';
 
     Object postBody;
@@ -399,8 +399,8 @@ class CollectionsApi {
   /// List collections
   ///
   /// Lists all the collections that one of your teams owns.
-  Future<ListCollectionResponse> spanListCollections() async {
-    final response = await spanListCollectionsWithHttpInfo();
+  Future<ListCollectionResponse> listCollections() async {
+    final response = await listCollectionsWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -421,7 +421,7 @@ class CollectionsApi {
   ///
   /// * [String] collectionId (required):
   ///   The collection ID of the collection you are requesting
-  Future<Response> spanRetrieveCollectionWithHttpInfo(String collectionId) async {
+  Future<Response> retrieveCollectionWithHttpInfo(String collectionId) async {
     // Verify required params are set.
     if (collectionId == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
@@ -470,8 +470,8 @@ class CollectionsApi {
   ///
   /// * [String] collectionId (required):
   ///   The collection ID of the collection you are requesting
-  Future<Collection> spanRetrieveCollection(String collectionId) async {
-    final response = await spanRetrieveCollectionWithHttpInfo(collectionId);
+  Future<Collection> retrieveCollection(String collectionId) async {
+    final response = await retrieveCollectionWithHttpInfo(collectionId);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -496,7 +496,7 @@ class CollectionsApi {
   ///   The ID of the collection. This is assigned by the backend.
   ///
   /// * [Collection] body (required):
-  Future<Response> spanUpdateCollectionWithHttpInfo(String collectionId, Collection body) async {
+  Future<Response> updateCollectionWithHttpInfo(String collectionId, Collection body) async {
     // Verify required params are set.
     if (collectionId == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
@@ -552,8 +552,8 @@ class CollectionsApi {
   ///   The ID of the collection. This is assigned by the backend.
   ///
   /// * [Collection] body (required):
-  Future<Collection> spanUpdateCollection(String collectionId, Collection body) async {
-    final response = await spanUpdateCollectionWithHttpInfo(collectionId, body);
+  Future<Collection> updateCollection(String collectionId, Collection body) async {
+    final response = await updateCollectionWithHttpInfo(collectionId, body);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }

@@ -27,7 +27,7 @@ class DevicesApi {
   ///   This is the containing collection
   ///
   /// * [Device] body (required):
-  Future<Response> spanCreateDeviceWithHttpInfo(String collectionId, Device body) async {
+  Future<Response> createDeviceWithHttpInfo(String collectionId, Device body) async {
     // Verify required params are set.
     if (collectionId == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
@@ -83,8 +83,8 @@ class DevicesApi {
   ///   This is the containing collection
   ///
   /// * [Device] body (required):
-  Future<Device> spanCreateDevice(String collectionId, Device body) async {
-    final response = await spanCreateDeviceWithHttpInfo(collectionId, body);
+  Future<Device> createDevice(String collectionId, Device body) async {
+    final response = await createDeviceWithHttpInfo(collectionId, body);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -106,7 +106,7 @@ class DevicesApi {
   /// * [String] collectionId (required):
   ///
   /// * [String] deviceId (required):
-  Future<Response> spanDeleteDeviceWithHttpInfo(String collectionId, String deviceId) async {
+  Future<Response> deleteDeviceWithHttpInfo(String collectionId, String deviceId) async {
     // Verify required params are set.
     if (collectionId == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
@@ -160,8 +160,8 @@ class DevicesApi {
   /// * [String] collectionId (required):
   ///
   /// * [String] deviceId (required):
-  Future<Device> spanDeleteDevice(String collectionId, String deviceId) async {
-    final response = await spanDeleteDeviceWithHttpInfo(collectionId, deviceId);
+  Future<Device> deleteDevice(String collectionId, String deviceId) async {
+    final response = await deleteDeviceWithHttpInfo(collectionId, deviceId);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -199,7 +199,7 @@ class DevicesApi {
   ///
   /// * [String] offset:
   ///   The message offset based on the message ID. This parameter can't be combined with the start and end parameters. If no parameter is set the first N messages will be returned. If this parameter is set the next N messages (from newest to oldest) with message ID less than the offset will be returned.
-  Future<Response> spanListDeviceDataWithHttpInfo(String collectionId, String deviceId, { int limit, String start, String end, String offset }) async {
+  Future<Response> listDeviceDataWithHttpInfo(String collectionId, String deviceId, { int limit, String start, String end, String offset }) async {
     // Verify required params are set.
     if (collectionId == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
@@ -282,8 +282,8 @@ class DevicesApi {
   ///
   /// * [String] offset:
   ///   The message offset based on the message ID. This parameter can't be combined with the start and end parameters. If no parameter is set the first N messages will be returned. If this parameter is set the next N messages (from newest to oldest) with message ID less than the offset will be returned.
-  Future<ListDataResponse> spanListDeviceData(String collectionId, String deviceId, { int limit, String start, String end, String offset }) async {
-    final response = await spanListDeviceDataWithHttpInfo(collectionId, deviceId,  limit: limit, start: start, end: end, offset: offset );
+  Future<ListDataResponse> listDeviceData(String collectionId, String deviceId, { int limit, String start, String end, String offset }) async {
+    final response = await listDeviceDataWithHttpInfo(collectionId, deviceId,  limit: limit, start: start, end: end, offset: offset );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -303,7 +303,7 @@ class DevicesApi {
   /// Parameters:
   ///
   /// * [String] collectionId (required):
-  Future<Response> spanListDevicesWithHttpInfo(String collectionId) async {
+  Future<Response> listDevicesWithHttpInfo(String collectionId) async {
     // Verify required params are set.
     if (collectionId == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
@@ -351,8 +351,8 @@ class DevicesApi {
   /// Parameters:
   ///
   /// * [String] collectionId (required):
-  Future<ListDevicesResponse> spanListDevices(String collectionId) async {
-    final response = await spanListDevicesWithHttpInfo(collectionId);
+  Future<ListDevicesResponse> listDevices(String collectionId) async {
+    final response = await listDevicesWithHttpInfo(collectionId);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -376,7 +376,7 @@ class DevicesApi {
   /// * [String] collectionId (required):
   ///
   /// * [String] deviceId (required):
-  Future<Response> spanRetrieveDeviceWithHttpInfo(String collectionId, String deviceId) async {
+  Future<Response> retrieveDeviceWithHttpInfo(String collectionId, String deviceId) async {
     // Verify required params are set.
     if (collectionId == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
@@ -432,8 +432,8 @@ class DevicesApi {
   /// * [String] collectionId (required):
   ///
   /// * [String] deviceId (required):
-  Future<Device> spanRetrieveDevice(String collectionId, String deviceId) async {
-    final response = await spanRetrieveDeviceWithHttpInfo(collectionId, deviceId);
+  Future<Device> retrieveDevice(String collectionId, String deviceId) async {
+    final response = await retrieveDeviceWithHttpInfo(collectionId, deviceId);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -459,7 +459,7 @@ class DevicesApi {
   /// * [String] deviceId (required):
   ///
   /// * [SendMessageRequest] body (required):
-  Future<Response> spanSendMessageWithHttpInfo(String collectionId, String deviceId, SendMessageRequest body) async {
+  Future<Response> sendMessageWithHttpInfo(String collectionId, String deviceId, SendMessageRequest body) async {
     // Verify required params are set.
     if (collectionId == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
@@ -520,8 +520,8 @@ class DevicesApi {
   /// * [String] deviceId (required):
   ///
   /// * [SendMessageRequest] body (required):
-  Future<Object> spanSendMessage(String collectionId, String deviceId, SendMessageRequest body) async {
-    final response = await spanSendMessageWithHttpInfo(collectionId, deviceId, body);
+  Future<SendMessageResponse> sendMessage(String collectionId, String deviceId, SendMessageRequest body) async {
+    final response = await sendMessageWithHttpInfo(collectionId, deviceId, body);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -529,9 +529,9 @@ class DevicesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'Object') as Object;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'SendMessageResponse') as SendMessageResponse;
         }
-    return Future<Object>.value(null);
+    return Future<SendMessageResponse>.value(null);
   }
 
   /// Update device
@@ -545,7 +545,7 @@ class DevicesApi {
   /// * [String] deviceId (required):
   ///
   /// * [UpdateDeviceRequest] body (required):
-  Future<Response> spanUpdateDeviceWithHttpInfo(String existingCollectionId, String deviceId, UpdateDeviceRequest body) async {
+  Future<Response> updateDeviceWithHttpInfo(String existingCollectionId, String deviceId, UpdateDeviceRequest body) async {
     // Verify required params are set.
     if (existingCollectionId == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: existingCollectionId');
@@ -604,8 +604,8 @@ class DevicesApi {
   /// * [String] deviceId (required):
   ///
   /// * [UpdateDeviceRequest] body (required):
-  Future<Device> spanUpdateDevice(String existingCollectionId, String deviceId, UpdateDeviceRequest body) async {
-    final response = await spanUpdateDeviceWithHttpInfo(existingCollectionId, deviceId, body);
+  Future<Device> updateDevice(String existingCollectionId, String deviceId, UpdateDeviceRequest body) async {
+    final response = await updateDeviceWithHttpInfo(existingCollectionId, deviceId, body);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }

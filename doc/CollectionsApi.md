@@ -9,17 +9,17 @@ All URIs are relative to *https://api.lab5e.com/span*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**spanBroadcastMessage**](CollectionsApi.md#spanbroadcastmessage) | **POST** /collections/{collectionId}/to | Broadcast message
-[**spanCreateCollection**](CollectionsApi.md#spancreatecollection) | **POST** /collections | Create collection
-[**spanDeleteCollection**](CollectionsApi.md#spandeletecollection) | **DELETE** /collections/{collectionId} | Delete collection
-[**spanListCollectionData**](CollectionsApi.md#spanlistcollectiondata) | **GET** /collections/{collectionId}/data | Get payloads
-[**spanListCollections**](CollectionsApi.md#spanlistcollections) | **GET** /collections | List collections
-[**spanRetrieveCollection**](CollectionsApi.md#spanretrievecollection) | **GET** /collections/{collectionId} | Retrieve collection
-[**spanUpdateCollection**](CollectionsApi.md#spanupdatecollection) | **PATCH** /collections/{collectionId} | Update collection
+[**broadcastMessage**](CollectionsApi.md#broadcastmessage) | **POST** /collections/{collectionId}/to | Broadcast message
+[**createCollection**](CollectionsApi.md#createcollection) | **POST** /collections | Create collection
+[**deleteCollection**](CollectionsApi.md#deletecollection) | **DELETE** /collections/{collectionId} | Delete collection
+[**listCollectionData**](CollectionsApi.md#listcollectiondata) | **GET** /collections/{collectionId}/data | Get payloads
+[**listCollections**](CollectionsApi.md#listcollections) | **GET** /collections | List collections
+[**retrieveCollection**](CollectionsApi.md#retrievecollection) | **GET** /collections/{collectionId} | Retrieve collection
+[**updateCollection**](CollectionsApi.md#updatecollection) | **PATCH** /collections/{collectionId} | Update collection
 
 
-# **spanBroadcastMessage**
-> MultiSendMessageResponse spanBroadcastMessage(collectionId, body)
+# **broadcastMessage**
+> MultiSendMessageResponse broadcastMessage(collectionId, body)
 
 Broadcast message
 
@@ -38,10 +38,10 @@ final collectionId = collectionId_example; // String |
 final body = BroadcastMessageRequest(); // BroadcastMessageRequest | 
 
 try { 
-    final result = api_instance.spanBroadcastMessage(collectionId, body);
+    final result = api_instance.broadcastMessage(collectionId, body);
     print(result);
 } catch (e) {
-    print('Exception when calling CollectionsApi->spanBroadcastMessage: $e\n');
+    print('Exception when calling CollectionsApi->broadcastMessage: $e\n');
 }
 ```
 
@@ -67,8 +67,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **spanCreateCollection**
-> Collection spanCreateCollection(body)
+# **createCollection**
+> Collection createCollection(body)
 
 Create collection
 
@@ -86,10 +86,10 @@ final api_instance = CollectionsApi();
 final body = Collection(); // Collection | 
 
 try { 
-    final result = api_instance.spanCreateCollection(body);
+    final result = api_instance.createCollection(body);
     print(result);
 } catch (e) {
-    print('Exception when calling CollectionsApi->spanCreateCollection: $e\n');
+    print('Exception when calling CollectionsApi->createCollection: $e\n');
 }
 ```
 
@@ -114,8 +114,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **spanDeleteCollection**
-> Collection spanDeleteCollection(collectionId)
+# **deleteCollection**
+> Collection deleteCollection(collectionId)
 
 Delete collection
 
@@ -133,10 +133,10 @@ final api_instance = CollectionsApi();
 final collectionId = collectionId_example; // String | The ID of the collection you want to delete
 
 try { 
-    final result = api_instance.spanDeleteCollection(collectionId);
+    final result = api_instance.deleteCollection(collectionId);
     print(result);
 } catch (e) {
-    print('Exception when calling CollectionsApi->spanDeleteCollection: $e\n');
+    print('Exception when calling CollectionsApi->deleteCollection: $e\n');
 }
 ```
 
@@ -161,8 +161,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **spanListCollectionData**
-> ListDataResponse spanListCollectionData(collectionId, limit, start, end, offset)
+# **listCollectionData**
+> ListDataResponse listCollectionData(collectionId, limit, start, end, offset)
 
 Get payloads
 
@@ -184,10 +184,10 @@ final end = end_example; // String | End of time range. The default is the curre
 final offset = offset_example; // String | The message offset based on the message ID. This parameter can't be combined with the start and end parameters. If no parameter is set the first N messages will be returned. If this parameter is set the next N messages (from newest to oldest) with message ID less than the offset will be returned.
 
 try { 
-    final result = api_instance.spanListCollectionData(collectionId, limit, start, end, offset);
+    final result = api_instance.listCollectionData(collectionId, limit, start, end, offset);
     print(result);
 } catch (e) {
-    print('Exception when calling CollectionsApi->spanListCollectionData: $e\n');
+    print('Exception when calling CollectionsApi->listCollectionData: $e\n');
 }
 ```
 
@@ -216,8 +216,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **spanListCollections**
-> ListCollectionResponse spanListCollections()
+# **listCollections**
+> ListCollectionResponse listCollections()
 
 List collections
 
@@ -234,10 +234,10 @@ import 'package:spanapi/api.dart';
 final api_instance = CollectionsApi();
 
 try { 
-    final result = api_instance.spanListCollections();
+    final result = api_instance.listCollections();
     print(result);
 } catch (e) {
-    print('Exception when calling CollectionsApi->spanListCollections: $e\n');
+    print('Exception when calling CollectionsApi->listCollections: $e\n');
 }
 ```
 
@@ -259,8 +259,8 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **spanRetrieveCollection**
-> Collection spanRetrieveCollection(collectionId)
+# **retrieveCollection**
+> Collection retrieveCollection(collectionId)
 
 Retrieve collection
 
@@ -276,10 +276,10 @@ final api_instance = CollectionsApi();
 final collectionId = collectionId_example; // String | The collection ID of the collection you are requesting
 
 try { 
-    final result = api_instance.spanRetrieveCollection(collectionId);
+    final result = api_instance.retrieveCollection(collectionId);
     print(result);
 } catch (e) {
-    print('Exception when calling CollectionsApi->spanRetrieveCollection: $e\n');
+    print('Exception when calling CollectionsApi->retrieveCollection: $e\n');
 }
 ```
 
@@ -304,8 +304,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **spanUpdateCollection**
-> Collection spanUpdateCollection(collectionId, body)
+# **updateCollection**
+> Collection updateCollection(collectionId, body)
 
 Update collection
 
@@ -324,10 +324,10 @@ final collectionId = collectionId_example; // String | The ID of the collection.
 final body = Collection(); // Collection | 
 
 try { 
-    final result = api_instance.spanUpdateCollection(collectionId, body);
+    final result = api_instance.updateCollection(collectionId, body);
     print(result);
 } catch (e) {
-    print('Exception when calling CollectionsApi->spanUpdateCollection: $e\n');
+    print('Exception when calling CollectionsApi->updateCollection: $e\n');
 }
 ```
 

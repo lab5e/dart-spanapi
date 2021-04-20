@@ -9,11 +9,11 @@ All URIs are relative to *https://api.lab5e.com/span*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**spanGetSystemInfo**](SystemApi.md#spangetsysteminfo) | **GET** /system | System information
+[**getSystemInfo**](SystemApi.md#getsysteminfo) | **GET** /system | System information
 
 
-# **spanGetSystemInfo**
-> SystemInfoResponse spanGetSystemInfo()
+# **getSystemInfo**
+> SystemInfoResponse getSystemInfo()
 
 System information
 
@@ -28,10 +28,10 @@ import 'package:spanapi/api.dart';
 final api_instance = SystemApi();
 
 try { 
-    final result = api_instance.spanGetSystemInfo();
+    final result = api_instance.getSystemInfo();
     print(result);
 } catch (e) {
-    print('Exception when calling SystemApi->spanGetSystemInfo: $e\n');
+    print('Exception when calling SystemApi->getSystemInfo: $e\n');
 }
 ```
 

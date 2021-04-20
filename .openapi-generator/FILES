@@ -2,12 +2,14 @@
 .travis.yml
 README.md
 doc/BroadcastMessageRequest.md
+doc/ClearFirmwareErrorResponse.md
 doc/CoAPMetadata.md
 doc/Collection.md
 doc/CollectionFirmware.md
 doc/CollectionFirmwareFirmwareManagement.md
 doc/CollectionsApi.md
 doc/CreateFirmwareRequest.md
+doc/DataDumpRequest.md
 doc/DataDumpResponse.md
 doc/DatadumpApi.md
 doc/Device.md
@@ -39,6 +41,7 @@ doc/OutputsApi.md
 doc/ProtobufAny.md
 doc/RpcStatus.md
 doc/SendMessageRequest.md
+doc/SendMessageResponse.md
 doc/SystemApi.md
 doc/SystemInfoResponse.md
 doc/UDPMetadata.md
@@ -60,11 +63,13 @@ lib/auth/http_basic_auth.dart
 lib/auth/http_bearer_auth.dart
 lib/auth/oauth.dart
 lib/model/broadcast_message_request.dart
+lib/model/clear_firmware_error_response.dart
 lib/model/co_ap_metadata.dart
 lib/model/collection.dart
 lib/model/collection_firmware.dart
 lib/model/collection_firmware_firmware_management.dart
 lib/model/create_firmware_request.dart
+lib/model/data_dump_request.dart
 lib/model/data_dump_response.dart
 lib/model/device.dart
 lib/model/dumped_collection.dart
@@ -92,6 +97,7 @@ lib/model/output_type.dart
 lib/model/protobuf_any.dart
 lib/model/rpc_status.dart
 lib/model/send_message_request.dart
+lib/model/send_message_response.dart
 lib/model/system_info_response.dart
 lib/model/udp_metadata.dart
 lib/model/update_device_request.dart

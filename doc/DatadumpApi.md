@@ -9,11 +9,11 @@ All URIs are relative to *https://api.lab5e.com/span*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**spanDataDump**](DatadumpApi.md#spandatadump) | **POST** /datadump | Data dump
+[**dataDump**](DatadumpApi.md#datadump) | **POST** /datadump | Data dump
 
 
-# **spanDataDump**
-> DataDumpResponse spanDataDump(body)
+# **dataDump**
+> DataDumpResponse dataDump(body)
 
 Data dump
 
@@ -28,13 +28,13 @@ import 'package:spanapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('APIToken').apiKeyPrefix = 'Bearer';
 
 final api_instance = DatadumpApi();
-final body = Object(); // Object | 
+final body = DataDumpRequest(); // DataDumpRequest | 
 
 try { 
-    final result = api_instance.spanDataDump(body);
+    final result = api_instance.dataDump(body);
     print(result);
 } catch (e) {
-    print('Exception when calling DatadumpApi->spanDataDump: $e\n');
+    print('Exception when calling DatadumpApi->dataDump: $e\n');
 }
 ```
 
@@ -42,7 +42,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **Object**|  | 
+ **body** | [**DataDumpRequest**](DataDumpRequest.md)|  | 
 
 ### Return type
 

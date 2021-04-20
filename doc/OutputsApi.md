@@ -9,17 +9,17 @@ All URIs are relative to *https://api.lab5e.com/span*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**spanCreateOutput**](OutputsApi.md#spancreateoutput) | **POST** /collections/{collectionId}/outputs | Create output
-[**spanDeleteOutput**](OutputsApi.md#spandeleteoutput) | **DELETE** /collections/{collectionId}/outputs/{outputId} | Delete output
-[**spanListOutputs**](OutputsApi.md#spanlistoutputs) | **GET** /collections/{collectionId}/outputs | List outputs
-[**spanLogs**](OutputsApi.md#spanlogs) | **GET** /collections/{collectionId}/outputs/{outputId}/logs | Output logs
-[**spanRetrieveOutput**](OutputsApi.md#spanretrieveoutput) | **GET** /collections/{collectionId}/outputs/{outputId} | Retrieve output
-[**spanStatus**](OutputsApi.md#spanstatus) | **GET** /collections/{collectionId}/outputs/{outputId}/status | Output status
-[**spanUpdateOutput**](OutputsApi.md#spanupdateoutput) | **PATCH** /collections/{collectionId}/outputs/{outputId} | Update output
+[**createOutput**](OutputsApi.md#createoutput) | **POST** /collections/{collectionId}/outputs | Create output
+[**deleteOutput**](OutputsApi.md#deleteoutput) | **DELETE** /collections/{collectionId}/outputs/{outputId} | Delete output
+[**listOutputs**](OutputsApi.md#listoutputs) | **GET** /collections/{collectionId}/outputs | List outputs
+[**logs**](OutputsApi.md#logs) | **GET** /collections/{collectionId}/outputs/{outputId}/logs | Output logs
+[**retrieveOutput**](OutputsApi.md#retrieveoutput) | **GET** /collections/{collectionId}/outputs/{outputId} | Retrieve output
+[**status**](OutputsApi.md#status) | **GET** /collections/{collectionId}/outputs/{outputId}/status | Output status
+[**updateOutput**](OutputsApi.md#updateoutput) | **PATCH** /collections/{collectionId}/outputs/{outputId} | Update output
 
 
-# **spanCreateOutput**
-> Output spanCreateOutput(collectionId, body)
+# **createOutput**
+> Output createOutput(collectionId, body)
 
 Create output
 
@@ -36,10 +36,10 @@ final collectionId = collectionId_example; // String |
 final body = Output(); // Output | 
 
 try { 
-    final result = api_instance.spanCreateOutput(collectionId, body);
+    final result = api_instance.createOutput(collectionId, body);
     print(result);
 } catch (e) {
-    print('Exception when calling OutputsApi->spanCreateOutput: $e\n');
+    print('Exception when calling OutputsApi->createOutput: $e\n');
 }
 ```
 
@@ -65,8 +65,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **spanDeleteOutput**
-> Output spanDeleteOutput(collectionId, outputId)
+# **deleteOutput**
+> Output deleteOutput(collectionId, outputId)
 
 Delete output
 
@@ -83,10 +83,10 @@ final collectionId = collectionId_example; // String |
 final outputId = outputId_example; // String | 
 
 try { 
-    final result = api_instance.spanDeleteOutput(collectionId, outputId);
+    final result = api_instance.deleteOutput(collectionId, outputId);
     print(result);
 } catch (e) {
-    print('Exception when calling OutputsApi->spanDeleteOutput: $e\n');
+    print('Exception when calling OutputsApi->deleteOutput: $e\n');
 }
 ```
 
@@ -112,8 +112,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **spanListOutputs**
-> ListOutputResponse spanListOutputs(collectionId)
+# **listOutputs**
+> ListOutputResponse listOutputs(collectionId)
 
 List outputs
 
@@ -129,10 +129,10 @@ final api_instance = OutputsApi();
 final collectionId = collectionId_example; // String | 
 
 try { 
-    final result = api_instance.spanListOutputs(collectionId);
+    final result = api_instance.listOutputs(collectionId);
     print(result);
 } catch (e) {
-    print('Exception when calling OutputsApi->spanListOutputs: $e\n');
+    print('Exception when calling OutputsApi->listOutputs: $e\n');
 }
 ```
 
@@ -157,8 +157,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **spanLogs**
-> OutputLogResponse spanLogs(collectionId, outputId)
+# **logs**
+> OutputLogResponse logs(collectionId, outputId)
 
 Output logs
 
@@ -175,10 +175,10 @@ final collectionId = collectionId_example; // String |
 final outputId = outputId_example; // String | 
 
 try { 
-    final result = api_instance.spanLogs(collectionId, outputId);
+    final result = api_instance.logs(collectionId, outputId);
     print(result);
 } catch (e) {
-    print('Exception when calling OutputsApi->spanLogs: $e\n');
+    print('Exception when calling OutputsApi->logs: $e\n');
 }
 ```
 
@@ -204,8 +204,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **spanRetrieveOutput**
-> Output spanRetrieveOutput(collectionId, outputId)
+# **retrieveOutput**
+> Output retrieveOutput(collectionId, outputId)
 
 Retrieve output
 
@@ -222,10 +222,10 @@ final collectionId = collectionId_example; // String |
 final outputId = outputId_example; // String | 
 
 try { 
-    final result = api_instance.spanRetrieveOutput(collectionId, outputId);
+    final result = api_instance.retrieveOutput(collectionId, outputId);
     print(result);
 } catch (e) {
-    print('Exception when calling OutputsApi->spanRetrieveOutput: $e\n');
+    print('Exception when calling OutputsApi->retrieveOutput: $e\n');
 }
 ```
 
@@ -251,8 +251,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **spanStatus**
-> OutputStatusResponse spanStatus(collectionId, outputId)
+# **status**
+> OutputStatusResponse status(collectionId, outputId)
 
 Output status
 
@@ -269,10 +269,10 @@ final collectionId = collectionId_example; // String |
 final outputId = outputId_example; // String | 
 
 try { 
-    final result = api_instance.spanStatus(collectionId, outputId);
+    final result = api_instance.status(collectionId, outputId);
     print(result);
 } catch (e) {
-    print('Exception when calling OutputsApi->spanStatus: $e\n');
+    print('Exception when calling OutputsApi->status: $e\n');
 }
 ```
 
@@ -298,8 +298,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **spanUpdateOutput**
-> Output spanUpdateOutput(collectionId, outputId, body)
+# **updateOutput**
+> Output updateOutput(collectionId, outputId, body)
 
 Update output
 
@@ -319,10 +319,10 @@ final outputId = outputId_example; // String |
 final body = Output(); // Output | 
 
 try { 
-    final result = api_instance.spanUpdateOutput(collectionId, outputId, body);
+    final result = api_instance.updateOutput(collectionId, outputId, body);
     print(result);
 } catch (e) {
-    print('Exception when calling OutputsApi->spanUpdateOutput: $e\n');
+    print('Exception when calling OutputsApi->updateOutput: $e\n');
 }
 ```
 
