@@ -10,7 +10,6 @@
 import 'package:spanapi/api.dart';
 import 'package:test/test.dart';
 
-
 /// tests for SystemApi
 void main() {
   final instance = SystemApi();
@@ -22,6 +21,5 @@ void main() {
     test('test getSystemInfo', () async {
       // TODO
     });
-
   });
 }

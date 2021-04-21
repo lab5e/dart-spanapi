@@ -53,8 +53,5 @@ void main() {
     test('to test the property `firmware`', () async {
       // TODO
     });
-
-
   });
-
 }

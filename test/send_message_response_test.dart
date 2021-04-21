@@ -29,8 +29,5 @@ void main() {
     test('to test the property `bytesSent`', () async {
       // TODO
     });
-
-
   });
-
 }

@@ -95,8 +95,5 @@ void main() {
     test('to test the property `topicName`', () async {
       // TODO
     });
-
-
   });
-
 }

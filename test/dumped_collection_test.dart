@@ -29,8 +29,5 @@ void main() {
     test('to test the property `outputs`', () async {
       // TODO
     });
-
-
   });
-
 }

@@ -49,8 +49,5 @@ void main() {
     test('to test the property `retransmits`', () async {
       // TODO
     });
-
-
   });
-
 }

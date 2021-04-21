@@ -10,7 +10,6 @@
 import 'package:spanapi/api.dart';
 import 'package:test/test.dart';
 
-
 /// tests for DatadumpApi
 void main() {
   final instance = DatadumpApi();
@@ -24,6 +23,5 @@ void main() {
     test('test dataDump', () async {
       // TODO
     });
-
   });
 }

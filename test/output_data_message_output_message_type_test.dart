@@ -12,9 +12,5 @@ import 'package:test/test.dart';
 
 // tests for OutputDataMessageOutputMessageType
 void main() {
-
-  group('test OutputDataMessageOutputMessageType', () {
-
-  });
-
+  group('test OutputDataMessageOutputMessageType', () {});
 }

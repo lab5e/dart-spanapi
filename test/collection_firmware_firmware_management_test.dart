@@ -12,9 +12,5 @@ import 'package:test/test.dart';
 
 // tests for CollectionFirmwareFirmwareManagement
 void main() {
-
-  group('test CollectionFirmwareFirmwareManagement', () {
-
-  });
-
+  group('test CollectionFirmwareFirmwareManagement', () {});
 }

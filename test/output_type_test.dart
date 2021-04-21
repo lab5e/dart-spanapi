@@ -12,9 +12,5 @@ import 'package:test/test.dart';
 
 // tests for OutputType
 void main() {
-
-  group('test OutputType', () {
-
-  });
-
+  group('test OutputType', () {});
 }
