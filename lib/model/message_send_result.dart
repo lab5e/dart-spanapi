@@ -21,17 +21,20 @@ class MessageSendResult {
   String message;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MessageSendResult &&
-     other.deviceId == deviceId &&
-     other.message == message;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MessageSendResult &&
+          other.deviceId == deviceId &&
+          other.message == message;
 
   @override
   int get hashCode =>
-    (deviceId == null ? 0 : deviceId.hashCode) +
-    (message == null ? 0 : message.hashCode);
+      (deviceId == null ? 0 : deviceId.hashCode) +
+      (message == null ? 0 : message.hashCode);
 
   @override
-  String toString() => 'MessageSendResult[deviceId=$deviceId, message=$message]';
+  String toString() =>
+      'MessageSendResult[deviceId=$deviceId, message=$message]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -47,34 +50,47 @@ class MessageSendResult {
   /// Returns a new [MessageSendResult] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
   static MessageSendResult fromJson(Map<String, dynamic> json) => json == null
-    ? null
-    : MessageSendResult(
-        deviceId: json[r'deviceId'],
-        message: json[r'message'],
-    );
+      ? null
+      : MessageSendResult(
+          deviceId: json[r'deviceId'],
+          message: json[r'message'],
+        );
 
-  static List<MessageSendResult> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <MessageSendResult>[]
-      : json.map((v) => MessageSendResult.fromJson(v)).toList(growable: true == growable);
+  static List<MessageSendResult> listFromJson(
+    List<dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json == null || json.isEmpty
+          ? true == emptyIsNull
+              ? null
+              : <MessageSendResult>[]
+          : json
+              .map((v) => MessageSendResult.fromJson(v))
+              .toList(growable: true == growable);
 
   static Map<String, MessageSendResult> mapFromJson(Map<String, dynamic> json) {
     final map = <String, MessageSendResult>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) => map[key] = MessageSendResult.fromJson(v));
+      json.forEach(
+          (String key, dynamic v) => map[key] = MessageSendResult.fromJson(v));
     }
     return map;
   }
 
   // maps a json object with a list of MessageSendResult-objects as value to a dart map
-  static Map<String, List<MessageSendResult>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<MessageSendResult>> mapListFromJson(
+    Map<String, dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<MessageSendResult>>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
-        map[key] = MessageSendResult.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+        map[key] = MessageSendResult.listFromJson(v,
+            emptyIsNull: emptyIsNull, growable: growable);
       });
     }
     return map;
   }
 }
-
