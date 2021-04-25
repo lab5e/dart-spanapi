@@ -9,9 +9,9 @@
 
 part of spanapi;
 
+
 class DatadumpApi {
-  DatadumpApi([ApiClient apiClient])
-      : apiClient = apiClient ?? defaultApiClient;
+  DatadumpApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -27,7 +27,7 @@ class DatadumpApi {
   Future<Response> dataDumpWithHttpInfo(DataDumpRequest body) async {
     // Verify required params are set.
     if (body == null) {
-      throw ApiException(HttpStatus.badRequest, 'Missing required param: body');
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: body');
     }
 
     final path = r'/datadump';
@@ -39,18 +39,20 @@ class DatadumpApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>['application/json'];
-    final nullableContentType =
-        contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['APIToken'];
 
-    if (nullableContentType != null &&
-        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
+    if (
+      nullableContentType != null &&
+      nullableContentType.toLowerCase().startsWith('multipart/form-data')
+    ) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {}
+    } else {
+    }
 
     return await apiClient.invokeAPI(
       path,
@@ -80,9 +82,8 @@ class DatadumpApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(
-          _decodeBodyBytes(response), 'DataDumpResponse') as DataDumpResponse;
-    }
+      return apiClient.deserialize(_decodeBodyBytes(response), 'DataDumpResponse') as DataDumpResponse;
+        }
     return Future<DataDumpResponse>.value(null);
   }
 }

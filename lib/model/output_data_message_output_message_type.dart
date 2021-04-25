@@ -9,6 +9,7 @@
 
 part of spanapi;
 
+
 class OutputDataMessageOutputMessageType {
   /// Instantiate a new enum with the provided [value].
   const OutputDataMessageOutputMessageType._(this.value);
@@ -33,21 +34,14 @@ class OutputDataMessageOutputMessageType {
   ];
 
   static OutputDataMessageOutputMessageType fromJson(dynamic value) =>
-      OutputDataMessageOutputMessageTypeTypeTransformer().decode(value);
+    OutputDataMessageOutputMessageTypeTypeTransformer().decode(value);
 
-  static List<OutputDataMessageOutputMessageType> listFromJson(
-    List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json == null || json.isEmpty
-          ? true == emptyIsNull
-              ? null
-              : <OutputDataMessageOutputMessageType>[]
-          : json
-              .map(
-                  (value) => OutputDataMessageOutputMessageType.fromJson(value))
-              .toList(growable: true == growable);
+  static List<OutputDataMessageOutputMessageType> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
+    json == null || json.isEmpty
+      ? true == emptyIsNull ? null : <OutputDataMessageOutputMessageType>[]
+      : json
+          .map((value) => OutputDataMessageOutputMessageType.fromJson(value))
+          .toList(growable: true == growable);
 }
 
 /// Transformation class that can [encode] an instance of [OutputDataMessageOutputMessageType] to String,
@@ -55,8 +49,7 @@ class OutputDataMessageOutputMessageType {
 class OutputDataMessageOutputMessageTypeTypeTransformer {
   const OutputDataMessageOutputMessageTypeTypeTransformer._();
 
-  factory OutputDataMessageOutputMessageTypeTypeTransformer() =>
-      _instance ??= OutputDataMessageOutputMessageTypeTypeTransformer._();
+  factory OutputDataMessageOutputMessageTypeTypeTransformer() => _instance ??= OutputDataMessageOutputMessageTypeTypeTransformer._();
 
   String encode(OutputDataMessageOutputMessageType data) => data.value;
 
@@ -70,12 +63,9 @@ class OutputDataMessageOutputMessageTypeTypeTransformer {
   /// and users are still using an old app with the old code.
   OutputDataMessageOutputMessageType decode(dynamic data, {bool allowNull}) {
     switch (data) {
-      case r'unknown':
-        return OutputDataMessageOutputMessageType.unknown;
-      case r'keepalive':
-        return OutputDataMessageOutputMessageType.keepalive;
-      case r'data':
-        return OutputDataMessageOutputMessageType.data;
+      case r'unknown': return OutputDataMessageOutputMessageType.unknown;
+      case r'keepalive': return OutputDataMessageOutputMessageType.keepalive;
+      case r'data': return OutputDataMessageOutputMessageType.data;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');
