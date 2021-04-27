@@ -21,20 +21,17 @@ class ListOutputResponse {
   List<Output> outputs;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is ListOutputResponse &&
-          other.collectionId == collectionId &&
-          other.outputs == outputs;
+  bool operator ==(Object other) => identical(this, other) || other is ListOutputResponse &&
+     other.collectionId == collectionId &&
+     other.outputs == outputs;
 
   @override
   int get hashCode =>
-      (collectionId == null ? 0 : collectionId.hashCode) +
-      (outputs == null ? 0 : outputs.hashCode);
+    (collectionId == null ? 0 : collectionId.hashCode) +
+    (outputs == null ? 0 : outputs.hashCode);
 
   @override
-  String toString() =>
-      'ListOutputResponse[collectionId=$collectionId, outputs=$outputs]';
+  String toString() => 'ListOutputResponse[collectionId=$collectionId, outputs=$outputs]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -50,48 +47,34 @@ class ListOutputResponse {
   /// Returns a new [ListOutputResponse] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
   static ListOutputResponse fromJson(Map<String, dynamic> json) => json == null
-      ? null
-      : ListOutputResponse(
-          collectionId: json[r'collectionId'],
-          outputs: Output.listFromJson(json[r'outputs']),
-        );
+    ? null
+    : ListOutputResponse(
+        collectionId: json[r'collectionId'],
+        outputs: Output.listFromJson(json[r'outputs']),
+    );
 
-  static List<ListOutputResponse> listFromJson(
-    List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json == null || json.isEmpty
-          ? true == emptyIsNull
-              ? null
-              : <ListOutputResponse>[]
-          : json
-              .map((v) => ListOutputResponse.fromJson(v))
-              .toList(growable: true == growable);
+  static List<ListOutputResponse> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
+    json == null || json.isEmpty
+      ? true == emptyIsNull ? null : <ListOutputResponse>[]
+      : json.map((v) => ListOutputResponse.fromJson(v)).toList(growable: true == growable);
 
-  static Map<String, ListOutputResponse> mapFromJson(
-      Map<String, dynamic> json) {
+  static Map<String, ListOutputResponse> mapFromJson(Map<String, dynamic> json) {
     final map = <String, ListOutputResponse>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach(
-          (String key, dynamic v) => map[key] = ListOutputResponse.fromJson(v));
+      json.forEach((String key, dynamic v) => map[key] = ListOutputResponse.fromJson(v));
     }
     return map;
   }
 
   // maps a json object with a list of ListOutputResponse-objects as value to a dart map
-  static Map<String, List<ListOutputResponse>> mapListFromJson(
-    Map<String, dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
-  }) {
+  static Map<String, List<ListOutputResponse>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
     final map = <String, List<ListOutputResponse>>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
-        map[key] = ListOutputResponse.listFromJson(v,
-            emptyIsNull: emptyIsNull, growable: growable);
+        map[key] = ListOutputResponse.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
       });
     }
     return map;
   }
 }
+
