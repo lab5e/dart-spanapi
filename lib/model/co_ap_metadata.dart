@@ -21,14 +21,13 @@ class CoAPMetadata {
   String path;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is CoAPMetadata &&
-     other.code == code &&
-     other.path == path;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is CoAPMetadata && other.code == code && other.path == path;
 
   @override
   int get hashCode =>
-    (code == null ? 0 : code.hashCode) +
-    (path == null ? 0 : path.hashCode);
+      (code == null ? 0 : code.hashCode) + (path == null ? 0 : path.hashCode);
 
   @override
   String toString() => 'CoAPMetadata[code=$code, path=$path]';
@@ -47,34 +46,47 @@ class CoAPMetadata {
   /// Returns a new [CoAPMetadata] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
   static CoAPMetadata fromJson(Map<String, dynamic> json) => json == null
-    ? null
-    : CoAPMetadata(
-        code: json[r'code'],
-        path: json[r'path'],
-    );
+      ? null
+      : CoAPMetadata(
+          code: json[r'code'],
+          path: json[r'path'],
+        );
 
-  static List<CoAPMetadata> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <CoAPMetadata>[]
-      : json.map((v) => CoAPMetadata.fromJson(v)).toList(growable: true == growable);
+  static List<CoAPMetadata> listFromJson(
+    List<dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json == null || json.isEmpty
+          ? true == emptyIsNull
+              ? null
+              : <CoAPMetadata>[]
+          : json
+              .map((v) => CoAPMetadata.fromJson(v))
+              .toList(growable: true == growable);
 
   static Map<String, CoAPMetadata> mapFromJson(Map<String, dynamic> json) {
     final map = <String, CoAPMetadata>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) => map[key] = CoAPMetadata.fromJson(v));
+      json.forEach(
+          (String key, dynamic v) => map[key] = CoAPMetadata.fromJson(v));
     }
     return map;
   }
 
   // maps a json object with a list of CoAPMetadata-objects as value to a dart map
-  static Map<String, List<CoAPMetadata>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<CoAPMetadata>> mapListFromJson(
+    Map<String, dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<CoAPMetadata>>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
-        map[key] = CoAPMetadata.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+        map[key] = CoAPMetadata.listFromJson(v,
+            emptyIsNull: emptyIsNull, growable: growable);
       });
     }
     return map;
   }
 }
-
