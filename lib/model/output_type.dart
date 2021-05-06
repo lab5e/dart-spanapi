@@ -9,6 +9,7 @@
 
 part of spanapi;
 
+
 class OutputType {
   /// Instantiate a new enum with the provided [value].
   const OutputType._(this.value);
@@ -37,20 +38,14 @@ class OutputType {
   ];
 
   static OutputType fromJson(dynamic value) =>
-      OutputTypeTypeTransformer().decode(value);
+    OutputTypeTypeTransformer().decode(value);
 
-  static List<OutputType> listFromJson(
-    List<dynamic> json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json == null || json.isEmpty
-          ? true == emptyIsNull
-              ? null
-              : <OutputType>[]
-          : json
-              .map((value) => OutputType.fromJson(value))
-              .toList(growable: true == growable);
+  static List<OutputType> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
+    json == null || json.isEmpty
+      ? true == emptyIsNull ? null : <OutputType>[]
+      : json
+          .map((value) => OutputType.fromJson(value))
+          .toList(growable: true == growable);
 }
 
 /// Transformation class that can [encode] an instance of [OutputType] to String,
@@ -58,8 +53,7 @@ class OutputType {
 class OutputTypeTypeTransformer {
   const OutputTypeTypeTransformer._();
 
-  factory OutputTypeTypeTransformer() =>
-      _instance ??= OutputTypeTypeTransformer._();
+  factory OutputTypeTypeTransformer() => _instance ??= OutputTypeTypeTransformer._();
 
   String encode(OutputType data) => data.value;
 
@@ -73,16 +67,11 @@ class OutputTypeTypeTransformer {
   /// and users are still using an old app with the old code.
   OutputType decode(dynamic data, {bool allowNull}) {
     switch (data) {
-      case r'undefined':
-        return OutputType.undefined;
-      case r'webhook':
-        return OutputType.webhook;
-      case r'udp':
-        return OutputType.udp;
-      case r'mqtt':
-        return OutputType.mqtt;
-      case r'ifttt':
-        return OutputType.ifttt;
+      case r'undefined': return OutputType.undefined;
+      case r'webhook': return OutputType.webhook;
+      case r'udp': return OutputType.udp;
+      case r'mqtt': return OutputType.mqtt;
+      case r'ifttt': return OutputType.ifttt;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');
