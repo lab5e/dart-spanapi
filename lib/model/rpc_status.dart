@@ -24,19 +24,22 @@ class RpcStatus {
   List<ProtobufAny> details;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is RpcStatus &&
-     other.code == code &&
-     other.message == message &&
-     other.details == details;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is RpcStatus &&
+          other.code == code &&
+          other.message == message &&
+          other.details == details;
 
   @override
   int get hashCode =>
-    (code == null ? 0 : code.hashCode) +
-    (message == null ? 0 : message.hashCode) +
-    (details == null ? 0 : details.hashCode);
+      (code == null ? 0 : code.hashCode) +
+      (message == null ? 0 : message.hashCode) +
+      (details == null ? 0 : details.hashCode);
 
   @override
-  String toString() => 'RpcStatus[code=$code, message=$message, details=$details]';
+  String toString() =>
+      'RpcStatus[code=$code, message=$message, details=$details]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -55,17 +58,25 @@ class RpcStatus {
   /// Returns a new [RpcStatus] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
   static RpcStatus fromJson(Map<String, dynamic> json) => json == null
-    ? null
-    : RpcStatus(
-        code: json[r'code'],
-        message: json[r'message'],
-        details: ProtobufAny.listFromJson(json[r'details']),
-    );
+      ? null
+      : RpcStatus(
+          code: json[r'code'],
+          message: json[r'message'],
+          details: ProtobufAny.listFromJson(json[r'details']),
+        );
 
-  static List<RpcStatus> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <RpcStatus>[]
-      : json.map((v) => RpcStatus.fromJson(v)).toList(growable: true == growable);
+  static List<RpcStatus> listFromJson(
+    List<dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json == null || json.isEmpty
+          ? true == emptyIsNull
+              ? null
+              : <RpcStatus>[]
+          : json
+              .map((v) => RpcStatus.fromJson(v))
+              .toList(growable: true == growable);
 
   static Map<String, RpcStatus> mapFromJson(Map<String, dynamic> json) {
     final map = <String, RpcStatus>{};
@@ -76,14 +87,18 @@ class RpcStatus {
   }
 
   // maps a json object with a list of RpcStatus-objects as value to a dart map
-  static Map<String, List<RpcStatus>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<RpcStatus>> mapListFromJson(
+    Map<String, dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<RpcStatus>>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
-        map[key] = RpcStatus.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+        map[key] = RpcStatus.listFromJson(v,
+            emptyIsNull: emptyIsNull, growable: growable);
       });
     }
     return map;
   }
 }
-

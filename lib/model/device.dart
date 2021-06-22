@@ -43,29 +43,32 @@ class Device {
   DeviceMetadata metadata;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is Device &&
-     other.deviceId == deviceId &&
-     other.collectionId == collectionId &&
-     other.imsi == imsi &&
-     other.imei == imei &&
-     other.tags == tags &&
-     other.network == network &&
-     other.firmware == firmware &&
-     other.metadata == metadata;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Device &&
+          other.deviceId == deviceId &&
+          other.collectionId == collectionId &&
+          other.imsi == imsi &&
+          other.imei == imei &&
+          other.tags == tags &&
+          other.network == network &&
+          other.firmware == firmware &&
+          other.metadata == metadata;
 
   @override
   int get hashCode =>
-    (deviceId == null ? 0 : deviceId.hashCode) +
-    (collectionId == null ? 0 : collectionId.hashCode) +
-    (imsi == null ? 0 : imsi.hashCode) +
-    (imei == null ? 0 : imei.hashCode) +
-    (tags == null ? 0 : tags.hashCode) +
-    (network == null ? 0 : network.hashCode) +
-    (firmware == null ? 0 : firmware.hashCode) +
-    (metadata == null ? 0 : metadata.hashCode);
+      (deviceId == null ? 0 : deviceId.hashCode) +
+      (collectionId == null ? 0 : collectionId.hashCode) +
+      (imsi == null ? 0 : imsi.hashCode) +
+      (imei == null ? 0 : imei.hashCode) +
+      (tags == null ? 0 : tags.hashCode) +
+      (network == null ? 0 : network.hashCode) +
+      (firmware == null ? 0 : firmware.hashCode) +
+      (metadata == null ? 0 : metadata.hashCode);
 
   @override
-  String toString() => 'Device[deviceId=$deviceId, collectionId=$collectionId, imsi=$imsi, imei=$imei, tags=$tags, network=$network, firmware=$firmware, metadata=$metadata]';
+  String toString() =>
+      'Device[deviceId=$deviceId, collectionId=$collectionId, imsi=$imsi, imei=$imei, tags=$tags, network=$network, firmware=$firmware, metadata=$metadata]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -99,24 +102,32 @@ class Device {
   /// Returns a new [Device] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
   static Device fromJson(Map<String, dynamic> json) => json == null
-    ? null
-    : Device(
-        deviceId: json[r'deviceId'],
-        collectionId: json[r'collectionId'],
-        imsi: json[r'imsi'],
-        imei: json[r'imei'],
-        tags: json[r'tags'] == null ?
-          null :
-          (json[r'tags'] as Map).cast<String, String>(),
-        network: NetworkMetadata.fromJson(json[r'network']),
-        firmware: FirmwareMetadata.fromJson(json[r'firmware']),
-        metadata: DeviceMetadata.fromJson(json[r'metadata']),
-    );
+      ? null
+      : Device(
+          deviceId: json[r'deviceId'],
+          collectionId: json[r'collectionId'],
+          imsi: json[r'imsi'],
+          imei: json[r'imei'],
+          tags: json[r'tags'] == null
+              ? null
+              : (json[r'tags'] as Map).cast<String, String>(),
+          network: NetworkMetadata.fromJson(json[r'network']),
+          firmware: FirmwareMetadata.fromJson(json[r'firmware']),
+          metadata: DeviceMetadata.fromJson(json[r'metadata']),
+        );
 
-  static List<Device> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <Device>[]
-      : json.map((v) => Device.fromJson(v)).toList(growable: true == growable);
+  static List<Device> listFromJson(
+    List<dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json == null || json.isEmpty
+          ? true == emptyIsNull
+              ? null
+              : <Device>[]
+          : json
+              .map((v) => Device.fromJson(v))
+              .toList(growable: true == growable);
 
   static Map<String, Device> mapFromJson(Map<String, dynamic> json) {
     final map = <String, Device>{};
@@ -127,14 +138,18 @@ class Device {
   }
 
   // maps a json object with a list of Device-objects as value to a dart map
-  static Map<String, List<Device>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<Device>> mapListFromJson(
+    Map<String, dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<Device>>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
-        map[key] = Device.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+        map[key] = Device.listFromJson(v,
+            emptyIsNull: emptyIsNull, growable: growable);
       });
     }
     return map;
   }
 }
-
