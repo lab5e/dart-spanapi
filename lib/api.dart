@@ -44,6 +44,7 @@ part 'model/create_firmware_request.dart';
 part 'model/data_dump_request.dart';
 part 'model/data_dump_response.dart';
 part 'model/device.dart';
+part 'model/device_metadata.dart';
 part 'model/dumped_collection.dart';
 part 'model/dumped_device.dart';
 part 'model/field_mask.dart';
@@ -58,6 +59,7 @@ part 'model/list_output_response.dart';
 part 'model/message_send_result.dart';
 part 'model/multi_send_message_response.dart';
 part 'model/network_metadata.dart';
+part 'model/network_operator.dart';
 part 'model/output.dart';
 part 'model/output_config.dart';
 part 'model/output_data_message.dart';
@@ -73,6 +75,7 @@ part 'model/send_message_response.dart';
 part 'model/system_info_response.dart';
 part 'model/udp_metadata.dart';
 part 'model/update_device_request.dart';
+
 
 const _delimiters = {'csv': ',', 'ssv': ' ', 'tsv': '\t', 'pipes': '|'};
 const _dateEpochMarker = 'epoch';

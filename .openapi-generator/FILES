@@ -12,6 +12,7 @@ doc/DataDumpRequest.md
 doc/DataDumpResponse.md
 doc/DatadumpApi.md
 doc/Device.md
+doc/DeviceMetadata.md
 doc/DevicesApi.md
 doc/DumpedCollection.md
 doc/DumpedDevice.md
@@ -28,6 +29,7 @@ doc/ListOutputResponse.md
 doc/MessageSendResult.md
 doc/MultiSendMessageResponse.md
 doc/NetworkMetadata.md
+doc/NetworkOperator.md
 doc/Output.md
 doc/OutputConfig.md
 doc/OutputDataMessage.md
@@ -71,6 +73,7 @@ lib/model/create_firmware_request.dart
 lib/model/data_dump_request.dart
 lib/model/data_dump_response.dart
 lib/model/device.dart
+lib/model/device_metadata.dart
 lib/model/dumped_collection.dart
 lib/model/dumped_device.dart
 lib/model/field_mask.dart
@@ -85,6 +88,7 @@ lib/model/list_output_response.dart
 lib/model/message_send_result.dart
 lib/model/multi_send_message_response.dart
 lib/model/network_metadata.dart
+lib/model/network_operator.dart
 lib/model/output.dart
 lib/model/output_config.dart
 lib/model/output_data_message.dart
@@ -101,3 +105,5 @@ lib/model/system_info_response.dart
 lib/model/udp_metadata.dart
 lib/model/update_device_request.dart
 pubspec.yaml
+test/device_metadata_test.dart
+test/network_operator_test.dart
