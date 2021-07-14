@@ -10,7 +10,7 @@
 part of spanapi;
 
 class ApiClient {
-  ApiClient({this.basePath = 'https://api.lab5e.com/spanx'}) {
+  ApiClient({this.basePath = 'https://api.lab5e.com/span'}) {
     // Setup authentications (key: authentication name, value: authentication).
     _authentications[r'APIToken'] = ApiKeyAuth('header', 'X-API-Token');
   }
