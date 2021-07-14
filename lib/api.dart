@@ -71,7 +71,6 @@ part 'model/system_info_response.dart';
 part 'model/udp_metadata.dart';
 part 'model/update_device_request.dart';
 
-
 const _delimiters = {'csv': ',', 'ssv': ' ', 'tsv': '\t', 'pipes': '|'};
 const _dateEpochMarker = 'epoch';
 final _dateFormatter = DateFormat('yyyy-MM-dd');

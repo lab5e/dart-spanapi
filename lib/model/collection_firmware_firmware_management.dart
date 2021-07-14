@@ -22,9 +22,11 @@ class CollectionFirmwareFirmwareManagement {
 
   String toJson() => value;
 
-  static const unspecified = CollectionFirmwareFirmwareManagement._(r'unspecified');
+  static const unspecified =
+      CollectionFirmwareFirmwareManagement._(r'unspecified');
   static const disabled = CollectionFirmwareFirmwareManagement._(r'disabled');
-  static const collection = CollectionFirmwareFirmwareManagement._(r'collection');
+  static const collection =
+      CollectionFirmwareFirmwareManagement._(r'collection');
   static const device = CollectionFirmwareFirmwareManagement._(r'device');
 
   /// List of all possible values in this [enum][CollectionFirmwareFirmwareManagement].
@@ -36,14 +38,21 @@ class CollectionFirmwareFirmwareManagement {
   ];
 
   static CollectionFirmwareFirmwareManagement fromJson(dynamic value) =>
-    CollectionFirmwareFirmwareManagementTypeTransformer().decode(value);
+      CollectionFirmwareFirmwareManagementTypeTransformer().decode(value);
 
-  static List<CollectionFirmwareFirmwareManagement> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <CollectionFirmwareFirmwareManagement>[]
-      : json
-          .map((value) => CollectionFirmwareFirmwareManagement.fromJson(value))
-          .toList(growable: true == growable);
+  static List<CollectionFirmwareFirmwareManagement> listFromJson(
+    List<dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json == null || json.isEmpty
+          ? true == emptyIsNull
+              ? null
+              : <CollectionFirmwareFirmwareManagement>[]
+          : json
+              .map((value) =>
+                  CollectionFirmwareFirmwareManagement.fromJson(value))
+              .toList(growable: true == growable);
 }
 
 /// Transformation class that can [encode] an instance of [CollectionFirmwareFirmwareManagement] to String,
@@ -51,7 +60,8 @@ class CollectionFirmwareFirmwareManagement {
 class CollectionFirmwareFirmwareManagementTypeTransformer {
   const CollectionFirmwareFirmwareManagementTypeTransformer._();
 
-  factory CollectionFirmwareFirmwareManagementTypeTransformer() => _instance ??= CollectionFirmwareFirmwareManagementTypeTransformer._();
+  factory CollectionFirmwareFirmwareManagementTypeTransformer() =>
+      _instance ??= CollectionFirmwareFirmwareManagementTypeTransformer._();
 
   String encode(CollectionFirmwareFirmwareManagement data) => data.value;
 
@@ -65,10 +75,14 @@ class CollectionFirmwareFirmwareManagementTypeTransformer {
   /// and users are still using an old app with the old code.
   CollectionFirmwareFirmwareManagement decode(dynamic data, {bool allowNull}) {
     switch (data) {
-      case r'unspecified': return CollectionFirmwareFirmwareManagement.unspecified;
-      case r'disabled': return CollectionFirmwareFirmwareManagement.disabled;
-      case r'collection': return CollectionFirmwareFirmwareManagement.collection;
-      case r'device': return CollectionFirmwareFirmwareManagement.device;
+      case r'unspecified':
+        return CollectionFirmwareFirmwareManagement.unspecified;
+      case r'disabled':
+        return CollectionFirmwareFirmwareManagement.disabled;
+      case r'collection':
+        return CollectionFirmwareFirmwareManagement.collection;
+      case r'device':
+        return CollectionFirmwareFirmwareManagement.device;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');
