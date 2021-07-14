@@ -9,9 +9,9 @@
 
 part of spanapi;
 
+
 class CollectionsApi {
-  CollectionsApi([ApiClient apiClient])
-      : apiClient = apiClient ?? defaultApiClient;
+  CollectionsApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -26,19 +26,17 @@ class CollectionsApi {
   /// * [String] collectionId (required):
   ///
   /// * [BroadcastMessageRequest] body (required):
-  Future<Response> broadcastMessageWithHttpInfo(
-      String collectionId, BroadcastMessageRequest body) async {
+  Future<Response> broadcastMessageWithHttpInfo(String collectionId, BroadcastMessageRequest body) async {
     // Verify required params are set.
     if (collectionId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: collectionId');
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
     }
     if (body == null) {
-      throw ApiException(HttpStatus.badRequest, 'Missing required param: body');
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: body');
     }
 
     final path = r'/collections/{collectionId}/to'
-        .replaceAll('{' + 'collectionId' + '}', collectionId.toString());
+      .replaceAll('{' + 'collectionId' + '}', collectionId.toString());
 
     Object postBody = body;
 
@@ -47,18 +45,20 @@ class CollectionsApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>['application/json'];
-    final nullableContentType =
-        contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['APIToken'];
 
-    if (nullableContentType != null &&
-        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
+    if (
+      nullableContentType != null &&
+      nullableContentType.toLowerCase().startsWith('multipart/form-data')
+    ) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {}
+    } else {
+    }
 
     return await apiClient.invokeAPI(
       path,
@@ -81,8 +81,7 @@ class CollectionsApi {
   /// * [String] collectionId (required):
   ///
   /// * [BroadcastMessageRequest] body (required):
-  Future<MultiSendMessageResponse> broadcastMessage(
-      String collectionId, BroadcastMessageRequest body) async {
+  Future<MultiSendMessageResponse> broadcastMessage(String collectionId, BroadcastMessageRequest body) async {
     final response = await broadcastMessageWithHttpInfo(collectionId, body);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
@@ -91,10 +90,8 @@ class CollectionsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(
-              _decodeBodyBytes(response), 'MultiSendMessageResponse')
-          as MultiSendMessageResponse;
-    }
+      return apiClient.deserialize(_decodeBodyBytes(response), 'MultiSendMessageResponse') as MultiSendMessageResponse;
+        }
     return Future<MultiSendMessageResponse>.value(null);
   }
 
@@ -110,7 +107,7 @@ class CollectionsApi {
   Future<Response> createCollectionWithHttpInfo(Collection body) async {
     // Verify required params are set.
     if (body == null) {
-      throw ApiException(HttpStatus.badRequest, 'Missing required param: body');
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: body');
     }
 
     final path = r'/collections';
@@ -122,18 +119,20 @@ class CollectionsApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>['application/json'];
-    final nullableContentType =
-        contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['APIToken'];
 
-    if (nullableContentType != null &&
-        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
+    if (
+      nullableContentType != null &&
+      nullableContentType.toLowerCase().startsWith('multipart/form-data')
+    ) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {}
+    } else {
+    }
 
     return await apiClient.invokeAPI(
       path,
@@ -163,9 +162,8 @@ class CollectionsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'Collection')
-          as Collection;
-    }
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Collection') as Collection;
+        }
     return Future<Collection>.value(null);
   }
 
@@ -182,12 +180,11 @@ class CollectionsApi {
   Future<Response> deleteCollectionWithHttpInfo(String collectionId) async {
     // Verify required params are set.
     if (collectionId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: collectionId');
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
     }
 
     final path = r'/collections/{collectionId}'
-        .replaceAll('{' + 'collectionId' + '}', collectionId.toString());
+      .replaceAll('{' + 'collectionId' + '}', collectionId.toString());
 
     Object postBody;
 
@@ -196,18 +193,20 @@ class CollectionsApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>[];
-    final nullableContentType =
-        contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['APIToken'];
 
-    if (nullableContentType != null &&
-        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
+    if (
+      nullableContentType != null &&
+      nullableContentType.toLowerCase().startsWith('multipart/form-data')
+    ) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {}
+    } else {
+    }
 
     return await apiClient.invokeAPI(
       path,
@@ -238,15 +237,14 @@ class CollectionsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'Collection')
-          as Collection;
-    }
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Collection') as Collection;
+        }
     return Future<Collection>.value(null);
   }
 
   /// Get payloads
   ///
-  /// List the data received from all the devices in the collection.
+  /// List the data received from all the devices in the collection. The maximum number of data points is 100.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -266,16 +264,14 @@ class CollectionsApi {
   ///
   /// * [String] offset:
   ///   The message offset based on the message ID. This parameter can't be combined with the start and end parameters. If no parameter is set the first N messages will be returned. If this parameter is set the next N messages (from newest to oldest) with message ID less than the offset will be returned.
-  Future<Response> listCollectionDataWithHttpInfo(String collectionId,
-      {int limit, String start, String end, String offset}) async {
+  Future<Response> listCollectionDataWithHttpInfo(String collectionId, { int limit, String start, String end, String offset }) async {
     // Verify required params are set.
     if (collectionId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: collectionId');
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
     }
 
     final path = r'/collections/{collectionId}/data'
-        .replaceAll('{' + 'collectionId' + '}', collectionId.toString());
+      .replaceAll('{' + 'collectionId' + '}', collectionId.toString());
 
     Object postBody;
 
@@ -284,34 +280,33 @@ class CollectionsApi {
     final formParams = <String, String>{};
 
     if (limit != null) {
-      queryParams
-          .addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
     if (start != null) {
-      queryParams
-          .addAll(_convertParametersForCollectionFormat('', 'start', start));
+      queryParams.addAll(_convertParametersForCollectionFormat('', 'start', start));
     }
     if (end != null) {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'end', end));
     }
     if (offset != null) {
-      queryParams
-          .addAll(_convertParametersForCollectionFormat('', 'offset', offset));
+      queryParams.addAll(_convertParametersForCollectionFormat('', 'offset', offset));
     }
 
     final contentTypes = <String>[];
-    final nullableContentType =
-        contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['APIToken'];
 
-    if (nullableContentType != null &&
-        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
+    if (
+      nullableContentType != null &&
+      nullableContentType.toLowerCase().startsWith('multipart/form-data')
+    ) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {}
+    } else {
+    }
 
     return await apiClient.invokeAPI(
       path,
@@ -327,7 +322,7 @@ class CollectionsApi {
 
   /// Get payloads
   ///
-  /// List the data received from all the devices in the collection.
+  /// List the data received from all the devices in the collection. The maximum number of data points is 100.
   ///
   /// Parameters:
   ///
@@ -345,10 +340,8 @@ class CollectionsApi {
   ///
   /// * [String] offset:
   ///   The message offset based on the message ID. This parameter can't be combined with the start and end parameters. If no parameter is set the first N messages will be returned. If this parameter is set the next N messages (from newest to oldest) with message ID less than the offset will be returned.
-  Future<ListDataResponse> listCollectionData(String collectionId,
-      {int limit, String start, String end, String offset}) async {
-    final response = await listCollectionDataWithHttpInfo(collectionId,
-        limit: limit, start: start, end: end, offset: offset);
+  Future<ListDataResponse> listCollectionData(String collectionId, { int limit, String start, String end, String offset }) async {
+    final response = await listCollectionDataWithHttpInfo(collectionId,  limit: limit, start: start, end: end, offset: offset );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -356,9 +349,8 @@ class CollectionsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(
-          _decodeBodyBytes(response), 'ListDataResponse') as ListDataResponse;
-    }
+      return apiClient.deserialize(_decodeBodyBytes(response), 'ListDataResponse') as ListDataResponse;
+        }
     return Future<ListDataResponse>.value(null);
   }
 
@@ -377,18 +369,20 @@ class CollectionsApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>[];
-    final nullableContentType =
-        contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['APIToken'];
 
-    if (nullableContentType != null &&
-        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
+    if (
+      nullableContentType != null &&
+      nullableContentType.toLowerCase().startsWith('multipart/form-data')
+    ) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {}
+    } else {
+    }
 
     return await apiClient.invokeAPI(
       path,
@@ -414,10 +408,8 @@ class CollectionsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(
-              _decodeBodyBytes(response), 'ListCollectionResponse')
-          as ListCollectionResponse;
-    }
+      return apiClient.deserialize(_decodeBodyBytes(response), 'ListCollectionResponse') as ListCollectionResponse;
+        }
     return Future<ListCollectionResponse>.value(null);
   }
 
@@ -432,12 +424,11 @@ class CollectionsApi {
   Future<Response> retrieveCollectionWithHttpInfo(String collectionId) async {
     // Verify required params are set.
     if (collectionId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: collectionId');
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
     }
 
     final path = r'/collections/{collectionId}'
-        .replaceAll('{' + 'collectionId' + '}', collectionId.toString());
+      .replaceAll('{' + 'collectionId' + '}', collectionId.toString());
 
     Object postBody;
 
@@ -446,18 +437,20 @@ class CollectionsApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>[];
-    final nullableContentType =
-        contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['APIToken'];
 
-    if (nullableContentType != null &&
-        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
+    if (
+      nullableContentType != null &&
+      nullableContentType.toLowerCase().startsWith('multipart/form-data')
+    ) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {}
+    } else {
+    }
 
     return await apiClient.invokeAPI(
       path,
@@ -486,9 +479,8 @@ class CollectionsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'Collection')
-          as Collection;
-    }
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Collection') as Collection;
+        }
     return Future<Collection>.value(null);
   }
 
@@ -504,19 +496,17 @@ class CollectionsApi {
   ///   The ID of the collection. This is assigned by the backend.
   ///
   /// * [Collection] body (required):
-  Future<Response> updateCollectionWithHttpInfo(
-      String collectionId, Collection body) async {
+  Future<Response> updateCollectionWithHttpInfo(String collectionId, Collection body) async {
     // Verify required params are set.
     if (collectionId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: collectionId');
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
     }
     if (body == null) {
-      throw ApiException(HttpStatus.badRequest, 'Missing required param: body');
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: body');
     }
 
     final path = r'/collections/{collectionId}'
-        .replaceAll('{' + 'collectionId' + '}', collectionId.toString());
+      .replaceAll('{' + 'collectionId' + '}', collectionId.toString());
 
     Object postBody = body;
 
@@ -525,18 +515,20 @@ class CollectionsApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>['application/json'];
-    final nullableContentType =
-        contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['APIToken'];
 
-    if (nullableContentType != null &&
-        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
+    if (
+      nullableContentType != null &&
+      nullableContentType.toLowerCase().startsWith('multipart/form-data')
+    ) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {}
+    } else {
+    }
 
     return await apiClient.invokeAPI(
       path,
@@ -560,8 +552,7 @@ class CollectionsApi {
   ///   The ID of the collection. This is assigned by the backend.
   ///
   /// * [Collection] body (required):
-  Future<Collection> updateCollection(
-      String collectionId, Collection body) async {
+  Future<Collection> updateCollection(String collectionId, Collection body) async {
     final response = await updateCollectionWithHttpInfo(collectionId, body);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
@@ -570,9 +561,8 @@ class CollectionsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'Collection')
-          as Collection;
-    }
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Collection') as Collection;
+        }
     return Future<Collection>.value(null);
   }
 }

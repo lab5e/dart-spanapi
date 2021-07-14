@@ -15,7 +15,7 @@ Method | HTTP request | Description
 [**firmwareUsage**](FotaApi.md#firmwareusage) | **GET** /collections/{collectionId}/firmware/{imageId}/usage | Firmware usage
 [**listFirmware**](FotaApi.md#listfirmware) | **GET** /collections/{collectionId}/firmware | List firmware
 [**retrieveFirmware**](FotaApi.md#retrievefirmware) | **GET** /collections/{collectionId}/firmware/{imageId} | Retrieve firmware
-[**updateFirmware**](FotaApi.md#updatefirmware) | **PATCH** /collections/{collectionId}/firmware/{imageId} | Update firmware
+[**updateFirmware**](FotaApi.md#updatefirmware) | **PATCH** /collections/{collectionId}/firmware/{imageId} | Update firmware. Only the version and tags fields can be updated. The other fields will be ignored..
 
 
 # **clearFirmwareError**
@@ -309,7 +309,7 @@ Name | Type | Description  | Notes
 # **updateFirmware**
 > Firmware updateFirmware(collectionId, imageId, body)
 
-Update firmware
+Update firmware. Only the version and tags fields can be updated. The other fields will be ignored..
 
 ### Example 
 ```dart

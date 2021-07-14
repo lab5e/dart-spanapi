@@ -28,7 +28,6 @@ part 'auth/http_basic_auth.dart';
 part 'auth/http_bearer_auth.dart';
 
 part 'api/collections_api.dart';
-part 'api/datadump_api.dart';
 part 'api/devices_api.dart';
 part 'api/fota_api.dart';
 part 'api/outputs_api.dart';
@@ -41,12 +40,8 @@ part 'model/collection.dart';
 part 'model/collection_firmware.dart';
 part 'model/collection_firmware_firmware_management.dart';
 part 'model/create_firmware_request.dart';
-part 'model/data_dump_request.dart';
-part 'model/data_dump_response.dart';
 part 'model/device.dart';
 part 'model/device_metadata.dart';
-part 'model/dumped_collection.dart';
-part 'model/dumped_device.dart';
 part 'model/field_mask.dart';
 part 'model/firmware.dart';
 part 'model/firmware_metadata.dart';
@@ -75,6 +70,7 @@ part 'model/send_message_response.dart';
 part 'model/system_info_response.dart';
 part 'model/udp_metadata.dart';
 part 'model/update_device_request.dart';
+
 
 const _delimiters = {'csv': ',', 'ssv': ' ', 'tsv': '\t', 'pipes': '|'};
 const _dateEpochMarker = 'epoch';

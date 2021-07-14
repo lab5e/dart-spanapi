@@ -8,14 +8,9 @@ doc/CollectionFirmware.md
 doc/CollectionFirmwareFirmwareManagement.md
 doc/CollectionsApi.md
 doc/CreateFirmwareRequest.md
-doc/DataDumpRequest.md
-doc/DataDumpResponse.md
-doc/DatadumpApi.md
 doc/Device.md
 doc/DeviceMetadata.md
 doc/DevicesApi.md
-doc/DumpedCollection.md
-doc/DumpedDevice.md
 doc/FieldMask.md
 doc/Firmware.md
 doc/FirmwareMetadata.md
@@ -50,7 +45,6 @@ doc/UpdateDeviceRequest.md
 git_push.sh
 lib/api.dart
 lib/api/collections_api.dart
-lib/api/datadump_api.dart
 lib/api/devices_api.dart
 lib/api/fota_api.dart
 lib/api/outputs_api.dart
@@ -70,12 +64,8 @@ lib/model/collection.dart
 lib/model/collection_firmware.dart
 lib/model/collection_firmware_firmware_management.dart
 lib/model/create_firmware_request.dart
-lib/model/data_dump_request.dart
-lib/model/data_dump_response.dart
 lib/model/device.dart
 lib/model/device_metadata.dart
-lib/model/dumped_collection.dart
-lib/model/dumped_device.dart
 lib/model/field_mask.dart
 lib/model/firmware.dart
 lib/model/firmware_metadata.dart
@@ -105,5 +95,3 @@ lib/model/system_info_response.dart
 lib/model/udp_metadata.dart
 lib/model/update_device_request.dart
 pubspec.yaml
-test/device_metadata_test.dart
-test/network_operator_test.dart

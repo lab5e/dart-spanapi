@@ -3,7 +3,7 @@
 #
 
 name: 'spanapi'
-version: '4.1.15'
+version: '4.1.16'
 description: 'Dart Span API Client'
 authors:
   - 'Lab5e Release Bot <releases@lab5e.com>'
