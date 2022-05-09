@@ -35,8 +35,5 @@ void main() {
     test('to test the property `certificateSerial`', () async {
       // TODO
     });
-
-
   });
-
 }

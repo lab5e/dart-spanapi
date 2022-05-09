@@ -38,26 +38,29 @@ class UpdateDeviceRequest {
   DeviceConfig config;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is UpdateDeviceRequest &&
-     other.collectionId == collectionId &&
-     other.imsi == imsi &&
-     other.imei == imei &&
-     other.tags == tags &&
-     other.firmware == firmware &&
-     other.config == config;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is UpdateDeviceRequest &&
+          other.collectionId == collectionId &&
+          other.imsi == imsi &&
+          other.imei == imei &&
+          other.tags == tags &&
+          other.firmware == firmware &&
+          other.config == config;
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (collectionId == null ? 0 : collectionId.hashCode) +
-    (imsi == null ? 0 : imsi.hashCode) +
-    (imei == null ? 0 : imei.hashCode) +
-    (tags == null ? 0 : tags.hashCode) +
-    (firmware == null ? 0 : firmware.hashCode) +
-    (config == null ? 0 : config.hashCode);
+      // ignore: unnecessary_parenthesis
+      (collectionId == null ? 0 : collectionId.hashCode) +
+      (imsi == null ? 0 : imsi.hashCode) +
+      (imei == null ? 0 : imei.hashCode) +
+      (tags == null ? 0 : tags.hashCode) +
+      (firmware == null ? 0 : firmware.hashCode) +
+      (config == null ? 0 : config.hashCode);
 
   @override
-  String toString() => 'UpdateDeviceRequest[collectionId=$collectionId, imsi=$imsi, imei=$imei, tags=$tags, firmware=$firmware, config=$config]';
+  String toString() =>
+      'UpdateDeviceRequest[collectionId=$collectionId, imsi=$imsi, imei=$imei, tags=$tags, firmware=$firmware, config=$config]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -100,36 +103,44 @@ class UpdateDeviceRequest {
     return null;
   }
 
-  static List<UpdateDeviceRequest> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(UpdateDeviceRequest.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <UpdateDeviceRequest>[];
+  static List<UpdateDeviceRequest> listFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json is List && json.isNotEmpty
+          ? json
+              .map(UpdateDeviceRequest.fromJson)
+              .toList(growable: true == growable)
+          : true == emptyIsNull
+              ? null
+              : <UpdateDeviceRequest>[];
 
   static Map<String, UpdateDeviceRequest> mapFromJson(dynamic json) {
     final map = <String, UpdateDeviceRequest>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = UpdateDeviceRequest.fromJson(value));
+      json.cast<String, dynamic>().forEach((key, dynamic value) =>
+          map[key] = UpdateDeviceRequest.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of UpdateDeviceRequest-objects as value to a dart map
-  static Map<String, List<UpdateDeviceRequest>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<UpdateDeviceRequest>> mapListFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<UpdateDeviceRequest>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = UpdateDeviceRequest.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json.cast<String, dynamic>().forEach((key, dynamic value) {
+        map[key] = UpdateDeviceRequest.listFromJson(
+          value,
+          emptyIsNull: emptyIsNull,
+          growable: growable,
+        );
+      });
     }
     return map;
   }
 }
-

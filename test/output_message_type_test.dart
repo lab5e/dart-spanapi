@@ -13,9 +13,5 @@ import 'package:test/test.dart';
 
 // tests for OutputMessageType
 void main() {
-
-  group('test OutputMessageType', () {
-
-  });
-
+  group('test OutputMessageType', () {});
 }

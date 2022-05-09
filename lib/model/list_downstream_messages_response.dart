@@ -19,13 +19,14 @@ class ListDownstreamMessagesResponse {
   List<MessageDownstream> messages;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ListDownstreamMessagesResponse &&
-     other.messages == messages;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ListDownstreamMessagesResponse && other.messages == messages;
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (messages == null ? 0 : messages.hashCode);
+      // ignore: unnecessary_parenthesis
+      (messages == null ? 0 : messages.hashCode);
 
   @override
   String toString() => 'ListDownstreamMessagesResponse[messages=$messages]';
@@ -51,36 +52,44 @@ class ListDownstreamMessagesResponse {
     return null;
   }
 
-  static List<ListDownstreamMessagesResponse> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(ListDownstreamMessagesResponse.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <ListDownstreamMessagesResponse>[];
+  static List<ListDownstreamMessagesResponse> listFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json is List && json.isNotEmpty
+          ? json
+              .map(ListDownstreamMessagesResponse.fromJson)
+              .toList(growable: true == growable)
+          : true == emptyIsNull
+              ? null
+              : <ListDownstreamMessagesResponse>[];
 
   static Map<String, ListDownstreamMessagesResponse> mapFromJson(dynamic json) {
     final map = <String, ListDownstreamMessagesResponse>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = ListDownstreamMessagesResponse.fromJson(value));
+      json.cast<String, dynamic>().forEach((key, dynamic value) =>
+          map[key] = ListDownstreamMessagesResponse.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of ListDownstreamMessagesResponse-objects as value to a dart map
-  static Map<String, List<ListDownstreamMessagesResponse>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<ListDownstreamMessagesResponse>> mapListFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<ListDownstreamMessagesResponse>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = ListDownstreamMessagesResponse.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json.cast<String, dynamic>().forEach((key, dynamic value) {
+        map[key] = ListDownstreamMessagesResponse.listFromJson(
+          value,
+          emptyIsNull: emptyIsNull,
+          growable: growable,
+        );
+      });
     }
     return map;
   }
 }
-

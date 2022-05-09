@@ -28,20 +28,23 @@ class SystemInfoResponse {
   String releaseName;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is SystemInfoResponse &&
-     other.version == version &&
-     other.buildDate == buildDate &&
-     other.releaseName == releaseName;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is SystemInfoResponse &&
+          other.version == version &&
+          other.buildDate == buildDate &&
+          other.releaseName == releaseName;
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (version == null ? 0 : version.hashCode) +
-    (buildDate == null ? 0 : buildDate.hashCode) +
-    (releaseName == null ? 0 : releaseName.hashCode);
+      // ignore: unnecessary_parenthesis
+      (version == null ? 0 : version.hashCode) +
+      (buildDate == null ? 0 : buildDate.hashCode) +
+      (releaseName == null ? 0 : releaseName.hashCode);
 
   @override
-  String toString() => 'SystemInfoResponse[version=$version, buildDate=$buildDate, releaseName=$releaseName]';
+  String toString() =>
+      'SystemInfoResponse[version=$version, buildDate=$buildDate, releaseName=$releaseName]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -72,36 +75,44 @@ class SystemInfoResponse {
     return null;
   }
 
-  static List<SystemInfoResponse> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(SystemInfoResponse.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <SystemInfoResponse>[];
+  static List<SystemInfoResponse> listFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json is List && json.isNotEmpty
+          ? json
+              .map(SystemInfoResponse.fromJson)
+              .toList(growable: true == growable)
+          : true == emptyIsNull
+              ? null
+              : <SystemInfoResponse>[];
 
   static Map<String, SystemInfoResponse> mapFromJson(dynamic json) {
     final map = <String, SystemInfoResponse>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = SystemInfoResponse.fromJson(value));
+      json.cast<String, dynamic>().forEach((key, dynamic value) =>
+          map[key] = SystemInfoResponse.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of SystemInfoResponse-objects as value to a dart map
-  static Map<String, List<SystemInfoResponse>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<SystemInfoResponse>> mapListFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<SystemInfoResponse>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = SystemInfoResponse.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json.cast<String, dynamic>().forEach((key, dynamic value) {
+        map[key] = SystemInfoResponse.listFromJson(
+          value,
+          emptyIsNull: emptyIsNull,
+          growable: growable,
+        );
+      });
     }
     return map;
   }
 }
-

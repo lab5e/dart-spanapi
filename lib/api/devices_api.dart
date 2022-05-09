@@ -10,7 +10,6 @@
 
 part of spanapi;
 
-
 class DevicesApi {
   DevicesApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
@@ -29,22 +28,28 @@ class DevicesApi {
   /// * [String] deviceId (required):
   ///
   /// * [AddDownstreamMessageRequest] body (required):
-  Future<Response> addDownstreamMessageWithHttpInfo(String collectionId, String deviceId, AddDownstreamMessageRequest body,) async {
+  Future<Response> addDownstreamMessageWithHttpInfo(
+    String collectionId,
+    String deviceId,
+    AddDownstreamMessageRequest body,
+  ) async {
     // Verify required params are set.
     if (collectionId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: collectionId');
     }
     if (deviceId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: deviceId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: deviceId');
     }
     if (body == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: body');
+      throw ApiException(HttpStatus.badRequest, 'Missing required param: body');
     }
 
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/devices/{deviceId}/outbox'
-      .replaceAll('{collectionId}', collectionId)
-      .replaceAll('{deviceId}', deviceId);
+        .replaceAll('{collectionId}', collectionId)
+        .replaceAll('{deviceId}', deviceId);
 
     // ignore: prefer_final_locals
     Object postBody = body;
@@ -55,7 +60,6 @@ class DevicesApi {
 
     const authNames = <String>['APIToken'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -80,8 +84,16 @@ class DevicesApi {
   /// * [String] deviceId (required):
   ///
   /// * [AddDownstreamMessageRequest] body (required):
-  Future<MessageDownstream> addDownstreamMessage(String collectionId, String deviceId, AddDownstreamMessageRequest body,) async {
-    final response = await addDownstreamMessageWithHttpInfo(collectionId, deviceId, body,);
+  Future<MessageDownstream> addDownstreamMessage(
+    String collectionId,
+    String deviceId,
+    AddDownstreamMessageRequest body,
+  ) async {
+    final response = await addDownstreamMessageWithHttpInfo(
+      collectionId,
+      deviceId,
+      body,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -89,8 +101,10 @@ class DevicesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MessageDownstream',) as MessageDownstream;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MessageDownstream',
+      ) as MessageDownstream;
     }
     return Future<MessageDownstream>.value();
   }
@@ -105,18 +119,22 @@ class DevicesApi {
   ///   This is the containing collection
   ///
   /// * [CreateDeviceRequest] body (required):
-  Future<Response> createDeviceWithHttpInfo(String collectionId, CreateDeviceRequest body,) async {
+  Future<Response> createDeviceWithHttpInfo(
+    String collectionId,
+    CreateDeviceRequest body,
+  ) async {
     // Verify required params are set.
     if (collectionId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: collectionId');
     }
     if (body == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: body');
+      throw ApiException(HttpStatus.badRequest, 'Missing required param: body');
     }
 
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/devices'
-      .replaceAll('{collectionId}', collectionId);
+        .replaceAll('{collectionId}', collectionId);
 
     // ignore: prefer_final_locals
     Object postBody = body;
@@ -127,7 +145,6 @@ class DevicesApi {
 
     const authNames = <String>['APIToken'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -149,8 +166,14 @@ class DevicesApi {
   ///   This is the containing collection
   ///
   /// * [CreateDeviceRequest] body (required):
-  Future<Device> createDevice(String collectionId, CreateDeviceRequest body,) async {
-    final response = await createDeviceWithHttpInfo(collectionId, body,);
+  Future<Device> createDevice(
+    String collectionId,
+    CreateDeviceRequest body,
+  ) async {
+    final response = await createDeviceWithHttpInfo(
+      collectionId,
+      body,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -158,8 +181,10 @@ class DevicesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Device',) as Device;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'Device',
+      ) as Device;
     }
     return Future<Device>.value();
   }
@@ -175,19 +200,24 @@ class DevicesApi {
   ///
   /// * [String] deviceId (required):
   ///   The device ID is assigned by the backend.
-  Future<Response> deleteDeviceWithHttpInfo(String collectionId, String deviceId,) async {
+  Future<Response> deleteDeviceWithHttpInfo(
+    String collectionId,
+    String deviceId,
+  ) async {
     // Verify required params are set.
     if (collectionId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: collectionId');
     }
     if (deviceId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: deviceId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: deviceId');
     }
 
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/devices/{deviceId}'
-      .replaceAll('{collectionId}', collectionId)
-      .replaceAll('{deviceId}', deviceId);
+        .replaceAll('{collectionId}', collectionId)
+        .replaceAll('{deviceId}', deviceId);
 
     // ignore: prefer_final_locals
     Object postBody;
@@ -198,7 +228,6 @@ class DevicesApi {
 
     const authNames = <String>['APIToken'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -221,8 +250,14 @@ class DevicesApi {
   ///
   /// * [String] deviceId (required):
   ///   The device ID is assigned by the backend.
-  Future<Device> deleteDevice(String collectionId, String deviceId,) async {
-    final response = await deleteDeviceWithHttpInfo(collectionId, deviceId,);
+  Future<Device> deleteDevice(
+    String collectionId,
+    String deviceId,
+  ) async {
+    final response = await deleteDeviceWithHttpInfo(
+      collectionId,
+      deviceId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -230,8 +265,10 @@ class DevicesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Device',) as Device;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'Device',
+      ) as Device;
     }
     return Future<Device>.value();
   }
@@ -249,23 +286,31 @@ class DevicesApi {
   /// * [String] deviceId (required):
   ///
   /// * [String] messageId (required):
-  Future<Response> deleteDownstreamMessageWithHttpInfo(String collectionId, String deviceId, String messageId,) async {
+  Future<Response> deleteDownstreamMessageWithHttpInfo(
+    String collectionId,
+    String deviceId,
+    String messageId,
+  ) async {
     // Verify required params are set.
     if (collectionId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: collectionId');
     }
     if (deviceId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: deviceId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: deviceId');
     }
     if (messageId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: messageId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: messageId');
     }
 
     // ignore: prefer_const_declarations
-    final path = r'/span/collections/{collectionId}/devices/{deviceId}/outbox/{messageId}'
-      .replaceAll('{collectionId}', collectionId)
-      .replaceAll('{deviceId}', deviceId)
-      .replaceAll('{messageId}', messageId);
+    final path =
+        r'/span/collections/{collectionId}/devices/{deviceId}/outbox/{messageId}'
+            .replaceAll('{collectionId}', collectionId)
+            .replaceAll('{deviceId}', deviceId)
+            .replaceAll('{messageId}', messageId);
 
     // ignore: prefer_final_locals
     Object postBody;
@@ -276,7 +321,6 @@ class DevicesApi {
 
     const authNames = <String>['APIToken'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -301,8 +345,16 @@ class DevicesApi {
   /// * [String] deviceId (required):
   ///
   /// * [String] messageId (required):
-  Future<DeleteDownstreamMessageResponse> deleteDownstreamMessage(String collectionId, String deviceId, String messageId,) async {
-    final response = await deleteDownstreamMessageWithHttpInfo(collectionId, deviceId, messageId,);
+  Future<DeleteDownstreamMessageResponse> deleteDownstreamMessage(
+    String collectionId,
+    String deviceId,
+    String messageId,
+  ) async {
+    final response = await deleteDownstreamMessageWithHttpInfo(
+      collectionId,
+      deviceId,
+      messageId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -310,8 +362,10 @@ class DevicesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DeleteDownstreamMessageResponse',) as DeleteDownstreamMessageResponse;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'DeleteDownstreamMessageResponse',
+      ) as DeleteDownstreamMessageResponse;
     }
     return Future<DeleteDownstreamMessageResponse>.value();
   }
@@ -325,19 +379,24 @@ class DevicesApi {
   /// * [String] collectionId (required):
   ///
   /// * [String] deviceId (required):
-  Future<Response> deviceCertificateWithHttpInfo(String collectionId, String deviceId,) async {
+  Future<Response> deviceCertificateWithHttpInfo(
+    String collectionId,
+    String deviceId,
+  ) async {
     // Verify required params are set.
     if (collectionId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: collectionId');
     }
     if (deviceId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: deviceId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: deviceId');
     }
 
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/devices/{deviceId}/certs'
-      .replaceAll('{collectionId}', collectionId)
-      .replaceAll('{deviceId}', deviceId);
+        .replaceAll('{collectionId}', collectionId)
+        .replaceAll('{deviceId}', deviceId);
 
     // ignore: prefer_final_locals
     Object postBody;
@@ -348,7 +407,6 @@ class DevicesApi {
 
     const authNames = <String>['APIToken'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -369,8 +427,14 @@ class DevicesApi {
   /// * [String] collectionId (required):
   ///
   /// * [String] deviceId (required):
-  Future<DeviceCertificateResponse> deviceCertificate(String collectionId, String deviceId,) async {
-    final response = await deviceCertificateWithHttpInfo(collectionId, deviceId,);
+  Future<DeviceCertificateResponse> deviceCertificate(
+    String collectionId,
+    String deviceId,
+  ) async {
+    final response = await deviceCertificateWithHttpInfo(
+      collectionId,
+      deviceId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -378,8 +442,10 @@ class DevicesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DeviceCertificateResponse',) as DeviceCertificateResponse;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'DeviceCertificateResponse',
+      ) as DeviceCertificateResponse;
     }
     return Future<DeviceCertificateResponse>.value();
   }
@@ -409,19 +475,28 @@ class DevicesApi {
   ///
   /// * [String] offset:
   ///   The message offset based on the message ID. This parameter can't be combined with the start and end parameters. If no parameter is set the first N messages will be returned. If this parameter is set the next N messages (from newest to oldest) with message ID less than the offset will be returned.
-  Future<Response> listDeviceDataWithHttpInfo(String collectionId, String deviceId, { int limit, String start, String end, String offset, }) async {
+  Future<Response> listDeviceDataWithHttpInfo(
+    String collectionId,
+    String deviceId, {
+    int limit,
+    String start,
+    String end,
+    String offset,
+  }) async {
     // Verify required params are set.
     if (collectionId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: collectionId');
     }
     if (deviceId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: deviceId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: deviceId');
     }
 
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/devices/{deviceId}/data'
-      .replaceAll('{collectionId}', collectionId)
-      .replaceAll('{deviceId}', deviceId);
+        .replaceAll('{collectionId}', collectionId)
+        .replaceAll('{deviceId}', deviceId);
 
     // ignore: prefer_final_locals
     Object postBody;
@@ -431,21 +506,23 @@ class DevicesApi {
     final formParams = <String, String>{};
 
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams
+          .addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
     if (start != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'start', start));
+      queryParams
+          .addAll(_convertParametersForCollectionFormat('', 'start', start));
     }
     if (end != null) {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'end', end));
     }
     if (offset != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'offset', offset));
+      queryParams
+          .addAll(_convertParametersForCollectionFormat('', 'offset', offset));
     }
 
     const authNames = <String>['APIToken'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -482,8 +559,22 @@ class DevicesApi {
   ///
   /// * [String] offset:
   ///   The message offset based on the message ID. This parameter can't be combined with the start and end parameters. If no parameter is set the first N messages will be returned. If this parameter is set the next N messages (from newest to oldest) with message ID less than the offset will be returned.
-  Future<ListDataResponse> listDeviceData(String collectionId, String deviceId, { int limit, String start, String end, String offset, }) async {
-    final response = await listDeviceDataWithHttpInfo(collectionId, deviceId,  limit: limit, start: start, end: end, offset: offset, );
+  Future<ListDataResponse> listDeviceData(
+    String collectionId,
+    String deviceId, {
+    int limit,
+    String start,
+    String end,
+    String offset,
+  }) async {
+    final response = await listDeviceDataWithHttpInfo(
+      collectionId,
+      deviceId,
+      limit: limit,
+      start: start,
+      end: end,
+      offset: offset,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -491,8 +582,10 @@ class DevicesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ListDataResponse',) as ListDataResponse;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'ListDataResponse',
+      ) as ListDataResponse;
     }
     return Future<ListDataResponse>.value();
   }
@@ -504,15 +597,18 @@ class DevicesApi {
   /// Parameters:
   ///
   /// * [String] collectionId (required):
-  Future<Response> listDevicesWithHttpInfo(String collectionId,) async {
+  Future<Response> listDevicesWithHttpInfo(
+    String collectionId,
+  ) async {
     // Verify required params are set.
     if (collectionId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: collectionId');
     }
 
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/devices'
-      .replaceAll('{collectionId}', collectionId);
+        .replaceAll('{collectionId}', collectionId);
 
     // ignore: prefer_final_locals
     Object postBody;
@@ -523,7 +619,6 @@ class DevicesApi {
 
     const authNames = <String>['APIToken'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -542,8 +637,12 @@ class DevicesApi {
   /// Parameters:
   ///
   /// * [String] collectionId (required):
-  Future<ListDevicesResponse> listDevices(String collectionId,) async {
-    final response = await listDevicesWithHttpInfo(collectionId,);
+  Future<ListDevicesResponse> listDevices(
+    String collectionId,
+  ) async {
+    final response = await listDevicesWithHttpInfo(
+      collectionId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -551,8 +650,10 @@ class DevicesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ListDevicesResponse',) as ListDevicesResponse;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'ListDevicesResponse',
+      ) as ListDevicesResponse;
     }
     return Future<ListDevicesResponse>.value();
   }
@@ -579,19 +680,28 @@ class DevicesApi {
   ///
   /// * [String] offset:
   ///   The message offset based on the message ID. This parameter can't be combined with the start and end parameters. If no parameter is set the first N messages will be returned. If this parameter is set the next N messages (from newest to oldest) with message ID less than the offset will be returned.
-  Future<Response> listDownstreamMessagesWithHttpInfo(String collectionId, String deviceId, { int limit, String start, String end, String offset, }) async {
+  Future<Response> listDownstreamMessagesWithHttpInfo(
+    String collectionId,
+    String deviceId, {
+    int limit,
+    String start,
+    String end,
+    String offset,
+  }) async {
     // Verify required params are set.
     if (collectionId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: collectionId');
     }
     if (deviceId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: deviceId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: deviceId');
     }
 
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/devices/{deviceId}/outbox'
-      .replaceAll('{collectionId}', collectionId)
-      .replaceAll('{deviceId}', deviceId);
+        .replaceAll('{collectionId}', collectionId)
+        .replaceAll('{deviceId}', deviceId);
 
     // ignore: prefer_final_locals
     Object postBody;
@@ -601,21 +711,23 @@ class DevicesApi {
     final formParams = <String, String>{};
 
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams
+          .addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
     if (start != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'start', start));
+      queryParams
+          .addAll(_convertParametersForCollectionFormat('', 'start', start));
     }
     if (end != null) {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'end', end));
     }
     if (offset != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'offset', offset));
+      queryParams
+          .addAll(_convertParametersForCollectionFormat('', 'offset', offset));
     }
 
     const authNames = <String>['APIToken'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -649,8 +761,22 @@ class DevicesApi {
   ///
   /// * [String] offset:
   ///   The message offset based on the message ID. This parameter can't be combined with the start and end parameters. If no parameter is set the first N messages will be returned. If this parameter is set the next N messages (from newest to oldest) with message ID less than the offset will be returned.
-  Future<ListDownstreamMessagesResponse> listDownstreamMessages(String collectionId, String deviceId, { int limit, String start, String end, String offset, }) async {
-    final response = await listDownstreamMessagesWithHttpInfo(collectionId, deviceId,  limit: limit, start: start, end: end, offset: offset, );
+  Future<ListDownstreamMessagesResponse> listDownstreamMessages(
+    String collectionId,
+    String deviceId, {
+    int limit,
+    String start,
+    String end,
+    String offset,
+  }) async {
+    final response = await listDownstreamMessagesWithHttpInfo(
+      collectionId,
+      deviceId,
+      limit: limit,
+      start: start,
+      end: end,
+      offset: offset,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -658,8 +784,10 @@ class DevicesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ListDownstreamMessagesResponse',) as ListDownstreamMessagesResponse;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'ListDownstreamMessagesResponse',
+      ) as ListDownstreamMessagesResponse;
     }
     return Future<ListDownstreamMessagesResponse>.value();
   }
@@ -686,19 +814,28 @@ class DevicesApi {
   ///
   /// * [String] offset:
   ///   The message offset based on the message ID. This parameter can't be combined with the start and end parameters. If no parameter is set the first N messages will be returned. If this parameter is set the next N messages (from newest to oldest) with message ID less than the offset will be returned.
-  Future<Response> listUpstreamMessagesWithHttpInfo(String collectionId, String deviceId, { int limit, String start, String end, String offset, }) async {
+  Future<Response> listUpstreamMessagesWithHttpInfo(
+    String collectionId,
+    String deviceId, {
+    int limit,
+    String start,
+    String end,
+    String offset,
+  }) async {
     // Verify required params are set.
     if (collectionId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: collectionId');
     }
     if (deviceId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: deviceId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: deviceId');
     }
 
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/devices/{deviceId}/inbox'
-      .replaceAll('{collectionId}', collectionId)
-      .replaceAll('{deviceId}', deviceId);
+        .replaceAll('{collectionId}', collectionId)
+        .replaceAll('{deviceId}', deviceId);
 
     // ignore: prefer_final_locals
     Object postBody;
@@ -708,21 +845,23 @@ class DevicesApi {
     final formParams = <String, String>{};
 
     if (limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams
+          .addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
     if (start != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'start', start));
+      queryParams
+          .addAll(_convertParametersForCollectionFormat('', 'start', start));
     }
     if (end != null) {
       queryParams.addAll(_convertParametersForCollectionFormat('', 'end', end));
     }
     if (offset != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'offset', offset));
+      queryParams
+          .addAll(_convertParametersForCollectionFormat('', 'offset', offset));
     }
 
     const authNames = <String>['APIToken'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -756,8 +895,22 @@ class DevicesApi {
   ///
   /// * [String] offset:
   ///   The message offset based on the message ID. This parameter can't be combined with the start and end parameters. If no parameter is set the first N messages will be returned. If this parameter is set the next N messages (from newest to oldest) with message ID less than the offset will be returned.
-  Future<ListUpstreamMessagesResponse> listUpstreamMessages(String collectionId, String deviceId, { int limit, String start, String end, String offset, }) async {
-    final response = await listUpstreamMessagesWithHttpInfo(collectionId, deviceId,  limit: limit, start: start, end: end, offset: offset, );
+  Future<ListUpstreamMessagesResponse> listUpstreamMessages(
+    String collectionId,
+    String deviceId, {
+    int limit,
+    String start,
+    String end,
+    String offset,
+  }) async {
+    final response = await listUpstreamMessagesWithHttpInfo(
+      collectionId,
+      deviceId,
+      limit: limit,
+      start: start,
+      end: end,
+      offset: offset,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -765,8 +918,10 @@ class DevicesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ListUpstreamMessagesResponse',) as ListUpstreamMessagesResponse;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'ListUpstreamMessagesResponse',
+      ) as ListUpstreamMessagesResponse;
     }
     return Future<ListUpstreamMessagesResponse>.value();
   }
@@ -782,19 +937,24 @@ class DevicesApi {
   ///
   /// * [String] deviceId (required):
   ///   The device ID is assigned by the backend.
-  Future<Response> retrieveDeviceWithHttpInfo(String collectionId, String deviceId,) async {
+  Future<Response> retrieveDeviceWithHttpInfo(
+    String collectionId,
+    String deviceId,
+  ) async {
     // Verify required params are set.
     if (collectionId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: collectionId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: collectionId');
     }
     if (deviceId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: deviceId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: deviceId');
     }
 
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/devices/{deviceId}'
-      .replaceAll('{collectionId}', collectionId)
-      .replaceAll('{deviceId}', deviceId);
+        .replaceAll('{collectionId}', collectionId)
+        .replaceAll('{deviceId}', deviceId);
 
     // ignore: prefer_final_locals
     Object postBody;
@@ -805,7 +965,6 @@ class DevicesApi {
 
     const authNames = <String>['APIToken'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -828,8 +987,14 @@ class DevicesApi {
   ///
   /// * [String] deviceId (required):
   ///   The device ID is assigned by the backend.
-  Future<Device> retrieveDevice(String collectionId, String deviceId,) async {
-    final response = await retrieveDeviceWithHttpInfo(collectionId, deviceId,);
+  Future<Device> retrieveDevice(
+    String collectionId,
+    String deviceId,
+  ) async {
+    final response = await retrieveDeviceWithHttpInfo(
+      collectionId,
+      deviceId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -837,8 +1002,10 @@ class DevicesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Device',) as Device;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'Device',
+      ) as Device;
     }
     return Future<Device>.value();
   }
@@ -856,22 +1023,28 @@ class DevicesApi {
   /// * [String] deviceId (required):
   ///
   /// * [UpdateDeviceRequest] body (required):
-  Future<Response> updateDeviceWithHttpInfo(String existingCollectionId, String deviceId, UpdateDeviceRequest body,) async {
+  Future<Response> updateDeviceWithHttpInfo(
+    String existingCollectionId,
+    String deviceId,
+    UpdateDeviceRequest body,
+  ) async {
     // Verify required params are set.
     if (existingCollectionId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: existingCollectionId');
+      throw ApiException(HttpStatus.badRequest,
+          'Missing required param: existingCollectionId');
     }
     if (deviceId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: deviceId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: deviceId');
     }
     if (body == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: body');
+      throw ApiException(HttpStatus.badRequest, 'Missing required param: body');
     }
 
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{existingCollectionId}/devices/{deviceId}'
-      .replaceAll('{existingCollectionId}', existingCollectionId)
-      .replaceAll('{deviceId}', deviceId);
+        .replaceAll('{existingCollectionId}', existingCollectionId)
+        .replaceAll('{deviceId}', deviceId);
 
     // ignore: prefer_final_locals
     Object postBody = body;
@@ -882,7 +1055,6 @@ class DevicesApi {
 
     const authNames = <String>['APIToken'];
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -907,8 +1079,16 @@ class DevicesApi {
   /// * [String] deviceId (required):
   ///
   /// * [UpdateDeviceRequest] body (required):
-  Future<Device> updateDevice(String existingCollectionId, String deviceId, UpdateDeviceRequest body,) async {
-    final response = await updateDeviceWithHttpInfo(existingCollectionId, deviceId, body,);
+  Future<Device> updateDevice(
+    String existingCollectionId,
+    String deviceId,
+    UpdateDeviceRequest body,
+  ) async {
+    final response = await updateDeviceWithHttpInfo(
+      existingCollectionId,
+      deviceId,
+      body,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -916,8 +1096,10 @@ class DevicesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Device',) as Device;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'Device',
+      ) as Device;
     }
     return Future<Device>.value();
   }
