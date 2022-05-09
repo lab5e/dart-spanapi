@@ -5,6 +5,7 @@
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
 part of spanapi;
@@ -15,38 +16,32 @@ class SystemInfoResponse {
     this.version,
     this.buildDate,
     this.releaseName,
-    this.defaultFieldMask,
-    this.forcedFieldMask,
   });
 
+  /// This is the system version
   String version;
 
+  /// The build time for this version.
   String buildDate;
 
+  /// Human-readable code name for this release. This can be easier to remember than the version number.
   String releaseName;
-
-  FieldMask defaultFieldMask;
-
-  FieldMask forcedFieldMask;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is SystemInfoResponse &&
      other.version == version &&
      other.buildDate == buildDate &&
-     other.releaseName == releaseName &&
-     other.defaultFieldMask == defaultFieldMask &&
-     other.forcedFieldMask == forcedFieldMask;
+     other.releaseName == releaseName;
 
   @override
   int get hashCode =>
+  // ignore: unnecessary_parenthesis
     (version == null ? 0 : version.hashCode) +
     (buildDate == null ? 0 : buildDate.hashCode) +
-    (releaseName == null ? 0 : releaseName.hashCode) +
-    (defaultFieldMask == null ? 0 : defaultFieldMask.hashCode) +
-    (forcedFieldMask == null ? 0 : forcedFieldMask.hashCode);
+    (releaseName == null ? 0 : releaseName.hashCode);
 
   @override
-  String toString() => 'SystemInfoResponse[version=$version, buildDate=$buildDate, releaseName=$releaseName, defaultFieldMask=$defaultFieldMask, forcedFieldMask=$forcedFieldMask]';
+  String toString() => 'SystemInfoResponse[version=$version, buildDate=$buildDate, releaseName=$releaseName]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -59,47 +54,52 @@ class SystemInfoResponse {
     if (releaseName != null) {
       json[r'releaseName'] = releaseName;
     }
-    if (defaultFieldMask != null) {
-      json[r'defaultFieldMask'] = defaultFieldMask;
-    }
-    if (forcedFieldMask != null) {
-      json[r'forcedFieldMask'] = forcedFieldMask;
-    }
     return json;
   }
 
   /// Returns a new [SystemInfoResponse] instance and imports its values from
-  /// [json] if it's non-null, null if [json] is null.
-  static SystemInfoResponse fromJson(Map<String, dynamic> json) => json == null
-    ? null
-    : SystemInfoResponse(
-        version: json[r'version'],
-        buildDate: json[r'buildDate'],
-        releaseName: json[r'releaseName'],
-        defaultFieldMask: FieldMask.fromJson(json[r'defaultFieldMask']),
-        forcedFieldMask: FieldMask.fromJson(json[r'forcedFieldMask']),
-    );
+  /// [value] if it's a [Map], null otherwise.
+  // ignore: prefer_constructors_over_static_methods
+  static SystemInfoResponse fromJson(dynamic value) {
+    if (value is Map) {
+      final json = value.cast<String, dynamic>();
+      return SystemInfoResponse(
+        version: mapValueOfType<String>(json, r'version'),
+        buildDate: mapValueOfType<String>(json, r'buildDate'),
+        releaseName: mapValueOfType<String>(json, r'releaseName'),
+      );
+    }
+    return null;
+  }
 
-  static List<SystemInfoResponse> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <SystemInfoResponse>[]
-      : json.map((v) => SystemInfoResponse.fromJson(v)).toList(growable: true == growable);
+  static List<SystemInfoResponse> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+    json is List && json.isNotEmpty
+      ? json.map(SystemInfoResponse.fromJson).toList(growable: true == growable)
+      : true == emptyIsNull ? null : <SystemInfoResponse>[];
 
-  static Map<String, SystemInfoResponse> mapFromJson(Map<String, dynamic> json) {
+  static Map<String, SystemInfoResponse> mapFromJson(dynamic json) {
     final map = <String, SystemInfoResponse>{};
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) => map[key] = SystemInfoResponse.fromJson(v));
+    if (json is Map && json.isNotEmpty) {
+      json
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) => map[key] = SystemInfoResponse.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of SystemInfoResponse-objects as value to a dart map
-  static Map<String, List<SystemInfoResponse>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<SystemInfoResponse>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
     final map = <String, List<SystemInfoResponse>>{};
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) {
-        map[key] = SystemInfoResponse.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
-      });
+    if (json is Map && json.isNotEmpty) {
+      json
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) {
+          map[key] = SystemInfoResponse.listFromJson(
+            value,
+            emptyIsNull: emptyIsNull,
+            growable: growable,
+          );
+        });
     }
     return map;
   }

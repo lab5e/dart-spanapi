@@ -5,6 +5,7 @@
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
 part of spanapi;
@@ -23,6 +24,7 @@ class ListFirmwareResponse {
 
   @override
   int get hashCode =>
+  // ignore: unnecessary_parenthesis
     (images == null ? 0 : images.hashCode);
 
   @override
@@ -37,33 +39,46 @@ class ListFirmwareResponse {
   }
 
   /// Returns a new [ListFirmwareResponse] instance and imports its values from
-  /// [json] if it's non-null, null if [json] is null.
-  static ListFirmwareResponse fromJson(Map<String, dynamic> json) => json == null
-    ? null
-    : ListFirmwareResponse(
+  /// [value] if it's a [Map], null otherwise.
+  // ignore: prefer_constructors_over_static_methods
+  static ListFirmwareResponse fromJson(dynamic value) {
+    if (value is Map) {
+      final json = value.cast<String, dynamic>();
+      return ListFirmwareResponse(
         images: Firmware.listFromJson(json[r'images']),
-    );
+      );
+    }
+    return null;
+  }
 
-  static List<ListFirmwareResponse> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <ListFirmwareResponse>[]
-      : json.map((v) => ListFirmwareResponse.fromJson(v)).toList(growable: true == growable);
+  static List<ListFirmwareResponse> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+    json is List && json.isNotEmpty
+      ? json.map(ListFirmwareResponse.fromJson).toList(growable: true == growable)
+      : true == emptyIsNull ? null : <ListFirmwareResponse>[];
 
-  static Map<String, ListFirmwareResponse> mapFromJson(Map<String, dynamic> json) {
+  static Map<String, ListFirmwareResponse> mapFromJson(dynamic json) {
     final map = <String, ListFirmwareResponse>{};
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) => map[key] = ListFirmwareResponse.fromJson(v));
+    if (json is Map && json.isNotEmpty) {
+      json
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) => map[key] = ListFirmwareResponse.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of ListFirmwareResponse-objects as value to a dart map
-  static Map<String, List<ListFirmwareResponse>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<ListFirmwareResponse>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
     final map = <String, List<ListFirmwareResponse>>{};
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) {
-        map[key] = ListFirmwareResponse.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
-      });
+    if (json is Map && json.isNotEmpty) {
+      json
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) {
+          map[key] = ListFirmwareResponse.listFromJson(
+            value,
+            emptyIsNull: emptyIsNull,
+            growable: growable,
+          );
+        });
     }
     return map;
   }

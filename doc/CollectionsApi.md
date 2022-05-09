@@ -5,76 +5,26 @@
 import 'package:spanapi/api.dart';
 ```
 
-All URIs are relative to *https://api.lab5e.com/span*
+All URIs are relative to *https://api.lab5e.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**broadcastMessage**](CollectionsApi.md#broadcastmessage) | **POST** /collections/{collectionId}/to | Broadcast message
-[**createCollection**](CollectionsApi.md#createcollection) | **POST** /collections | Create collection
-[**deleteCollection**](CollectionsApi.md#deletecollection) | **DELETE** /collections/{collectionId} | Delete collection
-[**listCollectionData**](CollectionsApi.md#listcollectiondata) | **GET** /collections/{collectionId}/data | Get payloads
-[**listCollections**](CollectionsApi.md#listcollections) | **GET** /collections | List collections
-[**retrieveCollection**](CollectionsApi.md#retrievecollection) | **GET** /collections/{collectionId} | Retrieve collection
-[**updateCollection**](CollectionsApi.md#updatecollection) | **PATCH** /collections/{collectionId} | Update collection
+[**createCollection**](CollectionsApi.md#createcollection) | **POST** /span/collections | Create collection
+[**deleteCollection**](CollectionsApi.md#deletecollection) | **DELETE** /span/collections/{collectionId} | Delete collection
+[**listCollectionData**](CollectionsApi.md#listcollectiondata) | **GET** /span/collections/{collectionId}/data | Retrieve data from devices
+[**listCollections**](CollectionsApi.md#listcollections) | **GET** /span/collections | List collections
+[**retrieveCollection**](CollectionsApi.md#retrievecollection) | **GET** /span/collections/{collectionId} | Retrieve collection
+[**updateCollection**](CollectionsApi.md#updatecollection) | **PATCH** /span/collections/{collectionId} | Update collection
 
-
-# **broadcastMessage**
-> MultiSendMessageResponse broadcastMessage(collectionId, body)
-
-Broadcast message
-
-Broadcast a message to all devices in the collection. This request will always succeed if the collection exists, even if there are one or more send errors. Individual errors are returned as an array of error messages in the response. Use equivalent to resource for devices to send a message to single device.
-
-### Example 
-```dart
-import 'package:spanapi/api.dart';
-// TODO Configure API key authorization: APIToken
-//defaultApiClient.getAuthentication<ApiKeyAuth>('APIToken').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('APIToken').apiKeyPrefix = 'Bearer';
-
-final api_instance = CollectionsApi();
-final collectionId = collectionId_example; // String | 
-final body = BroadcastMessageRequest(); // BroadcastMessageRequest | 
-
-try { 
-    final result = api_instance.broadcastMessage(collectionId, body);
-    print(result);
-} catch (e) {
-    print('Exception when calling CollectionsApi->broadcastMessage: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **collectionId** | **String**|  | 
- **body** | [**BroadcastMessageRequest**](BroadcastMessageRequest.md)|  | 
-
-### Return type
-
-[**MultiSendMessageResponse**](MultiSendMessageResponse.md)
-
-### Authorization
-
-[APIToken](../README.md#APIToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createCollection**
 > Collection createCollection(body)
 
 Create collection
 
-The returned collection is the collection stored in the backend. Defaults have been set. There are no required fields in a collection
+Create a new collection
 
-### Example 
+### Example
 ```dart
 import 'package:spanapi/api.dart';
 // TODO Configure API key authorization: APIToken
@@ -83,9 +33,9 @@ import 'package:spanapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('APIToken').apiKeyPrefix = 'Bearer';
 
 final api_instance = CollectionsApi();
-final body = Collection(); // Collection | 
+final body = CreateCollectionRequest(); // CreateCollectionRequest | 
 
-try { 
+try {
     final result = api_instance.createCollection(body);
     print(result);
 } catch (e) {
@@ -97,7 +47,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Collection**](Collection.md)|  | 
+ **body** | [**CreateCollectionRequest**](CreateCollectionRequest.md)|  | 
 
 ### Return type
 
@@ -119,9 +69,9 @@ Name | Type | Description  | Notes
 
 Delete collection
 
-You must have write access to the collection
+Remove the collection. Devices, firmware images, outputs and all other related resources must be removed from the collection before it can be deleted.
 
-### Example 
+### Example
 ```dart
 import 'package:spanapi/api.dart';
 // TODO Configure API key authorization: APIToken
@@ -132,7 +82,7 @@ import 'package:spanapi/api.dart';
 final api_instance = CollectionsApi();
 final collectionId = collectionId_example; // String | The ID of the collection you want to delete
 
-try { 
+try {
     final result = api_instance.deleteCollection(collectionId);
     print(result);
 } catch (e) {
@@ -164,11 +114,11 @@ Name | Type | Description  | Notes
 # **listCollectionData**
 > ListDataResponse listCollectionData(collectionId, limit, start, end, offset)
 
-Get payloads
+Retrieve data from devices
 
-List the data received from all the devices in the collection. The maximum number of data points is 100.
+Retrieve data sent by the devices in the collection. The maximum number of data points is 100.
 
-### Example 
+### Example
 ```dart
 import 'package:spanapi/api.dart';
 // TODO Configure API key authorization: APIToken
@@ -183,7 +133,7 @@ final start = start_example; // String | Start of time range. The default is 24 
 final end = end_example; // String | End of time range. The default is the current time stamp. Value is in milliseconds since epoch.
 final offset = offset_example; // String | The message offset based on the message ID. This parameter can't be combined with the start and end parameters. If no parameter is set the first N messages will be returned. If this parameter is set the next N messages (from newest to oldest) with message ID less than the offset will be returned.
 
-try { 
+try {
     final result = api_instance.listCollectionData(collectionId, limit, start, end, offset);
     print(result);
 } catch (e) {
@@ -223,7 +173,7 @@ List collections
 
 Lists all the collections that one of your teams owns.
 
-### Example 
+### Example
 ```dart
 import 'package:spanapi/api.dart';
 // TODO Configure API key authorization: APIToken
@@ -233,7 +183,7 @@ import 'package:spanapi/api.dart';
 
 final api_instance = CollectionsApi();
 
-try { 
+try {
     final result = api_instance.listCollections();
     print(result);
 } catch (e) {
@@ -264,7 +214,7 @@ This endpoint does not need any parameter.
 
 Retrieve collection
 
-### Example 
+### Example
 ```dart
 import 'package:spanapi/api.dart';
 // TODO Configure API key authorization: APIToken
@@ -275,7 +225,7 @@ import 'package:spanapi/api.dart';
 final api_instance = CollectionsApi();
 final collectionId = collectionId_example; // String | The collection ID of the collection you are requesting
 
-try { 
+try {
     final result = api_instance.retrieveCollection(collectionId);
     print(result);
 } catch (e) {
@@ -309,9 +259,9 @@ Name | Type | Description  | Notes
 
 Update collection
 
-You must have write access to the collection, ie. you must administer it
+Update a collection.
 
-### Example 
+### Example
 ```dart
 import 'package:spanapi/api.dart';
 // TODO Configure API key authorization: APIToken
@@ -321,9 +271,9 @@ import 'package:spanapi/api.dart';
 
 final api_instance = CollectionsApi();
 final collectionId = collectionId_example; // String | The ID of the collection. This is assigned by the backend.
-final body = Collection(); // Collection | 
+final body = UpdateCollectionRequest(); // UpdateCollectionRequest | 
 
-try { 
+try {
     final result = api_instance.updateCollection(collectionId, body);
     print(result);
 } catch (e) {
@@ -336,7 +286,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **String**| The ID of the collection. This is assigned by the backend. | 
- **body** | [**Collection**](Collection.md)|  | 
+ **body** | [**UpdateCollectionRequest**](UpdateCollectionRequest.md)|  | 
 
 ### Return type
 

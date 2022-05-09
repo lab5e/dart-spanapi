@@ -5,6 +5,7 @@
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
 part of spanapi;
@@ -56,6 +57,7 @@ class Firmware {
 
   @override
   int get hashCode =>
+  // ignore: unnecessary_parenthesis
     (imageId == null ? 0 : imageId.hashCode) +
     (version == null ? 0 : version.hashCode) +
     (filename == null ? 0 : filename.hashCode) +
@@ -98,42 +100,53 @@ class Firmware {
   }
 
   /// Returns a new [Firmware] instance and imports its values from
-  /// [json] if it's non-null, null if [json] is null.
-  static Firmware fromJson(Map<String, dynamic> json) => json == null
-    ? null
-    : Firmware(
-        imageId: json[r'imageId'],
-        version: json[r'version'],
-        filename: json[r'filename'],
-        sha256: json[r'sha256'],
-        length: json[r'length'],
-        collectionId: json[r'collectionId'],
-        created: json[r'created'],
-        tags: json[r'tags'] == null ?
-          null :
-          (json[r'tags'] as Map).cast<String, String>(),
-    );
+  /// [value] if it's a [Map], null otherwise.
+  // ignore: prefer_constructors_over_static_methods
+  static Firmware fromJson(dynamic value) {
+    if (value is Map) {
+      final json = value.cast<String, dynamic>();
+      return Firmware(
+        imageId: mapValueOfType<String>(json, r'imageId'),
+        version: mapValueOfType<String>(json, r'version'),
+        filename: mapValueOfType<String>(json, r'filename'),
+        sha256: mapValueOfType<String>(json, r'sha256'),
+        length: mapValueOfType<int>(json, r'length'),
+        collectionId: mapValueOfType<String>(json, r'collectionId'),
+        created: mapValueOfType<String>(json, r'created'),
+        tags: mapCastOfType<String, String>(json, r'tags'),
+      );
+    }
+    return null;
+  }
 
-  static List<Firmware> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <Firmware>[]
-      : json.map((v) => Firmware.fromJson(v)).toList(growable: true == growable);
+  static List<Firmware> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+    json is List && json.isNotEmpty
+      ? json.map(Firmware.fromJson).toList(growable: true == growable)
+      : true == emptyIsNull ? null : <Firmware>[];
 
-  static Map<String, Firmware> mapFromJson(Map<String, dynamic> json) {
+  static Map<String, Firmware> mapFromJson(dynamic json) {
     final map = <String, Firmware>{};
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) => map[key] = Firmware.fromJson(v));
+    if (json is Map && json.isNotEmpty) {
+      json
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) => map[key] = Firmware.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of Firmware-objects as value to a dart map
-  static Map<String, List<Firmware>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<Firmware>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
     final map = <String, List<Firmware>>{};
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) {
-        map[key] = Firmware.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
-      });
+    if (json is Map && json.isNotEmpty) {
+      json
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) {
+          map[key] = Firmware.listFromJson(
+            value,
+            emptyIsNull: emptyIsNull,
+            growable: growable,
+          );
+        });
     }
     return map;
   }

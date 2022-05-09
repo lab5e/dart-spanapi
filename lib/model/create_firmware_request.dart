@@ -5,6 +5,7 @@
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
 part of spanapi;
@@ -12,14 +13,11 @@ part of spanapi;
 class CreateFirmwareRequest {
   /// Returns a new [CreateFirmwareRequest] instance.
   CreateFirmwareRequest({
-    this.collectionId,
     this.image,
     this.version,
     this.filename,
     this.tags = const {},
   });
-
-  String collectionId;
 
   String image;
 
@@ -31,7 +29,6 @@ class CreateFirmwareRequest {
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is CreateFirmwareRequest &&
-     other.collectionId == collectionId &&
      other.image == image &&
      other.version == version &&
      other.filename == filename &&
@@ -39,20 +36,17 @@ class CreateFirmwareRequest {
 
   @override
   int get hashCode =>
-    (collectionId == null ? 0 : collectionId.hashCode) +
+  // ignore: unnecessary_parenthesis
     (image == null ? 0 : image.hashCode) +
     (version == null ? 0 : version.hashCode) +
     (filename == null ? 0 : filename.hashCode) +
     (tags == null ? 0 : tags.hashCode);
 
   @override
-  String toString() => 'CreateFirmwareRequest[collectionId=$collectionId, image=$image, version=$version, filename=$filename, tags=$tags]';
+  String toString() => 'CreateFirmwareRequest[image=$image, version=$version, filename=$filename, tags=$tags]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    if (collectionId != null) {
-      json[r'collectionId'] = collectionId;
-    }
     if (image != null) {
       json[r'image'] = image;
     }
@@ -69,39 +63,49 @@ class CreateFirmwareRequest {
   }
 
   /// Returns a new [CreateFirmwareRequest] instance and imports its values from
-  /// [json] if it's non-null, null if [json] is null.
-  static CreateFirmwareRequest fromJson(Map<String, dynamic> json) => json == null
-    ? null
-    : CreateFirmwareRequest(
-        collectionId: json[r'collectionId'],
-        image: json[r'image'],
-        version: json[r'version'],
-        filename: json[r'filename'],
-        tags: json[r'tags'] == null ?
-          null :
-          (json[r'tags'] as Map).cast<String, String>(),
-    );
+  /// [value] if it's a [Map], null otherwise.
+  // ignore: prefer_constructors_over_static_methods
+  static CreateFirmwareRequest fromJson(dynamic value) {
+    if (value is Map) {
+      final json = value.cast<String, dynamic>();
+      return CreateFirmwareRequest(
+        image: mapValueOfType<String>(json, r'image'),
+        version: mapValueOfType<String>(json, r'version'),
+        filename: mapValueOfType<String>(json, r'filename'),
+        tags: mapCastOfType<String, String>(json, r'tags'),
+      );
+    }
+    return null;
+  }
 
-  static List<CreateFirmwareRequest> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <CreateFirmwareRequest>[]
-      : json.map((v) => CreateFirmwareRequest.fromJson(v)).toList(growable: true == growable);
+  static List<CreateFirmwareRequest> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+    json is List && json.isNotEmpty
+      ? json.map(CreateFirmwareRequest.fromJson).toList(growable: true == growable)
+      : true == emptyIsNull ? null : <CreateFirmwareRequest>[];
 
-  static Map<String, CreateFirmwareRequest> mapFromJson(Map<String, dynamic> json) {
+  static Map<String, CreateFirmwareRequest> mapFromJson(dynamic json) {
     final map = <String, CreateFirmwareRequest>{};
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) => map[key] = CreateFirmwareRequest.fromJson(v));
+    if (json is Map && json.isNotEmpty) {
+      json
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) => map[key] = CreateFirmwareRequest.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of CreateFirmwareRequest-objects as value to a dart map
-  static Map<String, List<CreateFirmwareRequest>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<CreateFirmwareRequest>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
     final map = <String, List<CreateFirmwareRequest>>{};
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) {
-        map[key] = CreateFirmwareRequest.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
-      });
+    if (json is Map && json.isNotEmpty) {
+      json
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) {
+          map[key] = CreateFirmwareRequest.listFromJson(
+            value,
+            emptyIsNull: emptyIsNull,
+            growable: growable,
+          );
+        });
     }
     return map;
   }

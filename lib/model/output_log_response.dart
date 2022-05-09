@@ -5,6 +5,7 @@
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
 part of spanapi;
@@ -23,6 +24,7 @@ class OutputLogResponse {
 
   @override
   int get hashCode =>
+  // ignore: unnecessary_parenthesis
     (logs == null ? 0 : logs.hashCode);
 
   @override
@@ -37,33 +39,46 @@ class OutputLogResponse {
   }
 
   /// Returns a new [OutputLogResponse] instance and imports its values from
-  /// [json] if it's non-null, null if [json] is null.
-  static OutputLogResponse fromJson(Map<String, dynamic> json) => json == null
-    ? null
-    : OutputLogResponse(
+  /// [value] if it's a [Map], null otherwise.
+  // ignore: prefer_constructors_over_static_methods
+  static OutputLogResponse fromJson(dynamic value) {
+    if (value is Map) {
+      final json = value.cast<String, dynamic>();
+      return OutputLogResponse(
         logs: OutputLogEntry.listFromJson(json[r'logs']),
-    );
+      );
+    }
+    return null;
+  }
 
-  static List<OutputLogResponse> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <OutputLogResponse>[]
-      : json.map((v) => OutputLogResponse.fromJson(v)).toList(growable: true == growable);
+  static List<OutputLogResponse> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+    json is List && json.isNotEmpty
+      ? json.map(OutputLogResponse.fromJson).toList(growable: true == growable)
+      : true == emptyIsNull ? null : <OutputLogResponse>[];
 
-  static Map<String, OutputLogResponse> mapFromJson(Map<String, dynamic> json) {
+  static Map<String, OutputLogResponse> mapFromJson(dynamic json) {
     final map = <String, OutputLogResponse>{};
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) => map[key] = OutputLogResponse.fromJson(v));
+    if (json is Map && json.isNotEmpty) {
+      json
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) => map[key] = OutputLogResponse.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of OutputLogResponse-objects as value to a dart map
-  static Map<String, List<OutputLogResponse>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<OutputLogResponse>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
     final map = <String, List<OutputLogResponse>>{};
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) {
-        map[key] = OutputLogResponse.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
-      });
+    if (json is Map && json.isNotEmpty) {
+      json
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) {
+          map[key] = OutputLogResponse.listFromJson(
+            value,
+            emptyIsNull: emptyIsNull,
+            growable: growable,
+          );
+        });
     }
     return map;
   }

@@ -8,7 +8,6 @@ import 'package:spanapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**collectionId** | **String** |  | [optional] 
 **image** | **String** |  | [optional] 
 **version** | **String** |  | [optional] 
 **filename** | **String** |  | [optional] 

@@ -9,6 +9,8 @@ import 'package:spanapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **simOperator** | [**NetworkOperator**](NetworkOperator.md) |  | [optional] 
+**ciot** | [**CellularIoTMetadata**](CellularIoTMetadata.md) |  | [optional] 
+**inet** | [**InetMetadata**](InetMetadata.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

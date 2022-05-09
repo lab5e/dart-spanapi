@@ -5,17 +5,17 @@
 import 'package:spanapi/api.dart';
 ```
 
-All URIs are relative to *https://api.lab5e.com/span*
+All URIs are relative to *https://api.lab5e.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createOutput**](OutputsApi.md#createoutput) | **POST** /collections/{collectionId}/outputs | Create output
-[**deleteOutput**](OutputsApi.md#deleteoutput) | **DELETE** /collections/{collectionId}/outputs/{outputId} | Delete output
-[**listOutputs**](OutputsApi.md#listoutputs) | **GET** /collections/{collectionId}/outputs | List outputs
-[**logs**](OutputsApi.md#logs) | **GET** /collections/{collectionId}/outputs/{outputId}/logs | Output logs
-[**retrieveOutput**](OutputsApi.md#retrieveoutput) | **GET** /collections/{collectionId}/outputs/{outputId} | Retrieve output
-[**status**](OutputsApi.md#status) | **GET** /collections/{collectionId}/outputs/{outputId}/status | Output status
-[**updateOutput**](OutputsApi.md#updateoutput) | **PATCH** /collections/{collectionId}/outputs/{outputId} | Update output
+[**createOutput**](OutputsApi.md#createoutput) | **POST** /span/collections/{collectionId}/outputs | Create output
+[**deleteOutput**](OutputsApi.md#deleteoutput) | **DELETE** /span/collections/{collectionId}/outputs/{outputId} | Delete output
+[**listOutputs**](OutputsApi.md#listoutputs) | **GET** /span/collections/{collectionId}/outputs | List outputs
+[**logs**](OutputsApi.md#logs) | **GET** /span/collections/{collectionId}/outputs/{outputId}/logs | Output logs
+[**retrieveOutput**](OutputsApi.md#retrieveoutput) | **GET** /span/collections/{collectionId}/outputs/{outputId} | Retrieve output
+[**status**](OutputsApi.md#status) | **GET** /span/collections/{collectionId}/outputs/{outputId}/status | Output status
+[**updateOutput**](OutputsApi.md#updateoutput) | **PATCH** /span/collections/{existingCollectionId}/outputs/{outputId} | Update output
 
 
 # **createOutput**
@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 Create output
 
-### Example 
+### Example
 ```dart
 import 'package:spanapi/api.dart';
 // TODO Configure API key authorization: APIToken
@@ -33,9 +33,9 @@ import 'package:spanapi/api.dart';
 
 final api_instance = OutputsApi();
 final collectionId = collectionId_example; // String | 
-final body = Output(); // Output | 
+final body = CreateOutputRequest(); // CreateOutputRequest | 
 
-try { 
+try {
     final result = api_instance.createOutput(collectionId, body);
     print(result);
 } catch (e) {
@@ -48,7 +48,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **String**|  | 
- **body** | [**Output**](Output.md)|  | 
+ **body** | [**CreateOutputRequest**](CreateOutputRequest.md)|  | 
 
 ### Return type
 
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 
 Delete output
 
-### Example 
+### Example
 ```dart
 import 'package:spanapi/api.dart';
 // TODO Configure API key authorization: APIToken
@@ -82,7 +82,7 @@ final api_instance = OutputsApi();
 final collectionId = collectionId_example; // String | 
 final outputId = outputId_example; // String | 
 
-try { 
+try {
     final result = api_instance.deleteOutput(collectionId, outputId);
     print(result);
 } catch (e) {
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 List outputs
 
-### Example 
+### Example
 ```dart
 import 'package:spanapi/api.dart';
 // TODO Configure API key authorization: APIToken
@@ -128,7 +128,7 @@ import 'package:spanapi/api.dart';
 final api_instance = OutputsApi();
 final collectionId = collectionId_example; // String | 
 
-try { 
+try {
     final result = api_instance.listOutputs(collectionId);
     print(result);
 } catch (e) {
@@ -162,7 +162,7 @@ Name | Type | Description  | Notes
 
 Output logs
 
-### Example 
+### Example
 ```dart
 import 'package:spanapi/api.dart';
 // TODO Configure API key authorization: APIToken
@@ -174,7 +174,7 @@ final api_instance = OutputsApi();
 final collectionId = collectionId_example; // String | 
 final outputId = outputId_example; // String | 
 
-try { 
+try {
     final result = api_instance.logs(collectionId, outputId);
     print(result);
 } catch (e) {
@@ -209,7 +209,7 @@ Name | Type | Description  | Notes
 
 Retrieve output
 
-### Example 
+### Example
 ```dart
 import 'package:spanapi/api.dart';
 // TODO Configure API key authorization: APIToken
@@ -221,7 +221,7 @@ final api_instance = OutputsApi();
 final collectionId = collectionId_example; // String | 
 final outputId = outputId_example; // String | 
 
-try { 
+try {
     final result = api_instance.retrieveOutput(collectionId, outputId);
     print(result);
 } catch (e) {
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 
 Output status
 
-### Example 
+### Example
 ```dart
 import 'package:spanapi/api.dart';
 // TODO Configure API key authorization: APIToken
@@ -268,7 +268,7 @@ final api_instance = OutputsApi();
 final collectionId = collectionId_example; // String | 
 final outputId = outputId_example; // String | 
 
-try { 
+try {
     final result = api_instance.status(collectionId, outputId);
     print(result);
 } catch (e) {
@@ -299,13 +299,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateOutput**
-> Output updateOutput(collectionId, outputId, body)
+> Output updateOutput(existingCollectionId, outputId, body)
 
 Update output
 
-Running outputs will be restarted if required. Note that the collection ID can't be changed on an existing output.
-
-### Example 
+### Example
 ```dart
 import 'package:spanapi/api.dart';
 // TODO Configure API key authorization: APIToken
@@ -314,12 +312,12 @@ import 'package:spanapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('APIToken').apiKeyPrefix = 'Bearer';
 
 final api_instance = OutputsApi();
-final collectionId = collectionId_example; // String | 
+final existingCollectionId = existingCollectionId_example; // String | 
 final outputId = outputId_example; // String | 
-final body = Output(); // Output | 
+final body = UpdateOutputRequest(); // UpdateOutputRequest | 
 
-try { 
-    final result = api_instance.updateOutput(collectionId, outputId, body);
+try {
+    final result = api_instance.updateOutput(existingCollectionId, outputId, body);
     print(result);
 } catch (e) {
     print('Exception when calling OutputsApi->updateOutput: $e\n');
@@ -330,9 +328,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collectionId** | **String**|  | 
+ **existingCollectionId** | **String**|  | 
  **outputId** | **String**|  | 
- **body** | [**Output**](Output.md)|  | 
+ **body** | [**UpdateOutputRequest**](UpdateOutputRequest.md)|  | 
 
 ### Return type
 

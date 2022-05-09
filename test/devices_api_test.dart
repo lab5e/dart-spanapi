@@ -5,71 +5,106 @@
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
 import 'package:spanapi/api.dart';
 import 'package:test/test.dart';
+
 
 /// tests for DevicesApi
 void main() {
   final instance = DevicesApi();
 
   group('tests for DevicesApi', () {
+    // Add message to oubox
+    //
+    // Add a new message in the outgoing queue to the device. If there is other messages in the outbox these messages will be sent first.
+    //
+    //Future<MessageDownstream> addDownstreamMessage(String collectionId, String deviceId, AddDownstreamMessageRequest body) async
+    test('test addDownstreamMessage', () async {
+      // TODO
+    });
+
     // Create device
     //
-    // Create a new device. This will add a device to the collection. You must have write access to the collection.
-    //
-    //Future<Device> createDevice(String collectionId, Device body) async
+    //Future<Device> createDevice(String collectionId, CreateDeviceRequest body) async
     test('test createDevice', () async {
       // TODO
     });
 
-    // Remove device
+    // Remove device.
     //
     //Future<Device> deleteDevice(String collectionId, String deviceId) async
     test('test deleteDevice', () async {
       // TODO
     });
 
-    // Get payloads
+    // Delete outgoing message
     //
-    // List the data received from the device. Use the query parameters to control what data you retrieve.
+    // Delete an outgoing (ie downstream) message from the outbox.
+    //
+    //Future<DeleteDownstreamMessageResponse> deleteDownstreamMessage(String collectionId, String deviceId, String messageId) async
+    test('test deleteDownstreamMessage', () async {
+      // TODO
+    });
+
+    // Get issued certificate(s) for device
+    //
+    //Future<DeviceCertificateResponse> deviceCertificate(String collectionId, String deviceId) async
+    test('test deviceCertificate', () async {
+      // TODO
+    });
+
+    // Retrieve data from device
+    //
+    // List the data received from the device. Use the query parameters to control what data you retrieve. The  maximum number of data points is 100.
     //
     //Future<ListDataResponse> listDeviceData(String collectionId, String deviceId, { int limit, String start, String end, String offset }) async
     test('test listDeviceData', () async {
       // TODO
     });
 
-    // List devices
+    // List devices in collection.
     //
     //Future<ListDevicesResponse> listDevices(String collectionId) async
     test('test listDevices', () async {
       // TODO
     });
 
-    // Retrieve device
+    // List the messages in the outbox
     //
-    // Retrieve a single device
+    // List messages that should be sent to the device when it connects to the service. The messages are sent to the device when it connects to the service and either sends a message (via UDP or CoAP) or requests a message via CoAP GET request.option
+    //
+    //Future<ListDownstreamMessagesResponse> listDownstreamMessages(String collectionId, String deviceId, { int limit, String start, String end, String offset }) async
+    test('test listDownstreamMessages', () async {
+      // TODO
+    });
+
+    // List incoming messages
+    //
+    // Retrieve a list of incoming (ie upstream) messages, ie messages sent from the device to the service.  These messages are buffered in the service until they expire.   Use the query parameters to limit the number of messages to return. If no limit is specified the default limit of 250 is used.
+    //
+    //Future<ListUpstreamMessagesResponse> listUpstreamMessages(String collectionId, String deviceId, { int limit, String start, String end, String offset }) async
+    test('test listUpstreamMessages', () async {
+      // TODO
+    });
+
+    // Retrieve device
     //
     //Future<Device> retrieveDevice(String collectionId, String deviceId) async
     test('test retrieveDevice', () async {
       // TODO
     });
 
-    // Send message
-    //
-    // Send a message to the device
-    //
-    //Future<SendMessageResponse> sendMessage(String collectionId, String deviceId, SendMessageRequest body) async
-    test('test sendMessage', () async {
-      // TODO
-    });
-
     // Update device
+    //
+    // The device can be moved from one collection to another by setting the collection ID field to the new  collection. You must have administrative access to both collections.
     //
     //Future<Device> updateDevice(String existingCollectionId, String deviceId, UpdateDeviceRequest body) async
     test('test updateDevice', () async {
       // TODO
     });
+
   });
 }

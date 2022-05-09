@@ -5,11 +5,12 @@
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
 part of spanapi;
 
-
+/// Output types available   - undefined: The undefined output type is an invalid type
 class OutputType {
   /// Instantiate a new enum with the provided [value].
   const OutputType._(this.value);
@@ -18,14 +19,14 @@ class OutputType {
   final String value;
 
   @override
-  String toString() => value;
+  String toString() => value ?? '';
 
   String toJson() => value;
 
   static const undefined = OutputType._(r'undefined');
   static const webhook = OutputType._(r'webhook');
-  static const udp = OutputType._(r'udp');
-  static const mqtt = OutputType._(r'mqtt');
+  static const udpout = OutputType._(r'udpout');
+  static const mqttclient = OutputType._(r'mqttclient');
   static const ifttt = OutputType._(r'ifttt');
   static const mqttbroker = OutputType._(r'mqttbroker');
 
@@ -33,8 +34,8 @@ class OutputType {
   static const values = <OutputType>[
     undefined,
     webhook,
-    udp,
-    mqtt,
+    udpout,
+    mqttclient,
     ifttt,
     mqttbroker,
   ];
@@ -42,20 +43,18 @@ class OutputType {
   static OutputType fromJson(dynamic value) =>
     OutputTypeTypeTransformer().decode(value);
 
-  static List<OutputType> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <OutputType>[]
-      : json
-          .map((value) => OutputType.fromJson(value))
-          .toList(growable: true == growable);
+  static List<OutputType> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+    json is List && json.isNotEmpty
+      ? json.map(OutputType.fromJson).toList(growable: true == growable)
+      : true == emptyIsNull ? null : <OutputType>[];
 }
 
 /// Transformation class that can [encode] an instance of [OutputType] to String,
 /// and [decode] dynamic data back to [OutputType].
 class OutputTypeTypeTransformer {
-  const OutputTypeTypeTransformer._();
+  factory OutputTypeTypeTransformer() => _instance ??= const OutputTypeTypeTransformer._();
 
-  factory OutputTypeTypeTransformer() => _instance ??= OutputTypeTypeTransformer._();
+  const OutputTypeTypeTransformer._();
 
   String encode(OutputType data) => data.value;
 
@@ -68,17 +67,19 @@ class OutputTypeTypeTransformer {
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
   OutputType decode(dynamic data, {bool allowNull}) {
-    switch (data) {
-      case r'undefined': return OutputType.undefined;
-      case r'webhook': return OutputType.webhook;
-      case r'udp': return OutputType.udp;
-      case r'mqtt': return OutputType.mqtt;
-      case r'ifttt': return OutputType.ifttt;
-      case r'mqttbroker': return OutputType.mqttbroker;
-      default:
-        if (allowNull == false) {
-          throw ArgumentError('Unknown enum value to decode: $data');
-        }
+    if (data != null) {
+      switch (data.toString()) {
+        case r'undefined': return OutputType.undefined;
+        case r'webhook': return OutputType.webhook;
+        case r'udpout': return OutputType.udpout;
+        case r'mqttclient': return OutputType.mqttclient;
+        case r'ifttt': return OutputType.ifttt;
+        case r'mqttbroker': return OutputType.mqttbroker;
+        default:
+          if (allowNull == false) {
+            throw ArgumentError('Unknown enum value to decode: $data');
+          }
+      }
     }
     return null;
   }
@@ -86,3 +87,4 @@ class OutputTypeTypeTransformer {
   /// Singleton [OutputTypeTypeTransformer] instance.
   static OutputTypeTypeTransformer _instance;
 }
+

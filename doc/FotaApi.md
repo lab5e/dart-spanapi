@@ -5,17 +5,17 @@
 import 'package:spanapi/api.dart';
 ```
 
-All URIs are relative to *https://api.lab5e.com/span*
+All URIs are relative to *https://api.lab5e.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**clearFirmwareError**](FotaApi.md#clearfirmwareerror) | **DELETE** /collections/{collectionId}/devices/{deviceId}/fwerror | Clear FOTA error
-[**createFirmware**](FotaApi.md#createfirmware) | **POST** /collections/{collectionId}/firmware | Create firmware
-[**deleteFirmware**](FotaApi.md#deletefirmware) | **DELETE** /collections/{collectionId}/firmware/{imageId} | Delete firmware
-[**firmwareUsage**](FotaApi.md#firmwareusage) | **GET** /collections/{collectionId}/firmware/{imageId}/usage | Firmware usage
-[**listFirmware**](FotaApi.md#listfirmware) | **GET** /collections/{collectionId}/firmware | List firmware
-[**retrieveFirmware**](FotaApi.md#retrievefirmware) | **GET** /collections/{collectionId}/firmware/{imageId} | Retrieve firmware
-[**updateFirmware**](FotaApi.md#updatefirmware) | **PATCH** /collections/{collectionId}/firmware/{imageId} | Update firmware. Only the version and tags fields can be updated. The other fields will be ignored..
+[**clearFirmwareError**](FotaApi.md#clearfirmwareerror) | **DELETE** /span/collections/{collectionId}/devices/{deviceId}/fwerror | Clear FOTA error
+[**createFirmware**](FotaApi.md#createfirmware) | **POST** /span/collections/{collectionId}/firmware | Create firmware
+[**deleteFirmware**](FotaApi.md#deletefirmware) | **DELETE** /span/collections/{collectionId}/firmware/{imageId} | Delete firmware
+[**firmwareUsage**](FotaApi.md#firmwareusage) | **GET** /span/collections/{collectionId}/firmware/{imageId}/usage | Firmware usage
+[**listFirmware**](FotaApi.md#listfirmware) | **GET** /span/collections/{collectionId}/firmware | List firmware
+[**retrieveFirmware**](FotaApi.md#retrievefirmware) | **GET** /span/collections/{collectionId}/firmware/{imageId} | Retrieve firmware
+[**updateFirmware**](FotaApi.md#updatefirmware) | **PATCH** /span/collections/{existingCollectionId}/firmware/{imageId} | Update firmware
 
 
 # **clearFirmwareError**
@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 Clear FOTA error
 
-### Example 
+### Example
 ```dart
 import 'package:spanapi/api.dart';
 // TODO Configure API key authorization: APIToken
@@ -35,7 +35,7 @@ final api_instance = FotaApi();
 final collectionId = collectionId_example; // String | 
 final deviceId = deviceId_example; // String | 
 
-try { 
+try {
     final result = api_instance.clearFirmwareError(collectionId, deviceId);
     print(result);
 } catch (e) {
@@ -70,9 +70,7 @@ Name | Type | Description  | Notes
 
 Create firmware
 
-Create a new firmware image. This is also invoked by the custom HTTP uploader if the POST uses multipart/formdata for the request.
-
-### Example 
+### Example
 ```dart
 import 'package:spanapi/api.dart';
 // TODO Configure API key authorization: APIToken
@@ -84,7 +82,7 @@ final api_instance = FotaApi();
 final collectionId = collectionId_example; // String | 
 final body = CreateFirmwareRequest(); // CreateFirmwareRequest | 
 
-try { 
+try {
     final result = api_instance.createFirmware(collectionId, body);
     print(result);
 } catch (e) {
@@ -119,7 +117,7 @@ Name | Type | Description  | Notes
 
 Delete firmware
 
-### Example 
+### Example
 ```dart
 import 'package:spanapi/api.dart';
 // TODO Configure API key authorization: APIToken
@@ -131,7 +129,7 @@ final api_instance = FotaApi();
 final collectionId = collectionId_example; // String | 
 final imageId = imageId_example; // String | 
 
-try { 
+try {
     final result = api_instance.deleteFirmware(collectionId, imageId);
     print(result);
 } catch (e) {
@@ -166,9 +164,7 @@ Name | Type | Description  | Notes
 
 Firmware usage
 
-Shows the firmware usage for devices in the collection
-
-### Example 
+### Example
 ```dart
 import 'package:spanapi/api.dart';
 // TODO Configure API key authorization: APIToken
@@ -180,7 +176,7 @@ final api_instance = FotaApi();
 final collectionId = collectionId_example; // String | 
 final imageId = imageId_example; // String | 
 
-try { 
+try {
     final result = api_instance.firmwareUsage(collectionId, imageId);
     print(result);
 } catch (e) {
@@ -215,9 +211,7 @@ Name | Type | Description  | Notes
 
 List firmware
 
-Lists available firmware images in collection
-
-### Example 
+### Example
 ```dart
 import 'package:spanapi/api.dart';
 // TODO Configure API key authorization: APIToken
@@ -228,7 +222,7 @@ import 'package:spanapi/api.dart';
 final api_instance = FotaApi();
 final collectionId = collectionId_example; // String | 
 
-try { 
+try {
     final result = api_instance.listFirmware(collectionId);
     print(result);
 } catch (e) {
@@ -262,9 +256,7 @@ Name | Type | Description  | Notes
 
 Retrieve firmware
 
-Retrieve information on a firmware image
-
-### Example 
+### Example
 ```dart
 import 'package:spanapi/api.dart';
 // TODO Configure API key authorization: APIToken
@@ -276,7 +268,7 @@ final api_instance = FotaApi();
 final collectionId = collectionId_example; // String | 
 final imageId = imageId_example; // String | 
 
-try { 
+try {
     final result = api_instance.retrieveFirmware(collectionId, imageId);
     print(result);
 } catch (e) {
@@ -307,11 +299,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateFirmware**
-> Firmware updateFirmware(collectionId, imageId, body)
+> Firmware updateFirmware(existingCollectionId, imageId, body)
 
-Update firmware. Only the version and tags fields can be updated. The other fields will be ignored..
+Update firmware
 
-### Example 
+Only the version and tags fields can be updated. The other fields will be ignored.
+
+### Example
 ```dart
 import 'package:spanapi/api.dart';
 // TODO Configure API key authorization: APIToken
@@ -320,12 +314,12 @@ import 'package:spanapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('APIToken').apiKeyPrefix = 'Bearer';
 
 final api_instance = FotaApi();
-final collectionId = collectionId_example; // String | Collection ID  Collection ID for the collection owning the firmware image.
-final imageId = imageId_example; // String | Firmware image ID
-final body = Firmware(); // Firmware | 
+final existingCollectionId = existingCollectionId_example; // String | 
+final imageId = imageId_example; // String | 
+final body = UpdateFirmwareRequest(); // UpdateFirmwareRequest | 
 
-try { 
-    final result = api_instance.updateFirmware(collectionId, imageId, body);
+try {
+    final result = api_instance.updateFirmware(existingCollectionId, imageId, body);
     print(result);
 } catch (e) {
     print('Exception when calling FotaApi->updateFirmware: $e\n');
@@ -336,9 +330,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collectionId** | **String**| Collection ID  Collection ID for the collection owning the firmware image. | 
- **imageId** | **String**| Firmware image ID | 
- **body** | [**Firmware**](Firmware.md)|  | 
+ **existingCollectionId** | **String**|  | 
+ **imageId** | **String**|  | 
+ **body** | [**UpdateFirmwareRequest**](UpdateFirmwareRequest.md)|  | 
 
 ### Return type
 

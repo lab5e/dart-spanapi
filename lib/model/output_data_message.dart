@@ -5,6 +5,7 @@
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
 part of spanapi;
@@ -22,7 +23,7 @@ class OutputDataMessage {
     this.messageId,
   });
 
-  OutputDataMessageOutputMessageType type;
+  OutputMessageType type;
 
   Device device;
 
@@ -52,6 +53,7 @@ class OutputDataMessage {
 
   @override
   int get hashCode =>
+  // ignore: unnecessary_parenthesis
     (type == null ? 0 : type.hashCode) +
     (device == null ? 0 : device.hashCode) +
     (payload == null ? 0 : payload.hashCode) +
@@ -94,40 +96,53 @@ class OutputDataMessage {
   }
 
   /// Returns a new [OutputDataMessage] instance and imports its values from
-  /// [json] if it's non-null, null if [json] is null.
-  static OutputDataMessage fromJson(Map<String, dynamic> json) => json == null
-    ? null
-    : OutputDataMessage(
-        type: OutputDataMessageOutputMessageType.fromJson(json[r'type']),
+  /// [value] if it's a [Map], null otherwise.
+  // ignore: prefer_constructors_over_static_methods
+  static OutputDataMessage fromJson(dynamic value) {
+    if (value is Map) {
+      final json = value.cast<String, dynamic>();
+      return OutputDataMessage(
+        type: OutputMessageType.fromJson(json[r'type']),
         device: Device.fromJson(json[r'device']),
-        payload: json[r'payload'],
-        received: json[r'received'],
-        transport: json[r'transport'],
+        payload: mapValueOfType<String>(json, r'payload'),
+        received: mapValueOfType<String>(json, r'received'),
+        transport: mapValueOfType<String>(json, r'transport'),
         udpMetaData: UDPMetadata.fromJson(json[r'udpMetaData']),
         coapMetaData: CoAPMetadata.fromJson(json[r'coapMetaData']),
-        messageId: json[r'messageId'],
-    );
+        messageId: mapValueOfType<String>(json, r'messageId'),
+      );
+    }
+    return null;
+  }
 
-  static List<OutputDataMessage> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <OutputDataMessage>[]
-      : json.map((v) => OutputDataMessage.fromJson(v)).toList(growable: true == growable);
+  static List<OutputDataMessage> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+    json is List && json.isNotEmpty
+      ? json.map(OutputDataMessage.fromJson).toList(growable: true == growable)
+      : true == emptyIsNull ? null : <OutputDataMessage>[];
 
-  static Map<String, OutputDataMessage> mapFromJson(Map<String, dynamic> json) {
+  static Map<String, OutputDataMessage> mapFromJson(dynamic json) {
     final map = <String, OutputDataMessage>{};
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) => map[key] = OutputDataMessage.fromJson(v));
+    if (json is Map && json.isNotEmpty) {
+      json
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) => map[key] = OutputDataMessage.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of OutputDataMessage-objects as value to a dart map
-  static Map<String, List<OutputDataMessage>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<OutputDataMessage>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
     final map = <String, List<OutputDataMessage>>{};
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) {
-        map[key] = OutputDataMessage.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
-      });
+    if (json is Map && json.isNotEmpty) {
+      json
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) {
+          map[key] = OutputDataMessage.listFromJson(
+            value,
+            emptyIsNull: emptyIsNull,
+            growable: growable,
+          );
+        });
     }
     return map;
   }

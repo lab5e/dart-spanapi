@@ -5,6 +5,7 @@
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
 import 'package:spanapi/api.dart';
@@ -15,6 +16,7 @@ void main() {
   final instance = OutputConfig();
 
   group('test OutputConfig', () {
+    // URL for the webhook.
     // String url
     test('to test the property `url`', () async {
       // TODO
@@ -95,5 +97,23 @@ void main() {
     test('to test the property `topicName`', () async {
       // TODO
     });
+
+    // String topicTemplate
+    test('to test the property `topicTemplate`', () async {
+      // TODO
+    });
+
+    // String payloadFormat
+    test('to test the property `payloadFormat`', () async {
+      // TODO
+    });
+
+    // String payloadTemplate
+    test('to test the property `payloadTemplate`', () async {
+      // TODO
+    });
+
+
   });
+
 }

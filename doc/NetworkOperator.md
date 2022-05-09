@@ -8,7 +8,7 @@ import 'package:spanapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**mcc** | **int** | The Mobil Country Code for the operator. | [optional] 
+**mcc** | **int** | The Mobile Country Code for the operator. | [optional] 
 **mnc** | **int** |  | [optional] 
 **country** | **String** |  | [optional] 
 **network** | **String** |  | [optional] 

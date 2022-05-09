@@ -5,46 +5,39 @@
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
 import 'package:spanapi/api.dart';
 import 'package:test/test.dart';
+
 
 /// tests for CollectionsApi
 void main() {
   final instance = CollectionsApi();
 
   group('tests for CollectionsApi', () {
-    // Broadcast message
-    //
-    // Broadcast a message to all devices in the collection. This request will always succeed if the collection exists, even if there are one or more send errors. Individual errors are returned as an array of error messages in the response. Use equivalent to resource for devices to send a message to single device.
-    //
-    //Future<MultiSendMessageResponse> broadcastMessage(String collectionId, BroadcastMessageRequest body) async
-    test('test broadcastMessage', () async {
-      // TODO
-    });
-
     // Create collection
     //
-    // The returned collection is the collection stored in the backend. Defaults have been set. There are no required fields in a collection
+    // Create a new collection
     //
-    //Future<Collection> createCollection(Collection body) async
+    //Future<Collection> createCollection(CreateCollectionRequest body) async
     test('test createCollection', () async {
       // TODO
     });
 
     // Delete collection
     //
-    // You must have write access to the collection
+    // Remove the collection. Devices, firmware images, outputs and all other related resources must be removed from the collection before it can be deleted.
     //
     //Future<Collection> deleteCollection(String collectionId) async
     test('test deleteCollection', () async {
       // TODO
     });
 
-    // Get payloads
+    // Retrieve data from devices
     //
-    // List the data received from all the devices in the collection.
+    // Retrieve data sent by the devices in the collection. The maximum number of data points is 100.
     //
     //Future<ListDataResponse> listCollectionData(String collectionId, { int limit, String start, String end, String offset }) async
     test('test listCollectionData', () async {
@@ -69,11 +62,12 @@ void main() {
 
     // Update collection
     //
-    // You must have write access to the collection, ie. you must administer it
+    // Update a collection.
     //
-    //Future<Collection> updateCollection(String collectionId, Collection body) async
+    //Future<Collection> updateCollection(String collectionId, UpdateCollectionRequest body) async
     test('test updateCollection', () async {
       // TODO
     });
+
   });
 }

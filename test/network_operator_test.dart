@@ -5,6 +5,7 @@
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
 import 'package:spanapi/api.dart';
@@ -15,7 +16,7 @@ void main() {
   final instance = NetworkOperator();
 
   group('test NetworkOperator', () {
-    // The Mobil Country Code for the operator.
+    // The Mobile Country Code for the operator.
     // int mcc
     test('to test the property `mcc`', () async {
       // TODO
@@ -35,5 +36,13 @@ void main() {
     test('to test the property `network`', () async {
       // TODO
     });
+
+    // String countryCode
+    test('to test the property `countryCode`', () async {
+      // TODO
+    });
+
+
   });
+
 }

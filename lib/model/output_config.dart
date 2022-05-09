@@ -5,6 +5,7 @@
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
 part of spanapi;
@@ -33,6 +34,7 @@ class OutputConfig {
     this.payloadTemplate,
   });
 
+  /// URL for the webhook.
   String url;
 
   String basicAuthUser;
@@ -96,6 +98,7 @@ class OutputConfig {
 
   @override
   int get hashCode =>
+  // ignore: unnecessary_parenthesis
     (url == null ? 0 : url.hashCode) +
     (basicAuthUser == null ? 0 : basicAuthUser.hashCode) +
     (basicAuthPass == null ? 0 : basicAuthPass.hashCode) +
@@ -182,51 +185,64 @@ class OutputConfig {
   }
 
   /// Returns a new [OutputConfig] instance and imports its values from
-  /// [json] if it's non-null, null if [json] is null.
-  static OutputConfig fromJson(Map<String, dynamic> json) => json == null
-    ? null
-    : OutputConfig(
-        url: json[r'url'],
-        basicAuthUser: json[r'basicAuthUser'],
-        basicAuthPass: json[r'basicAuthPass'],
-        customHeaderName: json[r'customHeaderName'],
-        customHeaderValue: json[r'customHeaderValue'],
-        host: json[r'host'],
-        port: json[r'port'],
-        key: json[r'key'],
-        eventName: json[r'eventName'],
-        asIsPayload: json[r'asIsPayload'],
-        endpoint: json[r'endpoint'],
-        disableCertCheck: json[r'disableCertCheck'],
-        username: json[r'username'],
-        password: json[r'password'],
-        clientId: json[r'clientId'],
-        topicName: json[r'topicName'],
-        topicTemplate: json[r'topicTemplate'],
-        payloadFormat: json[r'payloadFormat'],
-        payloadTemplate: json[r'payloadTemplate'],
-    );
+  /// [value] if it's a [Map], null otherwise.
+  // ignore: prefer_constructors_over_static_methods
+  static OutputConfig fromJson(dynamic value) {
+    if (value is Map) {
+      final json = value.cast<String, dynamic>();
+      return OutputConfig(
+        url: mapValueOfType<String>(json, r'url'),
+        basicAuthUser: mapValueOfType<String>(json, r'basicAuthUser'),
+        basicAuthPass: mapValueOfType<String>(json, r'basicAuthPass'),
+        customHeaderName: mapValueOfType<String>(json, r'customHeaderName'),
+        customHeaderValue: mapValueOfType<String>(json, r'customHeaderValue'),
+        host: mapValueOfType<String>(json, r'host'),
+        port: mapValueOfType<int>(json, r'port'),
+        key: mapValueOfType<String>(json, r'key'),
+        eventName: mapValueOfType<String>(json, r'eventName'),
+        asIsPayload: mapValueOfType<bool>(json, r'asIsPayload'),
+        endpoint: mapValueOfType<String>(json, r'endpoint'),
+        disableCertCheck: mapValueOfType<bool>(json, r'disableCertCheck'),
+        username: mapValueOfType<String>(json, r'username'),
+        password: mapValueOfType<String>(json, r'password'),
+        clientId: mapValueOfType<String>(json, r'clientId'),
+        topicName: mapValueOfType<String>(json, r'topicName'),
+        topicTemplate: mapValueOfType<String>(json, r'topicTemplate'),
+        payloadFormat: mapValueOfType<String>(json, r'payloadFormat'),
+        payloadTemplate: mapValueOfType<String>(json, r'payloadTemplate'),
+      );
+    }
+    return null;
+  }
 
-  static List<OutputConfig> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <OutputConfig>[]
-      : json.map((v) => OutputConfig.fromJson(v)).toList(growable: true == growable);
+  static List<OutputConfig> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+    json is List && json.isNotEmpty
+      ? json.map(OutputConfig.fromJson).toList(growable: true == growable)
+      : true == emptyIsNull ? null : <OutputConfig>[];
 
-  static Map<String, OutputConfig> mapFromJson(Map<String, dynamic> json) {
+  static Map<String, OutputConfig> mapFromJson(dynamic json) {
     final map = <String, OutputConfig>{};
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) => map[key] = OutputConfig.fromJson(v));
+    if (json is Map && json.isNotEmpty) {
+      json
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) => map[key] = OutputConfig.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of OutputConfig-objects as value to a dart map
-  static Map<String, List<OutputConfig>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<OutputConfig>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
     final map = <String, List<OutputConfig>>{};
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) {
-        map[key] = OutputConfig.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
-      });
+    if (json is Map && json.isNotEmpty) {
+      json
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) {
+          map[key] = OutputConfig.listFromJson(
+            value,
+            emptyIsNull: emptyIsNull,
+            growable: growable,
+          );
+        });
     }
     return map;
   }

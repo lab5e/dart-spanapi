@@ -5,10 +5,12 @@
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
 import 'package:spanapi/api.dart';
 import 'package:test/test.dart';
+
 
 /// tests for FotaApi
 void main() {
@@ -24,8 +26,6 @@ void main() {
 
     // Create firmware
     //
-    // Create a new firmware image. This is also invoked by the custom HTTP uploader if the POST uses multipart/formdata for the request.
-    //
     //Future<Firmware> createFirmware(String collectionId, CreateFirmwareRequest body) async
     test('test createFirmware', () async {
       // TODO
@@ -40,16 +40,12 @@ void main() {
 
     // Firmware usage
     //
-    // Shows the firmware usage for devices in the collection
-    //
     //Future<FirmwareUsageResponse> firmwareUsage(String collectionId, String imageId) async
     test('test firmwareUsage', () async {
       // TODO
     });
 
     // List firmware
-    //
-    // Lists available firmware images in collection
     //
     //Future<ListFirmwareResponse> listFirmware(String collectionId) async
     test('test listFirmware', () async {
@@ -58,8 +54,6 @@ void main() {
 
     // Retrieve firmware
     //
-    // Retrieve information on a firmware image
-    //
     //Future<Firmware> retrieveFirmware(String collectionId, String imageId) async
     test('test retrieveFirmware', () async {
       // TODO
@@ -67,9 +61,12 @@ void main() {
 
     // Update firmware
     //
-    //Future<Firmware> updateFirmware(String collectionId, String imageId, Firmware body) async
+    // Only the version and tags fields can be updated. The other fields will be ignored.
+    //
+    //Future<Firmware> updateFirmware(String existingCollectionId, String imageId, UpdateFirmwareRequest body) async
     test('test updateFirmware', () async {
       // TODO
     });
+
   });
 }

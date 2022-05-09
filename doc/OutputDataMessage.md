@@ -8,7 +8,7 @@ import 'package:spanapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | [**OutputDataMessageOutputMessageType**](OutputDataMessageOutputMessageType.md) |  | [optional] 
+**type** | [**OutputMessageType**](OutputMessageType.md) |  | [optional] 
 **device** | [**Device**](Device.md) |  | [optional] 
 **payload** | **String** |  | [optional] 
 **received** | **String** | Received time for message. Value is ms since epoch. | [optional] 

@@ -5,10 +5,12 @@
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
 import 'package:spanapi/api.dart';
 import 'package:test/test.dart';
+
 
 /// tests for OutputsApi
 void main() {
@@ -17,7 +19,7 @@ void main() {
   group('tests for OutputsApi', () {
     // Create output
     //
-    //Future<Output> createOutput(String collectionId, Output body) async
+    //Future<Output> createOutput(String collectionId, CreateOutputRequest body) async
     test('test createOutput', () async {
       // TODO
     });
@@ -59,11 +61,10 @@ void main() {
 
     // Update output
     //
-    // Running outputs will be restarted if required. Note that the collection ID can't be changed on an existing output.
-    //
-    //Future<Output> updateOutput(String collectionId, String outputId, Output body) async
+    //Future<Output> updateOutput(String existingCollectionId, String outputId, UpdateOutputRequest body) async
     test('test updateOutput', () async {
       // TODO
     });
+
   });
 }
