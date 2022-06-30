@@ -11,7 +11,6 @@
 import 'package:spanapi/api.dart';
 import 'package:test/test.dart';
 
-
 /// tests for OutputsApi
 void main() {
   final instance = OutputsApi();
@@ -65,6 +64,5 @@ void main() {
     test('test updateOutput', () async {
       // TODO
     });
-
   });
 }

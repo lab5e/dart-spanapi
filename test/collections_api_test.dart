@@ -11,7 +11,6 @@
 import 'package:spanapi/api.dart';
 import 'package:test/test.dart';
 
-
 /// tests for CollectionsApi
 void main() {
   final instance = CollectionsApi();
@@ -68,6 +67,5 @@ void main() {
     test('test updateCollection', () async {
       // TODO
     });
-
   });
 }

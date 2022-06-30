@@ -45,30 +45,33 @@ class Firmware {
   Map<String, String> tags;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is Firmware &&
-     other.imageId == imageId &&
-     other.version == version &&
-     other.filename == filename &&
-     other.sha256 == sha256 &&
-     other.length == length &&
-     other.collectionId == collectionId &&
-     other.created == created &&
-     other.tags == tags;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Firmware &&
+          other.imageId == imageId &&
+          other.version == version &&
+          other.filename == filename &&
+          other.sha256 == sha256 &&
+          other.length == length &&
+          other.collectionId == collectionId &&
+          other.created == created &&
+          other.tags == tags;
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (imageId == null ? 0 : imageId.hashCode) +
-    (version == null ? 0 : version.hashCode) +
-    (filename == null ? 0 : filename.hashCode) +
-    (sha256 == null ? 0 : sha256.hashCode) +
-    (length == null ? 0 : length.hashCode) +
-    (collectionId == null ? 0 : collectionId.hashCode) +
-    (created == null ? 0 : created.hashCode) +
-    (tags == null ? 0 : tags.hashCode);
+      // ignore: unnecessary_parenthesis
+      (imageId == null ? 0 : imageId.hashCode) +
+      (version == null ? 0 : version.hashCode) +
+      (filename == null ? 0 : filename.hashCode) +
+      (sha256 == null ? 0 : sha256.hashCode) +
+      (length == null ? 0 : length.hashCode) +
+      (collectionId == null ? 0 : collectionId.hashCode) +
+      (created == null ? 0 : created.hashCode) +
+      (tags == null ? 0 : tags.hashCode);
 
   @override
-  String toString() => 'Firmware[imageId=$imageId, version=$version, filename=$filename, sha256=$sha256, length=$length, collectionId=$collectionId, created=$created, tags=$tags]';
+  String toString() =>
+      'Firmware[imageId=$imageId, version=$version, filename=$filename, sha256=$sha256, length=$length, collectionId=$collectionId, created=$created, tags=$tags]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -119,36 +122,43 @@ class Firmware {
     return null;
   }
 
-  static List<Firmware> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(Firmware.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <Firmware>[];
+  static List<Firmware> listFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json is List && json.isNotEmpty
+          ? json.map(Firmware.fromJson).toList(growable: true == growable)
+          : true == emptyIsNull
+              ? null
+              : <Firmware>[];
 
   static Map<String, Firmware> mapFromJson(dynamic json) {
     final map = <String, Firmware>{};
     if (json is Map && json.isNotEmpty) {
       json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = Firmware.fromJson(value));
+          .cast<String, dynamic>()
+          .forEach((key, dynamic value) => map[key] = Firmware.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of Firmware-objects as value to a dart map
-  static Map<String, List<Firmware>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<Firmware>> mapListFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<Firmware>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = Firmware.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json.cast<String, dynamic>().forEach((key, dynamic value) {
+        map[key] = Firmware.listFromJson(
+          value,
+          emptyIsNull: emptyIsNull,
+          growable: growable,
+        );
+      });
     }
     return map;
   }
 }
-

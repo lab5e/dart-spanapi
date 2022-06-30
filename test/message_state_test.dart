@@ -13,9 +13,5 @@ import 'package:test/test.dart';
 
 // tests for MessageState
 void main() {
-
-  group('test MessageState', () {
-
-  });
-
+  group('test MessageState', () {});
 }

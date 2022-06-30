@@ -34,26 +34,29 @@ class Output {
   Map<String, String> tags;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is Output &&
-     other.outputId == outputId &&
-     other.collectionId == collectionId &&
-     other.type == type &&
-     other.config == config &&
-     other.enabled == enabled &&
-     other.tags == tags;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Output &&
+          other.outputId == outputId &&
+          other.collectionId == collectionId &&
+          other.type == type &&
+          other.config == config &&
+          other.enabled == enabled &&
+          other.tags == tags;
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (outputId == null ? 0 : outputId.hashCode) +
-    (collectionId == null ? 0 : collectionId.hashCode) +
-    (type == null ? 0 : type.hashCode) +
-    (config == null ? 0 : config.hashCode) +
-    (enabled == null ? 0 : enabled.hashCode) +
-    (tags == null ? 0 : tags.hashCode);
+      // ignore: unnecessary_parenthesis
+      (outputId == null ? 0 : outputId.hashCode) +
+      (collectionId == null ? 0 : collectionId.hashCode) +
+      (type == null ? 0 : type.hashCode) +
+      (config == null ? 0 : config.hashCode) +
+      (enabled == null ? 0 : enabled.hashCode) +
+      (tags == null ? 0 : tags.hashCode);
 
   @override
-  String toString() => 'Output[outputId=$outputId, collectionId=$collectionId, type=$type, config=$config, enabled=$enabled, tags=$tags]';
+  String toString() =>
+      'Output[outputId=$outputId, collectionId=$collectionId, type=$type, config=$config, enabled=$enabled, tags=$tags]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -96,36 +99,43 @@ class Output {
     return null;
   }
 
-  static List<Output> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(Output.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <Output>[];
+  static List<Output> listFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json is List && json.isNotEmpty
+          ? json.map(Output.fromJson).toList(growable: true == growable)
+          : true == emptyIsNull
+              ? null
+              : <Output>[];
 
   static Map<String, Output> mapFromJson(dynamic json) {
     final map = <String, Output>{};
     if (json is Map && json.isNotEmpty) {
       json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = Output.fromJson(value));
+          .cast<String, dynamic>()
+          .forEach((key, dynamic value) => map[key] = Output.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of Output-objects as value to a dart map
-  static Map<String, List<Output>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<Output>> mapListFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<Output>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = Output.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json.cast<String, dynamic>().forEach((key, dynamic value) {
+        map[key] = Output.listFromJson(
+          value,
+          emptyIsNull: emptyIsNull,
+          growable: growable,
+        );
+      });
     }
     return map;
   }
 }
-

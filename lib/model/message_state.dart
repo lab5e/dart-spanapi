@@ -10,7 +10,6 @@
 
 part of spanapi;
 
-
 class MessageState {
   /// Instantiate a new enum with the provided [value].
   const MessageState._(this.value);
@@ -37,18 +36,25 @@ class MessageState {
   ];
 
   static MessageState fromJson(dynamic value) =>
-    MessageStateTypeTransformer().decode(value);
+      MessageStateTypeTransformer().decode(value);
 
-  static List<MessageState> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(MessageState.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <MessageState>[];
+  static List<MessageState> listFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json is List && json.isNotEmpty
+          ? json.map(MessageState.fromJson).toList(growable: true == growable)
+          : true == emptyIsNull
+              ? null
+              : <MessageState>[];
 }
 
 /// Transformation class that can [encode] an instance of [MessageState] to String,
 /// and [decode] dynamic data back to [MessageState].
 class MessageStateTypeTransformer {
-  factory MessageStateTypeTransformer() => _instance ??= const MessageStateTypeTransformer._();
+  factory MessageStateTypeTransformer() =>
+      _instance ??= const MessageStateTypeTransformer._();
 
   const MessageStateTypeTransformer._();
 
@@ -65,10 +71,14 @@ class MessageStateTypeTransformer {
   MessageState decode(dynamic data, {bool allowNull}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'unspecified': return MessageState.unspecified;
-        case r'pending': return MessageState.pending;
-        case r'sent': return MessageState.sent;
-        case r'failed': return MessageState.failed;
+        case r'unspecified':
+          return MessageState.unspecified;
+        case r'pending':
+          return MessageState.pending;
+        case r'sent':
+          return MessageState.sent;
+        case r'failed':
+          return MessageState.failed;
         default:
           if (allowNull == false) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -81,4 +91,3 @@ class MessageStateTypeTransformer {
   /// Singleton [MessageStateTypeTransformer] instance.
   static MessageStateTypeTransformer _instance;
 }
-

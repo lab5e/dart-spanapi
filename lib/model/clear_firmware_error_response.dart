@@ -19,13 +19,14 @@ class ClearFirmwareErrorResponse {
   String result;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ClearFirmwareErrorResponse &&
-     other.result == result;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ClearFirmwareErrorResponse && other.result == result;
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (result == null ? 0 : result.hashCode);
+      // ignore: unnecessary_parenthesis
+      (result == null ? 0 : result.hashCode);
 
   @override
   String toString() => 'ClearFirmwareErrorResponse[result=$result]';
@@ -51,36 +52,44 @@ class ClearFirmwareErrorResponse {
     return null;
   }
 
-  static List<ClearFirmwareErrorResponse> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(ClearFirmwareErrorResponse.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <ClearFirmwareErrorResponse>[];
+  static List<ClearFirmwareErrorResponse> listFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json is List && json.isNotEmpty
+          ? json
+              .map(ClearFirmwareErrorResponse.fromJson)
+              .toList(growable: true == growable)
+          : true == emptyIsNull
+              ? null
+              : <ClearFirmwareErrorResponse>[];
 
   static Map<String, ClearFirmwareErrorResponse> mapFromJson(dynamic json) {
     final map = <String, ClearFirmwareErrorResponse>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = ClearFirmwareErrorResponse.fromJson(value));
+      json.cast<String, dynamic>().forEach((key, dynamic value) =>
+          map[key] = ClearFirmwareErrorResponse.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of ClearFirmwareErrorResponse-objects as value to a dart map
-  static Map<String, List<ClearFirmwareErrorResponse>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<ClearFirmwareErrorResponse>> mapListFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<ClearFirmwareErrorResponse>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = ClearFirmwareErrorResponse.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json.cast<String, dynamic>().forEach((key, dynamic value) {
+        map[key] = ClearFirmwareErrorResponse.listFromJson(
+          value,
+          emptyIsNull: emptyIsNull,
+          growable: growable,
+        );
+      });
     }
     return map;
   }
 }
-

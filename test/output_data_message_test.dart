@@ -56,8 +56,5 @@ void main() {
     test('to test the property `messageId`', () async {
       // TODO
     });
-
-
   });
-
 }
