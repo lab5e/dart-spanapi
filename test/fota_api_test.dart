@@ -11,6 +11,7 @@
 import 'package:spanapi/api.dart';
 import 'package:test/test.dart';
 
+
 /// tests for FotaApi
 void main() {
   final instance = FotaApi();
@@ -66,5 +67,6 @@ void main() {
     test('test updateFirmware', () async {
       // TODO
     });
+
   });
 }

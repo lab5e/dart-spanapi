@@ -17,8 +17,7 @@ class QueryParam {
   final String value;
 
   @override
-  String toString() =>
-      '${Uri.encodeQueryComponent(name)}=${Uri.encodeQueryComponent(value)}';
+  String toString() => '${Uri.encodeQueryComponent(name)}=${Uri.encodeQueryComponent(value)}';
 }
 
 // Ported from the Java version.
@@ -33,9 +32,7 @@ Iterable<QueryParam> _convertParametersForCollectionFormat(
   if (name != null && name.isNotEmpty && value != null) {
     if (value is List) {
       if (collectionFormat == 'multi') {
-        return value.map(
-          (dynamic v) => QueryParam(name, parameterToString(v)),
-        );
+        return value.map((dynamic v) => QueryParam(name, parameterToString(v)),);
       }
 
       // Default collection format is 'csv'.
@@ -46,14 +43,9 @@ Iterable<QueryParam> _convertParametersForCollectionFormat(
 
       final delimiter = _delimiters[collectionFormat] ?? ',';
 
-      params.add(
-        QueryParam(name, value.map<dynamic>(parameterToString).join(delimiter)),
-      );
+      params.add(QueryParam(name, value.map<dynamic>(parameterToString).join(delimiter)),);
     } else {
-      params.add(QueryParam(
-        name,
-        parameterToString(value),
-      ));
+      params.add(QueryParam(name, parameterToString(value),));
     }
   }
 
@@ -90,12 +82,9 @@ String parameterToString(dynamic value) {
 /// content type. Otherwise, returns the decoded body as decoded by dart:http package.
 Future<String> _decodeBodyBytes(Response response) async {
   final contentType = response.headers['content-type'];
-  return contentType != null &&
-          contentType.toLowerCase().startsWith('application/json')
-      ? response.bodyBytes == null
-          ? null
-          : utf8.decode(response.bodyBytes)
-      : response.body;
+  return contentType != null && contentType.toLowerCase().startsWith('application/json')
+    ? response.bodyBytes == null ? null : utf8.decode(response.bodyBytes)
+    : response.body;
 }
 
 /// Returns a valid [T] value found at the specified Map [key], null otherwise.

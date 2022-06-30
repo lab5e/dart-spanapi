@@ -47,37 +47,34 @@ class CellularIoTMetadata {
   String lastUpdate;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is CellularIoTMetadata &&
-          other.gatewayId == gatewayId &&
-          other.allocatedIp == allocatedIp &&
-          other.allocatedAt == allocatedAt &&
-          other.cellId == cellId &&
-          other.mcc == mcc &&
-          other.mnc == mnc &&
-          other.country == country &&
-          other.network == network &&
-          other.countryCode == countryCode &&
-          other.lastUpdate == lastUpdate;
+  bool operator ==(Object other) => identical(this, other) || other is CellularIoTMetadata &&
+     other.gatewayId == gatewayId &&
+     other.allocatedIp == allocatedIp &&
+     other.allocatedAt == allocatedAt &&
+     other.cellId == cellId &&
+     other.mcc == mcc &&
+     other.mnc == mnc &&
+     other.country == country &&
+     other.network == network &&
+     other.countryCode == countryCode &&
+     other.lastUpdate == lastUpdate;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (gatewayId == null ? 0 : gatewayId.hashCode) +
-      (allocatedIp == null ? 0 : allocatedIp.hashCode) +
-      (allocatedAt == null ? 0 : allocatedAt.hashCode) +
-      (cellId == null ? 0 : cellId.hashCode) +
-      (mcc == null ? 0 : mcc.hashCode) +
-      (mnc == null ? 0 : mnc.hashCode) +
-      (country == null ? 0 : country.hashCode) +
-      (network == null ? 0 : network.hashCode) +
-      (countryCode == null ? 0 : countryCode.hashCode) +
-      (lastUpdate == null ? 0 : lastUpdate.hashCode);
+  // ignore: unnecessary_parenthesis
+    (gatewayId == null ? 0 : gatewayId.hashCode) +
+    (allocatedIp == null ? 0 : allocatedIp.hashCode) +
+    (allocatedAt == null ? 0 : allocatedAt.hashCode) +
+    (cellId == null ? 0 : cellId.hashCode) +
+    (mcc == null ? 0 : mcc.hashCode) +
+    (mnc == null ? 0 : mnc.hashCode) +
+    (country == null ? 0 : country.hashCode) +
+    (network == null ? 0 : network.hashCode) +
+    (countryCode == null ? 0 : countryCode.hashCode) +
+    (lastUpdate == null ? 0 : lastUpdate.hashCode);
 
   @override
-  String toString() =>
-      'CellularIoTMetadata[gatewayId=$gatewayId, allocatedIp=$allocatedIp, allocatedAt=$allocatedAt, cellId=$cellId, mcc=$mcc, mnc=$mnc, country=$country, network=$network, countryCode=$countryCode, lastUpdate=$lastUpdate]';
+  String toString() => 'CellularIoTMetadata[gatewayId=$gatewayId, allocatedIp=$allocatedIp, allocatedAt=$allocatedAt, cellId=$cellId, mcc=$mcc, mnc=$mnc, country=$country, network=$network, countryCode=$countryCode, lastUpdate=$lastUpdate]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -136,44 +133,36 @@ class CellularIoTMetadata {
     return null;
   }
 
-  static List<CellularIoTMetadata> listFromJson(
-    dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json
-              .map(CellularIoTMetadata.fromJson)
-              .toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <CellularIoTMetadata>[];
+  static List<CellularIoTMetadata> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+    json is List && json.isNotEmpty
+      ? json.map(CellularIoTMetadata.fromJson).toList(growable: true == growable)
+      : true == emptyIsNull ? null : <CellularIoTMetadata>[];
 
   static Map<String, CellularIoTMetadata> mapFromJson(dynamic json) {
     final map = <String, CellularIoTMetadata>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) =>
-          map[key] = CellularIoTMetadata.fromJson(value));
+      json
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) => map[key] = CellularIoTMetadata.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of CellularIoTMetadata-objects as value to a dart map
-  static Map<String, List<CellularIoTMetadata>> mapListFromJson(
-    dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) {
+  static Map<String, List<CellularIoTMetadata>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
     final map = <String, List<CellularIoTMetadata>>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) {
-        map[key] = CellularIoTMetadata.listFromJson(
-          value,
-          emptyIsNull: emptyIsNull,
-          growable: growable,
-        );
-      });
+      json
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) {
+          map[key] = CellularIoTMetadata.listFromJson(
+            value,
+            emptyIsNull: emptyIsNull,
+            growable: growable,
+          );
+        });
     }
     return map;
   }
 }
+

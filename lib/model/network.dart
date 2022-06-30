@@ -22,15 +22,15 @@ class Network {
   Map<String, String> tags;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is Network && other.networkId == networkId && other.tags == tags;
+  bool operator ==(Object other) => identical(this, other) || other is Network &&
+     other.networkId == networkId &&
+     other.tags == tags;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (networkId == null ? 0 : networkId.hashCode) +
-      (tags == null ? 0 : tags.hashCode);
+  // ignore: unnecessary_parenthesis
+    (networkId == null ? 0 : networkId.hashCode) +
+    (tags == null ? 0 : tags.hashCode);
 
   @override
   String toString() => 'Network[networkId=$networkId, tags=$tags]';
@@ -60,43 +60,36 @@ class Network {
     return null;
   }
 
-  static List<Network> listFromJson(
-    dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json.map(Network.fromJson).toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <Network>[];
+  static List<Network> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+    json is List && json.isNotEmpty
+      ? json.map(Network.fromJson).toList(growable: true == growable)
+      : true == emptyIsNull ? null : <Network>[];
 
   static Map<String, Network> mapFromJson(dynamic json) {
     final map = <String, Network>{};
     if (json is Map && json.isNotEmpty) {
       json
-          .cast<String, dynamic>()
-          .forEach((key, dynamic value) => map[key] = Network.fromJson(value));
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) => map[key] = Network.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of Network-objects as value to a dart map
-  static Map<String, List<Network>> mapListFromJson(
-    dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) {
+  static Map<String, List<Network>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
     final map = <String, List<Network>>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) {
-        map[key] = Network.listFromJson(
-          value,
-          emptyIsNull: emptyIsNull,
-          growable: growable,
-        );
-      });
+      json
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) {
+          map[key] = Network.listFromJson(
+            value,
+            emptyIsNull: emptyIsNull,
+            growable: growable,
+          );
+        });
     }
     return map;
   }
 }
+
