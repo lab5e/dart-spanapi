@@ -19,18 +19,19 @@ class CellularIoTConfig {
 
   String imsi;
 
-  /// on your device. This is the primary identifier for your device on the network.
+  /// on your device. This is the primary identifier for your device on the network.  The IMEI number is the unique ID for your hardware as
   String imei;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is CellularIoTConfig && other.imsi == imsi && other.imei == imei;
+  bool operator ==(Object other) => identical(this, other) || other is CellularIoTConfig &&
+     other.imsi == imsi &&
+     other.imei == imei;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (imsi == null ? 0 : imsi.hashCode) + (imei == null ? 0 : imei.hashCode);
+  // ignore: unnecessary_parenthesis
+    (imsi == null ? 0 : imsi.hashCode) +
+    (imei == null ? 0 : imei.hashCode);
 
   @override
   String toString() => 'CellularIoTConfig[imsi=$imsi, imei=$imei]';
@@ -60,44 +61,36 @@ class CellularIoTConfig {
     return null;
   }
 
-  static List<CellularIoTConfig> listFromJson(
-    dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json
-              .map(CellularIoTConfig.fromJson)
-              .toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <CellularIoTConfig>[];
+  static List<CellularIoTConfig> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+    json is List && json.isNotEmpty
+      ? json.map(CellularIoTConfig.fromJson).toList(growable: true == growable)
+      : true == emptyIsNull ? null : <CellularIoTConfig>[];
 
   static Map<String, CellularIoTConfig> mapFromJson(dynamic json) {
     final map = <String, CellularIoTConfig>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach(
-          (key, dynamic value) => map[key] = CellularIoTConfig.fromJson(value));
+      json
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) => map[key] = CellularIoTConfig.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of CellularIoTConfig-objects as value to a dart map
-  static Map<String, List<CellularIoTConfig>> mapListFromJson(
-    dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) {
+  static Map<String, List<CellularIoTConfig>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
     final map = <String, List<CellularIoTConfig>>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) {
-        map[key] = CellularIoTConfig.listFromJson(
-          value,
-          emptyIsNull: emptyIsNull,
-          growable: growable,
-        );
-      });
+      json
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) {
+          map[key] = CellularIoTConfig.listFromJson(
+            value,
+            emptyIsNull: emptyIsNull,
+            growable: growable,
+          );
+        });
     }
     return map;
   }
 }
+

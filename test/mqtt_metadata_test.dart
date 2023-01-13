@@ -11,13 +11,13 @@
 import 'package:spanapi/api.dart';
 import 'package:test/test.dart';
 
-// tests for ListFirmwareResponse
+// tests for MQTTMetadata
 void main() {
-  final instance = ListFirmwareResponse();
+  final instance = MQTTMetadata();
 
-  group('test ListFirmwareResponse', () {
-    // List<Firmware> images (default value: const [])
-    test('to test the property `images`', () async {
+  group('test MQTTMetadata', () {
+    // String topic
+    test('to test the property `topic`', () async {
       // TODO
     });
 

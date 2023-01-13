@@ -26,36 +26,29 @@ class MessageTransport {
   static const unspecified = MessageTransport._(r'unspecified');
   static const udp = MessageTransport._(r'udp');
   static const coap = MessageTransport._(r'coap');
+  static const mqtt = MessageTransport._(r'mqtt');
 
   /// List of all possible values in this [enum][MessageTransport].
   static const values = <MessageTransport>[
     unspecified,
     udp,
     coap,
+    mqtt,
   ];
 
   static MessageTransport fromJson(dynamic value) =>
-      MessageTransportTypeTransformer().decode(value);
+    MessageTransportTypeTransformer().decode(value);
 
-  static List<MessageTransport> listFromJson(
-    dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json
-              .map(MessageTransport.fromJson)
-              .toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <MessageTransport>[];
+  static List<MessageTransport> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+    json is List && json.isNotEmpty
+      ? json.map(MessageTransport.fromJson).toList(growable: true == growable)
+      : true == emptyIsNull ? null : <MessageTransport>[];
 }
 
 /// Transformation class that can [encode] an instance of [MessageTransport] to String,
 /// and [decode] dynamic data back to [MessageTransport].
 class MessageTransportTypeTransformer {
-  factory MessageTransportTypeTransformer() =>
-      _instance ??= const MessageTransportTypeTransformer._();
+  factory MessageTransportTypeTransformer() => _instance ??= const MessageTransportTypeTransformer._();
 
   const MessageTransportTypeTransformer._();
 
@@ -72,12 +65,10 @@ class MessageTransportTypeTransformer {
   MessageTransport decode(dynamic data, {bool allowNull}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'unspecified':
-          return MessageTransport.unspecified;
-        case r'udp':
-          return MessageTransport.udp;
-        case r'coap':
-          return MessageTransport.coap;
+        case r'unspecified': return MessageTransport.unspecified;
+        case r'udp': return MessageTransport.udp;
+        case r'coap': return MessageTransport.coap;
+        case r'mqtt': return MessageTransport.mqtt;
         default:
           if (allowNull == false) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -90,3 +81,4 @@ class MessageTransportTypeTransformer {
   /// Singleton [MessageTransportTypeTransformer] instance.
   static MessageTransportTypeTransformer _instance;
 }
+

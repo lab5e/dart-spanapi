@@ -21,10 +21,13 @@ void main() {
       // TODO
     });
 
-    // on your device. This is the primary identifier for your device on the network.
+    // on your device. This is the primary identifier for your device on the network.  The IMEI number is the unique ID for your hardware as
     // String imei
     test('to test the property `imei`', () async {
       // TODO
     });
+
+
   });
+
 }

@@ -33,7 +33,7 @@ import 'package:spanapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('APIToken').apiKeyPrefix = 'Bearer';
 
 final api_instance = CollectionsApi();
-final body = CreateCollectionRequest(); // CreateCollectionRequest | 
+final body = CreateCollectionRequest(); // CreateCollectionRequest | Request object when creating a collection. The collect ID is assigned by the service.
 
 try {
     final result = api_instance.createCollection(body);
@@ -47,7 +47,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**CreateCollectionRequest**](CreateCollectionRequest.md)|  | 
+ **body** | [**CreateCollectionRequest**](CreateCollectionRequest.md)| Request object when creating a collection. The collect ID is assigned by the service. | 
 
 ### Return type
 

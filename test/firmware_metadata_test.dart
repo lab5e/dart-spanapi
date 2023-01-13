@@ -47,6 +47,7 @@ void main() {
       // TODO
     });
 
+    // State of the firmware.
     // String state
     test('to test the property `state`', () async {
       // TODO
@@ -56,5 +57,8 @@ void main() {
     test('to test the property `stateMessage`', () async {
       // TODO
     });
+
+
   });
+
 }

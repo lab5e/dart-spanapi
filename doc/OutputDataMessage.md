@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **udpMetaData** | [**UDPMetadata**](UDPMetadata.md) |  | [optional] 
 **coapMetaData** | [**CoAPMetadata**](CoAPMetadata.md) |  | [optional] 
 **messageId** | **String** |  | [optional] 
+**mqttMetaData** | [**MQTTMetadata**](MQTTMetadata.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

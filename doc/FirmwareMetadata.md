@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **serialNumber** | **String** |  | [optional] 
 **modelNumber** | **String** |  | [optional] 
 **manufacturer** | **String** |  | [optional] 
-**state** | **String** |  | [optional] 
+**state** | **String** | State of the firmware. | [optional] 
 **stateMessage** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

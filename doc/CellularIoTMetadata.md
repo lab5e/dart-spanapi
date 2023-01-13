@@ -9,10 +9,10 @@ import 'package:spanapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **gatewayId** | **String** |  | [optional] 
-**allocatedIp** | **String** |  | [optional] 
+**allocatedIp** | **String** | Allocated IP address. | [optional] 
 **allocatedAt** | **String** |  | [optional] 
 **cellId** | **String** |  | [optional] 
-**mcc** | **int** | the provider in use. | [optional] 
+**mcc** | **int** | the provider in use.  The Mobile Country Code for the operator. | [optional] 
 **mnc** | **int** |  | [optional] 
 **country** | **String** |  | [optional] 
 **network** | **String** |  | [optional] 

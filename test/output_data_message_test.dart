@@ -56,5 +56,13 @@ void main() {
     test('to test the property `messageId`', () async {
       // TODO
     });
+
+    // MQTTMetadata mqttMetaData
+    test('to test the property `mqttMetaData`', () async {
+      // TODO
+    });
+
+
   });
+
 }

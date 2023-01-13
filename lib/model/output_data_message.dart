@@ -21,6 +21,7 @@ class OutputDataMessage {
     this.udpMetaData,
     this.coapMetaData,
     this.messageId,
+    this.mqttMetaData,
   });
 
   OutputMessageType type;
@@ -40,34 +41,35 @@ class OutputDataMessage {
 
   String messageId;
 
+  MQTTMetadata mqttMetaData;
+
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is OutputDataMessage &&
-          other.type == type &&
-          other.device == device &&
-          other.payload == payload &&
-          other.received == received &&
-          other.transport == transport &&
-          other.udpMetaData == udpMetaData &&
-          other.coapMetaData == coapMetaData &&
-          other.messageId == messageId;
+  bool operator ==(Object other) => identical(this, other) || other is OutputDataMessage &&
+     other.type == type &&
+     other.device == device &&
+     other.payload == payload &&
+     other.received == received &&
+     other.transport == transport &&
+     other.udpMetaData == udpMetaData &&
+     other.coapMetaData == coapMetaData &&
+     other.messageId == messageId &&
+     other.mqttMetaData == mqttMetaData;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (type == null ? 0 : type.hashCode) +
-      (device == null ? 0 : device.hashCode) +
-      (payload == null ? 0 : payload.hashCode) +
-      (received == null ? 0 : received.hashCode) +
-      (transport == null ? 0 : transport.hashCode) +
-      (udpMetaData == null ? 0 : udpMetaData.hashCode) +
-      (coapMetaData == null ? 0 : coapMetaData.hashCode) +
-      (messageId == null ? 0 : messageId.hashCode);
+  // ignore: unnecessary_parenthesis
+    (type == null ? 0 : type.hashCode) +
+    (device == null ? 0 : device.hashCode) +
+    (payload == null ? 0 : payload.hashCode) +
+    (received == null ? 0 : received.hashCode) +
+    (transport == null ? 0 : transport.hashCode) +
+    (udpMetaData == null ? 0 : udpMetaData.hashCode) +
+    (coapMetaData == null ? 0 : coapMetaData.hashCode) +
+    (messageId == null ? 0 : messageId.hashCode) +
+    (mqttMetaData == null ? 0 : mqttMetaData.hashCode);
 
   @override
-  String toString() =>
-      'OutputDataMessage[type=$type, device=$device, payload=$payload, received=$received, transport=$transport, udpMetaData=$udpMetaData, coapMetaData=$coapMetaData, messageId=$messageId]';
+  String toString() => 'OutputDataMessage[type=$type, device=$device, payload=$payload, received=$received, transport=$transport, udpMetaData=$udpMetaData, coapMetaData=$coapMetaData, messageId=$messageId, mqttMetaData=$mqttMetaData]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -95,6 +97,9 @@ class OutputDataMessage {
     if (messageId != null) {
       json[r'messageId'] = messageId;
     }
+    if (mqttMetaData != null) {
+      json[r'mqttMetaData'] = mqttMetaData;
+    }
     return json;
   }
 
@@ -113,49 +118,42 @@ class OutputDataMessage {
         udpMetaData: UDPMetadata.fromJson(json[r'udpMetaData']),
         coapMetaData: CoAPMetadata.fromJson(json[r'coapMetaData']),
         messageId: mapValueOfType<String>(json, r'messageId'),
+        mqttMetaData: MQTTMetadata.fromJson(json[r'mqttMetaData']),
       );
     }
     return null;
   }
 
-  static List<OutputDataMessage> listFromJson(
-    dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json
-              .map(OutputDataMessage.fromJson)
-              .toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <OutputDataMessage>[];
+  static List<OutputDataMessage> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+    json is List && json.isNotEmpty
+      ? json.map(OutputDataMessage.fromJson).toList(growable: true == growable)
+      : true == emptyIsNull ? null : <OutputDataMessage>[];
 
   static Map<String, OutputDataMessage> mapFromJson(dynamic json) {
     final map = <String, OutputDataMessage>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach(
-          (key, dynamic value) => map[key] = OutputDataMessage.fromJson(value));
+      json
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) => map[key] = OutputDataMessage.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of OutputDataMessage-objects as value to a dart map
-  static Map<String, List<OutputDataMessage>> mapListFromJson(
-    dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) {
+  static Map<String, List<OutputDataMessage>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
     final map = <String, List<OutputDataMessage>>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) {
-        map[key] = OutputDataMessage.listFromJson(
-          value,
-          emptyIsNull: emptyIsNull,
-          growable: growable,
-        );
-      });
+      json
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) {
+          map[key] = OutputDataMessage.listFromJson(
+            value,
+            emptyIsNull: emptyIsNull,
+            growable: growable,
+          );
+        });
     }
     return map;
   }
 }
+

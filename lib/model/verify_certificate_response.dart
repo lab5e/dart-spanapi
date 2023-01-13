@@ -22,21 +22,18 @@ class VerifyCertificateResponse {
   List<String> errors;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is VerifyCertificateResponse &&
-          other.valid == valid &&
-          other.errors == errors;
+  bool operator ==(Object other) => identical(this, other) || other is VerifyCertificateResponse &&
+     other.valid == valid &&
+     other.errors == errors;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (valid == null ? 0 : valid.hashCode) +
-      (errors == null ? 0 : errors.hashCode);
+  // ignore: unnecessary_parenthesis
+    (valid == null ? 0 : valid.hashCode) +
+    (errors == null ? 0 : errors.hashCode);
 
   @override
-  String toString() =>
-      'VerifyCertificateResponse[valid=$valid, errors=$errors]';
+  String toString() => 'VerifyCertificateResponse[valid=$valid, errors=$errors]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -58,51 +55,43 @@ class VerifyCertificateResponse {
       return VerifyCertificateResponse(
         valid: mapValueOfType<bool>(json, r'valid'),
         errors: json[r'errors'] is List
-            ? (json[r'errors'] as List).cast<String>()
-            : null,
+          ? (json[r'errors'] as List).cast<String>()
+          : null,
       );
     }
     return null;
   }
 
-  static List<VerifyCertificateResponse> listFromJson(
-    dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json
-              .map(VerifyCertificateResponse.fromJson)
-              .toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <VerifyCertificateResponse>[];
+  static List<VerifyCertificateResponse> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+    json is List && json.isNotEmpty
+      ? json.map(VerifyCertificateResponse.fromJson).toList(growable: true == growable)
+      : true == emptyIsNull ? null : <VerifyCertificateResponse>[];
 
   static Map<String, VerifyCertificateResponse> mapFromJson(dynamic json) {
     final map = <String, VerifyCertificateResponse>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) =>
-          map[key] = VerifyCertificateResponse.fromJson(value));
+      json
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) => map[key] = VerifyCertificateResponse.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of VerifyCertificateResponse-objects as value to a dart map
-  static Map<String, List<VerifyCertificateResponse>> mapListFromJson(
-    dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) {
+  static Map<String, List<VerifyCertificateResponse>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
     final map = <String, List<VerifyCertificateResponse>>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) {
-        map[key] = VerifyCertificateResponse.listFromJson(
-          value,
-          emptyIsNull: emptyIsNull,
-          growable: growable,
-        );
-      });
+      json
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) {
+          map[key] = VerifyCertificateResponse.listFromJson(
+            value,
+            emptyIsNull: emptyIsNull,
+            growable: growable,
+          );
+        });
     }
     return map;
   }
 }
+

@@ -21,6 +21,7 @@ void main() {
       // TODO
     });
 
+    // Allocated IP address.
     // String allocatedIp
     test('to test the property `allocatedIp`', () async {
       // TODO
@@ -36,7 +37,7 @@ void main() {
       // TODO
     });
 
-    // the provider in use.
+    // the provider in use.  The Mobile Country Code for the operator.
     // int mcc
     test('to test the property `mcc`', () async {
       // TODO
@@ -66,5 +67,8 @@ void main() {
     test('to test the property `lastUpdate`', () async {
       // TODO
     });
+
+
   });
+
 }

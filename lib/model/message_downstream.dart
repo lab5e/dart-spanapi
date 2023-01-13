@@ -43,35 +43,32 @@ class MessageDownstream {
   String payload;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is MessageDownstream &&
-          other.messageId == messageId &&
-          other.collectionId == collectionId &&
-          other.deviceId == deviceId &&
-          other.gatewayId == gatewayId &&
-          other.createdTime == createdTime &&
-          other.sentTime == sentTime &&
-          other.transport == transport &&
-          other.state == state &&
-          other.payload == payload;
+  bool operator ==(Object other) => identical(this, other) || other is MessageDownstream &&
+     other.messageId == messageId &&
+     other.collectionId == collectionId &&
+     other.deviceId == deviceId &&
+     other.gatewayId == gatewayId &&
+     other.createdTime == createdTime &&
+     other.sentTime == sentTime &&
+     other.transport == transport &&
+     other.state == state &&
+     other.payload == payload;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (messageId == null ? 0 : messageId.hashCode) +
-      (collectionId == null ? 0 : collectionId.hashCode) +
-      (deviceId == null ? 0 : deviceId.hashCode) +
-      (gatewayId == null ? 0 : gatewayId.hashCode) +
-      (createdTime == null ? 0 : createdTime.hashCode) +
-      (sentTime == null ? 0 : sentTime.hashCode) +
-      (transport == null ? 0 : transport.hashCode) +
-      (state == null ? 0 : state.hashCode) +
-      (payload == null ? 0 : payload.hashCode);
+  // ignore: unnecessary_parenthesis
+    (messageId == null ? 0 : messageId.hashCode) +
+    (collectionId == null ? 0 : collectionId.hashCode) +
+    (deviceId == null ? 0 : deviceId.hashCode) +
+    (gatewayId == null ? 0 : gatewayId.hashCode) +
+    (createdTime == null ? 0 : createdTime.hashCode) +
+    (sentTime == null ? 0 : sentTime.hashCode) +
+    (transport == null ? 0 : transport.hashCode) +
+    (state == null ? 0 : state.hashCode) +
+    (payload == null ? 0 : payload.hashCode);
 
   @override
-  String toString() =>
-      'MessageDownstream[messageId=$messageId, collectionId=$collectionId, deviceId=$deviceId, gatewayId=$gatewayId, createdTime=$createdTime, sentTime=$sentTime, transport=$transport, state=$state, payload=$payload]';
+  String toString() => 'MessageDownstream[messageId=$messageId, collectionId=$collectionId, deviceId=$deviceId, gatewayId=$gatewayId, createdTime=$createdTime, sentTime=$sentTime, transport=$transport, state=$state, payload=$payload]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -126,44 +123,36 @@ class MessageDownstream {
     return null;
   }
 
-  static List<MessageDownstream> listFromJson(
-    dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json
-              .map(MessageDownstream.fromJson)
-              .toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <MessageDownstream>[];
+  static List<MessageDownstream> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+    json is List && json.isNotEmpty
+      ? json.map(MessageDownstream.fromJson).toList(growable: true == growable)
+      : true == emptyIsNull ? null : <MessageDownstream>[];
 
   static Map<String, MessageDownstream> mapFromJson(dynamic json) {
     final map = <String, MessageDownstream>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach(
-          (key, dynamic value) => map[key] = MessageDownstream.fromJson(value));
+      json
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) => map[key] = MessageDownstream.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of MessageDownstream-objects as value to a dart map
-  static Map<String, List<MessageDownstream>> mapListFromJson(
-    dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) {
+  static Map<String, List<MessageDownstream>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
     final map = <String, List<MessageDownstream>>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) {
-        map[key] = MessageDownstream.listFromJson(
-          value,
-          emptyIsNull: emptyIsNull,
-          growable: growable,
-        );
-      });
+      json
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) {
+          map[key] = MessageDownstream.listFromJson(
+            value,
+            emptyIsNull: emptyIsNull,
+            growable: growable,
+          );
+        });
     }
     return map;
   }
 }
+
