@@ -19,13 +19,13 @@ class Any {
   String atType;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is Any &&
-     other.atType == atType;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is Any && other.atType == atType;
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (atType == null ? 0 : atType.hashCode);
+      // ignore: unnecessary_parenthesis
+      (atType == null ? 0 : atType.hashCode);
 
   @override
   String toString() => 'Any[atType=$atType]';
@@ -51,36 +51,43 @@ class Any {
     return null;
   }
 
-  static List<Any> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(Any.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <Any>[];
+  static List<Any> listFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json is List && json.isNotEmpty
+          ? json.map(Any.fromJson).toList(growable: true == growable)
+          : true == emptyIsNull
+              ? null
+              : <Any>[];
 
   static Map<String, Any> mapFromJson(dynamic json) {
     final map = <String, Any>{};
     if (json is Map && json.isNotEmpty) {
       json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = Any.fromJson(value));
+          .cast<String, dynamic>()
+          .forEach((key, dynamic value) => map[key] = Any.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of Any-objects as value to a dart map
-  static Map<String, List<Any>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<Any>> mapListFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<Any>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = Any.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json.cast<String, dynamic>().forEach((key, dynamic value) {
+        map[key] = Any.listFromJson(
+          value,
+          emptyIsNull: emptyIsNull,
+          growable: growable,
+        );
+      });
     }
     return map;
   }
 }
-

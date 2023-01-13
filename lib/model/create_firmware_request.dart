@@ -28,22 +28,25 @@ class CreateFirmwareRequest {
   Map<String, String> tags;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is CreateFirmwareRequest &&
-     other.image == image &&
-     other.version == version &&
-     other.filename == filename &&
-     other.tags == tags;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is CreateFirmwareRequest &&
+          other.image == image &&
+          other.version == version &&
+          other.filename == filename &&
+          other.tags == tags;
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (image == null ? 0 : image.hashCode) +
-    (version == null ? 0 : version.hashCode) +
-    (filename == null ? 0 : filename.hashCode) +
-    (tags == null ? 0 : tags.hashCode);
+      // ignore: unnecessary_parenthesis
+      (image == null ? 0 : image.hashCode) +
+      (version == null ? 0 : version.hashCode) +
+      (filename == null ? 0 : filename.hashCode) +
+      (tags == null ? 0 : tags.hashCode);
 
   @override
-  String toString() => 'CreateFirmwareRequest[image=$image, version=$version, filename=$filename, tags=$tags]';
+  String toString() =>
+      'CreateFirmwareRequest[image=$image, version=$version, filename=$filename, tags=$tags]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -78,36 +81,44 @@ class CreateFirmwareRequest {
     return null;
   }
 
-  static List<CreateFirmwareRequest> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(CreateFirmwareRequest.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <CreateFirmwareRequest>[];
+  static List<CreateFirmwareRequest> listFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json is List && json.isNotEmpty
+          ? json
+              .map(CreateFirmwareRequest.fromJson)
+              .toList(growable: true == growable)
+          : true == emptyIsNull
+              ? null
+              : <CreateFirmwareRequest>[];
 
   static Map<String, CreateFirmwareRequest> mapFromJson(dynamic json) {
     final map = <String, CreateFirmwareRequest>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = CreateFirmwareRequest.fromJson(value));
+      json.cast<String, dynamic>().forEach((key, dynamic value) =>
+          map[key] = CreateFirmwareRequest.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of CreateFirmwareRequest-objects as value to a dart map
-  static Map<String, List<CreateFirmwareRequest>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<CreateFirmwareRequest>> mapListFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<CreateFirmwareRequest>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = CreateFirmwareRequest.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json.cast<String, dynamic>().forEach((key, dynamic value) {
+        map[key] = CreateFirmwareRequest.listFromJson(
+          value,
+          emptyIsNull: emptyIsNull,
+          growable: growable,
+        );
+      });
     }
     return map;
   }
 }
-

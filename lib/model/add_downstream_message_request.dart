@@ -19,13 +19,14 @@ class AddDownstreamMessageRequest {
   String payload;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is AddDownstreamMessageRequest &&
-     other.payload == payload;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is AddDownstreamMessageRequest && other.payload == payload;
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (payload == null ? 0 : payload.hashCode);
+      // ignore: unnecessary_parenthesis
+      (payload == null ? 0 : payload.hashCode);
 
   @override
   String toString() => 'AddDownstreamMessageRequest[payload=$payload]';
@@ -51,36 +52,44 @@ class AddDownstreamMessageRequest {
     return null;
   }
 
-  static List<AddDownstreamMessageRequest> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(AddDownstreamMessageRequest.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <AddDownstreamMessageRequest>[];
+  static List<AddDownstreamMessageRequest> listFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json is List && json.isNotEmpty
+          ? json
+              .map(AddDownstreamMessageRequest.fromJson)
+              .toList(growable: true == growable)
+          : true == emptyIsNull
+              ? null
+              : <AddDownstreamMessageRequest>[];
 
   static Map<String, AddDownstreamMessageRequest> mapFromJson(dynamic json) {
     final map = <String, AddDownstreamMessageRequest>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = AddDownstreamMessageRequest.fromJson(value));
+      json.cast<String, dynamic>().forEach((key, dynamic value) =>
+          map[key] = AddDownstreamMessageRequest.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of AddDownstreamMessageRequest-objects as value to a dart map
-  static Map<String, List<AddDownstreamMessageRequest>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<AddDownstreamMessageRequest>> mapListFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<AddDownstreamMessageRequest>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = AddDownstreamMessageRequest.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json.cast<String, dynamic>().forEach((key, dynamic value) {
+        map[key] = AddDownstreamMessageRequest.listFromJson(
+          value,
+          emptyIsNull: emptyIsNull,
+          growable: growable,
+        );
+      });
     }
     return map;
   }
 }
-

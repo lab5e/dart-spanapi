@@ -19,13 +19,14 @@ class DeleteDownstreamMessageResponse {
   String messageId;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is DeleteDownstreamMessageResponse &&
-     other.messageId == messageId;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is DeleteDownstreamMessageResponse && other.messageId == messageId;
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (messageId == null ? 0 : messageId.hashCode);
+      // ignore: unnecessary_parenthesis
+      (messageId == null ? 0 : messageId.hashCode);
 
   @override
   String toString() => 'DeleteDownstreamMessageResponse[messageId=$messageId]';
@@ -51,36 +52,45 @@ class DeleteDownstreamMessageResponse {
     return null;
   }
 
-  static List<DeleteDownstreamMessageResponse> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(DeleteDownstreamMessageResponse.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <DeleteDownstreamMessageResponse>[];
+  static List<DeleteDownstreamMessageResponse> listFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json is List && json.isNotEmpty
+          ? json
+              .map(DeleteDownstreamMessageResponse.fromJson)
+              .toList(growable: true == growable)
+          : true == emptyIsNull
+              ? null
+              : <DeleteDownstreamMessageResponse>[];
 
-  static Map<String, DeleteDownstreamMessageResponse> mapFromJson(dynamic json) {
+  static Map<String, DeleteDownstreamMessageResponse> mapFromJson(
+      dynamic json) {
     final map = <String, DeleteDownstreamMessageResponse>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = DeleteDownstreamMessageResponse.fromJson(value));
+      json.cast<String, dynamic>().forEach((key, dynamic value) =>
+          map[key] = DeleteDownstreamMessageResponse.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of DeleteDownstreamMessageResponse-objects as value to a dart map
-  static Map<String, List<DeleteDownstreamMessageResponse>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<DeleteDownstreamMessageResponse>> mapListFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<DeleteDownstreamMessageResponse>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = DeleteDownstreamMessageResponse.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json.cast<String, dynamic>().forEach((key, dynamic value) {
+        map[key] = DeleteDownstreamMessageResponse.listFromJson(
+          value,
+          emptyIsNull: emptyIsNull,
+          growable: growable,
+        );
+      });
     }
     return map;
   }
 }
-

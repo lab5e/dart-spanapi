@@ -10,7 +10,6 @@
 
 part of spanapi;
 
-
 class SpanApi {
   SpanApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
@@ -34,7 +33,6 @@ class SpanApi {
 
     const authNames = <String>['APIToken'];
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -60,8 +58,10 @@ class SpanApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'SystemInfoResponse',) as SystemInfoResponse;
-    
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'SystemInfoResponse',
+      ) as SystemInfoResponse;
     }
     return Future<SystemInfoResponse>.value();
   }
