@@ -19,13 +19,14 @@ class ListGatewayResponse {
   List<Gateway> gateways;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ListGatewayResponse &&
-     other.gateways == gateways;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ListGatewayResponse && other.gateways == gateways;
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (gateways == null ? 0 : gateways.hashCode);
+      // ignore: unnecessary_parenthesis
+      (gateways == null ? 0 : gateways.hashCode);
 
   @override
   String toString() => 'ListGatewayResponse[gateways=$gateways]';
@@ -51,36 +52,44 @@ class ListGatewayResponse {
     return null;
   }
 
-  static List<ListGatewayResponse> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(ListGatewayResponse.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <ListGatewayResponse>[];
+  static List<ListGatewayResponse> listFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json is List && json.isNotEmpty
+          ? json
+              .map(ListGatewayResponse.fromJson)
+              .toList(growable: true == growable)
+          : true == emptyIsNull
+              ? null
+              : <ListGatewayResponse>[];
 
   static Map<String, ListGatewayResponse> mapFromJson(dynamic json) {
     final map = <String, ListGatewayResponse>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = ListGatewayResponse.fromJson(value));
+      json.cast<String, dynamic>().forEach((key, dynamic value) =>
+          map[key] = ListGatewayResponse.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of ListGatewayResponse-objects as value to a dart map
-  static Map<String, List<ListGatewayResponse>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<ListGatewayResponse>> mapListFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<ListGatewayResponse>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = ListGatewayResponse.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json.cast<String, dynamic>().forEach((key, dynamic value) {
+        map[key] = ListGatewayResponse.listFromJson(
+          value,
+          emptyIsNull: emptyIsNull,
+          growable: growable,
+        );
+      });
     }
     return map;
   }
 }
-

@@ -19,13 +19,14 @@ class GatewayCertificateResponse {
   List<CertificateInfo> certificates;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is GatewayCertificateResponse &&
-     other.certificates == certificates;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is GatewayCertificateResponse && other.certificates == certificates;
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (certificates == null ? 0 : certificates.hashCode);
+      // ignore: unnecessary_parenthesis
+      (certificates == null ? 0 : certificates.hashCode);
 
   @override
   String toString() => 'GatewayCertificateResponse[certificates=$certificates]';
@@ -51,36 +52,44 @@ class GatewayCertificateResponse {
     return null;
   }
 
-  static List<GatewayCertificateResponse> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(GatewayCertificateResponse.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <GatewayCertificateResponse>[];
+  static List<GatewayCertificateResponse> listFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json is List && json.isNotEmpty
+          ? json
+              .map(GatewayCertificateResponse.fromJson)
+              .toList(growable: true == growable)
+          : true == emptyIsNull
+              ? null
+              : <GatewayCertificateResponse>[];
 
   static Map<String, GatewayCertificateResponse> mapFromJson(dynamic json) {
     final map = <String, GatewayCertificateResponse>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = GatewayCertificateResponse.fromJson(value));
+      json.cast<String, dynamic>().forEach((key, dynamic value) =>
+          map[key] = GatewayCertificateResponse.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of GatewayCertificateResponse-objects as value to a dart map
-  static Map<String, List<GatewayCertificateResponse>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<GatewayCertificateResponse>> mapListFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<GatewayCertificateResponse>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = GatewayCertificateResponse.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json.cast<String, dynamic>().forEach((key, dynamic value) {
+        map[key] = GatewayCertificateResponse.listFromJson(
+          value,
+          emptyIsNull: emptyIsNull,
+          growable: growable,
+        );
+      });
     }
     return map;
   }
 }
-

@@ -10,7 +10,6 @@
 
 part of spanapi;
 
-
 class OutputMessageType {
   /// Instantiate a new enum with the provided [value].
   const OutputMessageType._(this.value);
@@ -35,18 +34,27 @@ class OutputMessageType {
   ];
 
   static OutputMessageType fromJson(dynamic value) =>
-    OutputMessageTypeTypeTransformer().decode(value);
+      OutputMessageTypeTypeTransformer().decode(value);
 
-  static List<OutputMessageType> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(OutputMessageType.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <OutputMessageType>[];
+  static List<OutputMessageType> listFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json is List && json.isNotEmpty
+          ? json
+              .map(OutputMessageType.fromJson)
+              .toList(growable: true == growable)
+          : true == emptyIsNull
+              ? null
+              : <OutputMessageType>[];
 }
 
 /// Transformation class that can [encode] an instance of [OutputMessageType] to String,
 /// and [decode] dynamic data back to [OutputMessageType].
 class OutputMessageTypeTypeTransformer {
-  factory OutputMessageTypeTypeTransformer() => _instance ??= const OutputMessageTypeTypeTransformer._();
+  factory OutputMessageTypeTypeTransformer() =>
+      _instance ??= const OutputMessageTypeTypeTransformer._();
 
   const OutputMessageTypeTypeTransformer._();
 
@@ -63,9 +71,12 @@ class OutputMessageTypeTypeTransformer {
   OutputMessageType decode(dynamic data, {bool allowNull}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'unknown': return OutputMessageType.unknown;
-        case r'keepalive': return OutputMessageType.keepalive;
-        case r'data': return OutputMessageType.data;
+        case r'unknown':
+          return OutputMessageType.unknown;
+        case r'keepalive':
+          return OutputMessageType.keepalive;
+        case r'data':
+          return OutputMessageType.data;
         default:
           if (allowNull == false) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -78,4 +89,3 @@ class OutputMessageTypeTypeTransformer {
   /// Singleton [OutputMessageTypeTypeTransformer] instance.
   static OutputMessageTypeTypeTransformer _instance;
 }
-

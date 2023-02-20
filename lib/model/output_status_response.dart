@@ -37,28 +37,31 @@ class OutputStatusResponse {
   int retransmits;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is OutputStatusResponse &&
-     other.collectionId == collectionId &&
-     other.outputId == outputId &&
-     other.enabled == enabled &&
-     other.errorCount == errorCount &&
-     other.forwarded == forwarded &&
-     other.received == received &&
-     other.retransmits == retransmits;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is OutputStatusResponse &&
+          other.collectionId == collectionId &&
+          other.outputId == outputId &&
+          other.enabled == enabled &&
+          other.errorCount == errorCount &&
+          other.forwarded == forwarded &&
+          other.received == received &&
+          other.retransmits == retransmits;
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (collectionId == null ? 0 : collectionId.hashCode) +
-    (outputId == null ? 0 : outputId.hashCode) +
-    (enabled == null ? 0 : enabled.hashCode) +
-    (errorCount == null ? 0 : errorCount.hashCode) +
-    (forwarded == null ? 0 : forwarded.hashCode) +
-    (received == null ? 0 : received.hashCode) +
-    (retransmits == null ? 0 : retransmits.hashCode);
+      // ignore: unnecessary_parenthesis
+      (collectionId == null ? 0 : collectionId.hashCode) +
+      (outputId == null ? 0 : outputId.hashCode) +
+      (enabled == null ? 0 : enabled.hashCode) +
+      (errorCount == null ? 0 : errorCount.hashCode) +
+      (forwarded == null ? 0 : forwarded.hashCode) +
+      (received == null ? 0 : received.hashCode) +
+      (retransmits == null ? 0 : retransmits.hashCode);
 
   @override
-  String toString() => 'OutputStatusResponse[collectionId=$collectionId, outputId=$outputId, enabled=$enabled, errorCount=$errorCount, forwarded=$forwarded, received=$received, retransmits=$retransmits]';
+  String toString() =>
+      'OutputStatusResponse[collectionId=$collectionId, outputId=$outputId, enabled=$enabled, errorCount=$errorCount, forwarded=$forwarded, received=$received, retransmits=$retransmits]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -105,36 +108,44 @@ class OutputStatusResponse {
     return null;
   }
 
-  static List<OutputStatusResponse> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(OutputStatusResponse.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <OutputStatusResponse>[];
+  static List<OutputStatusResponse> listFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json is List && json.isNotEmpty
+          ? json
+              .map(OutputStatusResponse.fromJson)
+              .toList(growable: true == growable)
+          : true == emptyIsNull
+              ? null
+              : <OutputStatusResponse>[];
 
   static Map<String, OutputStatusResponse> mapFromJson(dynamic json) {
     final map = <String, OutputStatusResponse>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = OutputStatusResponse.fromJson(value));
+      json.cast<String, dynamic>().forEach((key, dynamic value) =>
+          map[key] = OutputStatusResponse.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of OutputStatusResponse-objects as value to a dart map
-  static Map<String, List<OutputStatusResponse>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<OutputStatusResponse>> mapListFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<OutputStatusResponse>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = OutputStatusResponse.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json.cast<String, dynamic>().forEach((key, dynamic value) {
+        map[key] = OutputStatusResponse.listFromJson(
+          value,
+          emptyIsNull: emptyIsNull,
+          growable: growable,
+        );
+      });
     }
     return map;
   }
 }
-
