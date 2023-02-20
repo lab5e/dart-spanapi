@@ -11,14 +11,17 @@
 import 'package:spanapi/api.dart';
 import 'package:test/test.dart';
 
-// tests for ListNetworkResponse
+// tests for GatewayCertificateResponse
 void main() {
-  final instance = ListNetworkResponse();
+  final instance = GatewayCertificateResponse();
 
-  group('test ListNetworkResponse', () {
-    // List<Network> networks (default value: const [])
-    test('to test the property `networks`', () async {
+  group('test GatewayCertificateResponse', () {
+    // List<CertificateInfo> certificates (default value: const [])
+    test('to test the property `certificates`', () async {
       // TODO
     });
+
+
   });
+
 }

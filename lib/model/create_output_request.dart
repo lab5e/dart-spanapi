@@ -28,25 +28,22 @@ class CreateOutputRequest {
   Map<String, String> tags;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is CreateOutputRequest &&
-          other.type == type &&
-          other.config == config &&
-          other.enabled == enabled &&
-          other.tags == tags;
+  bool operator ==(Object other) => identical(this, other) || other is CreateOutputRequest &&
+     other.type == type &&
+     other.config == config &&
+     other.enabled == enabled &&
+     other.tags == tags;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (type == null ? 0 : type.hashCode) +
-      (config == null ? 0 : config.hashCode) +
-      (enabled == null ? 0 : enabled.hashCode) +
-      (tags == null ? 0 : tags.hashCode);
+  // ignore: unnecessary_parenthesis
+    (type == null ? 0 : type.hashCode) +
+    (config == null ? 0 : config.hashCode) +
+    (enabled == null ? 0 : enabled.hashCode) +
+    (tags == null ? 0 : tags.hashCode);
 
   @override
-  String toString() =>
-      'CreateOutputRequest[type=$type, config=$config, enabled=$enabled, tags=$tags]';
+  String toString() => 'CreateOutputRequest[type=$type, config=$config, enabled=$enabled, tags=$tags]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -81,44 +78,36 @@ class CreateOutputRequest {
     return null;
   }
 
-  static List<CreateOutputRequest> listFromJson(
-    dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json
-              .map(CreateOutputRequest.fromJson)
-              .toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <CreateOutputRequest>[];
+  static List<CreateOutputRequest> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+    json is List && json.isNotEmpty
+      ? json.map(CreateOutputRequest.fromJson).toList(growable: true == growable)
+      : true == emptyIsNull ? null : <CreateOutputRequest>[];
 
   static Map<String, CreateOutputRequest> mapFromJson(dynamic json) {
     final map = <String, CreateOutputRequest>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) =>
-          map[key] = CreateOutputRequest.fromJson(value));
+      json
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) => map[key] = CreateOutputRequest.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of CreateOutputRequest-objects as value to a dart map
-  static Map<String, List<CreateOutputRequest>> mapListFromJson(
-    dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) {
+  static Map<String, List<CreateOutputRequest>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
     final map = <String, List<CreateOutputRequest>>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) {
-        map[key] = CreateOutputRequest.listFromJson(
-          value,
-          emptyIsNull: emptyIsNull,
-          growable: growable,
-        );
-      });
+      json
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) {
+          map[key] = CreateOutputRequest.listFromJson(
+            value,
+            emptyIsNull: emptyIsNull,
+            growable: growable,
+          );
+        });
     }
     return map;
   }
 }
+

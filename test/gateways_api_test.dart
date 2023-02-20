@@ -11,26 +11,43 @@
 import 'package:spanapi/api.dart';
 import 'package:test/test.dart';
 
+
 /// tests for GatewaysApi
 void main() {
   final instance = GatewaysApi();
 
   group('tests for GatewaysApi', () {
-    // List gateways
+    // Create gateway
     //
-    // List the gatways for the network. Some of the gatways are built into Span and can't be deleted.
+    // Create a new gateway.
     //
-    //Future<ListGatewayResponse> listGateways(String networkId) async
-    test('test listGateways', () async {
+    //Future<Gateway> createGateway(String collectionId, InlineObject body) async
+    test('test createGateway', () async {
       // TODO
     });
 
-    // List networks
+    // Delete gateway
     //
-    // List networks available to the collection. This will include the built-in networks in Span.
+    // Remove a gateway from Span.
     //
-    //Future<ListNetworkResponse> listNetworks() async
-    test('test listNetworks', () async {
+    //Future<Gateway> deleteGateway(String collectionId, String gatewayId) async
+    test('test deleteGateway', () async {
+      // TODO
+    });
+
+    // Get issued certificate(s) for gateway
+    //
+    //Future<GatewayCertificateResponse> gatewayCertificates(String collectionId, String gatewayId) async
+    test('test gatewayCertificates', () async {
+      // TODO
+    });
+
+    // List gateways
+    //
+    // List the user's gatways, including built-in gateways.
+    //
+    //Future<ListGatewayResponse> listGateways(String collectionId) async
+    test('test listGateways', () async {
       // TODO
     });
 
@@ -38,9 +55,19 @@ void main() {
     //
     // Get gateway information
     //
-    //Future<Gateway> retrieveGateway(String networkId, String gatewayId) async
+    //Future<Gateway> retrieveGateway(String collectionId, String gatewayId) async
     test('test retrieveGateway', () async {
       // TODO
     });
+
+    // Update gateway
+    //
+    // Update a gateway in Span
+    //
+    //Future<Gateway> updateGateway(String existingCollectionId, String gatewayId, InlineObject1 body) async
+    test('test updateGateway', () async {
+      // TODO
+    });
+
   });
 }

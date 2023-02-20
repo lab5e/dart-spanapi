@@ -20,5 +20,19 @@ void main() {
     test('to test the property `ciot`', () async {
       // TODO
     });
+
+    // This is the configuration for an internet-connected device. There are currently no configuration options for internet devices; the device is identified via the clientcertificate.  This is empty since there's no configuration required for the internet  gateway
+    // Object inet
+    test('to test the property `inet`', () async {
+      // TODO
+    });
+
+    // Map<String, GatewayDeviceConfig> gateway (default value: const {})
+    test('to test the property `gateway`', () async {
+      // TODO
+    });
+
+
   });
+
 }

@@ -30,5 +30,13 @@ void main() {
     test('to test the property `inet`', () async {
       // TODO
     });
+
+    // GatewayDeviceMetadata gateway
+    test('to test the property `gateway`', () async {
+      // TODO
+    });
+
+
   });
+
 }

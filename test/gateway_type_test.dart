@@ -11,19 +11,11 @@
 import 'package:spanapi/api.dart';
 import 'package:test/test.dart';
 
-// tests for Network
+// tests for GatewayType
 void main() {
-  final instance = Network();
 
-  group('test Network', () {
-    // String networkId
-    test('to test the property `networkId`', () async {
-      // TODO
-    });
+  group('test GatewayType', () {
 
-    // Map<String, String> tags (default value: const {})
-    test('to test the property `tags`', () async {
-      // TODO
-    });
   });
+
 }

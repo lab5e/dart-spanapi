@@ -17,6 +17,8 @@ Name | Type | Description | Notes
 **coapMetaData** | [**CoAPMetadata**](CoAPMetadata.md) |  | [optional] 
 **messageId** | **String** |  | [optional] 
 **mqttMetaData** | [**MQTTMetadata**](MQTTMetadata.md) |  | [optional] 
+**gatewayMetaData** | [**GatewayMetadata**](GatewayMetadata.md) |  | [optional] 
+**gatewayId** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

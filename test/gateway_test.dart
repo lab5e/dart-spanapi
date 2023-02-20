@@ -26,8 +26,23 @@ void main() {
       // TODO
     });
 
-    // String networkId
-    test('to test the property `networkId`', () async {
+    // String name
+    test('to test the property `name`', () async {
+      // TODO
+    });
+
+    // bool builtIn
+    test('to test the property `builtIn`', () async {
+      // TODO
+    });
+
+    // GatewayType type
+    test('to test the property `type`', () async {
+      // TODO
+    });
+
+    // GatewayConfig config
+    test('to test the property `config`', () async {
       // TODO
     });
 
@@ -35,5 +50,13 @@ void main() {
     test('to test the property `tags`', () async {
       // TODO
     });
+
+    // GatewayStatus status
+    test('to test the property `status`', () async {
+      // TODO
+    });
+
+
   });
+
 }

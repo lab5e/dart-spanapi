@@ -1,4 +1,4 @@
-# spanapi.model.ListNetworkResponse
+# spanapi.model.RetrieveBlobResponse
 
 ## Load the model package
 ```dart
@@ -8,7 +8,9 @@ import 'package:spanapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**networks** | [**List<Network>**](Network.md) |  | [optional] [default to const []]
+**contentType** | **String** |  | [optional] 
+**size** | **int** |  | [optional] 
+**data** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

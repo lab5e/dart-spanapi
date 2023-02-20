@@ -10,8 +10,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **gatewayId** | **String** |  | [optional] 
 **collectionId** | **String** |  | [optional] 
-**networkId** | **String** |  | [optional] 
+**name** | **String** |  | [optional] 
+**builtIn** | **bool** |  | [optional] 
+**type** | [**GatewayType**](GatewayType.md) |  | [optional] 
+**config** | [**GatewayConfig**](GatewayConfig.md) |  | [optional] 
 **tags** | **Map<String, String>** |  | [optional] [default to const {}]
+**status** | [**GatewayStatus**](GatewayStatus.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

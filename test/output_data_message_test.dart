@@ -61,5 +61,18 @@ void main() {
     test('to test the property `mqttMetaData`', () async {
       // TODO
     });
+
+    // GatewayMetadata gatewayMetaData
+    test('to test the property `gatewayMetaData`', () async {
+      // TODO
+    });
+
+    // String gatewayId
+    test('to test the property `gatewayId`', () async {
+      // TODO
+    });
+
+
   });
+
 }
