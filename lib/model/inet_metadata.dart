@@ -28,25 +28,22 @@ class InetMetadata {
   String certificateSerial;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is InetMetadata &&
-          other.gatewayId == gatewayId &&
-          other.lastUpdate == lastUpdate &&
-          other.remoteAddress == remoteAddress &&
-          other.certificateSerial == certificateSerial;
+  bool operator ==(Object other) => identical(this, other) || other is InetMetadata &&
+     other.gatewayId == gatewayId &&
+     other.lastUpdate == lastUpdate &&
+     other.remoteAddress == remoteAddress &&
+     other.certificateSerial == certificateSerial;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (gatewayId == null ? 0 : gatewayId.hashCode) +
-      (lastUpdate == null ? 0 : lastUpdate.hashCode) +
-      (remoteAddress == null ? 0 : remoteAddress.hashCode) +
-      (certificateSerial == null ? 0 : certificateSerial.hashCode);
+  // ignore: unnecessary_parenthesis
+    (gatewayId == null ? 0 : gatewayId.hashCode) +
+    (lastUpdate == null ? 0 : lastUpdate.hashCode) +
+    (remoteAddress == null ? 0 : remoteAddress.hashCode) +
+    (certificateSerial == null ? 0 : certificateSerial.hashCode);
 
   @override
-  String toString() =>
-      'InetMetadata[gatewayId=$gatewayId, lastUpdate=$lastUpdate, remoteAddress=$remoteAddress, certificateSerial=$certificateSerial]';
+  String toString() => 'InetMetadata[gatewayId=$gatewayId, lastUpdate=$lastUpdate, remoteAddress=$remoteAddress, certificateSerial=$certificateSerial]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -81,42 +78,36 @@ class InetMetadata {
     return null;
   }
 
-  static List<InetMetadata> listFromJson(
-    dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json.map(InetMetadata.fromJson).toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <InetMetadata>[];
+  static List<InetMetadata> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+    json is List && json.isNotEmpty
+      ? json.map(InetMetadata.fromJson).toList(growable: true == growable)
+      : true == emptyIsNull ? null : <InetMetadata>[];
 
   static Map<String, InetMetadata> mapFromJson(dynamic json) {
     final map = <String, InetMetadata>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach(
-          (key, dynamic value) => map[key] = InetMetadata.fromJson(value));
+      json
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) => map[key] = InetMetadata.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of InetMetadata-objects as value to a dart map
-  static Map<String, List<InetMetadata>> mapListFromJson(
-    dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) {
+  static Map<String, List<InetMetadata>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
     final map = <String, List<InetMetadata>>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) {
-        map[key] = InetMetadata.listFromJson(
-          value,
-          emptyIsNull: emptyIsNull,
-          growable: growable,
-        );
-      });
+      json
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) {
+          map[key] = InetMetadata.listFromJson(
+            value,
+            emptyIsNull: emptyIsNull,
+            growable: growable,
+          );
+        });
     }
     return map;
   }
 }
+

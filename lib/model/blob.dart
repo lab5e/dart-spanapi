@@ -43,35 +43,32 @@ class Blob {
   Map<String, String> properties;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is Blob &&
-          other.blobId == blobId &&
-          other.blobPath == blobPath &&
-          other.contentType == contentType &&
-          other.size == size &&
-          other.created == created &&
-          other.collectionId == collectionId &&
-          other.deviceId == deviceId &&
-          other.gatewayId == gatewayId &&
-          other.properties == properties;
+  bool operator ==(Object other) => identical(this, other) || other is Blob &&
+     other.blobId == blobId &&
+     other.blobPath == blobPath &&
+     other.contentType == contentType &&
+     other.size == size &&
+     other.created == created &&
+     other.collectionId == collectionId &&
+     other.deviceId == deviceId &&
+     other.gatewayId == gatewayId &&
+     other.properties == properties;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (blobId == null ? 0 : blobId.hashCode) +
-      (blobPath == null ? 0 : blobPath.hashCode) +
-      (contentType == null ? 0 : contentType.hashCode) +
-      (size == null ? 0 : size.hashCode) +
-      (created == null ? 0 : created.hashCode) +
-      (collectionId == null ? 0 : collectionId.hashCode) +
-      (deviceId == null ? 0 : deviceId.hashCode) +
-      (gatewayId == null ? 0 : gatewayId.hashCode) +
-      (properties == null ? 0 : properties.hashCode);
+  // ignore: unnecessary_parenthesis
+    (blobId == null ? 0 : blobId.hashCode) +
+    (blobPath == null ? 0 : blobPath.hashCode) +
+    (contentType == null ? 0 : contentType.hashCode) +
+    (size == null ? 0 : size.hashCode) +
+    (created == null ? 0 : created.hashCode) +
+    (collectionId == null ? 0 : collectionId.hashCode) +
+    (deviceId == null ? 0 : deviceId.hashCode) +
+    (gatewayId == null ? 0 : gatewayId.hashCode) +
+    (properties == null ? 0 : properties.hashCode);
 
   @override
-  String toString() =>
-      'Blob[blobId=$blobId, blobPath=$blobPath, contentType=$contentType, size=$size, created=$created, collectionId=$collectionId, deviceId=$deviceId, gatewayId=$gatewayId, properties=$properties]';
+  String toString() => 'Blob[blobId=$blobId, blobPath=$blobPath, contentType=$contentType, size=$size, created=$created, collectionId=$collectionId, deviceId=$deviceId, gatewayId=$gatewayId, properties=$properties]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -126,43 +123,36 @@ class Blob {
     return null;
   }
 
-  static List<Blob> listFromJson(
-    dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json.map(Blob.fromJson).toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <Blob>[];
+  static List<Blob> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+    json is List && json.isNotEmpty
+      ? json.map(Blob.fromJson).toList(growable: true == growable)
+      : true == emptyIsNull ? null : <Blob>[];
 
   static Map<String, Blob> mapFromJson(dynamic json) {
     final map = <String, Blob>{};
     if (json is Map && json.isNotEmpty) {
       json
-          .cast<String, dynamic>()
-          .forEach((key, dynamic value) => map[key] = Blob.fromJson(value));
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) => map[key] = Blob.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of Blob-objects as value to a dart map
-  static Map<String, List<Blob>> mapListFromJson(
-    dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) {
+  static Map<String, List<Blob>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
     final map = <String, List<Blob>>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) {
-        map[key] = Blob.listFromJson(
-          value,
-          emptyIsNull: emptyIsNull,
-          growable: growable,
-        );
-      });
+      json
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) {
+          map[key] = Blob.listFromJson(
+            value,
+            emptyIsNull: emptyIsNull,
+            growable: growable,
+          );
+        });
     }
     return map;
   }
 }
+

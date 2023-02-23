@@ -11,6 +11,7 @@
 import 'package:spanapi/api.dart';
 import 'package:test/test.dart';
 
+
 /// tests for GatewaysApi
 void main() {
   final instance = GatewaysApi();
@@ -67,5 +68,6 @@ void main() {
     test('test updateGateway', () async {
       // TODO
     });
+
   });
 }
