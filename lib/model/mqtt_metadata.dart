@@ -19,13 +19,13 @@ class MQTTMetadata {
   String topic;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MQTTMetadata &&
-     other.topic == topic;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is MQTTMetadata && other.topic == topic;
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (topic == null ? 0 : topic.hashCode);
+      // ignore: unnecessary_parenthesis
+      (topic == null ? 0 : topic.hashCode);
 
   @override
   String toString() => 'MQTTMetadata[topic=$topic]';
@@ -51,36 +51,42 @@ class MQTTMetadata {
     return null;
   }
 
-  static List<MQTTMetadata> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(MQTTMetadata.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <MQTTMetadata>[];
+  static List<MQTTMetadata> listFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json is List && json.isNotEmpty
+          ? json.map(MQTTMetadata.fromJson).toList(growable: true == growable)
+          : true == emptyIsNull
+              ? null
+              : <MQTTMetadata>[];
 
   static Map<String, MQTTMetadata> mapFromJson(dynamic json) {
     final map = <String, MQTTMetadata>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = MQTTMetadata.fromJson(value));
+      json.cast<String, dynamic>().forEach(
+          (key, dynamic value) => map[key] = MQTTMetadata.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of MQTTMetadata-objects as value to a dart map
-  static Map<String, List<MQTTMetadata>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<MQTTMetadata>> mapListFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<MQTTMetadata>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = MQTTMetadata.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json.cast<String, dynamic>().forEach((key, dynamic value) {
+        map[key] = MQTTMetadata.listFromJson(
+          value,
+          emptyIsNull: emptyIsNull,
+          growable: growable,
+        );
+      });
     }
     return map;
   }
 }
-

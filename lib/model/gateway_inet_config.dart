@@ -25,20 +25,23 @@ class GatewayInetConfig {
   String mqttEndpoint;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is GatewayInetConfig &&
-     other.dtlsEndpoint == dtlsEndpoint &&
-     other.coapEndpoint == coapEndpoint &&
-     other.mqttEndpoint == mqttEndpoint;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is GatewayInetConfig &&
+          other.dtlsEndpoint == dtlsEndpoint &&
+          other.coapEndpoint == coapEndpoint &&
+          other.mqttEndpoint == mqttEndpoint;
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (dtlsEndpoint == null ? 0 : dtlsEndpoint.hashCode) +
-    (coapEndpoint == null ? 0 : coapEndpoint.hashCode) +
-    (mqttEndpoint == null ? 0 : mqttEndpoint.hashCode);
+      // ignore: unnecessary_parenthesis
+      (dtlsEndpoint == null ? 0 : dtlsEndpoint.hashCode) +
+      (coapEndpoint == null ? 0 : coapEndpoint.hashCode) +
+      (mqttEndpoint == null ? 0 : mqttEndpoint.hashCode);
 
   @override
-  String toString() => 'GatewayInetConfig[dtlsEndpoint=$dtlsEndpoint, coapEndpoint=$coapEndpoint, mqttEndpoint=$mqttEndpoint]';
+  String toString() =>
+      'GatewayInetConfig[dtlsEndpoint=$dtlsEndpoint, coapEndpoint=$coapEndpoint, mqttEndpoint=$mqttEndpoint]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -69,36 +72,44 @@ class GatewayInetConfig {
     return null;
   }
 
-  static List<GatewayInetConfig> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(GatewayInetConfig.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <GatewayInetConfig>[];
+  static List<GatewayInetConfig> listFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json is List && json.isNotEmpty
+          ? json
+              .map(GatewayInetConfig.fromJson)
+              .toList(growable: true == growable)
+          : true == emptyIsNull
+              ? null
+              : <GatewayInetConfig>[];
 
   static Map<String, GatewayInetConfig> mapFromJson(dynamic json) {
     final map = <String, GatewayInetConfig>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = GatewayInetConfig.fromJson(value));
+      json.cast<String, dynamic>().forEach(
+          (key, dynamic value) => map[key] = GatewayInetConfig.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of GatewayInetConfig-objects as value to a dart map
-  static Map<String, List<GatewayInetConfig>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<GatewayInetConfig>> mapListFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<GatewayInetConfig>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = GatewayInetConfig.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json.cast<String, dynamic>().forEach((key, dynamic value) {
+        map[key] = GatewayInetConfig.listFromJson(
+          value,
+          emptyIsNull: emptyIsNull,
+          growable: growable,
+        );
+      });
     }
     return map;
   }
 }
-

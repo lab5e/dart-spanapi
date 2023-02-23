@@ -32,24 +32,27 @@ class NetworkOperator {
   String countryCode;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is NetworkOperator &&
-     other.mcc == mcc &&
-     other.mnc == mnc &&
-     other.country == country &&
-     other.network == network &&
-     other.countryCode == countryCode;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is NetworkOperator &&
+          other.mcc == mcc &&
+          other.mnc == mnc &&
+          other.country == country &&
+          other.network == network &&
+          other.countryCode == countryCode;
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (mcc == null ? 0 : mcc.hashCode) +
-    (mnc == null ? 0 : mnc.hashCode) +
-    (country == null ? 0 : country.hashCode) +
-    (network == null ? 0 : network.hashCode) +
-    (countryCode == null ? 0 : countryCode.hashCode);
+      // ignore: unnecessary_parenthesis
+      (mcc == null ? 0 : mcc.hashCode) +
+      (mnc == null ? 0 : mnc.hashCode) +
+      (country == null ? 0 : country.hashCode) +
+      (network == null ? 0 : network.hashCode) +
+      (countryCode == null ? 0 : countryCode.hashCode);
 
   @override
-  String toString() => 'NetworkOperator[mcc=$mcc, mnc=$mnc, country=$country, network=$network, countryCode=$countryCode]';
+  String toString() =>
+      'NetworkOperator[mcc=$mcc, mnc=$mnc, country=$country, network=$network, countryCode=$countryCode]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -88,36 +91,44 @@ class NetworkOperator {
     return null;
   }
 
-  static List<NetworkOperator> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(NetworkOperator.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <NetworkOperator>[];
+  static List<NetworkOperator> listFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json is List && json.isNotEmpty
+          ? json
+              .map(NetworkOperator.fromJson)
+              .toList(growable: true == growable)
+          : true == emptyIsNull
+              ? null
+              : <NetworkOperator>[];
 
   static Map<String, NetworkOperator> mapFromJson(dynamic json) {
     final map = <String, NetworkOperator>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = NetworkOperator.fromJson(value));
+      json.cast<String, dynamic>().forEach(
+          (key, dynamic value) => map[key] = NetworkOperator.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of NetworkOperator-objects as value to a dart map
-  static Map<String, List<NetworkOperator>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<NetworkOperator>> mapListFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<NetworkOperator>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = NetworkOperator.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json.cast<String, dynamic>().forEach((key, dynamic value) {
+        map[key] = NetworkOperator.listFromJson(
+          value,
+          emptyIsNull: emptyIsNull,
+          growable: growable,
+        );
+      });
     }
     return map;
   }
 }
-

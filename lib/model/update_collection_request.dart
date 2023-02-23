@@ -27,20 +27,23 @@ class UpdateCollectionRequest {
   Map<String, String> tags;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is UpdateCollectionRequest &&
-     other.teamId == teamId &&
-     other.firmware == firmware &&
-     other.tags == tags;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is UpdateCollectionRequest &&
+          other.teamId == teamId &&
+          other.firmware == firmware &&
+          other.tags == tags;
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (teamId == null ? 0 : teamId.hashCode) +
-    (firmware == null ? 0 : firmware.hashCode) +
-    (tags == null ? 0 : tags.hashCode);
+      // ignore: unnecessary_parenthesis
+      (teamId == null ? 0 : teamId.hashCode) +
+      (firmware == null ? 0 : firmware.hashCode) +
+      (tags == null ? 0 : tags.hashCode);
 
   @override
-  String toString() => 'UpdateCollectionRequest[teamId=$teamId, firmware=$firmware, tags=$tags]';
+  String toString() =>
+      'UpdateCollectionRequest[teamId=$teamId, firmware=$firmware, tags=$tags]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -71,36 +74,44 @@ class UpdateCollectionRequest {
     return null;
   }
 
-  static List<UpdateCollectionRequest> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(UpdateCollectionRequest.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <UpdateCollectionRequest>[];
+  static List<UpdateCollectionRequest> listFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json is List && json.isNotEmpty
+          ? json
+              .map(UpdateCollectionRequest.fromJson)
+              .toList(growable: true == growable)
+          : true == emptyIsNull
+              ? null
+              : <UpdateCollectionRequest>[];
 
   static Map<String, UpdateCollectionRequest> mapFromJson(dynamic json) {
     final map = <String, UpdateCollectionRequest>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = UpdateCollectionRequest.fromJson(value));
+      json.cast<String, dynamic>().forEach((key, dynamic value) =>
+          map[key] = UpdateCollectionRequest.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of UpdateCollectionRequest-objects as value to a dart map
-  static Map<String, List<UpdateCollectionRequest>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<UpdateCollectionRequest>> mapListFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<UpdateCollectionRequest>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = UpdateCollectionRequest.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json.cast<String, dynamic>().forEach((key, dynamic value) {
+        map[key] = UpdateCollectionRequest.listFromJson(
+          value,
+          emptyIsNull: emptyIsNull,
+          growable: growable,
+        );
+      });
     }
     return map;
   }
 }
-

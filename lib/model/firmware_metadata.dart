@@ -41,30 +41,33 @@ class FirmwareMetadata {
   String stateMessage;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is FirmwareMetadata &&
-     other.currentFirmwareId == currentFirmwareId &&
-     other.targetFirmwareId == targetFirmwareId &&
-     other.firmwareVersion == firmwareVersion &&
-     other.serialNumber == serialNumber &&
-     other.modelNumber == modelNumber &&
-     other.manufacturer == manufacturer &&
-     other.state == state &&
-     other.stateMessage == stateMessage;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is FirmwareMetadata &&
+          other.currentFirmwareId == currentFirmwareId &&
+          other.targetFirmwareId == targetFirmwareId &&
+          other.firmwareVersion == firmwareVersion &&
+          other.serialNumber == serialNumber &&
+          other.modelNumber == modelNumber &&
+          other.manufacturer == manufacturer &&
+          other.state == state &&
+          other.stateMessage == stateMessage;
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (currentFirmwareId == null ? 0 : currentFirmwareId.hashCode) +
-    (targetFirmwareId == null ? 0 : targetFirmwareId.hashCode) +
-    (firmwareVersion == null ? 0 : firmwareVersion.hashCode) +
-    (serialNumber == null ? 0 : serialNumber.hashCode) +
-    (modelNumber == null ? 0 : modelNumber.hashCode) +
-    (manufacturer == null ? 0 : manufacturer.hashCode) +
-    (state == null ? 0 : state.hashCode) +
-    (stateMessage == null ? 0 : stateMessage.hashCode);
+      // ignore: unnecessary_parenthesis
+      (currentFirmwareId == null ? 0 : currentFirmwareId.hashCode) +
+      (targetFirmwareId == null ? 0 : targetFirmwareId.hashCode) +
+      (firmwareVersion == null ? 0 : firmwareVersion.hashCode) +
+      (serialNumber == null ? 0 : serialNumber.hashCode) +
+      (modelNumber == null ? 0 : modelNumber.hashCode) +
+      (manufacturer == null ? 0 : manufacturer.hashCode) +
+      (state == null ? 0 : state.hashCode) +
+      (stateMessage == null ? 0 : stateMessage.hashCode);
 
   @override
-  String toString() => 'FirmwareMetadata[currentFirmwareId=$currentFirmwareId, targetFirmwareId=$targetFirmwareId, firmwareVersion=$firmwareVersion, serialNumber=$serialNumber, modelNumber=$modelNumber, manufacturer=$manufacturer, state=$state, stateMessage=$stateMessage]';
+  String toString() =>
+      'FirmwareMetadata[currentFirmwareId=$currentFirmwareId, targetFirmwareId=$targetFirmwareId, firmwareVersion=$firmwareVersion, serialNumber=$serialNumber, modelNumber=$modelNumber, manufacturer=$manufacturer, state=$state, stateMessage=$stateMessage]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -115,36 +118,44 @@ class FirmwareMetadata {
     return null;
   }
 
-  static List<FirmwareMetadata> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(FirmwareMetadata.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <FirmwareMetadata>[];
+  static List<FirmwareMetadata> listFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json is List && json.isNotEmpty
+          ? json
+              .map(FirmwareMetadata.fromJson)
+              .toList(growable: true == growable)
+          : true == emptyIsNull
+              ? null
+              : <FirmwareMetadata>[];
 
   static Map<String, FirmwareMetadata> mapFromJson(dynamic json) {
     final map = <String, FirmwareMetadata>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = FirmwareMetadata.fromJson(value));
+      json.cast<String, dynamic>().forEach(
+          (key, dynamic value) => map[key] = FirmwareMetadata.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of FirmwareMetadata-objects as value to a dart map
-  static Map<String, List<FirmwareMetadata>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<FirmwareMetadata>> mapListFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<FirmwareMetadata>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = FirmwareMetadata.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json.cast<String, dynamic>().forEach((key, dynamic value) {
+        map[key] = FirmwareMetadata.listFromJson(
+          value,
+          emptyIsNull: emptyIsNull,
+          growable: growable,
+        );
+      });
     }
     return map;
   }
 }
-
