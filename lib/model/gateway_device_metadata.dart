@@ -25,23 +25,20 @@ class GatewayDeviceMetadata {
   Map<String, String> params;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is GatewayDeviceMetadata &&
-          other.gatewayId == gatewayId &&
-          other.lastUpdate == lastUpdate &&
-          other.params == params;
+  bool operator ==(Object other) => identical(this, other) || other is GatewayDeviceMetadata &&
+     other.gatewayId == gatewayId &&
+     other.lastUpdate == lastUpdate &&
+     other.params == params;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (gatewayId == null ? 0 : gatewayId.hashCode) +
-      (lastUpdate == null ? 0 : lastUpdate.hashCode) +
-      (params == null ? 0 : params.hashCode);
+  // ignore: unnecessary_parenthesis
+    (gatewayId == null ? 0 : gatewayId.hashCode) +
+    (lastUpdate == null ? 0 : lastUpdate.hashCode) +
+    (params == null ? 0 : params.hashCode);
 
   @override
-  String toString() =>
-      'GatewayDeviceMetadata[gatewayId=$gatewayId, lastUpdate=$lastUpdate, params=$params]';
+  String toString() => 'GatewayDeviceMetadata[gatewayId=$gatewayId, lastUpdate=$lastUpdate, params=$params]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -72,44 +69,36 @@ class GatewayDeviceMetadata {
     return null;
   }
 
-  static List<GatewayDeviceMetadata> listFromJson(
-    dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json
-              .map(GatewayDeviceMetadata.fromJson)
-              .toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <GatewayDeviceMetadata>[];
+  static List<GatewayDeviceMetadata> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+    json is List && json.isNotEmpty
+      ? json.map(GatewayDeviceMetadata.fromJson).toList(growable: true == growable)
+      : true == emptyIsNull ? null : <GatewayDeviceMetadata>[];
 
   static Map<String, GatewayDeviceMetadata> mapFromJson(dynamic json) {
     final map = <String, GatewayDeviceMetadata>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) =>
-          map[key] = GatewayDeviceMetadata.fromJson(value));
+      json
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) => map[key] = GatewayDeviceMetadata.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of GatewayDeviceMetadata-objects as value to a dart map
-  static Map<String, List<GatewayDeviceMetadata>> mapListFromJson(
-    dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) {
+  static Map<String, List<GatewayDeviceMetadata>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
     final map = <String, List<GatewayDeviceMetadata>>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) {
-        map[key] = GatewayDeviceMetadata.listFromJson(
-          value,
-          emptyIsNull: emptyIsNull,
-          growable: growable,
-        );
-      });
+      json
+        .cast<String, dynamic>()
+        .forEach((key, dynamic value) {
+          map[key] = GatewayDeviceMetadata.listFromJson(
+            value,
+            emptyIsNull: emptyIsNull,
+            growable: growable,
+          );
+        });
     }
     return map;
   }
 }
+

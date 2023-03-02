@@ -37,21 +37,7 @@ void main() {
       // TODO
     });
 
-    // Deprecated: The IMSI is replaced by CellularIoTMetadata
-    // String imsi
-    test('to test the property `imsi`', () async {
-      // TODO
-    });
 
-    // The IMEI number is the unique ID for your hardware as seen by the network. Obviously you might have a completely different view on things. This field is deprecated.  Deprecated: The IMEI is replaced by CellularIoTMetadata
-    // String imei
-    test('to test the property `imei`', () async {
-      // TODO
-    });
-
-    // NetworkMetadata network
-    test('to test the property `network`', () async {
-      // TODO
-    });
   });
+
 }

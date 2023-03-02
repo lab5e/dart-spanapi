@@ -10,6 +10,7 @@
 
 part of spanapi;
 
+
 class GatewayStatus {
   /// Instantiate a new enum with the provided [value].
   const GatewayStatus._(this.value);
@@ -34,25 +35,18 @@ class GatewayStatus {
   ];
 
   static GatewayStatus fromJson(dynamic value) =>
-      GatewayStatusTypeTransformer().decode(value);
+    GatewayStatusTypeTransformer().decode(value);
 
-  static List<GatewayStatus> listFromJson(
-    dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json.map(GatewayStatus.fromJson).toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <GatewayStatus>[];
+  static List<GatewayStatus> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+    json is List && json.isNotEmpty
+      ? json.map(GatewayStatus.fromJson).toList(growable: true == growable)
+      : true == emptyIsNull ? null : <GatewayStatus>[];
 }
 
 /// Transformation class that can [encode] an instance of [GatewayStatus] to String,
 /// and [decode] dynamic data back to [GatewayStatus].
 class GatewayStatusTypeTransformer {
-  factory GatewayStatusTypeTransformer() =>
-      _instance ??= const GatewayStatusTypeTransformer._();
+  factory GatewayStatusTypeTransformer() => _instance ??= const GatewayStatusTypeTransformer._();
 
   const GatewayStatusTypeTransformer._();
 
@@ -69,12 +63,9 @@ class GatewayStatusTypeTransformer {
   GatewayStatus decode(dynamic data, {bool allowNull}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'unknown':
-          return GatewayStatus.unknown;
-        case r'offline':
-          return GatewayStatus.offline;
-        case r'online':
-          return GatewayStatus.online;
+        case r'unknown': return GatewayStatus.unknown;
+        case r'offline': return GatewayStatus.offline;
+        case r'online': return GatewayStatus.online;
         default:
           if (allowNull == false) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -87,3 +78,4 @@ class GatewayStatusTypeTransformer {
   /// Singleton [GatewayStatusTypeTransformer] instance.
   static GatewayStatusTypeTransformer _instance;
 }
+

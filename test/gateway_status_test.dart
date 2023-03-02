@@ -13,5 +13,9 @@ import 'package:test/test.dart';
 
 // tests for GatewayStatus
 void main() {
-  group('test GatewayStatus', () {});
+
+  group('test GatewayStatus', () {
+
+  });
+
 }

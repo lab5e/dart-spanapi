@@ -14,9 +14,10 @@ Name | Type | Description | Notes
 **firmware** | [**FirmwareMetadata**](FirmwareMetadata.md) |  | [optional] 
 **config** | [**DeviceConfig**](DeviceConfig.md) |  | [optional] 
 **metadata** | [**DeviceMetadata**](DeviceMetadata.md) |  | [optional] 
-**imsi** | **String** | The IMSI is the unique ID for the (e|nu|whatever)SIM card on your device. This is the primary identifier for your device on the network.  Deprecated: The IMSI is replaced by CellularIoTMetadata | [optional] 
-**imei** | **String** | The IMEI number is the unique ID for your hardware as seen by the network. Obviously you might have a completely different view on things.  Deprecated: The IMEI is replaced by CellularIoTMetadata | [optional] 
-**network** | [**NetworkMetadata**](NetworkMetadata.md) |  | [optional] 
+**lastGatewayId** | **String** |  | [optional] 
+**lastTransport** | [**MessageTransport**](MessageTransport.md) |  | [optional] 
+**lastReceived** | **String** |  | [optional] 
+**lastPayload** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

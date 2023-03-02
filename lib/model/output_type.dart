@@ -41,25 +41,18 @@ class OutputType {
   ];
 
   static OutputType fromJson(dynamic value) =>
-      OutputTypeTypeTransformer().decode(value);
+    OutputTypeTypeTransformer().decode(value);
 
-  static List<OutputType> listFromJson(
-    dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json.map(OutputType.fromJson).toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <OutputType>[];
+  static List<OutputType> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+    json is List && json.isNotEmpty
+      ? json.map(OutputType.fromJson).toList(growable: true == growable)
+      : true == emptyIsNull ? null : <OutputType>[];
 }
 
 /// Transformation class that can [encode] an instance of [OutputType] to String,
 /// and [decode] dynamic data back to [OutputType].
 class OutputTypeTypeTransformer {
-  factory OutputTypeTypeTransformer() =>
-      _instance ??= const OutputTypeTypeTransformer._();
+  factory OutputTypeTypeTransformer() => _instance ??= const OutputTypeTypeTransformer._();
 
   const OutputTypeTypeTransformer._();
 
@@ -76,18 +69,12 @@ class OutputTypeTypeTransformer {
   OutputType decode(dynamic data, {bool allowNull}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'undefined':
-          return OutputType.undefined;
-        case r'webhook':
-          return OutputType.webhook;
-        case r'udpout':
-          return OutputType.udpout;
-        case r'mqttclient':
-          return OutputType.mqttclient;
-        case r'ifttt':
-          return OutputType.ifttt;
-        case r'mqttbroker':
-          return OutputType.mqttbroker;
+        case r'undefined': return OutputType.undefined;
+        case r'webhook': return OutputType.webhook;
+        case r'udpout': return OutputType.udpout;
+        case r'mqttclient': return OutputType.mqttclient;
+        case r'ifttt': return OutputType.ifttt;
+        case r'mqttbroker': return OutputType.mqttbroker;
         default:
           if (allowNull == false) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -100,3 +87,4 @@ class OutputTypeTypeTransformer {
   /// Singleton [OutputTypeTypeTransformer] instance.
   static OutputTypeTypeTransformer _instance;
 }
+

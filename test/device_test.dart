@@ -48,21 +48,27 @@ void main() {
       // TODO
     });
 
-    // The IMSI is the unique ID for the (e|nu|whatever)SIM card on your device. This is the primary identifier for your device on the network.  Deprecated: The IMSI is replaced by CellularIoTMetadata
-    // String imsi
-    test('to test the property `imsi`', () async {
+    // String lastGatewayId
+    test('to test the property `lastGatewayId`', () async {
       // TODO
     });
 
-    // The IMEI number is the unique ID for your hardware as seen by the network. Obviously you might have a completely different view on things.  Deprecated: The IMEI is replaced by CellularIoTMetadata
-    // String imei
-    test('to test the property `imei`', () async {
+    // MessageTransport lastTransport
+    test('to test the property `lastTransport`', () async {
       // TODO
     });
 
-    // NetworkMetadata network
-    test('to test the property `network`', () async {
+    // String lastReceived
+    test('to test the property `lastReceived`', () async {
       // TODO
     });
+
+    // String lastPayload
+    test('to test the property `lastPayload`', () async {
+      // TODO
+    });
+
+
   });
+
 }

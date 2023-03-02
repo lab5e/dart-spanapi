@@ -16,11 +16,6 @@ void main() {
   final instance = DeviceMetadata();
 
   group('test DeviceMetadata', () {
-    // NetworkOperator simOperator
-    test('to test the property `simOperator`', () async {
-      // TODO
-    });
-
     // CellularIoTMetadata ciot
     test('to test the property `ciot`', () async {
       // TODO
@@ -35,5 +30,8 @@ void main() {
     test('to test the property `gateway`', () async {
       // TODO
     });
+
+
   });
+
 }

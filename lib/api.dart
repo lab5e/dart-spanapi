@@ -90,8 +90,6 @@ part 'model/message_downstream.dart';
 part 'model/message_state.dart';
 part 'model/message_transport.dart';
 part 'model/message_upstream.dart';
-part 'model/network_metadata.dart';
-part 'model/network_operator.dart';
 part 'model/output.dart';
 part 'model/output_config.dart';
 part 'model/output_data_message.dart';
@@ -112,6 +110,7 @@ part 'model/update_firmware_request.dart';
 part 'model/update_output_request.dart';
 part 'model/verify_certificate_request.dart';
 part 'model/verify_certificate_response.dart';
+
 
 const _delimiters = {'csv': ',', 'ssv': ' ', 'tsv': '\t', 'pipes': '|'};
 const _dateEpochMarker = 'epoch';

@@ -22,18 +22,6 @@ void main() {
       // TODO
     });
 
-    // Deprecated: this is replaced by the Config type The IMSI is the unique ID for the (e|nu|whatever)SIM card on your device. This is the primary identifier for your device on the network.
-    // String imsi
-    test('to test the property `imsi`', () async {
-      // TODO
-    });
-
-    // Deprecated: This is replaced by the Config type The IMEI number is the unique ID for your hardware as seen by the network. Obviously you might have a completely different view on things.
-    // String imei
-    test('to test the property `imei`', () async {
-      // TODO
-    });
-
     // Tags are metadata for the device that you can set. These are just strings.
     // Map<String, String> tags (default value: const {})
     test('to test the property `tags`', () async {
@@ -49,5 +37,8 @@ void main() {
     test('to test the property `config`', () async {
       // TODO
     });
+
+
   });
+
 }

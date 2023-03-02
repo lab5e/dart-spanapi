@@ -10,6 +10,7 @@
 
 part of spanapi;
 
+
 class GatewayType {
   /// Instantiate a new enum with the provided [value].
   const GatewayType._(this.value);
@@ -44,25 +45,18 @@ class GatewayType {
   ];
 
   static GatewayType fromJson(dynamic value) =>
-      GatewayTypeTypeTransformer().decode(value);
+    GatewayTypeTypeTransformer().decode(value);
 
-  static List<GatewayType> listFromJson(
-    dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json.map(GatewayType.fromJson).toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <GatewayType>[];
+  static List<GatewayType> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+    json is List && json.isNotEmpty
+      ? json.map(GatewayType.fromJson).toList(growable: true == growable)
+      : true == emptyIsNull ? null : <GatewayType>[];
 }
 
 /// Transformation class that can [encode] an instance of [GatewayType] to String,
 /// and [decode] dynamic data back to [GatewayType].
 class GatewayTypeTypeTransformer {
-  factory GatewayTypeTypeTransformer() =>
-      _instance ??= const GatewayTypeTypeTransformer._();
+  factory GatewayTypeTypeTransformer() => _instance ??= const GatewayTypeTypeTransformer._();
 
   const GatewayTypeTypeTransformer._();
 
@@ -79,22 +73,14 @@ class GatewayTypeTypeTransformer {
   GatewayType decode(dynamic data, {bool allowNull}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'unknown':
-          return GatewayType.unknown;
-        case r'ciot':
-          return GatewayType.ciot;
-        case r'inet':
-          return GatewayType.inet;
-        case r'lora':
-          return GatewayType.lora;
-        case r'openthread':
-          return GatewayType.openthread;
-        case r'zigbee':
-          return GatewayType.zigbee;
-        case r'matter':
-          return GatewayType.matter;
-        case r'custom':
-          return GatewayType.custom;
+        case r'unknown': return GatewayType.unknown;
+        case r'ciot': return GatewayType.ciot;
+        case r'inet': return GatewayType.inet;
+        case r'lora': return GatewayType.lora;
+        case r'openthread': return GatewayType.openthread;
+        case r'zigbee': return GatewayType.zigbee;
+        case r'matter': return GatewayType.matter;
+        case r'custom': return GatewayType.custom;
         default:
           if (allowNull == false) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -107,3 +93,4 @@ class GatewayTypeTypeTransformer {
   /// Singleton [GatewayTypeTypeTransformer] instance.
   static GatewayTypeTypeTransformer _instance;
 }
+

@@ -13,5 +13,9 @@ import 'package:test/test.dart';
 
 // tests for GatewayType
 void main() {
-  group('test GatewayType', () {});
+
+  group('test GatewayType', () {
+
+  });
+
 }

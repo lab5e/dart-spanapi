@@ -61,8 +61,6 @@ doc/MessageDownstream.md
 doc/MessageState.md
 doc/MessageTransport.md
 doc/MessageUpstream.md
-doc/NetworkMetadata.md
-doc/NetworkOperator.md
 doc/Output.md
 doc/OutputConfig.md
 doc/OutputDataMessage.md
@@ -157,8 +155,6 @@ lib/model/message_state.dart
 lib/model/message_transport.dart
 lib/model/message_upstream.dart
 lib/model/mqtt_metadata.dart
-lib/model/network_metadata.dart
-lib/model/network_operator.dart
 lib/model/output.dart
 lib/model/output_config.dart
 lib/model/output_data_message.dart
@@ -240,8 +236,6 @@ test/message_state_test.dart
 test/message_transport_test.dart
 test/message_upstream_test.dart
 test/mqtt_metadata_test.dart
-test/network_metadata_test.dart
-test/network_operator_test.dart
 test/output_config_test.dart
 test/output_data_message_test.dart
 test/output_log_entry_test.dart
