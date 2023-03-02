@@ -11,7 +11,6 @@
 import 'package:spanapi/api.dart';
 import 'package:test/test.dart';
 
-
 /// tests for DevicesApi
 void main() {
   final instance = DevicesApi();
@@ -105,6 +104,5 @@ void main() {
     test('test updateDevice', () async {
       // TODO
     });
-
   });
 }

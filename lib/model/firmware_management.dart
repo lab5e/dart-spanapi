@@ -37,18 +37,27 @@ class FirmwareManagement {
   ];
 
   static FirmwareManagement fromJson(dynamic value) =>
-    FirmwareManagementTypeTransformer().decode(value);
+      FirmwareManagementTypeTransformer().decode(value);
 
-  static List<FirmwareManagement> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(FirmwareManagement.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <FirmwareManagement>[];
+  static List<FirmwareManagement> listFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json is List && json.isNotEmpty
+          ? json
+              .map(FirmwareManagement.fromJson)
+              .toList(growable: true == growable)
+          : true == emptyIsNull
+              ? null
+              : <FirmwareManagement>[];
 }
 
 /// Transformation class that can [encode] an instance of [FirmwareManagement] to String,
 /// and [decode] dynamic data back to [FirmwareManagement].
 class FirmwareManagementTypeTransformer {
-  factory FirmwareManagementTypeTransformer() => _instance ??= const FirmwareManagementTypeTransformer._();
+  factory FirmwareManagementTypeTransformer() =>
+      _instance ??= const FirmwareManagementTypeTransformer._();
 
   const FirmwareManagementTypeTransformer._();
 
@@ -65,10 +74,14 @@ class FirmwareManagementTypeTransformer {
   FirmwareManagement decode(dynamic data, {bool allowNull}) {
     if (data != null) {
       switch (data.toString()) {
-        case r'unspecified': return FirmwareManagement.unspecified;
-        case r'disabled': return FirmwareManagement.disabled;
-        case r'collection': return FirmwareManagement.collection;
-        case r'device': return FirmwareManagement.device;
+        case r'unspecified':
+          return FirmwareManagement.unspecified;
+        case r'disabled':
+          return FirmwareManagement.disabled;
+        case r'collection':
+          return FirmwareManagement.collection;
+        case r'device':
+          return FirmwareManagement.device;
         default:
           if (allowNull == false) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -81,4 +94,3 @@ class FirmwareManagementTypeTransformer {
   /// Singleton [FirmwareManagementTypeTransformer] instance.
   static FirmwareManagementTypeTransformer _instance;
 }
-

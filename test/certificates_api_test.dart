@@ -11,7 +11,6 @@
 import 'package:spanapi/api.dart';
 import 'package:test/test.dart';
 
-
 /// tests for CertificatesApi
 void main() {
   final instance = CertificatesApi();
@@ -52,6 +51,5 @@ void main() {
     test('test verifyCertificate', () async {
       // TODO
     });
-
   });
 }

@@ -25,20 +25,23 @@ class SignCertificateRequest {
   String csr;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is SignCertificateRequest &&
-     other.gatewayId == gatewayId &&
-     other.deviceId == deviceId &&
-     other.csr == csr;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is SignCertificateRequest &&
+          other.gatewayId == gatewayId &&
+          other.deviceId == deviceId &&
+          other.csr == csr;
 
   @override
   int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (gatewayId == null ? 0 : gatewayId.hashCode) +
-    (deviceId == null ? 0 : deviceId.hashCode) +
-    (csr == null ? 0 : csr.hashCode);
+      // ignore: unnecessary_parenthesis
+      (gatewayId == null ? 0 : gatewayId.hashCode) +
+      (deviceId == null ? 0 : deviceId.hashCode) +
+      (csr == null ? 0 : csr.hashCode);
 
   @override
-  String toString() => 'SignCertificateRequest[gatewayId=$gatewayId, deviceId=$deviceId, csr=$csr]';
+  String toString() =>
+      'SignCertificateRequest[gatewayId=$gatewayId, deviceId=$deviceId, csr=$csr]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -69,36 +72,44 @@ class SignCertificateRequest {
     return null;
   }
 
-  static List<SignCertificateRequest> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(SignCertificateRequest.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <SignCertificateRequest>[];
+  static List<SignCertificateRequest> listFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json is List && json.isNotEmpty
+          ? json
+              .map(SignCertificateRequest.fromJson)
+              .toList(growable: true == growable)
+          : true == emptyIsNull
+              ? null
+              : <SignCertificateRequest>[];
 
   static Map<String, SignCertificateRequest> mapFromJson(dynamic json) {
     final map = <String, SignCertificateRequest>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = SignCertificateRequest.fromJson(value));
+      json.cast<String, dynamic>().forEach((key, dynamic value) =>
+          map[key] = SignCertificateRequest.fromJson(value));
     }
     return map;
   }
 
   // maps a json object with a list of SignCertificateRequest-objects as value to a dart map
-  static Map<String, List<SignCertificateRequest>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<SignCertificateRequest>> mapListFromJson(
+    dynamic json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<SignCertificateRequest>>{};
     if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = SignCertificateRequest.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
+      json.cast<String, dynamic>().forEach((key, dynamic value) {
+        map[key] = SignCertificateRequest.listFromJson(
+          value,
+          emptyIsNull: emptyIsNull,
+          growable: growable,
+        );
+      });
     }
     return map;
   }
 }
-
