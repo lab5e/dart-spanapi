@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,7 +13,7 @@ import 'package:test/test.dart';
 
 /// tests for FotaApi
 void main() {
-  final instance = FotaApi();
+  // final instance = FotaApi();
 
   group('tests for FotaApi', () {
     // Clear FOTA error
@@ -24,6 +24,8 @@ void main() {
     });
 
     // Create firmware
+    //
+    // Firmware images must have unique version numbers and have an unique checksum. The checksum is calculated when the firmware image is uploaded.
     //
     //Future<Firmware> createFirmware(String collectionId, CreateFirmwareRequest body) async
     test('test createFirmware', () async {

@@ -10,12 +10,13 @@
 
 part of spanapi;
 
-class CreateOutputRequest {
-  /// Returns a new [CreateOutputRequest] instance.
-  CreateOutputRequest({
+class UpdateGatewayRequest {
+  /// Returns a new [UpdateGatewayRequest] instance.
+  UpdateGatewayRequest({
+    this.name,
+    this.collectionId,
     this.type,
     this.config,
-    this.enabled,
     this.tags = const {},
   });
 
@@ -25,7 +26,7 @@ class CreateOutputRequest {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  OutputType? type;
+  String? name;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -33,7 +34,7 @@ class CreateOutputRequest {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  OutputConfig? config;
+  String? collectionId;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -41,33 +42,53 @@ class CreateOutputRequest {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  bool? enabled;
+  GatewayType? type;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  GatewayConfig? config;
 
   Map<String, String> tags;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is CreateOutputRequest &&
+      other is UpdateGatewayRequest &&
+          other.name == name &&
+          other.collectionId == collectionId &&
           other.type == type &&
           other.config == config &&
-          other.enabled == enabled &&
           other.tags == tags;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
+      (name == null ? 0 : name!.hashCode) +
+      (collectionId == null ? 0 : collectionId!.hashCode) +
       (type == null ? 0 : type!.hashCode) +
       (config == null ? 0 : config!.hashCode) +
-      (enabled == null ? 0 : enabled!.hashCode) +
       (tags.hashCode);
 
   @override
   String toString() =>
-      'CreateOutputRequest[type=$type, config=$config, enabled=$enabled, tags=$tags]';
+      'UpdateGatewayRequest[name=$name, collectionId=$collectionId, type=$type, config=$config, tags=$tags]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
+    if (this.name != null) {
+      json[r'name'] = this.name;
+    } else {
+      json[r'name'] = null;
+    }
+    if (this.collectionId != null) {
+      json[r'collectionId'] = this.collectionId;
+    } else {
+      json[r'collectionId'] = null;
+    }
     if (this.type != null) {
       json[r'type'] = this.type;
     } else {
@@ -78,19 +99,14 @@ class CreateOutputRequest {
     } else {
       json[r'config'] = null;
     }
-    if (this.enabled != null) {
-      json[r'enabled'] = this.enabled;
-    } else {
-      json[r'enabled'] = null;
-    }
     json[r'tags'] = this.tags;
     return json;
   }
 
-  /// Returns a new [CreateOutputRequest] instance and imports its values from
+  /// Returns a new [UpdateGatewayRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static CreateOutputRequest? fromJson(dynamic value) {
+  static UpdateGatewayRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -100,31 +116,32 @@ class CreateOutputRequest {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "CreateOutputRequest[$key]" is missing from JSON.');
+              'Required key "UpdateGatewayRequest[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "CreateOutputRequest[$key]" has a null value in JSON.');
+              'Required key "UpdateGatewayRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return CreateOutputRequest(
-        type: OutputType.fromJson(json[r'type']),
-        config: OutputConfig.fromJson(json[r'config']),
-        enabled: mapValueOfType<bool>(json, r'enabled'),
+      return UpdateGatewayRequest(
+        name: mapValueOfType<String>(json, r'name'),
+        collectionId: mapValueOfType<String>(json, r'collectionId'),
+        type: GatewayType.fromJson(json[r'type']),
+        config: GatewayConfig.fromJson(json[r'config']),
         tags: mapCastOfType<String, String>(json, r'tags') ?? const {},
       );
     }
     return null;
   }
 
-  static List<CreateOutputRequest>? listFromJson(
+  static List<UpdateGatewayRequest>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <CreateOutputRequest>[];
+    final result = <UpdateGatewayRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = CreateOutputRequest.fromJson(row);
+        final value = UpdateGatewayRequest.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -133,12 +150,12 @@ class CreateOutputRequest {
     return result.toList(growable: growable);
   }
 
-  static Map<String, CreateOutputRequest> mapFromJson(dynamic json) {
-    final map = <String, CreateOutputRequest>{};
+  static Map<String, UpdateGatewayRequest> mapFromJson(dynamic json) {
+    final map = <String, UpdateGatewayRequest>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = CreateOutputRequest.fromJson(entry.value);
+        final value = UpdateGatewayRequest.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -147,16 +164,16 @@ class CreateOutputRequest {
     return map;
   }
 
-  // maps a json object with a list of CreateOutputRequest-objects as value to a dart map
-  static Map<String, List<CreateOutputRequest>> mapListFromJson(
+  // maps a json object with a list of UpdateGatewayRequest-objects as value to a dart map
+  static Map<String, List<UpdateGatewayRequest>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<CreateOutputRequest>>{};
+    final map = <String, List<UpdateGatewayRequest>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = CreateOutputRequest.listFromJson(
+        final value = UpdateGatewayRequest.listFromJson(
           entry.value,
           growable: growable,
         );

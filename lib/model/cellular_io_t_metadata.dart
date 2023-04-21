@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -25,27 +25,87 @@ class CellularIoTMetadata {
     this.lastUpdate,
   });
 
-  String gatewayId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? gatewayId;
 
   /// Allocated IP address.
-  String allocatedIp;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? allocatedIp;
 
-  String allocatedAt;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? allocatedAt;
 
-  String cellId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? cellId;
 
   /// the provider in use.  The Mobile Country Code for the operator.
-  int mcc;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? mcc;
 
-  int mnc;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? mnc;
 
-  String country;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? country;
 
-  String network;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? network;
 
-  String countryCode;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? countryCode;
 
-  String lastUpdate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? lastUpdate;
 
   @override
   bool operator ==(Object other) =>
@@ -65,16 +125,16 @@ class CellularIoTMetadata {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (gatewayId == null ? 0 : gatewayId.hashCode) +
-      (allocatedIp == null ? 0 : allocatedIp.hashCode) +
-      (allocatedAt == null ? 0 : allocatedAt.hashCode) +
-      (cellId == null ? 0 : cellId.hashCode) +
-      (mcc == null ? 0 : mcc.hashCode) +
-      (mnc == null ? 0 : mnc.hashCode) +
-      (country == null ? 0 : country.hashCode) +
-      (network == null ? 0 : network.hashCode) +
-      (countryCode == null ? 0 : countryCode.hashCode) +
-      (lastUpdate == null ? 0 : lastUpdate.hashCode);
+      (gatewayId == null ? 0 : gatewayId!.hashCode) +
+      (allocatedIp == null ? 0 : allocatedIp!.hashCode) +
+      (allocatedAt == null ? 0 : allocatedAt!.hashCode) +
+      (cellId == null ? 0 : cellId!.hashCode) +
+      (mcc == null ? 0 : mcc!.hashCode) +
+      (mnc == null ? 0 : mnc!.hashCode) +
+      (country == null ? 0 : country!.hashCode) +
+      (network == null ? 0 : network!.hashCode) +
+      (countryCode == null ? 0 : countryCode!.hashCode) +
+      (lastUpdate == null ? 0 : lastUpdate!.hashCode);
 
   @override
   String toString() =>
@@ -82,35 +142,55 @@ class CellularIoTMetadata {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    if (gatewayId != null) {
-      json[r'gatewayId'] = gatewayId;
+    if (this.gatewayId != null) {
+      json[r'gatewayId'] = this.gatewayId;
+    } else {
+      json[r'gatewayId'] = null;
     }
-    if (allocatedIp != null) {
-      json[r'allocatedIp'] = allocatedIp;
+    if (this.allocatedIp != null) {
+      json[r'allocatedIp'] = this.allocatedIp;
+    } else {
+      json[r'allocatedIp'] = null;
     }
-    if (allocatedAt != null) {
-      json[r'allocatedAt'] = allocatedAt;
+    if (this.allocatedAt != null) {
+      json[r'allocatedAt'] = this.allocatedAt;
+    } else {
+      json[r'allocatedAt'] = null;
     }
-    if (cellId != null) {
-      json[r'cellId'] = cellId;
+    if (this.cellId != null) {
+      json[r'cellId'] = this.cellId;
+    } else {
+      json[r'cellId'] = null;
     }
-    if (mcc != null) {
-      json[r'mcc'] = mcc;
+    if (this.mcc != null) {
+      json[r'mcc'] = this.mcc;
+    } else {
+      json[r'mcc'] = null;
     }
-    if (mnc != null) {
-      json[r'mnc'] = mnc;
+    if (this.mnc != null) {
+      json[r'mnc'] = this.mnc;
+    } else {
+      json[r'mnc'] = null;
     }
-    if (country != null) {
-      json[r'country'] = country;
+    if (this.country != null) {
+      json[r'country'] = this.country;
+    } else {
+      json[r'country'] = null;
     }
-    if (network != null) {
-      json[r'network'] = network;
+    if (this.network != null) {
+      json[r'network'] = this.network;
+    } else {
+      json[r'network'] = null;
     }
-    if (countryCode != null) {
-      json[r'countryCode'] = countryCode;
+    if (this.countryCode != null) {
+      json[r'countryCode'] = this.countryCode;
+    } else {
+      json[r'countryCode'] = null;
     }
-    if (lastUpdate != null) {
-      json[r'lastUpdate'] = lastUpdate;
+    if (this.lastUpdate != null) {
+      json[r'lastUpdate'] = this.lastUpdate;
+    } else {
+      json[r'lastUpdate'] = null;
     }
     return json;
   }
@@ -118,9 +198,23 @@ class CellularIoTMetadata {
   /// Returns a new [CellularIoTMetadata] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static CellularIoTMetadata fromJson(dynamic value) {
+  static CellularIoTMetadata? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key),
+              'Required key "CellularIoTMetadata[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "CellularIoTMetadata[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return CellularIoTMetadata(
         gatewayId: mapValueOfType<String>(json, r'gatewayId'),
         allocatedIp: mapValueOfType<String>(json, r'allocatedIp'),
@@ -137,24 +231,32 @@ class CellularIoTMetadata {
     return null;
   }
 
-  static List<CellularIoTMetadata> listFromJson(
+  static List<CellularIoTMetadata>? listFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json
-              .map(CellularIoTMetadata.fromJson)
-              .toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <CellularIoTMetadata>[];
+    bool growable = false,
+  }) {
+    final result = <CellularIoTMetadata>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = CellularIoTMetadata.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, CellularIoTMetadata> mapFromJson(dynamic json) {
     final map = <String, CellularIoTMetadata>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) =>
-          map[key] = CellularIoTMetadata.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = CellularIoTMetadata.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
@@ -162,19 +264,24 @@ class CellularIoTMetadata {
   // maps a json object with a list of CellularIoTMetadata-objects as value to a dart map
   static Map<String, List<CellularIoTMetadata>> mapListFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
+    bool growable = false,
   }) {
     final map = <String, List<CellularIoTMetadata>>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) {
-        map[key] = CellularIoTMetadata.listFromJson(
-          value,
-          emptyIsNull: emptyIsNull,
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = CellularIoTMetadata.listFromJson(
+          entry.value,
           growable: growable,
         );
-      });
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{};
 }

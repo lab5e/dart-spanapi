@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -18,7 +18,7 @@ class GatewayStatus {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -33,19 +33,24 @@ class GatewayStatus {
     online,
   ];
 
-  static GatewayStatus fromJson(dynamic value) =>
+  static GatewayStatus? fromJson(dynamic value) =>
       GatewayStatusTypeTransformer().decode(value);
 
-  static List<GatewayStatus> listFromJson(
+  static List<GatewayStatus>? listFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json.map(GatewayStatus.fromJson).toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <GatewayStatus>[];
+    bool growable = false,
+  }) {
+    final result = <GatewayStatus>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = GatewayStatus.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [GatewayStatus] to String,
@@ -66,9 +71,9 @@ class GatewayStatusTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  GatewayStatus decode(dynamic data, {bool allowNull}) {
+  GatewayStatus? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
-      switch (data.toString()) {
+      switch (data) {
         case r'unknown':
           return GatewayStatus.unknown;
         case r'offline':
@@ -76,7 +81,7 @@ class GatewayStatusTypeTransformer {
         case r'online':
           return GatewayStatus.online;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -85,5 +90,5 @@ class GatewayStatusTypeTransformer {
   }
 
   /// Singleton [GatewayStatusTypeTransformer] instance.
-  static GatewayStatusTypeTransformer _instance;
+  static GatewayStatusTypeTransformer? _instance;
 }

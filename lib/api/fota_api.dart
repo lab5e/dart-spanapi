@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -11,7 +11,7 @@
 part of spanapi;
 
 class FotaApi {
-  FotaApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  FotaApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -28,29 +28,18 @@ class FotaApi {
     String collectionId,
     String deviceId,
   ) async {
-    // Verify required params are set.
-    if (collectionId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: collectionId');
-    }
-    if (deviceId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: deviceId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/devices/{deviceId}/fwerror'
         .replaceAll('{collectionId}', collectionId)
         .replaceAll('{deviceId}', deviceId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>['APIToken'];
     const contentTypes = <String>[];
 
     return apiClient.invokeAPI(
@@ -60,8 +49,7 @@ class FotaApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
-      authNames,
+      contentTypes.isEmpty ? null : contentTypes.first,
     );
   }
 
@@ -72,7 +60,7 @@ class FotaApi {
   /// * [String] collectionId (required):
   ///
   /// * [String] deviceId (required):
-  Future<ClearFirmwareErrorResponse> clearFirmwareError(
+  Future<ClearFirmwareErrorResponse?> clearFirmwareError(
     String collectionId,
     String deviceId,
   ) async {
@@ -86,16 +74,19 @@ class FotaApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'ClearFirmwareErrorResponse',
       ) as ClearFirmwareErrorResponse;
     }
-    return Future<ClearFirmwareErrorResponse>.value();
+    return null;
   }
 
   /// Create firmware
+  ///
+  /// Firmware images must have unique version numbers and have an unique checksum. The checksum is calculated when the firmware image is uploaded.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -108,27 +99,17 @@ class FotaApi {
     String collectionId,
     CreateFirmwareRequest body,
   ) async {
-    // Verify required params are set.
-    if (collectionId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: collectionId');
-    }
-    if (body == null) {
-      throw ApiException(HttpStatus.badRequest, 'Missing required param: body');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/firmware'
         .replaceAll('{collectionId}', collectionId);
 
     // ignore: prefer_final_locals
-    Object postBody = body;
+    Object? postBody = body;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>['APIToken'];
     const contentTypes = <String>['application/json'];
 
     return apiClient.invokeAPI(
@@ -138,19 +119,20 @@ class FotaApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
-      authNames,
+      contentTypes.isEmpty ? null : contentTypes.first,
     );
   }
 
   /// Create firmware
+  ///
+  /// Firmware images must have unique version numbers and have an unique checksum. The checksum is calculated when the firmware image is uploaded.
   ///
   /// Parameters:
   ///
   /// * [String] collectionId (required):
   ///
   /// * [CreateFirmwareRequest] body (required):
-  Future<Firmware> createFirmware(
+  Future<Firmware?> createFirmware(
     String collectionId,
     CreateFirmwareRequest body,
   ) async {
@@ -164,13 +146,14 @@ class FotaApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'Firmware',
       ) as Firmware;
     }
-    return Future<Firmware>.value();
+    return null;
   }
 
   /// Delete firmware
@@ -186,29 +169,18 @@ class FotaApi {
     String collectionId,
     String imageId,
   ) async {
-    // Verify required params are set.
-    if (collectionId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: collectionId');
-    }
-    if (imageId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: imageId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/firmware/{imageId}'
         .replaceAll('{collectionId}', collectionId)
         .replaceAll('{imageId}', imageId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>['APIToken'];
     const contentTypes = <String>[];
 
     return apiClient.invokeAPI(
@@ -218,8 +190,7 @@ class FotaApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
-      authNames,
+      contentTypes.isEmpty ? null : contentTypes.first,
     );
   }
 
@@ -230,7 +201,7 @@ class FotaApi {
   /// * [String] collectionId (required):
   ///
   /// * [String] imageId (required):
-  Future<Firmware> deleteFirmware(
+  Future<Firmware?> deleteFirmware(
     String collectionId,
     String imageId,
   ) async {
@@ -244,13 +215,14 @@ class FotaApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'Firmware',
       ) as Firmware;
     }
-    return Future<Firmware>.value();
+    return null;
   }
 
   /// Firmware usage
@@ -266,29 +238,18 @@ class FotaApi {
     String collectionId,
     String imageId,
   ) async {
-    // Verify required params are set.
-    if (collectionId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: collectionId');
-    }
-    if (imageId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: imageId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/firmware/{imageId}/usage'
         .replaceAll('{collectionId}', collectionId)
         .replaceAll('{imageId}', imageId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>['APIToken'];
     const contentTypes = <String>[];
 
     return apiClient.invokeAPI(
@@ -298,8 +259,7 @@ class FotaApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
-      authNames,
+      contentTypes.isEmpty ? null : contentTypes.first,
     );
   }
 
@@ -310,7 +270,7 @@ class FotaApi {
   /// * [String] collectionId (required):
   ///
   /// * [String] imageId (required):
-  Future<FirmwareUsageResponse> firmwareUsage(
+  Future<FirmwareUsageResponse?> firmwareUsage(
     String collectionId,
     String imageId,
   ) async {
@@ -324,13 +284,14 @@ class FotaApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'FirmwareUsageResponse',
       ) as FirmwareUsageResponse;
     }
-    return Future<FirmwareUsageResponse>.value();
+    return null;
   }
 
   /// List firmware
@@ -343,24 +304,17 @@ class FotaApi {
   Future<Response> listFirmwareWithHttpInfo(
     String collectionId,
   ) async {
-    // Verify required params are set.
-    if (collectionId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: collectionId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/firmware'
         .replaceAll('{collectionId}', collectionId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>['APIToken'];
     const contentTypes = <String>[];
 
     return apiClient.invokeAPI(
@@ -370,8 +324,7 @@ class FotaApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
-      authNames,
+      contentTypes.isEmpty ? null : contentTypes.first,
     );
   }
 
@@ -380,7 +333,7 @@ class FotaApi {
   /// Parameters:
   ///
   /// * [String] collectionId (required):
-  Future<ListFirmwareResponse> listFirmware(
+  Future<ListFirmwareResponse?> listFirmware(
     String collectionId,
   ) async {
     final response = await listFirmwareWithHttpInfo(
@@ -392,13 +345,14 @@ class FotaApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'ListFirmwareResponse',
       ) as ListFirmwareResponse;
     }
-    return Future<ListFirmwareResponse>.value();
+    return null;
   }
 
   /// Retrieve firmware
@@ -414,29 +368,18 @@ class FotaApi {
     String collectionId,
     String imageId,
   ) async {
-    // Verify required params are set.
-    if (collectionId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: collectionId');
-    }
-    if (imageId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: imageId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/firmware/{imageId}'
         .replaceAll('{collectionId}', collectionId)
         .replaceAll('{imageId}', imageId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>['APIToken'];
     const contentTypes = <String>[];
 
     return apiClient.invokeAPI(
@@ -446,8 +389,7 @@ class FotaApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
-      authNames,
+      contentTypes.isEmpty ? null : contentTypes.first,
     );
   }
 
@@ -458,7 +400,7 @@ class FotaApi {
   /// * [String] collectionId (required):
   ///
   /// * [String] imageId (required):
-  Future<Firmware> retrieveFirmware(
+  Future<Firmware?> retrieveFirmware(
     String collectionId,
     String imageId,
   ) async {
@@ -472,13 +414,14 @@ class FotaApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'Firmware',
       ) as Firmware;
     }
-    return Future<Firmware>.value();
+    return null;
   }
 
   /// Update firmware
@@ -499,32 +442,18 @@ class FotaApi {
     String imageId,
     UpdateFirmwareRequest body,
   ) async {
-    // Verify required params are set.
-    if (existingCollectionId == null) {
-      throw ApiException(HttpStatus.badRequest,
-          'Missing required param: existingCollectionId');
-    }
-    if (imageId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: imageId');
-    }
-    if (body == null) {
-      throw ApiException(HttpStatus.badRequest, 'Missing required param: body');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{existingCollectionId}/firmware/{imageId}'
         .replaceAll('{existingCollectionId}', existingCollectionId)
         .replaceAll('{imageId}', imageId);
 
     // ignore: prefer_final_locals
-    Object postBody = body;
+    Object? postBody = body;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>['APIToken'];
     const contentTypes = <String>['application/json'];
 
     return apiClient.invokeAPI(
@@ -534,8 +463,7 @@ class FotaApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
-      authNames,
+      contentTypes.isEmpty ? null : contentTypes.first,
     );
   }
 
@@ -550,7 +478,7 @@ class FotaApi {
   /// * [String] imageId (required):
   ///
   /// * [UpdateFirmwareRequest] body (required):
-  Future<Firmware> updateFirmware(
+  Future<Firmware?> updateFirmware(
     String existingCollectionId,
     String imageId,
     UpdateFirmwareRequest body,
@@ -566,12 +494,13 @@ class FotaApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'Firmware',
       ) as Firmware;
     }
-    return Future<Firmware>.value();
+    return null;
   }
 }

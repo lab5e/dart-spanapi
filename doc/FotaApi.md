@@ -70,6 +70,8 @@ Name | Type | Description  | Notes
 
 Create firmware
 
+Firmware images must have unique version numbers and have an unique checksum. The checksum is calculated when the firmware image is uploaded.
+
 ### Example
 ```dart
 import 'package:spanapi/api.dart';

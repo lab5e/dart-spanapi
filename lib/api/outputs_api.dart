@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -11,7 +11,8 @@
 part of spanapi;
 
 class OutputsApi {
-  OutputsApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  OutputsApi([ApiClient? apiClient])
+      : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -28,27 +29,17 @@ class OutputsApi {
     String collectionId,
     CreateOutputRequest body,
   ) async {
-    // Verify required params are set.
-    if (collectionId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: collectionId');
-    }
-    if (body == null) {
-      throw ApiException(HttpStatus.badRequest, 'Missing required param: body');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/outputs'
         .replaceAll('{collectionId}', collectionId);
 
     // ignore: prefer_final_locals
-    Object postBody = body;
+    Object? postBody = body;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>['APIToken'];
     const contentTypes = <String>['application/json'];
 
     return apiClient.invokeAPI(
@@ -58,8 +49,7 @@ class OutputsApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
-      authNames,
+      contentTypes.isEmpty ? null : contentTypes.first,
     );
   }
 
@@ -70,7 +60,7 @@ class OutputsApi {
   /// * [String] collectionId (required):
   ///
   /// * [CreateOutputRequest] body (required):
-  Future<Output> createOutput(
+  Future<Output?> createOutput(
     String collectionId,
     CreateOutputRequest body,
   ) async {
@@ -84,13 +74,14 @@ class OutputsApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'Output',
       ) as Output;
     }
-    return Future<Output>.value();
+    return null;
   }
 
   /// Delete output
@@ -106,29 +97,18 @@ class OutputsApi {
     String collectionId,
     String outputId,
   ) async {
-    // Verify required params are set.
-    if (collectionId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: collectionId');
-    }
-    if (outputId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: outputId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/outputs/{outputId}'
         .replaceAll('{collectionId}', collectionId)
         .replaceAll('{outputId}', outputId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>['APIToken'];
     const contentTypes = <String>[];
 
     return apiClient.invokeAPI(
@@ -138,8 +118,7 @@ class OutputsApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
-      authNames,
+      contentTypes.isEmpty ? null : contentTypes.first,
     );
   }
 
@@ -150,7 +129,7 @@ class OutputsApi {
   /// * [String] collectionId (required):
   ///
   /// * [String] outputId (required):
-  Future<Output> deleteOutput(
+  Future<Output?> deleteOutput(
     String collectionId,
     String outputId,
   ) async {
@@ -164,13 +143,14 @@ class OutputsApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'Output',
       ) as Output;
     }
-    return Future<Output>.value();
+    return null;
   }
 
   /// List outputs
@@ -183,24 +163,17 @@ class OutputsApi {
   Future<Response> listOutputsWithHttpInfo(
     String collectionId,
   ) async {
-    // Verify required params are set.
-    if (collectionId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: collectionId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/outputs'
         .replaceAll('{collectionId}', collectionId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>['APIToken'];
     const contentTypes = <String>[];
 
     return apiClient.invokeAPI(
@@ -210,8 +183,7 @@ class OutputsApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
-      authNames,
+      contentTypes.isEmpty ? null : contentTypes.first,
     );
   }
 
@@ -220,7 +192,7 @@ class OutputsApi {
   /// Parameters:
   ///
   /// * [String] collectionId (required):
-  Future<ListOutputResponse> listOutputs(
+  Future<ListOutputResponse?> listOutputs(
     String collectionId,
   ) async {
     final response = await listOutputsWithHttpInfo(
@@ -232,13 +204,14 @@ class OutputsApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'ListOutputResponse',
       ) as ListOutputResponse;
     }
-    return Future<ListOutputResponse>.value();
+    return null;
   }
 
   /// Output logs
@@ -254,29 +227,18 @@ class OutputsApi {
     String collectionId,
     String outputId,
   ) async {
-    // Verify required params are set.
-    if (collectionId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: collectionId');
-    }
-    if (outputId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: outputId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/outputs/{outputId}/logs'
         .replaceAll('{collectionId}', collectionId)
         .replaceAll('{outputId}', outputId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>['APIToken'];
     const contentTypes = <String>[];
 
     return apiClient.invokeAPI(
@@ -286,8 +248,7 @@ class OutputsApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
-      authNames,
+      contentTypes.isEmpty ? null : contentTypes.first,
     );
   }
 
@@ -298,7 +259,7 @@ class OutputsApi {
   /// * [String] collectionId (required):
   ///
   /// * [String] outputId (required):
-  Future<OutputLogResponse> logs(
+  Future<OutputLogResponse?> logs(
     String collectionId,
     String outputId,
   ) async {
@@ -312,13 +273,14 @@ class OutputsApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'OutputLogResponse',
       ) as OutputLogResponse;
     }
-    return Future<OutputLogResponse>.value();
+    return null;
   }
 
   /// Retrieve output
@@ -334,29 +296,18 @@ class OutputsApi {
     String collectionId,
     String outputId,
   ) async {
-    // Verify required params are set.
-    if (collectionId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: collectionId');
-    }
-    if (outputId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: outputId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/outputs/{outputId}'
         .replaceAll('{collectionId}', collectionId)
         .replaceAll('{outputId}', outputId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>['APIToken'];
     const contentTypes = <String>[];
 
     return apiClient.invokeAPI(
@@ -366,8 +317,7 @@ class OutputsApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
-      authNames,
+      contentTypes.isEmpty ? null : contentTypes.first,
     );
   }
 
@@ -378,7 +328,7 @@ class OutputsApi {
   /// * [String] collectionId (required):
   ///
   /// * [String] outputId (required):
-  Future<Output> retrieveOutput(
+  Future<Output?> retrieveOutput(
     String collectionId,
     String outputId,
   ) async {
@@ -392,13 +342,14 @@ class OutputsApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'Output',
       ) as Output;
     }
-    return Future<Output>.value();
+    return null;
   }
 
   /// Output status
@@ -414,29 +365,18 @@ class OutputsApi {
     String collectionId,
     String outputId,
   ) async {
-    // Verify required params are set.
-    if (collectionId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: collectionId');
-    }
-    if (outputId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: outputId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/outputs/{outputId}/status'
         .replaceAll('{collectionId}', collectionId)
         .replaceAll('{outputId}', outputId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>['APIToken'];
     const contentTypes = <String>[];
 
     return apiClient.invokeAPI(
@@ -446,8 +386,7 @@ class OutputsApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
-      authNames,
+      contentTypes.isEmpty ? null : contentTypes.first,
     );
   }
 
@@ -458,7 +397,7 @@ class OutputsApi {
   /// * [String] collectionId (required):
   ///
   /// * [String] outputId (required):
-  Future<OutputStatusResponse> status(
+  Future<OutputStatusResponse?> status(
     String collectionId,
     String outputId,
   ) async {
@@ -472,13 +411,14 @@ class OutputsApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'OutputStatusResponse',
       ) as OutputStatusResponse;
     }
-    return Future<OutputStatusResponse>.value();
+    return null;
   }
 
   /// Update output
@@ -497,32 +437,18 @@ class OutputsApi {
     String outputId,
     UpdateOutputRequest body,
   ) async {
-    // Verify required params are set.
-    if (existingCollectionId == null) {
-      throw ApiException(HttpStatus.badRequest,
-          'Missing required param: existingCollectionId');
-    }
-    if (outputId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: outputId');
-    }
-    if (body == null) {
-      throw ApiException(HttpStatus.badRequest, 'Missing required param: body');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{existingCollectionId}/outputs/{outputId}'
         .replaceAll('{existingCollectionId}', existingCollectionId)
         .replaceAll('{outputId}', outputId);
 
     // ignore: prefer_final_locals
-    Object postBody = body;
+    Object? postBody = body;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>['APIToken'];
     const contentTypes = <String>['application/json'];
 
     return apiClient.invokeAPI(
@@ -532,8 +458,7 @@ class OutputsApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
-      authNames,
+      contentTypes.isEmpty ? null : contentTypes.first,
     );
   }
 
@@ -546,7 +471,7 @@ class OutputsApi {
   /// * [String] outputId (required):
   ///
   /// * [UpdateOutputRequest] body (required):
-  Future<Output> updateOutput(
+  Future<Output?> updateOutput(
     String existingCollectionId,
     String outputId,
     UpdateOutputRequest body,
@@ -562,12 +487,13 @@ class OutputsApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'Output',
       ) as Output;
     }
-    return Future<Output>.value();
+    return null;
   }
 }

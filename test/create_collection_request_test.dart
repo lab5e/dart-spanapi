@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,7 +13,7 @@ import 'package:test/test.dart';
 
 // tests for CreateCollectionRequest
 void main() {
-  final instance = CreateCollectionRequest();
+  // final instance = CreateCollectionRequest();
 
   group('test CreateCollectionRequest', () {
     // The team ID that owns the collection. This field is required. When you create new collections the default is to use your private team ID.

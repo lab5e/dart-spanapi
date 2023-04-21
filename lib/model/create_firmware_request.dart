@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -19,11 +19,29 @@ class CreateFirmwareRequest {
     this.tags = const {},
   });
 
-  String image;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? image;
 
-  String version;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? version;
 
-  String filename;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? filename;
 
   Map<String, String> tags;
 
@@ -39,10 +57,10 @@ class CreateFirmwareRequest {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (image == null ? 0 : image.hashCode) +
-      (version == null ? 0 : version.hashCode) +
-      (filename == null ? 0 : filename.hashCode) +
-      (tags == null ? 0 : tags.hashCode);
+      (image == null ? 0 : image!.hashCode) +
+      (version == null ? 0 : version!.hashCode) +
+      (filename == null ? 0 : filename!.hashCode) +
+      (tags.hashCode);
 
   @override
   String toString() =>
@@ -50,55 +68,81 @@ class CreateFirmwareRequest {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    if (image != null) {
-      json[r'image'] = image;
+    if (this.image != null) {
+      json[r'image'] = this.image;
+    } else {
+      json[r'image'] = null;
     }
-    if (version != null) {
-      json[r'version'] = version;
+    if (this.version != null) {
+      json[r'version'] = this.version;
+    } else {
+      json[r'version'] = null;
     }
-    if (filename != null) {
-      json[r'filename'] = filename;
+    if (this.filename != null) {
+      json[r'filename'] = this.filename;
+    } else {
+      json[r'filename'] = null;
     }
-    if (tags != null) {
-      json[r'tags'] = tags;
-    }
+    json[r'tags'] = this.tags;
     return json;
   }
 
   /// Returns a new [CreateFirmwareRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static CreateFirmwareRequest fromJson(dynamic value) {
+  static CreateFirmwareRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key),
+              'Required key "CreateFirmwareRequest[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "CreateFirmwareRequest[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return CreateFirmwareRequest(
         image: mapValueOfType<String>(json, r'image'),
         version: mapValueOfType<String>(json, r'version'),
         filename: mapValueOfType<String>(json, r'filename'),
-        tags: mapCastOfType<String, String>(json, r'tags'),
+        tags: mapCastOfType<String, String>(json, r'tags') ?? const {},
       );
     }
     return null;
   }
 
-  static List<CreateFirmwareRequest> listFromJson(
+  static List<CreateFirmwareRequest>? listFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json
-              .map(CreateFirmwareRequest.fromJson)
-              .toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <CreateFirmwareRequest>[];
+    bool growable = false,
+  }) {
+    final result = <CreateFirmwareRequest>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = CreateFirmwareRequest.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, CreateFirmwareRequest> mapFromJson(dynamic json) {
     final map = <String, CreateFirmwareRequest>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) =>
-          map[key] = CreateFirmwareRequest.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = CreateFirmwareRequest.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
@@ -106,19 +150,24 @@ class CreateFirmwareRequest {
   // maps a json object with a list of CreateFirmwareRequest-objects as value to a dart map
   static Map<String, List<CreateFirmwareRequest>> mapListFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
+    bool growable = false,
   }) {
     final map = <String, List<CreateFirmwareRequest>>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) {
-        map[key] = CreateFirmwareRequest.listFromJson(
-          value,
-          emptyIsNull: emptyIsNull,
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = CreateFirmwareRequest.listFromJson(
+          entry.value,
           growable: growable,
         );
-      });
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{};
 }

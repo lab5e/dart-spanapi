@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -18,7 +18,7 @@ class MessageState {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -35,19 +35,24 @@ class MessageState {
     failed,
   ];
 
-  static MessageState fromJson(dynamic value) =>
+  static MessageState? fromJson(dynamic value) =>
       MessageStateTypeTransformer().decode(value);
 
-  static List<MessageState> listFromJson(
+  static List<MessageState>? listFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json.map(MessageState.fromJson).toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <MessageState>[];
+    bool growable = false,
+  }) {
+    final result = <MessageState>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = MessageState.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [MessageState] to String,
@@ -68,9 +73,9 @@ class MessageStateTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  MessageState decode(dynamic data, {bool allowNull}) {
+  MessageState? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
-      switch (data.toString()) {
+      switch (data) {
         case r'unspecified':
           return MessageState.unspecified;
         case r'pending':
@@ -80,7 +85,7 @@ class MessageStateTypeTransformer {
         case r'failed':
           return MessageState.failed;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -89,5 +94,5 @@ class MessageStateTypeTransformer {
   }
 
   /// Singleton [MessageStateTypeTransformer] instance.
-  static MessageStateTypeTransformer _instance;
+  static MessageStateTypeTransformer? _instance;
 }

@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -11,7 +11,7 @@
 part of spanapi;
 
 class BlobsApi {
-  BlobsApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  BlobsApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -30,29 +30,18 @@ class BlobsApi {
     String collectionId,
     String blobId,
   ) async {
-    // Verify required params are set.
-    if (collectionId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: collectionId');
-    }
-    if (blobId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: blobId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/blobs/{blobId}'
         .replaceAll('{collectionId}', collectionId)
         .replaceAll('{blobId}', blobId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>['APIToken'];
     const contentTypes = <String>[];
 
     return apiClient.invokeAPI(
@@ -62,8 +51,7 @@ class BlobsApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
-      authNames,
+      contentTypes.isEmpty ? null : contentTypes.first,
     );
   }
 
@@ -76,7 +64,7 @@ class BlobsApi {
   /// * [String] collectionId (required):
   ///
   /// * [String] blobId (required):
-  Future<Object> deleteBlob(
+  Future<Object?> deleteBlob(
     String collectionId,
     String blobId,
   ) async {
@@ -90,13 +78,14 @@ class BlobsApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'Object',
       ) as Object;
     }
-    return Future<Object>.value();
+    return null;
   }
 
   /// List the blobs for a collection
@@ -112,31 +101,23 @@ class BlobsApi {
   /// * [int] limit:
   Future<Response> listBlobsWithHttpInfo(
     String collectionId, {
-    int limit,
+    int? limit,
   }) async {
-    // Verify required params are set.
-    if (collectionId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: collectionId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/blobs'
         .replaceAll('{collectionId}', collectionId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (limit != null) {
-      queryParams
-          .addAll(_convertParametersForCollectionFormat('', 'limit', limit));
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
 
-    const authNames = <String>['APIToken'];
     const contentTypes = <String>[];
 
     return apiClient.invokeAPI(
@@ -146,8 +127,7 @@ class BlobsApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
-      authNames,
+      contentTypes.isEmpty ? null : contentTypes.first,
     );
   }
 
@@ -160,9 +140,9 @@ class BlobsApi {
   /// * [String] collectionId (required):
   ///
   /// * [int] limit:
-  Future<ListBlobResponse> listBlobs(
+  Future<ListBlobResponse?> listBlobs(
     String collectionId, {
-    int limit,
+    int? limit,
   }) async {
     final response = await listBlobsWithHttpInfo(
       collectionId,
@@ -174,12 +154,13 @@ class BlobsApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'ListBlobResponse',
       ) as ListBlobResponse;
     }
-    return Future<ListBlobResponse>.value();
+    return null;
   }
 }

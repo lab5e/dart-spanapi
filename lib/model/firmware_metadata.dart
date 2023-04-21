@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -23,22 +23,70 @@ class FirmwareMetadata {
     this.stateMessage,
   });
 
-  String currentFirmwareId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? currentFirmwareId;
 
-  String targetFirmwareId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? targetFirmwareId;
 
   /// Last reported firmware version.
-  String firmwareVersion;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? firmwareVersion;
 
-  String serialNumber;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? serialNumber;
 
-  String modelNumber;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? modelNumber;
 
-  String manufacturer;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? manufacturer;
 
-  String state;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? state;
 
-  String stateMessage;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? stateMessage;
 
   @override
   bool operator ==(Object other) =>
@@ -56,14 +104,14 @@ class FirmwareMetadata {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (currentFirmwareId == null ? 0 : currentFirmwareId.hashCode) +
-      (targetFirmwareId == null ? 0 : targetFirmwareId.hashCode) +
-      (firmwareVersion == null ? 0 : firmwareVersion.hashCode) +
-      (serialNumber == null ? 0 : serialNumber.hashCode) +
-      (modelNumber == null ? 0 : modelNumber.hashCode) +
-      (manufacturer == null ? 0 : manufacturer.hashCode) +
-      (state == null ? 0 : state.hashCode) +
-      (stateMessage == null ? 0 : stateMessage.hashCode);
+      (currentFirmwareId == null ? 0 : currentFirmwareId!.hashCode) +
+      (targetFirmwareId == null ? 0 : targetFirmwareId!.hashCode) +
+      (firmwareVersion == null ? 0 : firmwareVersion!.hashCode) +
+      (serialNumber == null ? 0 : serialNumber!.hashCode) +
+      (modelNumber == null ? 0 : modelNumber!.hashCode) +
+      (manufacturer == null ? 0 : manufacturer!.hashCode) +
+      (state == null ? 0 : state!.hashCode) +
+      (stateMessage == null ? 0 : stateMessage!.hashCode);
 
   @override
   String toString() =>
@@ -71,29 +119,45 @@ class FirmwareMetadata {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    if (currentFirmwareId != null) {
-      json[r'currentFirmwareId'] = currentFirmwareId;
+    if (this.currentFirmwareId != null) {
+      json[r'currentFirmwareId'] = this.currentFirmwareId;
+    } else {
+      json[r'currentFirmwareId'] = null;
     }
-    if (targetFirmwareId != null) {
-      json[r'targetFirmwareId'] = targetFirmwareId;
+    if (this.targetFirmwareId != null) {
+      json[r'targetFirmwareId'] = this.targetFirmwareId;
+    } else {
+      json[r'targetFirmwareId'] = null;
     }
-    if (firmwareVersion != null) {
-      json[r'firmwareVersion'] = firmwareVersion;
+    if (this.firmwareVersion != null) {
+      json[r'firmwareVersion'] = this.firmwareVersion;
+    } else {
+      json[r'firmwareVersion'] = null;
     }
-    if (serialNumber != null) {
-      json[r'serialNumber'] = serialNumber;
+    if (this.serialNumber != null) {
+      json[r'serialNumber'] = this.serialNumber;
+    } else {
+      json[r'serialNumber'] = null;
     }
-    if (modelNumber != null) {
-      json[r'modelNumber'] = modelNumber;
+    if (this.modelNumber != null) {
+      json[r'modelNumber'] = this.modelNumber;
+    } else {
+      json[r'modelNumber'] = null;
     }
-    if (manufacturer != null) {
-      json[r'manufacturer'] = manufacturer;
+    if (this.manufacturer != null) {
+      json[r'manufacturer'] = this.manufacturer;
+    } else {
+      json[r'manufacturer'] = null;
     }
-    if (state != null) {
-      json[r'state'] = state;
+    if (this.state != null) {
+      json[r'state'] = this.state;
+    } else {
+      json[r'state'] = null;
     }
-    if (stateMessage != null) {
-      json[r'stateMessage'] = stateMessage;
+    if (this.stateMessage != null) {
+      json[r'stateMessage'] = this.stateMessage;
+    } else {
+      json[r'stateMessage'] = null;
     }
     return json;
   }
@@ -101,9 +165,23 @@ class FirmwareMetadata {
   /// Returns a new [FirmwareMetadata] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static FirmwareMetadata fromJson(dynamic value) {
+  static FirmwareMetadata? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key),
+              'Required key "FirmwareMetadata[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "FirmwareMetadata[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return FirmwareMetadata(
         currentFirmwareId: mapValueOfType<String>(json, r'currentFirmwareId'),
         targetFirmwareId: mapValueOfType<String>(json, r'targetFirmwareId'),
@@ -118,24 +196,32 @@ class FirmwareMetadata {
     return null;
   }
 
-  static List<FirmwareMetadata> listFromJson(
+  static List<FirmwareMetadata>? listFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json
-              .map(FirmwareMetadata.fromJson)
-              .toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <FirmwareMetadata>[];
+    bool growable = false,
+  }) {
+    final result = <FirmwareMetadata>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = FirmwareMetadata.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, FirmwareMetadata> mapFromJson(dynamic json) {
     final map = <String, FirmwareMetadata>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach(
-          (key, dynamic value) => map[key] = FirmwareMetadata.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = FirmwareMetadata.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
@@ -143,19 +229,24 @@ class FirmwareMetadata {
   // maps a json object with a list of FirmwareMetadata-objects as value to a dart map
   static Map<String, List<FirmwareMetadata>> mapListFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
+    bool growable = false,
   }) {
     final map = <String, List<FirmwareMetadata>>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) {
-        map[key] = FirmwareMetadata.listFromJson(
-          value,
-          emptyIsNull: emptyIsNull,
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = FirmwareMetadata.listFromJson(
+          entry.value,
           growable: growable,
         );
-      });
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{};
 }

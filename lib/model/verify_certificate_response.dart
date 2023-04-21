@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -17,7 +17,13 @@ class VerifyCertificateResponse {
     this.errors = const [],
   });
 
-  bool valid;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? valid;
 
   List<String> errors;
 
@@ -31,8 +37,7 @@ class VerifyCertificateResponse {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (valid == null ? 0 : valid.hashCode) +
-      (errors == null ? 0 : errors.hashCode);
+      (valid == null ? 0 : valid!.hashCode) + (errors.hashCode);
 
   @override
   String toString() =>
@@ -40,49 +45,71 @@ class VerifyCertificateResponse {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    if (valid != null) {
-      json[r'valid'] = valid;
+    if (this.valid != null) {
+      json[r'valid'] = this.valid;
+    } else {
+      json[r'valid'] = null;
     }
-    if (errors != null) {
-      json[r'errors'] = errors;
-    }
+    json[r'errors'] = this.errors;
     return json;
   }
 
   /// Returns a new [VerifyCertificateResponse] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static VerifyCertificateResponse fromJson(dynamic value) {
+  static VerifyCertificateResponse? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key),
+              'Required key "VerifyCertificateResponse[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "VerifyCertificateResponse[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return VerifyCertificateResponse(
         valid: mapValueOfType<bool>(json, r'valid'),
         errors: json[r'errors'] is List
             ? (json[r'errors'] as List).cast<String>()
-            : null,
+            : const [],
       );
     }
     return null;
   }
 
-  static List<VerifyCertificateResponse> listFromJson(
+  static List<VerifyCertificateResponse>? listFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json
-              .map(VerifyCertificateResponse.fromJson)
-              .toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <VerifyCertificateResponse>[];
+    bool growable = false,
+  }) {
+    final result = <VerifyCertificateResponse>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = VerifyCertificateResponse.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, VerifyCertificateResponse> mapFromJson(dynamic json) {
     final map = <String, VerifyCertificateResponse>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) =>
-          map[key] = VerifyCertificateResponse.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = VerifyCertificateResponse.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
@@ -90,19 +117,24 @@ class VerifyCertificateResponse {
   // maps a json object with a list of VerifyCertificateResponse-objects as value to a dart map
   static Map<String, List<VerifyCertificateResponse>> mapListFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
+    bool growable = false,
   }) {
     final map = <String, List<VerifyCertificateResponse>>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) {
-        map[key] = VerifyCertificateResponse.listFromJson(
-          value,
-          emptyIsNull: emptyIsNull,
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = VerifyCertificateResponse.listFromJson(
+          entry.value,
           growable: growable,
         );
-      });
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{};
 }

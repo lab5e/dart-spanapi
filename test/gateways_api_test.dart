@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,14 +13,14 @@ import 'package:test/test.dart';
 
 /// tests for GatewaysApi
 void main() {
-  final instance = GatewaysApi();
+  // final instance = GatewaysApi();
 
   group('tests for GatewaysApi', () {
     // Create gateway
     //
     // Create a new gateway.
     //
-    //Future<Gateway> createGateway(String collectionId, InlineObject body) async
+    //Future<Gateway> createGateway(String collectionId, CreateGatewayRequest body) async
     test('test createGateway', () async {
       // TODO
     });
@@ -63,7 +63,7 @@ void main() {
     //
     // Update a gateway in Span
     //
-    //Future<Gateway> updateGateway(String existingCollectionId, String gatewayId, InlineObject1 body) async
+    //Future<Gateway> updateGateway(String existingCollectionId, String gatewayId, UpdateGatewayRequest body) async
     test('test updateGateway', () async {
       // TODO
     });

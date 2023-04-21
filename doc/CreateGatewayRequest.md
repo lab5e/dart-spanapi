@@ -1,4 +1,4 @@
-# spanapi.model.InlineObject
+# spanapi.model.CreateGatewayRequest
 
 ## Load the model package
 ```dart

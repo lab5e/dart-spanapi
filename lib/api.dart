@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -52,6 +52,7 @@ part 'model/create_certificate_response.dart';
 part 'model/create_collection_request.dart';
 part 'model/create_device_request.dart';
 part 'model/create_firmware_request.dart';
+part 'model/create_gateway_request.dart';
 part 'model/create_output_request.dart';
 part 'model/delete_downstream_message_response.dart';
 part 'model/device.dart';
@@ -74,8 +75,6 @@ part 'model/gateway_metadata.dart';
 part 'model/gateway_status.dart';
 part 'model/gateway_type.dart';
 part 'model/inet_metadata.dart';
-part 'model/inline_object.dart';
-part 'model/inline_object1.dart';
 part 'model/list_blob_response.dart';
 part 'model/list_collection_response.dart';
 part 'model/list_data_response.dart';
@@ -107,6 +106,7 @@ part 'model/udp_metadata.dart';
 part 'model/update_collection_request.dart';
 part 'model/update_device_request.dart';
 part 'model/update_firmware_request.dart';
+part 'model/update_gateway_request.dart';
 part 'model/update_output_request.dart';
 part 'model/verify_certificate_request.dart';
 part 'model/verify_certificate_response.dart';

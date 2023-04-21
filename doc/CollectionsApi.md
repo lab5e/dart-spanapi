@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 
 List collections
 
-Lists all the collections that one of your teams owns.
+Lists all the collections that one of your teams owns. The collections returned includes only the data on the collection and not the summary information
 
 ### Example
 ```dart
@@ -210,9 +210,11 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **retrieveCollection**
-> Collection retrieveCollection(collectionId)
+> Collection retrieveCollection(collectionId, upstream, downstream)
 
 Retrieve collection
+
+Retrieve collection information. This includes a list of the most recent messages in the inbox. The upstream and downstream parameters are optional and if set to true will include the timestamps for up to 100 messages up- and downstream for the last hour.
 
 ### Example
 ```dart
@@ -224,9 +226,11 @@ import 'package:spanapi/api.dart';
 
 final api_instance = CollectionsApi();
 final collectionId = collectionId_example; // String | The collection ID of the collection you are requesting
+final upstream = true; // bool | 
+final downstream = true; // bool | 
 
 try {
-    final result = api_instance.retrieveCollection(collectionId);
+    final result = api_instance.retrieveCollection(collectionId, upstream, downstream);
     print(result);
 } catch (e) {
     print('Exception when calling CollectionsApi->retrieveCollection: $e\n');
@@ -238,6 +242,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **String**| The collection ID of the collection you are requesting | 
+ **upstream** | **bool**|  | [optional] 
+ **downstream** | **bool**|  | [optional] 
 
 ### Return type
 

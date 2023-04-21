@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -18,11 +18,29 @@ class VerifyCertificateRequest {
     this.certificate,
   });
 
-  String gatewayId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? gatewayId;
 
-  String deviceId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? deviceId;
 
-  String certificate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? certificate;
 
   @override
   bool operator ==(Object other) =>
@@ -35,9 +53,9 @@ class VerifyCertificateRequest {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (gatewayId == null ? 0 : gatewayId.hashCode) +
-      (deviceId == null ? 0 : deviceId.hashCode) +
-      (certificate == null ? 0 : certificate.hashCode);
+      (gatewayId == null ? 0 : gatewayId!.hashCode) +
+      (deviceId == null ? 0 : deviceId!.hashCode) +
+      (certificate == null ? 0 : certificate!.hashCode);
 
   @override
   String toString() =>
@@ -45,14 +63,20 @@ class VerifyCertificateRequest {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    if (gatewayId != null) {
-      json[r'gatewayId'] = gatewayId;
+    if (this.gatewayId != null) {
+      json[r'gatewayId'] = this.gatewayId;
+    } else {
+      json[r'gatewayId'] = null;
     }
-    if (deviceId != null) {
-      json[r'deviceId'] = deviceId;
+    if (this.deviceId != null) {
+      json[r'deviceId'] = this.deviceId;
+    } else {
+      json[r'deviceId'] = null;
     }
-    if (certificate != null) {
-      json[r'certificate'] = certificate;
+    if (this.certificate != null) {
+      json[r'certificate'] = this.certificate;
+    } else {
+      json[r'certificate'] = null;
     }
     return json;
   }
@@ -60,9 +84,23 @@ class VerifyCertificateRequest {
   /// Returns a new [VerifyCertificateRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static VerifyCertificateRequest fromJson(dynamic value) {
+  static VerifyCertificateRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key),
+              'Required key "VerifyCertificateRequest[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "VerifyCertificateRequest[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return VerifyCertificateRequest(
         gatewayId: mapValueOfType<String>(json, r'gatewayId'),
         deviceId: mapValueOfType<String>(json, r'deviceId'),
@@ -72,24 +110,32 @@ class VerifyCertificateRequest {
     return null;
   }
 
-  static List<VerifyCertificateRequest> listFromJson(
+  static List<VerifyCertificateRequest>? listFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json
-              .map(VerifyCertificateRequest.fromJson)
-              .toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <VerifyCertificateRequest>[];
+    bool growable = false,
+  }) {
+    final result = <VerifyCertificateRequest>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = VerifyCertificateRequest.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, VerifyCertificateRequest> mapFromJson(dynamic json) {
     final map = <String, VerifyCertificateRequest>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) =>
-          map[key] = VerifyCertificateRequest.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = VerifyCertificateRequest.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
@@ -97,19 +143,24 @@ class VerifyCertificateRequest {
   // maps a json object with a list of VerifyCertificateRequest-objects as value to a dart map
   static Map<String, List<VerifyCertificateRequest>> mapListFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
+    bool growable = false,
   }) {
     final map = <String, List<VerifyCertificateRequest>>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) {
-        map[key] = VerifyCertificateRequest.listFromJson(
-          value,
-          emptyIsNull: emptyIsNull,
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = VerifyCertificateRequest.listFromJson(
+          entry.value,
           growable: growable,
         );
-      });
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{};
 }

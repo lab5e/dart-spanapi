@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -35,44 +35,158 @@ class OutputConfig {
   });
 
   /// URL for the webhook.
-  String url;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? url;
 
-  String basicAuthUser;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? basicAuthUser;
 
-  String basicAuthPass;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? basicAuthPass;
 
-  String customHeaderName;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? customHeaderName;
 
-  String customHeaderValue;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? customHeaderValue;
 
-  String host;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? host;
 
-  int port;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? port;
 
-  String key;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? key;
 
-  String eventName;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? eventName;
 
-  bool asIsPayload;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? asIsPayload;
 
-  String endpoint;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? endpoint;
 
   /// MQTT configuration: Disable certificate checks. Default is off.
-  bool disableCertCheck;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? disableCertCheck;
 
-  String username;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? username;
 
-  String password;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? password;
 
-  String clientId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? clientId;
 
-  String topicName;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? topicName;
 
-  String topicTemplate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? topicTemplate;
 
-  String payloadFormat;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? payloadFormat;
 
-  String payloadTemplate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? payloadTemplate;
 
   @override
   bool operator ==(Object other) =>
@@ -101,25 +215,25 @@ class OutputConfig {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (url == null ? 0 : url.hashCode) +
-      (basicAuthUser == null ? 0 : basicAuthUser.hashCode) +
-      (basicAuthPass == null ? 0 : basicAuthPass.hashCode) +
-      (customHeaderName == null ? 0 : customHeaderName.hashCode) +
-      (customHeaderValue == null ? 0 : customHeaderValue.hashCode) +
-      (host == null ? 0 : host.hashCode) +
-      (port == null ? 0 : port.hashCode) +
-      (key == null ? 0 : key.hashCode) +
-      (eventName == null ? 0 : eventName.hashCode) +
-      (asIsPayload == null ? 0 : asIsPayload.hashCode) +
-      (endpoint == null ? 0 : endpoint.hashCode) +
-      (disableCertCheck == null ? 0 : disableCertCheck.hashCode) +
-      (username == null ? 0 : username.hashCode) +
-      (password == null ? 0 : password.hashCode) +
-      (clientId == null ? 0 : clientId.hashCode) +
-      (topicName == null ? 0 : topicName.hashCode) +
-      (topicTemplate == null ? 0 : topicTemplate.hashCode) +
-      (payloadFormat == null ? 0 : payloadFormat.hashCode) +
-      (payloadTemplate == null ? 0 : payloadTemplate.hashCode);
+      (url == null ? 0 : url!.hashCode) +
+      (basicAuthUser == null ? 0 : basicAuthUser!.hashCode) +
+      (basicAuthPass == null ? 0 : basicAuthPass!.hashCode) +
+      (customHeaderName == null ? 0 : customHeaderName!.hashCode) +
+      (customHeaderValue == null ? 0 : customHeaderValue!.hashCode) +
+      (host == null ? 0 : host!.hashCode) +
+      (port == null ? 0 : port!.hashCode) +
+      (key == null ? 0 : key!.hashCode) +
+      (eventName == null ? 0 : eventName!.hashCode) +
+      (asIsPayload == null ? 0 : asIsPayload!.hashCode) +
+      (endpoint == null ? 0 : endpoint!.hashCode) +
+      (disableCertCheck == null ? 0 : disableCertCheck!.hashCode) +
+      (username == null ? 0 : username!.hashCode) +
+      (password == null ? 0 : password!.hashCode) +
+      (clientId == null ? 0 : clientId!.hashCode) +
+      (topicName == null ? 0 : topicName!.hashCode) +
+      (topicTemplate == null ? 0 : topicTemplate!.hashCode) +
+      (payloadFormat == null ? 0 : payloadFormat!.hashCode) +
+      (payloadTemplate == null ? 0 : payloadTemplate!.hashCode);
 
   @override
   String toString() =>
@@ -127,62 +241,100 @@ class OutputConfig {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    if (url != null) {
-      json[r'url'] = url;
+    if (this.url != null) {
+      json[r'url'] = this.url;
+    } else {
+      json[r'url'] = null;
     }
-    if (basicAuthUser != null) {
-      json[r'basicAuthUser'] = basicAuthUser;
+    if (this.basicAuthUser != null) {
+      json[r'basicAuthUser'] = this.basicAuthUser;
+    } else {
+      json[r'basicAuthUser'] = null;
     }
-    if (basicAuthPass != null) {
-      json[r'basicAuthPass'] = basicAuthPass;
+    if (this.basicAuthPass != null) {
+      json[r'basicAuthPass'] = this.basicAuthPass;
+    } else {
+      json[r'basicAuthPass'] = null;
     }
-    if (customHeaderName != null) {
-      json[r'customHeaderName'] = customHeaderName;
+    if (this.customHeaderName != null) {
+      json[r'customHeaderName'] = this.customHeaderName;
+    } else {
+      json[r'customHeaderName'] = null;
     }
-    if (customHeaderValue != null) {
-      json[r'customHeaderValue'] = customHeaderValue;
+    if (this.customHeaderValue != null) {
+      json[r'customHeaderValue'] = this.customHeaderValue;
+    } else {
+      json[r'customHeaderValue'] = null;
     }
-    if (host != null) {
-      json[r'host'] = host;
+    if (this.host != null) {
+      json[r'host'] = this.host;
+    } else {
+      json[r'host'] = null;
     }
-    if (port != null) {
-      json[r'port'] = port;
+    if (this.port != null) {
+      json[r'port'] = this.port;
+    } else {
+      json[r'port'] = null;
     }
-    if (key != null) {
-      json[r'key'] = key;
+    if (this.key != null) {
+      json[r'key'] = this.key;
+    } else {
+      json[r'key'] = null;
     }
-    if (eventName != null) {
-      json[r'eventName'] = eventName;
+    if (this.eventName != null) {
+      json[r'eventName'] = this.eventName;
+    } else {
+      json[r'eventName'] = null;
     }
-    if (asIsPayload != null) {
-      json[r'asIsPayload'] = asIsPayload;
+    if (this.asIsPayload != null) {
+      json[r'asIsPayload'] = this.asIsPayload;
+    } else {
+      json[r'asIsPayload'] = null;
     }
-    if (endpoint != null) {
-      json[r'endpoint'] = endpoint;
+    if (this.endpoint != null) {
+      json[r'endpoint'] = this.endpoint;
+    } else {
+      json[r'endpoint'] = null;
     }
-    if (disableCertCheck != null) {
-      json[r'disableCertCheck'] = disableCertCheck;
+    if (this.disableCertCheck != null) {
+      json[r'disableCertCheck'] = this.disableCertCheck;
+    } else {
+      json[r'disableCertCheck'] = null;
     }
-    if (username != null) {
-      json[r'username'] = username;
+    if (this.username != null) {
+      json[r'username'] = this.username;
+    } else {
+      json[r'username'] = null;
     }
-    if (password != null) {
-      json[r'password'] = password;
+    if (this.password != null) {
+      json[r'password'] = this.password;
+    } else {
+      json[r'password'] = null;
     }
-    if (clientId != null) {
-      json[r'clientId'] = clientId;
+    if (this.clientId != null) {
+      json[r'clientId'] = this.clientId;
+    } else {
+      json[r'clientId'] = null;
     }
-    if (topicName != null) {
-      json[r'topicName'] = topicName;
+    if (this.topicName != null) {
+      json[r'topicName'] = this.topicName;
+    } else {
+      json[r'topicName'] = null;
     }
-    if (topicTemplate != null) {
-      json[r'topicTemplate'] = topicTemplate;
+    if (this.topicTemplate != null) {
+      json[r'topicTemplate'] = this.topicTemplate;
+    } else {
+      json[r'topicTemplate'] = null;
     }
-    if (payloadFormat != null) {
-      json[r'payloadFormat'] = payloadFormat;
+    if (this.payloadFormat != null) {
+      json[r'payloadFormat'] = this.payloadFormat;
+    } else {
+      json[r'payloadFormat'] = null;
     }
-    if (payloadTemplate != null) {
-      json[r'payloadTemplate'] = payloadTemplate;
+    if (this.payloadTemplate != null) {
+      json[r'payloadTemplate'] = this.payloadTemplate;
+    } else {
+      json[r'payloadTemplate'] = null;
     }
     return json;
   }
@@ -190,9 +342,23 @@ class OutputConfig {
   /// Returns a new [OutputConfig] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static OutputConfig fromJson(dynamic value) {
+  static OutputConfig? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key),
+              'Required key "OutputConfig[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "OutputConfig[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return OutputConfig(
         url: mapValueOfType<String>(json, r'url'),
         basicAuthUser: mapValueOfType<String>(json, r'basicAuthUser'),
@@ -218,22 +384,32 @@ class OutputConfig {
     return null;
   }
 
-  static List<OutputConfig> listFromJson(
+  static List<OutputConfig>? listFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json.map(OutputConfig.fromJson).toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <OutputConfig>[];
+    bool growable = false,
+  }) {
+    final result = <OutputConfig>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = OutputConfig.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, OutputConfig> mapFromJson(dynamic json) {
     final map = <String, OutputConfig>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach(
-          (key, dynamic value) => map[key] = OutputConfig.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = OutputConfig.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
@@ -241,19 +417,24 @@ class OutputConfig {
   // maps a json object with a list of OutputConfig-objects as value to a dart map
   static Map<String, List<OutputConfig>> mapListFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
+    bool growable = false,
   }) {
     final map = <String, List<OutputConfig>>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) {
-        map[key] = OutputConfig.listFromJson(
-          value,
-          emptyIsNull: emptyIsNull,
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = OutputConfig.listFromJson(
+          entry.value,
           growable: growable,
         );
-      });
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{};
 }

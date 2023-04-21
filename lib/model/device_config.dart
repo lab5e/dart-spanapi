@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -18,10 +18,22 @@ class DeviceConfig {
     this.gateway = const {},
   });
 
-  CellularIoTConfig ciot;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  CellularIoTConfig? ciot;
 
   /// This is the configuration for an internet-connected device. There are currently no configuration options for internet devices; the device is identified via the clientcertificate.  This is empty since there's no configuration required for the internet  gateway
-  Object inet;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  Object? inet;
 
   Map<String, GatewayDeviceConfig> gateway;
 
@@ -36,59 +48,84 @@ class DeviceConfig {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (ciot == null ? 0 : ciot.hashCode) +
-      (inet == null ? 0 : inet.hashCode) +
-      (gateway == null ? 0 : gateway.hashCode);
+      (ciot == null ? 0 : ciot!.hashCode) +
+      (inet == null ? 0 : inet!.hashCode) +
+      (gateway.hashCode);
 
   @override
   String toString() => 'DeviceConfig[ciot=$ciot, inet=$inet, gateway=$gateway]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    if (ciot != null) {
-      json[r'ciot'] = ciot;
+    if (this.ciot != null) {
+      json[r'ciot'] = this.ciot;
+    } else {
+      json[r'ciot'] = null;
     }
-    if (inet != null) {
-      json[r'inet'] = inet;
+    if (this.inet != null) {
+      json[r'inet'] = this.inet;
+    } else {
+      json[r'inet'] = null;
     }
-    if (gateway != null) {
-      json[r'gateway'] = gateway;
-    }
+    json[r'gateway'] = this.gateway;
     return json;
   }
 
   /// Returns a new [DeviceConfig] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static DeviceConfig fromJson(dynamic value) {
+  static DeviceConfig? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key),
+              'Required key "DeviceConfig[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "DeviceConfig[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return DeviceConfig(
         ciot: CellularIoTConfig.fromJson(json[r'ciot']),
         inet: mapValueOfType<Object>(json, r'inet'),
-        gateway:
-            mapValueOfType<Map<String, GatewayDeviceConfig>>(json, r'gateway'),
+        gateway: GatewayDeviceConfig.mapFromJson(json[r'gateway']) ?? const {},
       );
     }
     return null;
   }
 
-  static List<DeviceConfig> listFromJson(
+  static List<DeviceConfig>? listFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json.map(DeviceConfig.fromJson).toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <DeviceConfig>[];
+    bool growable = false,
+  }) {
+    final result = <DeviceConfig>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = DeviceConfig.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, DeviceConfig> mapFromJson(dynamic json) {
     final map = <String, DeviceConfig>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach(
-          (key, dynamic value) => map[key] = DeviceConfig.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = DeviceConfig.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
@@ -96,19 +133,24 @@ class DeviceConfig {
   // maps a json object with a list of DeviceConfig-objects as value to a dart map
   static Map<String, List<DeviceConfig>> mapListFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
+    bool growable = false,
   }) {
     final map = <String, List<DeviceConfig>>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) {
-        map[key] = DeviceConfig.listFromJson(
-          value,
-          emptyIsNull: emptyIsNull,
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = DeviceConfig.listFromJson(
+          entry.value,
           growable: growable,
         );
-      });
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{};
 }

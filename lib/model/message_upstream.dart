@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -22,19 +22,61 @@ class MessageUpstream {
     this.payload,
   });
 
-  String messageId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? messageId;
 
-  String collectionId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? collectionId;
 
-  String deviceId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? deviceId;
 
-  String gatewayId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? gatewayId;
 
-  MessageTransport transport;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  MessageTransport? transport;
 
-  String received;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? received;
 
-  String payload;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? payload;
 
   @override
   bool operator ==(Object other) =>
@@ -51,13 +93,13 @@ class MessageUpstream {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (messageId == null ? 0 : messageId.hashCode) +
-      (collectionId == null ? 0 : collectionId.hashCode) +
-      (deviceId == null ? 0 : deviceId.hashCode) +
-      (gatewayId == null ? 0 : gatewayId.hashCode) +
-      (transport == null ? 0 : transport.hashCode) +
-      (received == null ? 0 : received.hashCode) +
-      (payload == null ? 0 : payload.hashCode);
+      (messageId == null ? 0 : messageId!.hashCode) +
+      (collectionId == null ? 0 : collectionId!.hashCode) +
+      (deviceId == null ? 0 : deviceId!.hashCode) +
+      (gatewayId == null ? 0 : gatewayId!.hashCode) +
+      (transport == null ? 0 : transport!.hashCode) +
+      (received == null ? 0 : received!.hashCode) +
+      (payload == null ? 0 : payload!.hashCode);
 
   @override
   String toString() =>
@@ -65,26 +107,40 @@ class MessageUpstream {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    if (messageId != null) {
-      json[r'messageId'] = messageId;
+    if (this.messageId != null) {
+      json[r'messageId'] = this.messageId;
+    } else {
+      json[r'messageId'] = null;
     }
-    if (collectionId != null) {
-      json[r'collectionId'] = collectionId;
+    if (this.collectionId != null) {
+      json[r'collectionId'] = this.collectionId;
+    } else {
+      json[r'collectionId'] = null;
     }
-    if (deviceId != null) {
-      json[r'deviceId'] = deviceId;
+    if (this.deviceId != null) {
+      json[r'deviceId'] = this.deviceId;
+    } else {
+      json[r'deviceId'] = null;
     }
-    if (gatewayId != null) {
-      json[r'gatewayId'] = gatewayId;
+    if (this.gatewayId != null) {
+      json[r'gatewayId'] = this.gatewayId;
+    } else {
+      json[r'gatewayId'] = null;
     }
-    if (transport != null) {
-      json[r'transport'] = transport;
+    if (this.transport != null) {
+      json[r'transport'] = this.transport;
+    } else {
+      json[r'transport'] = null;
     }
-    if (received != null) {
-      json[r'received'] = received;
+    if (this.received != null) {
+      json[r'received'] = this.received;
+    } else {
+      json[r'received'] = null;
     }
-    if (payload != null) {
-      json[r'payload'] = payload;
+    if (this.payload != null) {
+      json[r'payload'] = this.payload;
+    } else {
+      json[r'payload'] = null;
     }
     return json;
   }
@@ -92,9 +148,23 @@ class MessageUpstream {
   /// Returns a new [MessageUpstream] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MessageUpstream fromJson(dynamic value) {
+  static MessageUpstream? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key),
+              'Required key "MessageUpstream[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MessageUpstream[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return MessageUpstream(
         messageId: mapValueOfType<String>(json, r'messageId'),
         collectionId: mapValueOfType<String>(json, r'collectionId'),
@@ -108,24 +178,32 @@ class MessageUpstream {
     return null;
   }
 
-  static List<MessageUpstream> listFromJson(
+  static List<MessageUpstream>? listFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json
-              .map(MessageUpstream.fromJson)
-              .toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <MessageUpstream>[];
+    bool growable = false,
+  }) {
+    final result = <MessageUpstream>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = MessageUpstream.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, MessageUpstream> mapFromJson(dynamic json) {
     final map = <String, MessageUpstream>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach(
-          (key, dynamic value) => map[key] = MessageUpstream.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = MessageUpstream.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
@@ -133,19 +211,24 @@ class MessageUpstream {
   // maps a json object with a list of MessageUpstream-objects as value to a dart map
   static Map<String, List<MessageUpstream>> mapListFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
+    bool growable = false,
   }) {
     final map = <String, List<MessageUpstream>>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) {
-        map[key] = MessageUpstream.listFromJson(
-          value,
-          emptyIsNull: emptyIsNull,
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = MessageUpstream.listFromJson(
+          entry.value,
           growable: growable,
         );
-      });
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{};
 }

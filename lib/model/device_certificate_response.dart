@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -26,50 +26,71 @@ class DeviceCertificateResponse {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (certificates == null ? 0 : certificates.hashCode);
+      (certificates.hashCode);
 
   @override
   String toString() => 'DeviceCertificateResponse[certificates=$certificates]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    if (certificates != null) {
-      json[r'certificates'] = certificates;
-    }
+    json[r'certificates'] = this.certificates;
     return json;
   }
 
   /// Returns a new [DeviceCertificateResponse] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static DeviceCertificateResponse fromJson(dynamic value) {
+  static DeviceCertificateResponse? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key),
+              'Required key "DeviceCertificateResponse[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "DeviceCertificateResponse[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return DeviceCertificateResponse(
-        certificates: CertificateInfo.listFromJson(json[r'certificates']),
+        certificates:
+            CertificateInfo.listFromJson(json[r'certificates']) ?? const [],
       );
     }
     return null;
   }
 
-  static List<DeviceCertificateResponse> listFromJson(
+  static List<DeviceCertificateResponse>? listFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json
-              .map(DeviceCertificateResponse.fromJson)
-              .toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <DeviceCertificateResponse>[];
+    bool growable = false,
+  }) {
+    final result = <DeviceCertificateResponse>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = DeviceCertificateResponse.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, DeviceCertificateResponse> mapFromJson(dynamic json) {
     final map = <String, DeviceCertificateResponse>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) =>
-          map[key] = DeviceCertificateResponse.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = DeviceCertificateResponse.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
@@ -77,19 +98,24 @@ class DeviceCertificateResponse {
   // maps a json object with a list of DeviceCertificateResponse-objects as value to a dart map
   static Map<String, List<DeviceCertificateResponse>> mapListFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
+    bool growable = false,
   }) {
     final map = <String, List<DeviceCertificateResponse>>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) {
-        map[key] = DeviceCertificateResponse.listFromJson(
-          value,
-          emptyIsNull: emptyIsNull,
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = DeviceCertificateResponse.listFromJson(
+          entry.value,
           growable: growable,
         );
-      });
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{};
 }

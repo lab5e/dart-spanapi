@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -18,7 +18,7 @@ class GatewayType {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -43,19 +43,24 @@ class GatewayType {
     custom,
   ];
 
-  static GatewayType fromJson(dynamic value) =>
+  static GatewayType? fromJson(dynamic value) =>
       GatewayTypeTypeTransformer().decode(value);
 
-  static List<GatewayType> listFromJson(
+  static List<GatewayType>? listFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json.map(GatewayType.fromJson).toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <GatewayType>[];
+    bool growable = false,
+  }) {
+    final result = <GatewayType>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = GatewayType.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [GatewayType] to String,
@@ -76,9 +81,9 @@ class GatewayTypeTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  GatewayType decode(dynamic data, {bool allowNull}) {
+  GatewayType? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
-      switch (data.toString()) {
+      switch (data) {
         case r'unknown':
           return GatewayType.unknown;
         case r'ciot':
@@ -96,7 +101,7 @@ class GatewayTypeTypeTransformer {
         case r'custom':
           return GatewayType.custom;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -105,5 +110,5 @@ class GatewayTypeTypeTransformer {
   }
 
   /// Singleton [GatewayTypeTypeTransformer] instance.
-  static GatewayTypeTypeTransformer _instance;
+  static GatewayTypeTypeTransformer? _instance;
 }

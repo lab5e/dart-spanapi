@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -19,7 +19,7 @@ class OutputType {
   final String value;
 
   @override
-  String toString() => value ?? '';
+  String toString() => value;
 
   String toJson() => value;
 
@@ -40,19 +40,24 @@ class OutputType {
     mqttbroker,
   ];
 
-  static OutputType fromJson(dynamic value) =>
+  static OutputType? fromJson(dynamic value) =>
       OutputTypeTypeTransformer().decode(value);
 
-  static List<OutputType> listFromJson(
+  static List<OutputType>? listFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json.map(OutputType.fromJson).toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <OutputType>[];
+    bool growable = false,
+  }) {
+    final result = <OutputType>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = OutputType.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 }
 
 /// Transformation class that can [encode] an instance of [OutputType] to String,
@@ -73,9 +78,9 @@ class OutputTypeTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  OutputType decode(dynamic data, {bool allowNull}) {
+  OutputType? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
-      switch (data.toString()) {
+      switch (data) {
         case r'undefined':
           return OutputType.undefined;
         case r'webhook':
@@ -89,7 +94,7 @@ class OutputTypeTypeTransformer {
         case r'mqttbroker':
           return OutputType.mqttbroker;
         default:
-          if (allowNull == false) {
+          if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
           }
       }
@@ -98,5 +103,5 @@ class OutputTypeTypeTransformer {
   }
 
   /// Singleton [OutputTypeTypeTransformer] instance.
-  static OutputTypeTypeTransformer _instance;
+  static OutputTypeTypeTransformer? _instance;
 }

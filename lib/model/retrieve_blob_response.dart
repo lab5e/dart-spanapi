@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -18,11 +18,29 @@ class RetrieveBlobResponse {
     this.data,
   });
 
-  String contentType;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? contentType;
 
-  int size;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? size;
 
-  String data;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? data;
 
   @override
   bool operator ==(Object other) =>
@@ -35,9 +53,9 @@ class RetrieveBlobResponse {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (contentType == null ? 0 : contentType.hashCode) +
-      (size == null ? 0 : size.hashCode) +
-      (data == null ? 0 : data.hashCode);
+      (contentType == null ? 0 : contentType!.hashCode) +
+      (size == null ? 0 : size!.hashCode) +
+      (data == null ? 0 : data!.hashCode);
 
   @override
   String toString() =>
@@ -45,14 +63,20 @@ class RetrieveBlobResponse {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    if (contentType != null) {
-      json[r'contentType'] = contentType;
+    if (this.contentType != null) {
+      json[r'contentType'] = this.contentType;
+    } else {
+      json[r'contentType'] = null;
     }
-    if (size != null) {
-      json[r'size'] = size;
+    if (this.size != null) {
+      json[r'size'] = this.size;
+    } else {
+      json[r'size'] = null;
     }
-    if (data != null) {
-      json[r'data'] = data;
+    if (this.data != null) {
+      json[r'data'] = this.data;
+    } else {
+      json[r'data'] = null;
     }
     return json;
   }
@@ -60,9 +84,23 @@ class RetrieveBlobResponse {
   /// Returns a new [RetrieveBlobResponse] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static RetrieveBlobResponse fromJson(dynamic value) {
+  static RetrieveBlobResponse? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key),
+              'Required key "RetrieveBlobResponse[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "RetrieveBlobResponse[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return RetrieveBlobResponse(
         contentType: mapValueOfType<String>(json, r'contentType'),
         size: mapValueOfType<int>(json, r'size'),
@@ -72,24 +110,32 @@ class RetrieveBlobResponse {
     return null;
   }
 
-  static List<RetrieveBlobResponse> listFromJson(
+  static List<RetrieveBlobResponse>? listFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json
-              .map(RetrieveBlobResponse.fromJson)
-              .toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <RetrieveBlobResponse>[];
+    bool growable = false,
+  }) {
+    final result = <RetrieveBlobResponse>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = RetrieveBlobResponse.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, RetrieveBlobResponse> mapFromJson(dynamic json) {
     final map = <String, RetrieveBlobResponse>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) =>
-          map[key] = RetrieveBlobResponse.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = RetrieveBlobResponse.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
@@ -97,19 +143,24 @@ class RetrieveBlobResponse {
   // maps a json object with a list of RetrieveBlobResponse-objects as value to a dart map
   static Map<String, List<RetrieveBlobResponse>> mapListFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
+    bool growable = false,
   }) {
     final map = <String, List<RetrieveBlobResponse>>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) {
-        map[key] = RetrieveBlobResponse.listFromJson(
-          value,
-          emptyIsNull: emptyIsNull,
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = RetrieveBlobResponse.listFromJson(
+          entry.value,
           growable: growable,
         );
-      });
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{};
 }

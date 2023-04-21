@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -11,7 +11,7 @@
 part of spanapi;
 
 class CertificatesApi {
-  CertificatesApi([ApiClient apiClient])
+  CertificatesApi([ApiClient? apiClient])
       : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
@@ -31,27 +31,17 @@ class CertificatesApi {
     String collectionId,
     CreateCertificateRequest body,
   ) async {
-    // Verify required params are set.
-    if (collectionId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: collectionId');
-    }
-    if (body == null) {
-      throw ApiException(HttpStatus.badRequest, 'Missing required param: body');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/certificates/create'
         .replaceAll('{collectionId}', collectionId);
 
     // ignore: prefer_final_locals
-    Object postBody = body;
+    Object? postBody = body;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>['APIToken'];
     const contentTypes = <String>['application/json'];
 
     return apiClient.invokeAPI(
@@ -61,8 +51,7 @@ class CertificatesApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
-      authNames,
+      contentTypes.isEmpty ? null : contentTypes.first,
     );
   }
 
@@ -75,7 +64,7 @@ class CertificatesApi {
   /// * [String] collectionId (required):
   ///
   /// * [CreateCertificateRequest] body (required):
-  Future<CreateCertificateResponse> createCertificate(
+  Future<CreateCertificateResponse?> createCertificate(
     String collectionId,
     CreateCertificateRequest body,
   ) async {
@@ -89,13 +78,14 @@ class CertificatesApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'CreateCertificateResponse',
       ) as CreateCertificateResponse;
     }
-    return Future<CreateCertificateResponse>.value();
+    return null;
   }
 
   /// Get certificate chain
@@ -113,36 +103,27 @@ class CertificatesApi {
   /// * [String] deviceId:
   Future<Response> retrieveCertificateChainWithHttpInfo(
     String collectionId, {
-    String gatewayId,
-    String deviceId,
+    String? gatewayId,
+    String? deviceId,
   }) async {
-    // Verify required params are set.
-    if (collectionId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: collectionId');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/certificates'
         .replaceAll('{collectionId}', collectionId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
     if (gatewayId != null) {
-      queryParams.addAll(
-          _convertParametersForCollectionFormat('', 'gatewayId', gatewayId));
+      queryParams.addAll(_queryParams('', 'gatewayId', gatewayId));
     }
     if (deviceId != null) {
-      queryParams.addAll(
-          _convertParametersForCollectionFormat('', 'deviceId', deviceId));
+      queryParams.addAll(_queryParams('', 'deviceId', deviceId));
     }
 
-    const authNames = <String>['APIToken'];
     const contentTypes = <String>[];
 
     return apiClient.invokeAPI(
@@ -152,8 +133,7 @@ class CertificatesApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
-      authNames,
+      contentTypes.isEmpty ? null : contentTypes.first,
     );
   }
 
@@ -168,10 +148,10 @@ class CertificatesApi {
   /// * [String] gatewayId:
   ///
   /// * [String] deviceId:
-  Future<CertificateChainResponse> retrieveCertificateChain(
+  Future<CertificateChainResponse?> retrieveCertificateChain(
     String collectionId, {
-    String gatewayId,
-    String deviceId,
+    String? gatewayId,
+    String? deviceId,
   }) async {
     final response = await retrieveCertificateChainWithHttpInfo(
       collectionId,
@@ -184,13 +164,14 @@ class CertificatesApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'CertificateChainResponse',
       ) as CertificateChainResponse;
     }
-    return Future<CertificateChainResponse>.value();
+    return null;
   }
 
   /// Sign certificate
@@ -208,27 +189,17 @@ class CertificatesApi {
     String collectionId,
     SignCertificateRequest body,
   ) async {
-    // Verify required params are set.
-    if (collectionId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: collectionId');
-    }
-    if (body == null) {
-      throw ApiException(HttpStatus.badRequest, 'Missing required param: body');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/certificates/sign'
         .replaceAll('{collectionId}', collectionId);
 
     // ignore: prefer_final_locals
-    Object postBody = body;
+    Object? postBody = body;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>['APIToken'];
     const contentTypes = <String>['application/json'];
 
     return apiClient.invokeAPI(
@@ -238,8 +209,7 @@ class CertificatesApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
-      authNames,
+      contentTypes.isEmpty ? null : contentTypes.first,
     );
   }
 
@@ -252,7 +222,7 @@ class CertificatesApi {
   /// * [String] collectionId (required):
   ///
   /// * [SignCertificateRequest] body (required):
-  Future<SignCertificateResponse> signCertificate(
+  Future<SignCertificateResponse?> signCertificate(
     String collectionId,
     SignCertificateRequest body,
   ) async {
@@ -266,13 +236,14 @@ class CertificatesApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'SignCertificateResponse',
       ) as SignCertificateResponse;
     }
-    return Future<SignCertificateResponse>.value();
+    return null;
   }
 
   /// Verify certificate
@@ -290,27 +261,17 @@ class CertificatesApi {
     String collectionId,
     VerifyCertificateRequest body,
   ) async {
-    // Verify required params are set.
-    if (collectionId == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: collectionId');
-    }
-    if (body == null) {
-      throw ApiException(HttpStatus.badRequest, 'Missing required param: body');
-    }
-
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/certificates/verify'
         .replaceAll('{collectionId}', collectionId);
 
     // ignore: prefer_final_locals
-    Object postBody = body;
+    Object? postBody = body;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const authNames = <String>['APIToken'];
     const contentTypes = <String>['application/json'];
 
     return apiClient.invokeAPI(
@@ -320,8 +281,7 @@ class CertificatesApi {
       postBody,
       headerParams,
       formParams,
-      contentTypes.isEmpty ? null : contentTypes[0],
-      authNames,
+      contentTypes.isEmpty ? null : contentTypes.first,
     );
   }
 
@@ -334,7 +294,7 @@ class CertificatesApi {
   /// * [String] collectionId (required):
   ///
   /// * [VerifyCertificateRequest] body (required):
-  Future<VerifyCertificateResponse> verifyCertificate(
+  Future<VerifyCertificateResponse?> verifyCertificate(
     String collectionId,
     VerifyCertificateRequest body,
   ) async {
@@ -348,12 +308,13 @@ class CertificatesApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'VerifyCertificateResponse',
       ) as VerifyCertificateResponse;
     }
-    return Future<VerifyCertificateResponse>.value();
+    return null;
   }
 }

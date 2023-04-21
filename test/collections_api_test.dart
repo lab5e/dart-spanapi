@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,7 +13,7 @@ import 'package:test/test.dart';
 
 /// tests for CollectionsApi
 void main() {
-  final instance = CollectionsApi();
+  // final instance = CollectionsApi();
 
   group('tests for CollectionsApi', () {
     // Create collection
@@ -45,7 +45,7 @@ void main() {
 
     // List collections
     //
-    // Lists all the collections that one of your teams owns.
+    // Lists all the collections that one of your teams owns. The collections returned includes only the data on the collection and not the summary information
     //
     //Future<ListCollectionResponse> listCollections() async
     test('test listCollections', () async {
@@ -54,7 +54,9 @@ void main() {
 
     // Retrieve collection
     //
-    //Future<Collection> retrieveCollection(String collectionId) async
+    // Retrieve collection information. This includes a list of the most recent messages in the inbox. The upstream and downstream parameters are optional and if set to true will include the timestamps for up to 100 messages up- and downstream for the last hour.
+    //
+    //Future<Collection> retrieveCollection(String collectionId, { bool upstream, bool downstream }) async
     test('test retrieveCollection', () async {
       // TODO
     });

@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -24,23 +24,77 @@ class MessageDownstream {
     this.payload,
   });
 
-  String messageId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? messageId;
 
-  String collectionId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? collectionId;
 
-  String deviceId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? deviceId;
 
-  String gatewayId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? gatewayId;
 
-  String createdTime;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? createdTime;
 
-  String sentTime;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? sentTime;
 
-  MessageTransport transport;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  MessageTransport? transport;
 
-  MessageState state;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  MessageState? state;
 
-  String payload;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? payload;
 
   @override
   bool operator ==(Object other) =>
@@ -59,15 +113,15 @@ class MessageDownstream {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (messageId == null ? 0 : messageId.hashCode) +
-      (collectionId == null ? 0 : collectionId.hashCode) +
-      (deviceId == null ? 0 : deviceId.hashCode) +
-      (gatewayId == null ? 0 : gatewayId.hashCode) +
-      (createdTime == null ? 0 : createdTime.hashCode) +
-      (sentTime == null ? 0 : sentTime.hashCode) +
-      (transport == null ? 0 : transport.hashCode) +
-      (state == null ? 0 : state.hashCode) +
-      (payload == null ? 0 : payload.hashCode);
+      (messageId == null ? 0 : messageId!.hashCode) +
+      (collectionId == null ? 0 : collectionId!.hashCode) +
+      (deviceId == null ? 0 : deviceId!.hashCode) +
+      (gatewayId == null ? 0 : gatewayId!.hashCode) +
+      (createdTime == null ? 0 : createdTime!.hashCode) +
+      (sentTime == null ? 0 : sentTime!.hashCode) +
+      (transport == null ? 0 : transport!.hashCode) +
+      (state == null ? 0 : state!.hashCode) +
+      (payload == null ? 0 : payload!.hashCode);
 
   @override
   String toString() =>
@@ -75,32 +129,50 @@ class MessageDownstream {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    if (messageId != null) {
-      json[r'messageId'] = messageId;
+    if (this.messageId != null) {
+      json[r'messageId'] = this.messageId;
+    } else {
+      json[r'messageId'] = null;
     }
-    if (collectionId != null) {
-      json[r'collectionId'] = collectionId;
+    if (this.collectionId != null) {
+      json[r'collectionId'] = this.collectionId;
+    } else {
+      json[r'collectionId'] = null;
     }
-    if (deviceId != null) {
-      json[r'deviceId'] = deviceId;
+    if (this.deviceId != null) {
+      json[r'deviceId'] = this.deviceId;
+    } else {
+      json[r'deviceId'] = null;
     }
-    if (gatewayId != null) {
-      json[r'gatewayId'] = gatewayId;
+    if (this.gatewayId != null) {
+      json[r'gatewayId'] = this.gatewayId;
+    } else {
+      json[r'gatewayId'] = null;
     }
-    if (createdTime != null) {
-      json[r'createdTime'] = createdTime;
+    if (this.createdTime != null) {
+      json[r'createdTime'] = this.createdTime;
+    } else {
+      json[r'createdTime'] = null;
     }
-    if (sentTime != null) {
-      json[r'sentTime'] = sentTime;
+    if (this.sentTime != null) {
+      json[r'sentTime'] = this.sentTime;
+    } else {
+      json[r'sentTime'] = null;
     }
-    if (transport != null) {
-      json[r'transport'] = transport;
+    if (this.transport != null) {
+      json[r'transport'] = this.transport;
+    } else {
+      json[r'transport'] = null;
     }
-    if (state != null) {
-      json[r'state'] = state;
+    if (this.state != null) {
+      json[r'state'] = this.state;
+    } else {
+      json[r'state'] = null;
     }
-    if (payload != null) {
-      json[r'payload'] = payload;
+    if (this.payload != null) {
+      json[r'payload'] = this.payload;
+    } else {
+      json[r'payload'] = null;
     }
     return json;
   }
@@ -108,9 +180,23 @@ class MessageDownstream {
   /// Returns a new [MessageDownstream] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MessageDownstream fromJson(dynamic value) {
+  static MessageDownstream? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key),
+              'Required key "MessageDownstream[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MessageDownstream[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return MessageDownstream(
         messageId: mapValueOfType<String>(json, r'messageId'),
         collectionId: mapValueOfType<String>(json, r'collectionId'),
@@ -126,24 +212,32 @@ class MessageDownstream {
     return null;
   }
 
-  static List<MessageDownstream> listFromJson(
+  static List<MessageDownstream>? listFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json
-              .map(MessageDownstream.fromJson)
-              .toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <MessageDownstream>[];
+    bool growable = false,
+  }) {
+    final result = <MessageDownstream>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = MessageDownstream.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, MessageDownstream> mapFromJson(dynamic json) {
     final map = <String, MessageDownstream>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach(
-          (key, dynamic value) => map[key] = MessageDownstream.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = MessageDownstream.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
@@ -151,19 +245,24 @@ class MessageDownstream {
   // maps a json object with a list of MessageDownstream-objects as value to a dart map
   static Map<String, List<MessageDownstream>> mapListFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
+    bool growable = false,
   }) {
     final map = <String, List<MessageDownstream>>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) {
-        map[key] = MessageDownstream.listFromJson(
-          value,
-          emptyIsNull: emptyIsNull,
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = MessageDownstream.listFromJson(
+          entry.value,
           growable: growable,
         );
-      });
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{};
 }

@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -26,28 +26,94 @@ class OutputDataMessage {
     this.gatewayId,
   });
 
-  OutputMessageType type;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  OutputMessageType? type;
 
-  Device device;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  Device? device;
 
-  String payload;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? payload;
 
   /// Received time for message. Value is ms since epoch.
-  String received;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? received;
 
-  String transport;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? transport;
 
-  UDPMetadata udpMetaData;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  UDPMetadata? udpMetaData;
 
-  CoAPMetadata coapMetaData;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  CoAPMetadata? coapMetaData;
 
-  String messageId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? messageId;
 
-  MQTTMetadata mqttMetaData;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  MQTTMetadata? mqttMetaData;
 
-  GatewayMetadata gatewayMetaData;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  GatewayMetadata? gatewayMetaData;
 
-  String gatewayId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? gatewayId;
 
   @override
   bool operator ==(Object other) =>
@@ -68,17 +134,17 @@ class OutputDataMessage {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (type == null ? 0 : type.hashCode) +
-      (device == null ? 0 : device.hashCode) +
-      (payload == null ? 0 : payload.hashCode) +
-      (received == null ? 0 : received.hashCode) +
-      (transport == null ? 0 : transport.hashCode) +
-      (udpMetaData == null ? 0 : udpMetaData.hashCode) +
-      (coapMetaData == null ? 0 : coapMetaData.hashCode) +
-      (messageId == null ? 0 : messageId.hashCode) +
-      (mqttMetaData == null ? 0 : mqttMetaData.hashCode) +
-      (gatewayMetaData == null ? 0 : gatewayMetaData.hashCode) +
-      (gatewayId == null ? 0 : gatewayId.hashCode);
+      (type == null ? 0 : type!.hashCode) +
+      (device == null ? 0 : device!.hashCode) +
+      (payload == null ? 0 : payload!.hashCode) +
+      (received == null ? 0 : received!.hashCode) +
+      (transport == null ? 0 : transport!.hashCode) +
+      (udpMetaData == null ? 0 : udpMetaData!.hashCode) +
+      (coapMetaData == null ? 0 : coapMetaData!.hashCode) +
+      (messageId == null ? 0 : messageId!.hashCode) +
+      (mqttMetaData == null ? 0 : mqttMetaData!.hashCode) +
+      (gatewayMetaData == null ? 0 : gatewayMetaData!.hashCode) +
+      (gatewayId == null ? 0 : gatewayId!.hashCode);
 
   @override
   String toString() =>
@@ -86,38 +152,60 @@ class OutputDataMessage {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    if (type != null) {
-      json[r'type'] = type;
+    if (this.type != null) {
+      json[r'type'] = this.type;
+    } else {
+      json[r'type'] = null;
     }
-    if (device != null) {
-      json[r'device'] = device;
+    if (this.device != null) {
+      json[r'device'] = this.device;
+    } else {
+      json[r'device'] = null;
     }
-    if (payload != null) {
-      json[r'payload'] = payload;
+    if (this.payload != null) {
+      json[r'payload'] = this.payload;
+    } else {
+      json[r'payload'] = null;
     }
-    if (received != null) {
-      json[r'received'] = received;
+    if (this.received != null) {
+      json[r'received'] = this.received;
+    } else {
+      json[r'received'] = null;
     }
-    if (transport != null) {
-      json[r'transport'] = transport;
+    if (this.transport != null) {
+      json[r'transport'] = this.transport;
+    } else {
+      json[r'transport'] = null;
     }
-    if (udpMetaData != null) {
-      json[r'udpMetaData'] = udpMetaData;
+    if (this.udpMetaData != null) {
+      json[r'udpMetaData'] = this.udpMetaData;
+    } else {
+      json[r'udpMetaData'] = null;
     }
-    if (coapMetaData != null) {
-      json[r'coapMetaData'] = coapMetaData;
+    if (this.coapMetaData != null) {
+      json[r'coapMetaData'] = this.coapMetaData;
+    } else {
+      json[r'coapMetaData'] = null;
     }
-    if (messageId != null) {
-      json[r'messageId'] = messageId;
+    if (this.messageId != null) {
+      json[r'messageId'] = this.messageId;
+    } else {
+      json[r'messageId'] = null;
     }
-    if (mqttMetaData != null) {
-      json[r'mqttMetaData'] = mqttMetaData;
+    if (this.mqttMetaData != null) {
+      json[r'mqttMetaData'] = this.mqttMetaData;
+    } else {
+      json[r'mqttMetaData'] = null;
     }
-    if (gatewayMetaData != null) {
-      json[r'gatewayMetaData'] = gatewayMetaData;
+    if (this.gatewayMetaData != null) {
+      json[r'gatewayMetaData'] = this.gatewayMetaData;
+    } else {
+      json[r'gatewayMetaData'] = null;
     }
-    if (gatewayId != null) {
-      json[r'gatewayId'] = gatewayId;
+    if (this.gatewayId != null) {
+      json[r'gatewayId'] = this.gatewayId;
+    } else {
+      json[r'gatewayId'] = null;
     }
     return json;
   }
@@ -125,9 +213,23 @@ class OutputDataMessage {
   /// Returns a new [OutputDataMessage] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static OutputDataMessage fromJson(dynamic value) {
+  static OutputDataMessage? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key),
+              'Required key "OutputDataMessage[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "OutputDataMessage[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return OutputDataMessage(
         type: OutputMessageType.fromJson(json[r'type']),
         device: Device.fromJson(json[r'device']),
@@ -145,24 +247,32 @@ class OutputDataMessage {
     return null;
   }
 
-  static List<OutputDataMessage> listFromJson(
+  static List<OutputDataMessage>? listFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json
-              .map(OutputDataMessage.fromJson)
-              .toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <OutputDataMessage>[];
+    bool growable = false,
+  }) {
+    final result = <OutputDataMessage>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = OutputDataMessage.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, OutputDataMessage> mapFromJson(dynamic json) {
     final map = <String, OutputDataMessage>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach(
-          (key, dynamic value) => map[key] = OutputDataMessage.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = OutputDataMessage.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
@@ -170,19 +280,24 @@ class OutputDataMessage {
   // maps a json object with a list of OutputDataMessage-objects as value to a dart map
   static Map<String, List<OutputDataMessage>> mapListFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
+    bool growable = false,
   }) {
     final map = <String, List<OutputDataMessage>>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) {
-        map[key] = OutputDataMessage.listFromJson(
-          value,
-          emptyIsNull: emptyIsNull,
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = OutputDataMessage.listFromJson(
+          entry.value,
           growable: growable,
         );
-      });
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{};
 }

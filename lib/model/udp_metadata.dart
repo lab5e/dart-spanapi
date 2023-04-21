@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -17,9 +17,21 @@ class UDPMetadata {
     this.remotePort,
   });
 
-  int localPort;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? localPort;
 
-  int remotePort;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? remotePort;
 
   @override
   bool operator ==(Object other) =>
@@ -31,8 +43,8 @@ class UDPMetadata {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (localPort == null ? 0 : localPort.hashCode) +
-      (remotePort == null ? 0 : remotePort.hashCode);
+      (localPort == null ? 0 : localPort!.hashCode) +
+      (remotePort == null ? 0 : remotePort!.hashCode);
 
   @override
   String toString() =>
@@ -40,11 +52,15 @@ class UDPMetadata {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    if (localPort != null) {
-      json[r'localPort'] = localPort;
+    if (this.localPort != null) {
+      json[r'localPort'] = this.localPort;
+    } else {
+      json[r'localPort'] = null;
     }
-    if (remotePort != null) {
-      json[r'remotePort'] = remotePort;
+    if (this.remotePort != null) {
+      json[r'remotePort'] = this.remotePort;
+    } else {
+      json[r'remotePort'] = null;
     }
     return json;
   }
@@ -52,9 +68,23 @@ class UDPMetadata {
   /// Returns a new [UDPMetadata] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static UDPMetadata fromJson(dynamic value) {
+  static UDPMetadata? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key),
+              'Required key "UDPMetadata[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "UDPMetadata[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return UDPMetadata(
         localPort: mapValueOfType<int>(json, r'localPort'),
         remotePort: mapValueOfType<int>(json, r'remotePort'),
@@ -63,22 +93,32 @@ class UDPMetadata {
     return null;
   }
 
-  static List<UDPMetadata> listFromJson(
+  static List<UDPMetadata>? listFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json.map(UDPMetadata.fromJson).toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <UDPMetadata>[];
+    bool growable = false,
+  }) {
+    final result = <UDPMetadata>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = UDPMetadata.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, UDPMetadata> mapFromJson(dynamic json) {
     final map = <String, UDPMetadata>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach(
-          (key, dynamic value) => map[key] = UDPMetadata.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = UDPMetadata.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
@@ -86,19 +126,24 @@ class UDPMetadata {
   // maps a json object with a list of UDPMetadata-objects as value to a dart map
   static Map<String, List<UDPMetadata>> mapListFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
+    bool growable = false,
   }) {
     final map = <String, List<UDPMetadata>>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) {
-        map[key] = UDPMetadata.listFromJson(
-          value,
-          emptyIsNull: emptyIsNull,
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = UDPMetadata.listFromJson(
+          entry.value,
           growable: growable,
         );
-      });
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{};
 }

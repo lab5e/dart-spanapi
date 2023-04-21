@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,6 +13,6 @@ part of spanapi;
 // ignore: one_member_abstracts
 abstract class Authentication {
   /// Apply authentication settings to header and query params.
-  void applyToParams(
+  Future<void> applyToParams(
       List<QueryParam> queryParams, Map<String, String> headerParams);
 }

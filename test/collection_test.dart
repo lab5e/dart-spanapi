@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,7 +13,7 @@ import 'package:test/test.dart';
 
 // tests for Collection
 void main() {
-  final instance = Collection();
+  // final instance = Collection();
 
   group('test Collection', () {
     // The ID of the collection. This is assigned by the backend.
@@ -36,6 +36,16 @@ void main() {
     // Tags for the collection. Tags are metadata fields that you can assign to the collection.
     // Map<String, String> tags (default value: const {})
     test('to test the property `tags`', () async {
+      // TODO
+    });
+
+    // List<String> upstreamTimestamps (default value: const [])
+    test('to test the property `upstreamTimestamps`', () async {
+      // TODO
+    });
+
+    // List<String> downstreamTimestamps (default value: const [])
+    test('to test the property `downstreamTimestamps`', () async {
       // TODO
     });
   });

@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -17,9 +17,21 @@ class CreateCertificateRequest {
     this.deviceId,
   });
 
-  String gatewayId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? gatewayId;
 
-  String deviceId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? deviceId;
 
   @override
   bool operator ==(Object other) =>
@@ -31,8 +43,8 @@ class CreateCertificateRequest {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (gatewayId == null ? 0 : gatewayId.hashCode) +
-      (deviceId == null ? 0 : deviceId.hashCode);
+      (gatewayId == null ? 0 : gatewayId!.hashCode) +
+      (deviceId == null ? 0 : deviceId!.hashCode);
 
   @override
   String toString() =>
@@ -40,11 +52,15 @@ class CreateCertificateRequest {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    if (gatewayId != null) {
-      json[r'gatewayId'] = gatewayId;
+    if (this.gatewayId != null) {
+      json[r'gatewayId'] = this.gatewayId;
+    } else {
+      json[r'gatewayId'] = null;
     }
-    if (deviceId != null) {
-      json[r'deviceId'] = deviceId;
+    if (this.deviceId != null) {
+      json[r'deviceId'] = this.deviceId;
+    } else {
+      json[r'deviceId'] = null;
     }
     return json;
   }
@@ -52,9 +68,23 @@ class CreateCertificateRequest {
   /// Returns a new [CreateCertificateRequest] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static CreateCertificateRequest fromJson(dynamic value) {
+  static CreateCertificateRequest? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key),
+              'Required key "CreateCertificateRequest[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "CreateCertificateRequest[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return CreateCertificateRequest(
         gatewayId: mapValueOfType<String>(json, r'gatewayId'),
         deviceId: mapValueOfType<String>(json, r'deviceId'),
@@ -63,24 +93,32 @@ class CreateCertificateRequest {
     return null;
   }
 
-  static List<CreateCertificateRequest> listFromJson(
+  static List<CreateCertificateRequest>? listFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json
-              .map(CreateCertificateRequest.fromJson)
-              .toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <CreateCertificateRequest>[];
+    bool growable = false,
+  }) {
+    final result = <CreateCertificateRequest>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = CreateCertificateRequest.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, CreateCertificateRequest> mapFromJson(dynamic json) {
     final map = <String, CreateCertificateRequest>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) =>
-          map[key] = CreateCertificateRequest.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = CreateCertificateRequest.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
@@ -88,19 +126,24 @@ class CreateCertificateRequest {
   // maps a json object with a list of CreateCertificateRequest-objects as value to a dart map
   static Map<String, List<CreateCertificateRequest>> mapListFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
+    bool growable = false,
   }) {
     final map = <String, List<CreateCertificateRequest>>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) {
-        map[key] = CreateCertificateRequest.listFromJson(
-          value,
-          emptyIsNull: emptyIsNull,
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = CreateCertificateRequest.listFromJson(
+          entry.value,
           growable: growable,
         );
-      });
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{};
 }

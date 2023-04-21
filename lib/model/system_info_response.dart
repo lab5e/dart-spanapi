@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -19,13 +19,31 @@ class SystemInfoResponse {
   });
 
   /// This is the system version
-  String version;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? version;
 
   /// The build time for this version.
-  String buildDate;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? buildDate;
 
   /// Human-readable code name for this release. This can be easier to remember than the version number.
-  String releaseName;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? releaseName;
 
   @override
   bool operator ==(Object other) =>
@@ -38,9 +56,9 @@ class SystemInfoResponse {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (version == null ? 0 : version.hashCode) +
-      (buildDate == null ? 0 : buildDate.hashCode) +
-      (releaseName == null ? 0 : releaseName.hashCode);
+      (version == null ? 0 : version!.hashCode) +
+      (buildDate == null ? 0 : buildDate!.hashCode) +
+      (releaseName == null ? 0 : releaseName!.hashCode);
 
   @override
   String toString() =>
@@ -48,14 +66,20 @@ class SystemInfoResponse {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    if (version != null) {
-      json[r'version'] = version;
+    if (this.version != null) {
+      json[r'version'] = this.version;
+    } else {
+      json[r'version'] = null;
     }
-    if (buildDate != null) {
-      json[r'buildDate'] = buildDate;
+    if (this.buildDate != null) {
+      json[r'buildDate'] = this.buildDate;
+    } else {
+      json[r'buildDate'] = null;
     }
-    if (releaseName != null) {
-      json[r'releaseName'] = releaseName;
+    if (this.releaseName != null) {
+      json[r'releaseName'] = this.releaseName;
+    } else {
+      json[r'releaseName'] = null;
     }
     return json;
   }
@@ -63,9 +87,23 @@ class SystemInfoResponse {
   /// Returns a new [SystemInfoResponse] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static SystemInfoResponse fromJson(dynamic value) {
+  static SystemInfoResponse? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        requiredKeys.forEach((key) {
+          assert(json.containsKey(key),
+              'Required key "SystemInfoResponse[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "SystemInfoResponse[$key]" has a null value in JSON.');
+        });
+        return true;
+      }());
+
       return SystemInfoResponse(
         version: mapValueOfType<String>(json, r'version'),
         buildDate: mapValueOfType<String>(json, r'buildDate'),
@@ -75,24 +113,32 @@ class SystemInfoResponse {
     return null;
   }
 
-  static List<SystemInfoResponse> listFromJson(
+  static List<SystemInfoResponse>? listFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
-  }) =>
-      json is List && json.isNotEmpty
-          ? json
-              .map(SystemInfoResponse.fromJson)
-              .toList(growable: true == growable)
-          : true == emptyIsNull
-              ? null
-              : <SystemInfoResponse>[];
+    bool growable = false,
+  }) {
+    final result = <SystemInfoResponse>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = SystemInfoResponse.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
 
   static Map<String, SystemInfoResponse> mapFromJson(dynamic json) {
     final map = <String, SystemInfoResponse>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) =>
-          map[key] = SystemInfoResponse.fromJson(value));
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = SystemInfoResponse.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
@@ -100,19 +146,24 @@ class SystemInfoResponse {
   // maps a json object with a list of SystemInfoResponse-objects as value to a dart map
   static Map<String, List<SystemInfoResponse>> mapListFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
+    bool growable = false,
   }) {
     final map = <String, List<SystemInfoResponse>>{};
     if (json is Map && json.isNotEmpty) {
-      json.cast<String, dynamic>().forEach((key, dynamic value) {
-        map[key] = SystemInfoResponse.listFromJson(
-          value,
-          emptyIsNull: emptyIsNull,
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = SystemInfoResponse.listFromJson(
+          entry.value,
           growable: growable,
         );
-      });
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
     }
     return map;
   }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{};
 }
