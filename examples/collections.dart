@@ -20,7 +20,7 @@ void main(List<String> args) {
   var collectionsApi = CollectionsApi(client);
   collectionsApi
       .listCollections()
-      .then((value) => displayCollections(value))
+      .then((value) => displayCollections(value!))
       .catchError((error) => print('Got error $error'))
       .whenComplete(() => exit(0));
 }
