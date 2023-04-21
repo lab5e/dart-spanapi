@@ -1,0 +1,5 @@
+# Turn off error checks in the generated code
+analyzer:
+  errors:
+    dead_null_aware_expression: ignore
+
