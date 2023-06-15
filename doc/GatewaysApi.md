@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**gatewayCertificates**](GatewaysApi.md#gatewaycertificates) | **GET** /span/collections/{collectionId}/gateways/{gatewayId}/certs | Get issued certificate(s) for gateway
 [**listGateways**](GatewaysApi.md#listgateways) | **GET** /span/collections/{collectionId}/gateways | List gateways
 [**retrieveGateway**](GatewaysApi.md#retrievegateway) | **GET** /span/collections/{collectionId}/gateways/{gatewayId} | Retrieve gateway
+[**retrieveGatewayStats**](GatewaysApi.md#retrievegatewaystats) | **GET** /span/collections/{collectionId}/gateways/{gatewayId}/stats | Retrieve gateway statistics
 [**updateGateway**](GatewaysApi.md#updategateway) | **PATCH** /span/collections/{existingCollectionId}/gateways/{gatewayId} | Update gateway
 
 
@@ -246,6 +247,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Gateway**](Gateway.md)
+
+### Authorization
+
+[APIToken](../README.md#APIToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **retrieveGatewayStats**
+> GatewayStats retrieveGatewayStats(collectionId, gatewayId)
+
+Retrieve gateway statistics
+
+Get statistics for gateway
+
+### Example
+```dart
+import 'package:spanapi/api.dart';
+// TODO Configure API key authorization: APIToken
+//defaultApiClient.getAuthentication<ApiKeyAuth>('APIToken').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('APIToken').apiKeyPrefix = 'Bearer';
+
+final api_instance = GatewaysApi();
+final collectionId = collectionId_example; // String | 
+final gatewayId = gatewayId_example; // String | 
+
+try {
+    final result = api_instance.retrieveGatewayStats(collectionId, gatewayId);
+    print(result);
+} catch (e) {
+    print('Exception when calling GatewaysApi->retrieveGatewayStats: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collectionId** | **String**|  | 
+ **gatewayId** | **String**|  | 
+
+### Return type
+
+[**GatewayStats**](GatewayStats.md)
 
 ### Authorization
 

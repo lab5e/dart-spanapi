@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**listOutputs**](OutputsApi.md#listoutputs) | **GET** /span/collections/{collectionId}/outputs | List outputs
 [**logs**](OutputsApi.md#logs) | **GET** /span/collections/{collectionId}/outputs/{outputId}/logs | Output logs
 [**retrieveOutput**](OutputsApi.md#retrieveoutput) | **GET** /span/collections/{collectionId}/outputs/{outputId} | Retrieve output
+[**retrieveOutputStats**](OutputsApi.md#retrieveoutputstats) | **GET** /span/collections/{collectionId}/outputs/{outputId}/stats | Retrieve output statistics
 [**status**](OutputsApi.md#status) | **GET** /span/collections/{collectionId}/outputs/{outputId}/status | Output status
 [**updateOutput**](OutputsApi.md#updateoutput) | **PATCH** /span/collections/{existingCollectionId}/outputs/{outputId} | Update output
 
@@ -239,6 +240,53 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Output**](Output.md)
+
+### Authorization
+
+[APIToken](../README.md#APIToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **retrieveOutputStats**
+> OutputStats retrieveOutputStats(collectionId, outputId)
+
+Retrieve output statistics
+
+### Example
+```dart
+import 'package:spanapi/api.dart';
+// TODO Configure API key authorization: APIToken
+//defaultApiClient.getAuthentication<ApiKeyAuth>('APIToken').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('APIToken').apiKeyPrefix = 'Bearer';
+
+final api_instance = OutputsApi();
+final collectionId = collectionId_example; // String | 
+final outputId = outputId_example; // String | 
+
+try {
+    final result = api_instance.retrieveOutputStats(collectionId, outputId);
+    print(result);
+} catch (e) {
+    print('Exception when calling OutputsApi->retrieveOutputStats: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collectionId** | **String**|  | 
+ **outputId** | **String**|  | 
+
+### Return type
+
+[**OutputStats**](OutputStats.md)
 
 ### Authorization
 

@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**firmwareUsage**](FotaApi.md#firmwareusage) | **GET** /span/collections/{collectionId}/firmware/{imageId}/usage | Firmware usage
 [**listFirmware**](FotaApi.md#listfirmware) | **GET** /span/collections/{collectionId}/firmware | List firmware
 [**retrieveFirmware**](FotaApi.md#retrievefirmware) | **GET** /span/collections/{collectionId}/firmware/{imageId} | Retrieve firmware
+[**retrieveFirmwareStats**](FotaApi.md#retrievefirmwarestats) | **GET** /span/collections/{collectionId}/firmware/{imageId}/stats | Retrieve firmware statistics
 [**updateFirmware**](FotaApi.md#updatefirmware) | **PATCH** /span/collections/{existingCollectionId}/firmware/{imageId} | Update firmware
 
 
@@ -288,6 +289,53 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Firmware**](Firmware.md)
+
+### Authorization
+
+[APIToken](../README.md#APIToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **retrieveFirmwareStats**
+> FirmwareStats retrieveFirmwareStats(collectionId, imageId)
+
+Retrieve firmware statistics
+
+### Example
+```dart
+import 'package:spanapi/api.dart';
+// TODO Configure API key authorization: APIToken
+//defaultApiClient.getAuthentication<ApiKeyAuth>('APIToken').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('APIToken').apiKeyPrefix = 'Bearer';
+
+final api_instance = FotaApi();
+final collectionId = collectionId_example; // String | 
+final imageId = imageId_example; // String | 
+
+try {
+    final result = api_instance.retrieveFirmwareStats(collectionId, imageId);
+    print(result);
+} catch (e) {
+    print('Exception when calling FotaApi->retrieveFirmwareStats: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collectionId** | **String**|  | 
+ **imageId** | **String**|  | 
+
+### Return type
+
+[**FirmwareStats**](FirmwareStats.md)
 
 ### Authorization
 

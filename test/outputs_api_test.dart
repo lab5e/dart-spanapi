@@ -51,6 +51,13 @@ void main() {
       // TODO
     });
 
+    // Retrieve output statistics
+    //
+    //Future<OutputStats> retrieveOutputStats(String collectionId, String outputId) async
+    test('test retrieveOutputStats', () async {
+      // TODO
+    });
+
     // Output status
     //
     //Future<OutputStatusResponse> status(String collectionId, String outputId) async

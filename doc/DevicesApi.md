@@ -19,6 +19,7 @@ Method | HTTP request | Description
 [**listDownstreamMessages**](DevicesApi.md#listdownstreammessages) | **GET** /span/collections/{collectionId}/devices/{deviceId}/outbox | List the messages in the outbox
 [**listUpstreamMessages**](DevicesApi.md#listupstreammessages) | **GET** /span/collections/{collectionId}/devices/{deviceId}/inbox | List incoming messages
 [**retrieveDevice**](DevicesApi.md#retrievedevice) | **GET** /span/collections/{collectionId}/devices/{deviceId} | Retrieve device
+[**retrieveDeviceStats**](DevicesApi.md#retrievedevicestats) | **GET** /span/collections/{collectionId}/devices/{deviceId}/stats | Retrieve device statistics
 [**updateDevice**](DevicesApi.md#updatedevice) | **PATCH** /span/collections/{existingCollectionId}/devices/{deviceId} | Update device
 
 
@@ -496,7 +497,7 @@ import 'package:spanapi/api.dart';
 
 final api_instance = DevicesApi();
 final collectionId = collectionId_example; // String | This is the containing collection
-final deviceId = deviceId_example; // String | The device ID is assigned by the backend.
+final deviceId = deviceId_example; // String | The device identifier
 
 try {
     final result = api_instance.retrieveDevice(collectionId, deviceId);
@@ -511,11 +512,58 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **String**| This is the containing collection | 
- **deviceId** | **String**| The device ID is assigned by the backend. | 
+ **deviceId** | **String**| The device identifier | 
 
 ### Return type
 
 [**Device**](Device.md)
+
+### Authorization
+
+[APIToken](../README.md#APIToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **retrieveDeviceStats**
+> DeviceStats retrieveDeviceStats(collectionId, deviceId)
+
+Retrieve device statistics
+
+### Example
+```dart
+import 'package:spanapi/api.dart';
+// TODO Configure API key authorization: APIToken
+//defaultApiClient.getAuthentication<ApiKeyAuth>('APIToken').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('APIToken').apiKeyPrefix = 'Bearer';
+
+final api_instance = DevicesApi();
+final collectionId = collectionId_example; // String | This is the containing collection
+final deviceId = deviceId_example; // String | The device identifier
+
+try {
+    final result = api_instance.retrieveDeviceStats(collectionId, deviceId);
+    print(result);
+} catch (e) {
+    print('Exception when calling DevicesApi->retrieveDeviceStats: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collectionId** | **String**| This is the containing collection | 
+ **deviceId** | **String**| The device identifier | 
+
+### Return type
+
+[**DeviceStats**](DeviceStats.md)
 
 ### Authorization
 

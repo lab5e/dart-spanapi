@@ -403,6 +403,73 @@ class CollectionsApi {
     return null;
   }
 
+  /// Retrieve collection statistics
+  ///
+  /// Retrieve statistics for the collection. This is the aggregated metrics for devices, outputs, firmware images, blobs and gateways in the collection
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] collectionId (required):
+  ///   The collection ID of the collection you are requesting
+  Future<Response> retrieveCollectionStatsWithHttpInfo(
+    String collectionId,
+  ) async {
+    // ignore: prefer_const_declarations
+    final path = r'/span/collections/{collectionId}/stats'
+        .replaceAll('{collectionId}', collectionId);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Retrieve collection statistics
+  ///
+  /// Retrieve statistics for the collection. This is the aggregated metrics for devices, outputs, firmware images, blobs and gateways in the collection
+  ///
+  /// Parameters:
+  ///
+  /// * [String] collectionId (required):
+  ///   The collection ID of the collection you are requesting
+  Future<CollectionStats?> retrieveCollectionStats(
+    String collectionId,
+  ) async {
+    final response = await retrieveCollectionStatsWithHttpInfo(
+      collectionId,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'CollectionStats',
+      ) as CollectionStats;
+    }
+    return null;
+  }
+
   /// Update collection
   ///
   /// Update a collection.

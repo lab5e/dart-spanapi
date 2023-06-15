@@ -60,6 +60,13 @@ void main() {
       // TODO
     });
 
+    // Retrieve firmware statistics
+    //
+    //Future<FirmwareStats> retrieveFirmwareStats(String collectionId, String imageId) async
+    test('test retrieveFirmwareStats', () async {
+      // TODO
+    });
+
     // Update firmware
     //
     // Only the version and tags fields can be updated. The other fields will be ignored.

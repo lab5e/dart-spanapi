@@ -368,6 +368,79 @@ class GatewaysApi {
     return null;
   }
 
+  /// Retrieve gateway statistics
+  ///
+  /// Get statistics for gateway
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] collectionId (required):
+  ///
+  /// * [String] gatewayId (required):
+  Future<Response> retrieveGatewayStatsWithHttpInfo(
+    String collectionId,
+    String gatewayId,
+  ) async {
+    // ignore: prefer_const_declarations
+    final path = r'/span/collections/{collectionId}/gateways/{gatewayId}/stats'
+        .replaceAll('{collectionId}', collectionId)
+        .replaceAll('{gatewayId}', gatewayId);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Retrieve gateway statistics
+  ///
+  /// Get statistics for gateway
+  ///
+  /// Parameters:
+  ///
+  /// * [String] collectionId (required):
+  ///
+  /// * [String] gatewayId (required):
+  Future<GatewayStats?> retrieveGatewayStats(
+    String collectionId,
+    String gatewayId,
+  ) async {
+    final response = await retrieveGatewayStatsWithHttpInfo(
+      collectionId,
+      gatewayId,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'GatewayStats',
+      ) as GatewayStats;
+    }
+    return null;
+  }
+
   /// Update gateway
   ///
   /// Update a gateway in Span

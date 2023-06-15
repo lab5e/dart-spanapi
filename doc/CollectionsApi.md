@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**listCollectionData**](CollectionsApi.md#listcollectiondata) | **GET** /span/collections/{collectionId}/data | Retrieve data from devices
 [**listCollections**](CollectionsApi.md#listcollections) | **GET** /span/collections | List collections
 [**retrieveCollection**](CollectionsApi.md#retrievecollection) | **GET** /span/collections/{collectionId} | Retrieve collection
+[**retrieveCollectionStats**](CollectionsApi.md#retrievecollectionstats) | **GET** /span/collections/{collectionId}/stats | Retrieve collection statistics
 [**updateCollection**](CollectionsApi.md#updatecollection) | **PATCH** /span/collections/{collectionId} | Update collection
 
 
@@ -248,6 +249,53 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Collection**](Collection.md)
+
+### Authorization
+
+[APIToken](../README.md#APIToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **retrieveCollectionStats**
+> CollectionStats retrieveCollectionStats(collectionId)
+
+Retrieve collection statistics
+
+Retrieve statistics for the collection. This is the aggregated metrics for devices, outputs, firmware images, blobs and gateways in the collection
+
+### Example
+```dart
+import 'package:spanapi/api.dart';
+// TODO Configure API key authorization: APIToken
+//defaultApiClient.getAuthentication<ApiKeyAuth>('APIToken').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('APIToken').apiKeyPrefix = 'Bearer';
+
+final api_instance = CollectionsApi();
+final collectionId = collectionId_example; // String | The collection ID of the collection you are requesting
+
+try {
+    final result = api_instance.retrieveCollectionStats(collectionId);
+    print(result);
+} catch (e) {
+    print('Exception when calling CollectionsApi->retrieveCollectionStats: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collectionId** | **String**| The collection ID of the collection you are requesting | 
+
+### Return type
+
+[**CollectionStats**](CollectionStats.md)
 
 ### Authorization
 

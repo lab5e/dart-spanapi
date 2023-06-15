@@ -827,7 +827,7 @@ class DevicesApi {
   ///   This is the containing collection
   ///
   /// * [String] deviceId (required):
-  ///   The device ID is assigned by the backend.
+  ///   The device identifier
   Future<Response> retrieveDeviceWithHttpInfo(
     String collectionId,
     String deviceId,
@@ -865,7 +865,7 @@ class DevicesApi {
   ///   This is the containing collection
   ///
   /// * [String] deviceId (required):
-  ///   The device ID is assigned by the backend.
+  ///   The device identifier
   Future<Device?> retrieveDevice(
     String collectionId,
     String deviceId,
@@ -886,6 +886,79 @@ class DevicesApi {
         await _decodeBodyBytes(response),
         'Device',
       ) as Device;
+    }
+    return null;
+  }
+
+  /// Retrieve device statistics
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] collectionId (required):
+  ///   This is the containing collection
+  ///
+  /// * [String] deviceId (required):
+  ///   The device identifier
+  Future<Response> retrieveDeviceStatsWithHttpInfo(
+    String collectionId,
+    String deviceId,
+  ) async {
+    // ignore: prefer_const_declarations
+    final path = r'/span/collections/{collectionId}/devices/{deviceId}/stats'
+        .replaceAll('{collectionId}', collectionId)
+        .replaceAll('{deviceId}', deviceId);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Retrieve device statistics
+  ///
+  /// Parameters:
+  ///
+  /// * [String] collectionId (required):
+  ///   This is the containing collection
+  ///
+  /// * [String] deviceId (required):
+  ///   The device identifier
+  Future<DeviceStats?> retrieveDeviceStats(
+    String collectionId,
+    String deviceId,
+  ) async {
+    final response = await retrieveDeviceStatsWithHttpInfo(
+      collectionId,
+      deviceId,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'DeviceStats',
+      ) as DeviceStats;
     }
     return null;
   }

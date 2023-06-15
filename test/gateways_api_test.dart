@@ -59,6 +59,15 @@ void main() {
       // TODO
     });
 
+    // Retrieve gateway statistics
+    //
+    // Get statistics for gateway
+    //
+    //Future<GatewayStats> retrieveGatewayStats(String collectionId, String gatewayId) async
+    test('test retrieveGatewayStats', () async {
+      // TODO
+    });
+
     // Update gateway
     //
     // Update a gateway in Span

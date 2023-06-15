@@ -96,6 +96,13 @@ void main() {
       // TODO
     });
 
+    // Retrieve device statistics
+    //
+    //Future<DeviceStats> retrieveDeviceStats(String collectionId, String deviceId) async
+    test('test retrieveDeviceStats', () async {
+      // TODO
+    });
+
     // Update device
     //
     // The device can be moved from one collection to another by setting the collection ID field to the new collection. You must have administrative access to both collections. A note on gateway configurations: Empty gateway configuration blocks are deleted. If the configuration block contains a gateway ID it will be updated  with the new values. All values must be submitted in the request.

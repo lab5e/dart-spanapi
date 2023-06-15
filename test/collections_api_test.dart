@@ -61,6 +61,15 @@ void main() {
       // TODO
     });
 
+    // Retrieve collection statistics
+    //
+    // Retrieve statistics for the collection. This is the aggregated metrics for devices, outputs, firmware images, blobs and gateways in the collection
+    //
+    //Future<CollectionStats> retrieveCollectionStats(String collectionId) async
+    test('test retrieveCollectionStats', () async {
+      // TODO
+    });
+
     // Update collection
     //
     // Update a collection.

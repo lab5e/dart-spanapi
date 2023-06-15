@@ -231,6 +231,8 @@ class ApiClient {
           return Any.fromJson(value);
         case 'Blob':
           return Blob.fromJson(value);
+        case 'BlobStats':
+          return BlobStats.fromJson(value);
         case 'CellularIoTConfig':
           return CellularIoTConfig.fromJson(value);
         case 'CellularIoTMetadata':
@@ -247,6 +249,8 @@ class ApiClient {
           return Collection.fromJson(value);
         case 'CollectionFirmware':
           return CollectionFirmware.fromJson(value);
+        case 'CollectionStats':
+          return CollectionStats.fromJson(value);
         case 'CreateCertificateRequest':
           return CreateCertificateRequest.fromJson(value);
         case 'CreateCertificateResponse':
@@ -271,12 +275,16 @@ class ApiClient {
           return DeviceConfig.fromJson(value);
         case 'DeviceMetadata':
           return DeviceMetadata.fromJson(value);
+        case 'DeviceStats':
+          return DeviceStats.fromJson(value);
         case 'Firmware':
           return Firmware.fromJson(value);
         case 'FirmwareManagement':
           return FirmwareManagementTypeTransformer().decode(value);
         case 'FirmwareMetadata':
           return FirmwareMetadata.fromJson(value);
+        case 'FirmwareStats':
+          return FirmwareStats.fromJson(value);
         case 'FirmwareUsageResponse':
           return FirmwareUsageResponse.fromJson(value);
         case 'Gateway':
@@ -297,6 +305,8 @@ class ApiClient {
           return GatewayInetConfig.fromJson(value);
         case 'GatewayMetadata':
           return GatewayMetadata.fromJson(value);
+        case 'GatewayStats':
+          return GatewayStats.fromJson(value);
         case 'GatewayStatus':
           return GatewayStatusTypeTransformer().decode(value);
         case 'GatewayType':
@@ -343,6 +353,8 @@ class ApiClient {
           return OutputLogResponse.fromJson(value);
         case 'OutputMessageType':
           return OutputMessageTypeTypeTransformer().decode(value);
+        case 'OutputStats':
+          return OutputStats.fromJson(value);
         case 'OutputStatusResponse':
           return OutputStatusResponse.fromJson(value);
         case 'OutputType':
