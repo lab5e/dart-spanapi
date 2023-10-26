@@ -25,7 +25,6 @@ class CellularIoTConfig {
   ///
   String? imsi;
 
-  /// on your device. This is the primary identifier for your device on the network.  The IMEI number is the unique ID for your hardware as
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated

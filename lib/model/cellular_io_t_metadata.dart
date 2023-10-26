@@ -23,6 +23,8 @@ class CellularIoTMetadata {
     this.network,
     this.countryCode,
     this.lastUpdate,
+    this.lastImsi,
+    this.lastImei,
   });
 
   ///
@@ -107,6 +109,22 @@ class CellularIoTMetadata {
   ///
   String? lastUpdate;
 
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? lastImsi;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? lastImei;
+
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -120,7 +138,9 @@ class CellularIoTMetadata {
           other.country == country &&
           other.network == network &&
           other.countryCode == countryCode &&
-          other.lastUpdate == lastUpdate;
+          other.lastUpdate == lastUpdate &&
+          other.lastImsi == lastImsi &&
+          other.lastImei == lastImei;
 
   @override
   int get hashCode =>
@@ -134,11 +154,13 @@ class CellularIoTMetadata {
       (country == null ? 0 : country!.hashCode) +
       (network == null ? 0 : network!.hashCode) +
       (countryCode == null ? 0 : countryCode!.hashCode) +
-      (lastUpdate == null ? 0 : lastUpdate!.hashCode);
+      (lastUpdate == null ? 0 : lastUpdate!.hashCode) +
+      (lastImsi == null ? 0 : lastImsi!.hashCode) +
+      (lastImei == null ? 0 : lastImei!.hashCode);
 
   @override
   String toString() =>
-      'CellularIoTMetadata[gatewayId=$gatewayId, allocatedIp=$allocatedIp, allocatedAt=$allocatedAt, cellId=$cellId, mcc=$mcc, mnc=$mnc, country=$country, network=$network, countryCode=$countryCode, lastUpdate=$lastUpdate]';
+      'CellularIoTMetadata[gatewayId=$gatewayId, allocatedIp=$allocatedIp, allocatedAt=$allocatedAt, cellId=$cellId, mcc=$mcc, mnc=$mnc, country=$country, network=$network, countryCode=$countryCode, lastUpdate=$lastUpdate, lastImsi=$lastImsi, lastImei=$lastImei]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -192,6 +214,16 @@ class CellularIoTMetadata {
     } else {
       json[r'lastUpdate'] = null;
     }
+    if (this.lastImsi != null) {
+      json[r'lastImsi'] = this.lastImsi;
+    } else {
+      json[r'lastImsi'] = null;
+    }
+    if (this.lastImei != null) {
+      json[r'lastImei'] = this.lastImei;
+    } else {
+      json[r'lastImei'] = null;
+    }
     return json;
   }
 
@@ -226,6 +258,8 @@ class CellularIoTMetadata {
         network: mapValueOfType<String>(json, r'network'),
         countryCode: mapValueOfType<String>(json, r'countryCode'),
         lastUpdate: mapValueOfType<String>(json, r'lastUpdate'),
+        lastImsi: mapValueOfType<String>(json, r'lastImsi'),
+        lastImei: mapValueOfType<String>(json, r'lastImei'),
       );
     }
     return null;

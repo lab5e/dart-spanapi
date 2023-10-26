@@ -67,5 +67,15 @@ void main() {
     test('to test the property `lastUpdate`', () async {
       // TODO
     });
+
+    // String lastImsi
+    test('to test the property `lastImsi`', () async {
+      // TODO
+    });
+
+    // String lastImei
+    test('to test the property `lastImei`', () async {
+      // TODO
+    });
   });
 }

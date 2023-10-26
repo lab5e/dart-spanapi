@@ -18,6 +18,8 @@ Name | Type | Description | Notes
 **network** | **String** |  | [optional] 
 **countryCode** | **String** |  | [optional] 
 **lastUpdate** | **String** |  | [optional] 
+**lastImsi** | **String** |  | [optional] 
+**lastImei** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
