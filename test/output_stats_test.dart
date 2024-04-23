@@ -21,13 +21,13 @@ void main() {
       // TODO
     });
 
-    // int messagesForwarded
+    // String messagesForwarded
     test('to test the property `messagesForwarded`', () async {
       // TODO
     });
 
-    // double bytesForwardedMb
-    test('to test the property `bytesForwardedMb`', () async {
+    // String bytesForwarded
+    test('to test the property `bytesForwarded`', () async {
       // TODO
     });
   });

@@ -36,6 +36,7 @@ part 'api/gateways_api.dart';
 part 'api/outputs_api.dart';
 part 'api/span_api.dart';
 
+part 'model/activity_event.dart';
 part 'model/add_downstream_message_request.dart';
 part 'model/any.dart';
 part 'model/blob.dart';

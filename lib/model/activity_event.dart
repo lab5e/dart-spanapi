@@ -10,14 +10,15 @@
 
 part of spanapi;
 
-class DeviceStats {
-  /// Returns a new [DeviceStats] instance.
-  DeviceStats({
-    this.bytesUpstream,
-    this.bytesDownstream,
-    this.messagesUpstream,
-    this.messagesDownstream,
-    this.sessionCount,
+class ActivityEvent {
+  /// Returns a new [ActivityEvent] instance.
+  ActivityEvent({
+    this.event,
+    this.time,
+    this.collectionId,
+    this.deviceId,
+    this.gatewayId,
+    this.data = const {},
   });
 
   ///
@@ -26,7 +27,7 @@ class DeviceStats {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? bytesUpstream;
+  String? event;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -34,7 +35,7 @@ class DeviceStats {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? bytesDownstream;
+  String? time;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -42,7 +43,7 @@ class DeviceStats {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? messagesUpstream;
+  String? collectionId;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -50,7 +51,7 @@ class DeviceStats {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? messagesDownstream;
+  String? deviceId;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -58,65 +59,70 @@ class DeviceStats {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  int? sessionCount;
+  String? gatewayId;
+
+  Map<String, String> data;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is DeviceStats &&
-          other.bytesUpstream == bytesUpstream &&
-          other.bytesDownstream == bytesDownstream &&
-          other.messagesUpstream == messagesUpstream &&
-          other.messagesDownstream == messagesDownstream &&
-          other.sessionCount == sessionCount;
+      other is ActivityEvent &&
+          other.event == event &&
+          other.time == time &&
+          other.collectionId == collectionId &&
+          other.deviceId == deviceId &&
+          other.gatewayId == gatewayId &&
+          other.data == data;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (bytesUpstream == null ? 0 : bytesUpstream!.hashCode) +
-      (bytesDownstream == null ? 0 : bytesDownstream!.hashCode) +
-      (messagesUpstream == null ? 0 : messagesUpstream!.hashCode) +
-      (messagesDownstream == null ? 0 : messagesDownstream!.hashCode) +
-      (sessionCount == null ? 0 : sessionCount!.hashCode);
+      (event == null ? 0 : event!.hashCode) +
+      (time == null ? 0 : time!.hashCode) +
+      (collectionId == null ? 0 : collectionId!.hashCode) +
+      (deviceId == null ? 0 : deviceId!.hashCode) +
+      (gatewayId == null ? 0 : gatewayId!.hashCode) +
+      (data.hashCode);
 
   @override
   String toString() =>
-      'DeviceStats[bytesUpstream=$bytesUpstream, bytesDownstream=$bytesDownstream, messagesUpstream=$messagesUpstream, messagesDownstream=$messagesDownstream, sessionCount=$sessionCount]';
+      'ActivityEvent[event=$event, time=$time, collectionId=$collectionId, deviceId=$deviceId, gatewayId=$gatewayId, data=$data]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    if (this.bytesUpstream != null) {
-      json[r'bytesUpstream'] = this.bytesUpstream;
+    if (this.event != null) {
+      json[r'event'] = this.event;
     } else {
-      json[r'bytesUpstream'] = null;
+      json[r'event'] = null;
     }
-    if (this.bytesDownstream != null) {
-      json[r'bytesDownstream'] = this.bytesDownstream;
+    if (this.time != null) {
+      json[r'time'] = this.time;
     } else {
-      json[r'bytesDownstream'] = null;
+      json[r'time'] = null;
     }
-    if (this.messagesUpstream != null) {
-      json[r'messagesUpstream'] = this.messagesUpstream;
+    if (this.collectionId != null) {
+      json[r'collectionId'] = this.collectionId;
     } else {
-      json[r'messagesUpstream'] = null;
+      json[r'collectionId'] = null;
     }
-    if (this.messagesDownstream != null) {
-      json[r'messagesDownstream'] = this.messagesDownstream;
+    if (this.deviceId != null) {
+      json[r'deviceId'] = this.deviceId;
     } else {
-      json[r'messagesDownstream'] = null;
+      json[r'deviceId'] = null;
     }
-    if (this.sessionCount != null) {
-      json[r'sessionCount'] = this.sessionCount;
+    if (this.gatewayId != null) {
+      json[r'gatewayId'] = this.gatewayId;
     } else {
-      json[r'sessionCount'] = null;
+      json[r'gatewayId'] = null;
     }
+    json[r'data'] = this.data;
     return json;
   }
 
-  /// Returns a new [DeviceStats] instance and imports its values from
+  /// Returns a new [ActivityEvent] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static DeviceStats? fromJson(dynamic value) {
+  static ActivityEvent? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -126,32 +132,33 @@ class DeviceStats {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "DeviceStats[$key]" is missing from JSON.');
+              'Required key "ActivityEvent[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "DeviceStats[$key]" has a null value in JSON.');
+              'Required key "ActivityEvent[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return DeviceStats(
-        bytesUpstream: mapValueOfType<String>(json, r'bytesUpstream'),
-        bytesDownstream: mapValueOfType<String>(json, r'bytesDownstream'),
-        messagesUpstream: mapValueOfType<String>(json, r'messagesUpstream'),
-        messagesDownstream: mapValueOfType<String>(json, r'messagesDownstream'),
-        sessionCount: mapValueOfType<int>(json, r'sessionCount'),
+      return ActivityEvent(
+        event: mapValueOfType<String>(json, r'event'),
+        time: mapValueOfType<String>(json, r'time'),
+        collectionId: mapValueOfType<String>(json, r'collectionId'),
+        deviceId: mapValueOfType<String>(json, r'deviceId'),
+        gatewayId: mapValueOfType<String>(json, r'gatewayId'),
+        data: mapCastOfType<String, String>(json, r'data') ?? const {},
       );
     }
     return null;
   }
 
-  static List<DeviceStats>? listFromJson(
+  static List<ActivityEvent>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <DeviceStats>[];
+    final result = <ActivityEvent>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = DeviceStats.fromJson(row);
+        final value = ActivityEvent.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -160,12 +167,12 @@ class DeviceStats {
     return result.toList(growable: growable);
   }
 
-  static Map<String, DeviceStats> mapFromJson(dynamic json) {
-    final map = <String, DeviceStats>{};
+  static Map<String, ActivityEvent> mapFromJson(dynamic json) {
+    final map = <String, ActivityEvent>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DeviceStats.fromJson(entry.value);
+        final value = ActivityEvent.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -174,16 +181,16 @@ class DeviceStats {
     return map;
   }
 
-  // maps a json object with a list of DeviceStats-objects as value to a dart map
-  static Map<String, List<DeviceStats>> mapListFromJson(
+  // maps a json object with a list of ActivityEvent-objects as value to a dart map
+  static Map<String, List<ActivityEvent>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<DeviceStats>>{};
+    final map = <String, List<ActivityEvent>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DeviceStats.listFromJson(
+        final value = ActivityEvent.listFromJson(
           entry.value,
           growable: growable,
         );

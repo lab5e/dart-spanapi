@@ -9,8 +9,8 @@ import 'package:spanapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **forwardErrors** | **int** |  | [optional] 
-**messagesForwarded** | **int** |  | [optional] 
-**bytesForwardedMb** | **double** |  | [optional] 
+**messagesForwarded** | **String** |  | [optional] 
+**bytesForwarded** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

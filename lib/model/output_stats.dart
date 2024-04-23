@@ -15,7 +15,7 @@ class OutputStats {
   OutputStats({
     this.forwardErrors,
     this.messagesForwarded,
-    this.bytesForwardedMb,
+    this.bytesForwarded,
   });
 
   ///
@@ -32,7 +32,7 @@ class OutputStats {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  int? messagesForwarded;
+  String? messagesForwarded;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -40,7 +40,7 @@ class OutputStats {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  double? bytesForwardedMb;
+  String? bytesForwarded;
 
   @override
   bool operator ==(Object other) =>
@@ -48,18 +48,18 @@ class OutputStats {
       other is OutputStats &&
           other.forwardErrors == forwardErrors &&
           other.messagesForwarded == messagesForwarded &&
-          other.bytesForwardedMb == bytesForwardedMb;
+          other.bytesForwarded == bytesForwarded;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
       (forwardErrors == null ? 0 : forwardErrors!.hashCode) +
       (messagesForwarded == null ? 0 : messagesForwarded!.hashCode) +
-      (bytesForwardedMb == null ? 0 : bytesForwardedMb!.hashCode);
+      (bytesForwarded == null ? 0 : bytesForwarded!.hashCode);
 
   @override
   String toString() =>
-      'OutputStats[forwardErrors=$forwardErrors, messagesForwarded=$messagesForwarded, bytesForwardedMb=$bytesForwardedMb]';
+      'OutputStats[forwardErrors=$forwardErrors, messagesForwarded=$messagesForwarded, bytesForwarded=$bytesForwarded]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -73,10 +73,10 @@ class OutputStats {
     } else {
       json[r'messagesForwarded'] = null;
     }
-    if (this.bytesForwardedMb != null) {
-      json[r'bytesForwardedMb'] = this.bytesForwardedMb;
+    if (this.bytesForwarded != null) {
+      json[r'bytesForwarded'] = this.bytesForwarded;
     } else {
-      json[r'bytesForwardedMb'] = null;
+      json[r'bytesForwarded'] = null;
     }
     return json;
   }
@@ -103,8 +103,8 @@ class OutputStats {
 
       return OutputStats(
         forwardErrors: mapValueOfType<int>(json, r'forwardErrors'),
-        messagesForwarded: mapValueOfType<int>(json, r'messagesForwarded'),
-        bytesForwardedMb: mapValueOfType<double>(json, r'bytesForwardedMb'),
+        messagesForwarded: mapValueOfType<String>(json, r'messagesForwarded'),
+        bytesForwarded: mapValueOfType<String>(json, r'bytesForwarded'),
       );
     }
     return null;

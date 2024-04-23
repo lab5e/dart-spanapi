@@ -16,8 +16,8 @@ void main() {
   // final instance = BlobStats();
 
   group('test BlobStats', () {
-    // double blobBytesMb
-    test('to test the property `blobBytesMb`', () async {
+    // String blobBytes
+    test('to test the property `blobBytes`', () async {
       // TODO
     });
   });

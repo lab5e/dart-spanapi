@@ -16,22 +16,22 @@ void main() {
   // final instance = DeviceStats();
 
   group('test DeviceStats', () {
-    // double bytesUpstreamMb
-    test('to test the property `bytesUpstreamMb`', () async {
+    // String bytesUpstream
+    test('to test the property `bytesUpstream`', () async {
       // TODO
     });
 
-    // double bytesDownstreamMb
-    test('to test the property `bytesDownstreamMb`', () async {
+    // String bytesDownstream
+    test('to test the property `bytesDownstream`', () async {
       // TODO
     });
 
-    // int messagesUpstream
+    // String messagesUpstream
     test('to test the property `messagesUpstream`', () async {
       // TODO
     });
 
-    // int messagesDownstream
+    // String messagesDownstream
     test('to test the property `messagesDownstream`', () async {
       // TODO
     });

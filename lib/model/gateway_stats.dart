@@ -15,8 +15,8 @@ class GatewayStats {
   GatewayStats({
     this.messagesUpstream,
     this.messagesDownstream,
-    this.bytesUpstreamMb,
-    this.bytesDownstreamMb,
+    this.bytesUpstream,
+    this.bytesDownstream,
   });
 
   ///
@@ -25,7 +25,7 @@ class GatewayStats {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  int? messagesUpstream;
+  String? messagesUpstream;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -33,7 +33,7 @@ class GatewayStats {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  int? messagesDownstream;
+  String? messagesDownstream;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -41,7 +41,7 @@ class GatewayStats {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  double? bytesUpstreamMb;
+  String? bytesUpstream;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -49,7 +49,7 @@ class GatewayStats {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  double? bytesDownstreamMb;
+  String? bytesDownstream;
 
   @override
   bool operator ==(Object other) =>
@@ -57,20 +57,20 @@ class GatewayStats {
       other is GatewayStats &&
           other.messagesUpstream == messagesUpstream &&
           other.messagesDownstream == messagesDownstream &&
-          other.bytesUpstreamMb == bytesUpstreamMb &&
-          other.bytesDownstreamMb == bytesDownstreamMb;
+          other.bytesUpstream == bytesUpstream &&
+          other.bytesDownstream == bytesDownstream;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
       (messagesUpstream == null ? 0 : messagesUpstream!.hashCode) +
       (messagesDownstream == null ? 0 : messagesDownstream!.hashCode) +
-      (bytesUpstreamMb == null ? 0 : bytesUpstreamMb!.hashCode) +
-      (bytesDownstreamMb == null ? 0 : bytesDownstreamMb!.hashCode);
+      (bytesUpstream == null ? 0 : bytesUpstream!.hashCode) +
+      (bytesDownstream == null ? 0 : bytesDownstream!.hashCode);
 
   @override
   String toString() =>
-      'GatewayStats[messagesUpstream=$messagesUpstream, messagesDownstream=$messagesDownstream, bytesUpstreamMb=$bytesUpstreamMb, bytesDownstreamMb=$bytesDownstreamMb]';
+      'GatewayStats[messagesUpstream=$messagesUpstream, messagesDownstream=$messagesDownstream, bytesUpstream=$bytesUpstream, bytesDownstream=$bytesDownstream]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -84,15 +84,15 @@ class GatewayStats {
     } else {
       json[r'messagesDownstream'] = null;
     }
-    if (this.bytesUpstreamMb != null) {
-      json[r'bytesUpstreamMb'] = this.bytesUpstreamMb;
+    if (this.bytesUpstream != null) {
+      json[r'bytesUpstream'] = this.bytesUpstream;
     } else {
-      json[r'bytesUpstreamMb'] = null;
+      json[r'bytesUpstream'] = null;
     }
-    if (this.bytesDownstreamMb != null) {
-      json[r'bytesDownstreamMb'] = this.bytesDownstreamMb;
+    if (this.bytesDownstream != null) {
+      json[r'bytesDownstream'] = this.bytesDownstream;
     } else {
-      json[r'bytesDownstreamMb'] = null;
+      json[r'bytesDownstream'] = null;
     }
     return json;
   }
@@ -118,10 +118,10 @@ class GatewayStats {
       }());
 
       return GatewayStats(
-        messagesUpstream: mapValueOfType<int>(json, r'messagesUpstream'),
-        messagesDownstream: mapValueOfType<int>(json, r'messagesDownstream'),
-        bytesUpstreamMb: mapValueOfType<double>(json, r'bytesUpstreamMb'),
-        bytesDownstreamMb: mapValueOfType<double>(json, r'bytesDownstreamMb'),
+        messagesUpstream: mapValueOfType<String>(json, r'messagesUpstream'),
+        messagesDownstream: mapValueOfType<String>(json, r'messagesDownstream'),
+        bytesUpstream: mapValueOfType<String>(json, r'bytesUpstream'),
+        bytesDownstream: mapValueOfType<String>(json, r'bytesDownstream'),
       );
     }
     return null;

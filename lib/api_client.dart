@@ -225,6 +225,8 @@ class ApiClient {
           return valueString == 'true' || valueString == '1';
         case 'DateTime':
           return value is DateTime ? value : DateTime.tryParse(value);
+        case 'ActivityEvent':
+          return ActivityEvent.fromJson(value);
         case 'AddDownstreamMessageRequest':
           return AddDownstreamMessageRequest.fromJson(value);
         case 'Any':

@@ -13,7 +13,7 @@ part of spanapi;
 class BlobStats {
   /// Returns a new [BlobStats] instance.
   BlobStats({
-    this.blobBytesMb,
+    this.blobBytes,
   });
 
   ///
@@ -22,27 +22,27 @@ class BlobStats {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  double? blobBytesMb;
+  String? blobBytes;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is BlobStats && other.blobBytesMb == blobBytesMb;
+      other is BlobStats && other.blobBytes == blobBytes;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (blobBytesMb == null ? 0 : blobBytesMb!.hashCode);
+      (blobBytes == null ? 0 : blobBytes!.hashCode);
 
   @override
-  String toString() => 'BlobStats[blobBytesMb=$blobBytesMb]';
+  String toString() => 'BlobStats[blobBytes=$blobBytes]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    if (this.blobBytesMb != null) {
-      json[r'blobBytesMb'] = this.blobBytesMb;
+    if (this.blobBytes != null) {
+      json[r'blobBytes'] = this.blobBytes;
     } else {
-      json[r'blobBytesMb'] = null;
+      json[r'blobBytes'] = null;
     }
     return json;
   }
@@ -68,7 +68,7 @@ class BlobStats {
       }());
 
       return BlobStats(
-        blobBytesMb: mapValueOfType<double>(json, r'blobBytesMb'),
+        blobBytes: mapValueOfType<String>(json, r'blobBytes'),
       );
     }
     return null;
