@@ -32,7 +32,7 @@ import 'package:spanapi/api.dart';
 
 final api_instance = CertificatesApi();
 final collectionId = collectionId_example; // String | 
-final body = CreateCertificateRequest(); // CreateCertificateRequest | 
+final body = CreateCertificateBody(); // CreateCertificateBody | 
 
 try {
     final result = api_instance.createCertificate(collectionId, body);
@@ -47,7 +47,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **String**|  | 
- **body** | [**CreateCertificateRequest**](CreateCertificateRequest.md)|  | 
+ **body** | [**CreateCertificateBody**](CreateCertificateBody.md)|  | 
 
 ### Return type
 
@@ -132,7 +132,7 @@ import 'package:spanapi/api.dart';
 
 final api_instance = CertificatesApi();
 final collectionId = collectionId_example; // String | 
-final body = SignCertificateRequest(); // SignCertificateRequest | 
+final body = SignCertificateBody(); // SignCertificateBody | 
 
 try {
     final result = api_instance.signCertificate(collectionId, body);
@@ -147,7 +147,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **String**|  | 
- **body** | [**SignCertificateRequest**](SignCertificateRequest.md)|  | 
+ **body** | [**SignCertificateBody**](SignCertificateBody.md)|  | 
 
 ### Return type
 
@@ -181,7 +181,7 @@ import 'package:spanapi/api.dart';
 
 final api_instance = CertificatesApi();
 final collectionId = collectionId_example; // String | 
-final body = VerifyCertificateRequest(); // VerifyCertificateRequest | 
+final body = VerifyCertificateBody(); // VerifyCertificateBody | 
 
 try {
     final result = api_instance.verifyCertificate(collectionId, body);
@@ -196,7 +196,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **String**|  | 
- **body** | [**VerifyCertificateRequest**](VerifyCertificateRequest.md)|  | 
+ **body** | [**VerifyCertificateBody**](VerifyCertificateBody.md)|  | 
 
 ### Return type
 

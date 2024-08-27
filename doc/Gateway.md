@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **config** | [**GatewayConfig**](GatewayConfig.md) |  | [optional] 
 **tags** | **Map<String, String>** |  | [optional] [default to const {}]
 **status** | [**GatewayStatus**](GatewayStatus.md) |  | [optional] 
+**enabled** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

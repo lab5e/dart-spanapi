@@ -20,7 +20,7 @@ void main() {
     //
     // Create a new device or gateway (client) certificate for an internet-connected device. The devices will use this client certificate to authenticate when sending data via the Internet endpoint. This will create a X509 client certificate with an ECC public key. The key is not stored by the service so keep it in a secure place once it is downloaded. The returned certificate will be valid for 14 days. The key for the certificate is your own responsibility. The client certificate is used in both the TLS, DTLS and gRPC service endpoints.
     //
-    //Future<CreateCertificateResponse> createCertificate(String collectionId, CreateCertificateRequest body) async
+    //Future<CreateCertificateResponse> createCertificate(String collectionId, CreateCertificateBody body) async
     test('test createCertificate', () async {
       // TODO
     });
@@ -38,7 +38,7 @@ void main() {
     //
     // Sign a device or gateway (aka client) certificate. The certificate is a X509 Certificate signing request PEM encoded. The certificate will be valid for 14 days and must be renewed.
     //
-    //Future<SignCertificateResponse> signCertificate(String collectionId, SignCertificateRequest body) async
+    //Future<SignCertificateResponse> signCertificate(String collectionId, SignCertificateBody body) async
     test('test signCertificate', () async {
       // TODO
     });
@@ -47,7 +47,7 @@ void main() {
     //
     // Verify client certificate. If a client certificate fails it can be tricky to pinpoint exactly *why* the certificate isn't accepted. This resource validates the client certificate and returns the error in plain text.
     //
-    //Future<VerifyCertificateResponse> verifyCertificate(String collectionId, VerifyCertificateRequest body) async
+    //Future<VerifyCertificateResponse> verifyCertificate(String collectionId, VerifyCertificateBody body) async
     test('test verifyCertificate', () async {
       // TODO
     });

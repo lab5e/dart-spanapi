@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **lastTransport** | [**MessageTransport**](MessageTransport.md) |  | [optional] 
 **lastReceived** | **String** |  | [optional] 
 **lastPayload** | **String** |  | [optional] 
+**enabled** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

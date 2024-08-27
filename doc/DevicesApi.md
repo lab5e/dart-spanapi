@@ -41,7 +41,7 @@ import 'package:spanapi/api.dart';
 final api_instance = DevicesApi();
 final collectionId = collectionId_example; // String | 
 final deviceId = deviceId_example; // String | 
-final body = AddDownstreamMessageRequest(); // AddDownstreamMessageRequest | 
+final body = AddDownstreamMessageBody(); // AddDownstreamMessageBody | 
 
 try {
     final result = api_instance.addDownstreamMessage(collectionId, deviceId, body);
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **String**|  | 
  **deviceId** | **String**|  | 
- **body** | [**AddDownstreamMessageRequest**](AddDownstreamMessageRequest.md)|  | 
+ **body** | [**AddDownstreamMessageBody**](AddDownstreamMessageBody.md)|  | 
 
 ### Return type
 
@@ -89,7 +89,7 @@ import 'package:spanapi/api.dart';
 
 final api_instance = DevicesApi();
 final collectionId = collectionId_example; // String | This is the containing collection
-final body = CreateDeviceRequest(); // CreateDeviceRequest | 
+final body = CreateDeviceBody(); // CreateDeviceBody | 
 
 try {
     final result = api_instance.createDevice(collectionId, body);
@@ -104,7 +104,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **String**| This is the containing collection | 
- **body** | [**CreateDeviceRequest**](CreateDeviceRequest.md)|  | 
+ **body** | [**CreateDeviceBody**](CreateDeviceBody.md)|  | 
 
 ### Return type
 
@@ -594,7 +594,7 @@ import 'package:spanapi/api.dart';
 final api_instance = DevicesApi();
 final existingCollectionId = existingCollectionId_example; // String | 
 final deviceId = deviceId_example; // String | 
-final body = UpdateDeviceRequest(); // UpdateDeviceRequest | 
+final body = UpdateDeviceBody(); // UpdateDeviceBody | 
 
 try {
     final result = api_instance.updateDevice(existingCollectionId, deviceId, body);
@@ -610,7 +610,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **existingCollectionId** | **String**|  | 
  **deviceId** | **String**|  | 
- **body** | [**UpdateDeviceRequest**](UpdateDeviceRequest.md)|  | 
+ **body** | [**UpdateDeviceBody**](UpdateDeviceBody.md)|  | 
 
 ### Return type
 

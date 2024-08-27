@@ -18,7 +18,7 @@ void main() {
   group('tests for OutputsApi', () {
     // Create output
     //
-    //Future<Output> createOutput(String collectionId, CreateOutputRequest body) async
+    //Future<Output> createOutput(String collectionId, CreateOutputBody body) async
     test('test createOutput', () async {
       // TODO
     });
@@ -67,7 +67,7 @@ void main() {
 
     // Update output
     //
-    //Future<Output> updateOutput(String existingCollectionId, String outputId, UpdateOutputRequest body) async
+    //Future<Output> updateOutput(String existingCollectionId, String outputId, UpdateOutputBody body) async
     test('test updateOutput', () async {
       // TODO
     });

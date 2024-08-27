@@ -48,5 +48,11 @@ void main() {
     test('to test the property `downstreamTimestamps`', () async {
       // TODO
     });
+
+    // Disabled flag for collection. If the collection is disabled it is in effect read only and inactive. You can't update a disabled collection.
+    // bool enabled
+    test('to test the property `enabled`', () async {
+      // TODO
+    });
   });
 }

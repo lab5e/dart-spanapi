@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **tags** | **Map<String, String>** | Tags for the collection. Tags are metadata fields that you can assign to the collection. | [optional] [default to const {}]
 **upstreamTimestamps** | **List<String>** |  | [optional] [default to const []]
 **downstreamTimestamps** | **List<String>** |  | [optional] [default to const []]
+**enabled** | **bool** | Disabled flag for collection. If the collection is disabled it is in effect read only and inactive. You can't update a disabled collection. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

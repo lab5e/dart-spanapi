@@ -20,14 +20,14 @@ void main() {
     //
     // Add a new message in the outgoing queue to the device. If there is other messages in the outbox these messages will be sent first.
     //
-    //Future<MessageDownstream> addDownstreamMessage(String collectionId, String deviceId, AddDownstreamMessageRequest body) async
+    //Future<MessageDownstream> addDownstreamMessage(String collectionId, String deviceId, AddDownstreamMessageBody body) async
     test('test addDownstreamMessage', () async {
       // TODO
     });
 
     // Create device
     //
-    //Future<Device> createDevice(String collectionId, CreateDeviceRequest body) async
+    //Future<Device> createDevice(String collectionId, CreateDeviceBody body) async
     test('test createDevice', () async {
       // TODO
     });
@@ -107,7 +107,7 @@ void main() {
     //
     // The device can be moved from one collection to another by setting the collection ID field to the new collection. You must have administrative access to both collections. A note on gateway configurations: Empty gateway configuration blocks are deleted. If the configuration block contains a gateway ID it will be updated  with the new values. All values must be submitted in the request. If a device is moved out of the collection and it references a gateway in the configuration the operation will fail. Devices that are moved from one collection to another and references gateway configurations must be updated before they are moved.
     //
-    //Future<Device> updateDevice(String existingCollectionId, String deviceId, UpdateDeviceRequest body) async
+    //Future<Device> updateDevice(String existingCollectionId, String deviceId, UpdateDeviceBody body) async
     test('test updateDevice', () async {
       // TODO
     });

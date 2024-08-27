@@ -23,6 +23,7 @@ class Device {
     this.lastTransport,
     this.lastReceived,
     this.lastPayload,
+    this.enabled,
   });
 
   /// The device ID is assigned by the backend.
@@ -101,6 +102,14 @@ class Device {
   ///
   String? lastPayload;
 
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? enabled;
+
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -114,7 +123,8 @@ class Device {
           other.lastGatewayId == lastGatewayId &&
           other.lastTransport == lastTransport &&
           other.lastReceived == lastReceived &&
-          other.lastPayload == lastPayload;
+          other.lastPayload == lastPayload &&
+          other.enabled == enabled;
 
   @override
   int get hashCode =>
@@ -128,11 +138,12 @@ class Device {
       (lastGatewayId == null ? 0 : lastGatewayId!.hashCode) +
       (lastTransport == null ? 0 : lastTransport!.hashCode) +
       (lastReceived == null ? 0 : lastReceived!.hashCode) +
-      (lastPayload == null ? 0 : lastPayload!.hashCode);
+      (lastPayload == null ? 0 : lastPayload!.hashCode) +
+      (enabled == null ? 0 : enabled!.hashCode);
 
   @override
   String toString() =>
-      'Device[deviceId=$deviceId, collectionId=$collectionId, tags=$tags, firmware=$firmware, config=$config, metadata=$metadata, lastGatewayId=$lastGatewayId, lastTransport=$lastTransport, lastReceived=$lastReceived, lastPayload=$lastPayload]';
+      'Device[deviceId=$deviceId, collectionId=$collectionId, tags=$tags, firmware=$firmware, config=$config, metadata=$metadata, lastGatewayId=$lastGatewayId, lastTransport=$lastTransport, lastReceived=$lastReceived, lastPayload=$lastPayload, enabled=$enabled]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -182,6 +193,11 @@ class Device {
     } else {
       json[r'lastPayload'] = null;
     }
+    if (this.enabled != null) {
+      json[r'enabled'] = this.enabled;
+    } else {
+      json[r'enabled'] = null;
+    }
     return json;
   }
 
@@ -216,6 +232,7 @@ class Device {
         lastTransport: MessageTransport.fromJson(json[r'lastTransport']),
         lastReceived: mapValueOfType<String>(json, r'lastReceived'),
         lastPayload: mapValueOfType<String>(json, r'lastPayload'),
+        enabled: mapValueOfType<bool>(json, r'enabled'),
       );
     }
     return null;

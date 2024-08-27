@@ -21,6 +21,7 @@ class Gateway {
     this.config,
     this.tags = const {},
     this.status,
+    this.enabled,
   });
 
   ///
@@ -81,6 +82,14 @@ class Gateway {
   ///
   GatewayStatus? status;
 
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? enabled;
+
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -92,7 +101,8 @@ class Gateway {
           other.type == type &&
           other.config == config &&
           other.tags == tags &&
-          other.status == status;
+          other.status == status &&
+          other.enabled == enabled;
 
   @override
   int get hashCode =>
@@ -104,11 +114,12 @@ class Gateway {
       (type == null ? 0 : type!.hashCode) +
       (config == null ? 0 : config!.hashCode) +
       (tags.hashCode) +
-      (status == null ? 0 : status!.hashCode);
+      (status == null ? 0 : status!.hashCode) +
+      (enabled == null ? 0 : enabled!.hashCode);
 
   @override
   String toString() =>
-      'Gateway[gatewayId=$gatewayId, collectionId=$collectionId, name=$name, builtIn=$builtIn, type=$type, config=$config, tags=$tags, status=$status]';
+      'Gateway[gatewayId=$gatewayId, collectionId=$collectionId, name=$name, builtIn=$builtIn, type=$type, config=$config, tags=$tags, status=$status, enabled=$enabled]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -148,6 +159,11 @@ class Gateway {
     } else {
       json[r'status'] = null;
     }
+    if (this.enabled != null) {
+      json[r'enabled'] = this.enabled;
+    } else {
+      json[r'enabled'] = null;
+    }
     return json;
   }
 
@@ -180,6 +196,7 @@ class Gateway {
         config: GatewayConfig.fromJson(json[r'config']),
         tags: mapCastOfType<String, String>(json, r'tags') ?? const {},
         status: GatewayStatus.fromJson(json[r'status']),
+        enabled: mapValueOfType<bool>(json, r'enabled'),
       );
     }
     return null;

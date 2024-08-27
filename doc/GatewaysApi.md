@@ -35,7 +35,7 @@ import 'package:spanapi/api.dart';
 
 final api_instance = GatewaysApi();
 final collectionId = collectionId_example; // String | 
-final body = CreateGatewayRequest(); // CreateGatewayRequest | 
+final body = CreateGatewayBody(); // CreateGatewayBody | 
 
 try {
     final result = api_instance.createGateway(collectionId, body);
@@ -50,7 +50,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **String**|  | 
- **body** | [**CreateGatewayRequest**](CreateGatewayRequest.md)|  | 
+ **body** | [**CreateGatewayBody**](CreateGatewayBody.md)|  | 
 
 ### Return type
 
@@ -326,7 +326,7 @@ import 'package:spanapi/api.dart';
 final api_instance = GatewaysApi();
 final existingCollectionId = existingCollectionId_example; // String | 
 final gatewayId = gatewayId_example; // String | 
-final body = UpdateGatewayRequest(); // UpdateGatewayRequest | 
+final body = UpdateGatewayBody(); // UpdateGatewayBody | 
 
 try {
     final result = api_instance.updateGateway(existingCollectionId, gatewayId, body);
@@ -342,7 +342,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **existingCollectionId** | **String**|  | 
  **gatewayId** | **String**|  | 
- **body** | [**UpdateGatewayRequest**](UpdateGatewayRequest.md)|  | 
+ **body** | [**UpdateGatewayBody**](UpdateGatewayBody.md)|  | 
 
 ### Return type
 

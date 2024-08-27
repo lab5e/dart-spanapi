@@ -28,11 +28,11 @@ class DevicesApi {
   ///
   /// * [String] deviceId (required):
   ///
-  /// * [AddDownstreamMessageRequest] body (required):
+  /// * [AddDownstreamMessageBody] body (required):
   Future<Response> addDownstreamMessageWithHttpInfo(
     String collectionId,
     String deviceId,
-    AddDownstreamMessageRequest body,
+    AddDownstreamMessageBody body,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/devices/{deviceId}/outbox'
@@ -69,11 +69,11 @@ class DevicesApi {
   ///
   /// * [String] deviceId (required):
   ///
-  /// * [AddDownstreamMessageRequest] body (required):
+  /// * [AddDownstreamMessageBody] body (required):
   Future<MessageDownstream?> addDownstreamMessage(
     String collectionId,
     String deviceId,
-    AddDownstreamMessageRequest body,
+    AddDownstreamMessageBody body,
   ) async {
     final response = await addDownstreamMessageWithHttpInfo(
       collectionId,
@@ -105,10 +105,10 @@ class DevicesApi {
   /// * [String] collectionId (required):
   ///   This is the containing collection
   ///
-  /// * [CreateDeviceRequest] body (required):
+  /// * [CreateDeviceBody] body (required):
   Future<Response> createDeviceWithHttpInfo(
     String collectionId,
-    CreateDeviceRequest body,
+    CreateDeviceBody body,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/devices'
@@ -141,10 +141,10 @@ class DevicesApi {
   /// * [String] collectionId (required):
   ///   This is the containing collection
   ///
-  /// * [CreateDeviceRequest] body (required):
+  /// * [CreateDeviceBody] body (required):
   Future<Device?> createDevice(
     String collectionId,
-    CreateDeviceRequest body,
+    CreateDeviceBody body,
   ) async {
     final response = await createDeviceWithHttpInfo(
       collectionId,
@@ -975,11 +975,11 @@ class DevicesApi {
   ///
   /// * [String] deviceId (required):
   ///
-  /// * [UpdateDeviceRequest] body (required):
+  /// * [UpdateDeviceBody] body (required):
   Future<Response> updateDeviceWithHttpInfo(
     String existingCollectionId,
     String deviceId,
-    UpdateDeviceRequest body,
+    UpdateDeviceBody body,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{existingCollectionId}/devices/{deviceId}'
@@ -1016,11 +1016,11 @@ class DevicesApi {
   ///
   /// * [String] deviceId (required):
   ///
-  /// * [UpdateDeviceRequest] body (required):
+  /// * [UpdateDeviceBody] body (required):
   Future<Device?> updateDevice(
     String existingCollectionId,
     String deviceId,
-    UpdateDeviceRequest body,
+    UpdateDeviceBody body,
   ) async {
     final response = await updateDeviceWithHttpInfo(
       existingCollectionId,

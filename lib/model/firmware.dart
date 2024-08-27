@@ -21,6 +21,7 @@ class Firmware {
     this.collectionId,
     this.created,
     this.tags = const {},
+    this.enabled,
   });
 
   ///
@@ -86,6 +87,14 @@ class Firmware {
   /// Tags for firmware image.
   Map<String, String> tags;
 
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? enabled;
+
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -97,7 +106,8 @@ class Firmware {
           other.length == length &&
           other.collectionId == collectionId &&
           other.created == created &&
-          other.tags == tags;
+          other.tags == tags &&
+          other.enabled == enabled;
 
   @override
   int get hashCode =>
@@ -109,11 +119,12 @@ class Firmware {
       (length == null ? 0 : length!.hashCode) +
       (collectionId == null ? 0 : collectionId!.hashCode) +
       (created == null ? 0 : created!.hashCode) +
-      (tags.hashCode);
+      (tags.hashCode) +
+      (enabled == null ? 0 : enabled!.hashCode);
 
   @override
   String toString() =>
-      'Firmware[imageId=$imageId, version=$version, filename=$filename, sha256=$sha256, length=$length, collectionId=$collectionId, created=$created, tags=$tags]';
+      'Firmware[imageId=$imageId, version=$version, filename=$filename, sha256=$sha256, length=$length, collectionId=$collectionId, created=$created, tags=$tags, enabled=$enabled]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -153,6 +164,11 @@ class Firmware {
       json[r'created'] = null;
     }
     json[r'tags'] = this.tags;
+    if (this.enabled != null) {
+      json[r'enabled'] = this.enabled;
+    } else {
+      json[r'enabled'] = null;
+    }
     return json;
   }
 
@@ -185,6 +201,7 @@ class Firmware {
         collectionId: mapValueOfType<String>(json, r'collectionId'),
         created: mapValueOfType<String>(json, r'created'),
         tags: mapCastOfType<String, String>(json, r'tags') ?? const {},
+        enabled: mapValueOfType<bool>(json, r'enabled'),
       );
     }
     return null;

@@ -26,10 +26,10 @@ class GatewaysApi {
   ///
   /// * [String] collectionId (required):
   ///
-  /// * [CreateGatewayRequest] body (required):
+  /// * [CreateGatewayBody] body (required):
   Future<Response> createGatewayWithHttpInfo(
     String collectionId,
-    CreateGatewayRequest body,
+    CreateGatewayBody body,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/gateways'
@@ -63,10 +63,10 @@ class GatewaysApi {
   ///
   /// * [String] collectionId (required):
   ///
-  /// * [CreateGatewayRequest] body (required):
+  /// * [CreateGatewayBody] body (required):
   Future<Gateway?> createGateway(
     String collectionId,
-    CreateGatewayRequest body,
+    CreateGatewayBody body,
   ) async {
     final response = await createGatewayWithHttpInfo(
       collectionId,
@@ -453,11 +453,11 @@ class GatewaysApi {
   ///
   /// * [String] gatewayId (required):
   ///
-  /// * [UpdateGatewayRequest] body (required):
+  /// * [UpdateGatewayBody] body (required):
   Future<Response> updateGatewayWithHttpInfo(
     String existingCollectionId,
     String gatewayId,
-    UpdateGatewayRequest body,
+    UpdateGatewayBody body,
   ) async {
     // ignore: prefer_const_declarations
     final path =
@@ -495,11 +495,11 @@ class GatewaysApi {
   ///
   /// * [String] gatewayId (required):
   ///
-  /// * [UpdateGatewayRequest] body (required):
+  /// * [UpdateGatewayBody] body (required):
   Future<Gateway?> updateGateway(
     String existingCollectionId,
     String gatewayId,
-    UpdateGatewayRequest body,
+    UpdateGatewayBody body,
   ) async {
     final response = await updateGatewayWithHttpInfo(
       existingCollectionId,

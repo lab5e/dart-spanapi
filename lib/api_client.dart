@@ -227,8 +227,8 @@ class ApiClient {
           return value is DateTime ? value : DateTime.tryParse(value);
         case 'ActivityEvent':
           return ActivityEvent.fromJson(value);
-        case 'AddDownstreamMessageRequest':
-          return AddDownstreamMessageRequest.fromJson(value);
+        case 'AddDownstreamMessageBody':
+          return AddDownstreamMessageBody.fromJson(value);
         case 'Any':
           return Any.fromJson(value);
         case 'Blob':
@@ -253,20 +253,20 @@ class ApiClient {
           return CollectionFirmware.fromJson(value);
         case 'CollectionStats':
           return CollectionStats.fromJson(value);
-        case 'CreateCertificateRequest':
-          return CreateCertificateRequest.fromJson(value);
+        case 'CreateCertificateBody':
+          return CreateCertificateBody.fromJson(value);
         case 'CreateCertificateResponse':
           return CreateCertificateResponse.fromJson(value);
         case 'CreateCollectionRequest':
           return CreateCollectionRequest.fromJson(value);
-        case 'CreateDeviceRequest':
-          return CreateDeviceRequest.fromJson(value);
-        case 'CreateFirmwareRequest':
-          return CreateFirmwareRequest.fromJson(value);
-        case 'CreateGatewayRequest':
-          return CreateGatewayRequest.fromJson(value);
-        case 'CreateOutputRequest':
-          return CreateOutputRequest.fromJson(value);
+        case 'CreateDeviceBody':
+          return CreateDeviceBody.fromJson(value);
+        case 'CreateFirmwareBody':
+          return CreateFirmwareBody.fromJson(value);
+        case 'CreateGatewayBody':
+          return CreateGatewayBody.fromJson(value);
+        case 'CreateOutputBody':
+          return CreateOutputBody.fromJson(value);
         case 'DeleteDownstreamMessageResponse':
           return DeleteDownstreamMessageResponse.fromJson(value);
         case 'Device':
@@ -363,28 +363,28 @@ class ApiClient {
           return OutputTypeTypeTransformer().decode(value);
         case 'RetrieveBlobResponse':
           return RetrieveBlobResponse.fromJson(value);
-        case 'SignCertificateRequest':
-          return SignCertificateRequest.fromJson(value);
+        case 'RpcStatus':
+          return RpcStatus.fromJson(value);
+        case 'SignCertificateBody':
+          return SignCertificateBody.fromJson(value);
         case 'SignCertificateResponse':
           return SignCertificateResponse.fromJson(value);
-        case 'Status':
-          return Status.fromJson(value);
         case 'SystemInfoResponse':
           return SystemInfoResponse.fromJson(value);
         case 'UDPMetadata':
           return UDPMetadata.fromJson(value);
-        case 'UpdateCollectionRequest':
-          return UpdateCollectionRequest.fromJson(value);
-        case 'UpdateDeviceRequest':
-          return UpdateDeviceRequest.fromJson(value);
-        case 'UpdateFirmwareRequest':
-          return UpdateFirmwareRequest.fromJson(value);
-        case 'UpdateGatewayRequest':
-          return UpdateGatewayRequest.fromJson(value);
-        case 'UpdateOutputRequest':
-          return UpdateOutputRequest.fromJson(value);
-        case 'VerifyCertificateRequest':
-          return VerifyCertificateRequest.fromJson(value);
+        case 'UpdateCollectionBody':
+          return UpdateCollectionBody.fromJson(value);
+        case 'UpdateDeviceBody':
+          return UpdateDeviceBody.fromJson(value);
+        case 'UpdateFirmwareBody':
+          return UpdateFirmwareBody.fromJson(value);
+        case 'UpdateGatewayBody':
+          return UpdateGatewayBody.fromJson(value);
+        case 'UpdateOutputBody':
+          return UpdateOutputBody.fromJson(value);
+        case 'VerifyCertificateBody':
+          return VerifyCertificateBody.fromJson(value);
         case 'VerifyCertificateResponse':
           return VerifyCertificateResponse.fromJson(value);
         default:

@@ -3,7 +3,7 @@
 #
 
 name: 'spanapi'
-version: '4.9.6'
+version: '5.0.0'
 description: 'Dart Span API Client'
 homepage: 'https://lab5e.com'
 environment:

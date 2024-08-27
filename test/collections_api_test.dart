@@ -74,7 +74,7 @@ void main() {
     //
     // Update a collection.
     //
-    //Future<Collection> updateCollection(String collectionId, UpdateCollectionRequest body) async
+    //Future<Collection> updateCollection(String collectionId, UpdateCollectionBody body) async
     test('test updateCollection', () async {
       // TODO
     });

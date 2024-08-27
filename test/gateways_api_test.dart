@@ -20,7 +20,7 @@ void main() {
     //
     // Create a new gateway.
     //
-    //Future<Gateway> createGateway(String collectionId, CreateGatewayRequest body) async
+    //Future<Gateway> createGateway(String collectionId, CreateGatewayBody body) async
     test('test createGateway', () async {
       // TODO
     });
@@ -72,7 +72,7 @@ void main() {
     //
     // Update configuration for a gateway. If you want to remove or move a gateway from the collection the devices in the collection must not have any gateway configuration. The certificates for the gateway are unchanged when the gateway is moved.
     //
-    //Future<Gateway> updateGateway(String existingCollectionId, String gatewayId, UpdateGatewayRequest body) async
+    //Future<Gateway> updateGateway(String existingCollectionId, String gatewayId, UpdateGatewayBody body) async
     test('test updateGateway', () async {
       // TODO
     });

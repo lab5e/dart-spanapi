@@ -94,10 +94,10 @@ class FotaApi {
   ///
   /// * [String] collectionId (required):
   ///
-  /// * [CreateFirmwareRequest] body (required):
+  /// * [CreateFirmwareBody] body (required):
   Future<Response> createFirmwareWithHttpInfo(
     String collectionId,
-    CreateFirmwareRequest body,
+    CreateFirmwareBody body,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/firmware'
@@ -131,10 +131,10 @@ class FotaApi {
   ///
   /// * [String] collectionId (required):
   ///
-  /// * [CreateFirmwareRequest] body (required):
+  /// * [CreateFirmwareBody] body (required):
   Future<Firmware?> createFirmware(
     String collectionId,
-    CreateFirmwareRequest body,
+    CreateFirmwareBody body,
   ) async {
     final response = await createFirmwareWithHttpInfo(
       collectionId,
@@ -505,11 +505,11 @@ class FotaApi {
   ///
   /// * [String] imageId (required):
   ///
-  /// * [UpdateFirmwareRequest] body (required):
+  /// * [UpdateFirmwareBody] body (required):
   Future<Response> updateFirmwareWithHttpInfo(
     String existingCollectionId,
     String imageId,
-    UpdateFirmwareRequest body,
+    UpdateFirmwareBody body,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{existingCollectionId}/firmware/{imageId}'
@@ -546,11 +546,11 @@ class FotaApi {
   ///
   /// * [String] imageId (required):
   ///
-  /// * [UpdateFirmwareRequest] body (required):
+  /// * [UpdateFirmwareBody] body (required):
   Future<Firmware?> updateFirmware(
     String existingCollectionId,
     String imageId,
-    UpdateFirmwareRequest body,
+    UpdateFirmwareBody body,
   ) async {
     final response = await updateFirmwareWithHttpInfo(
       existingCollectionId,

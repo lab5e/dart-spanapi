@@ -83,7 +83,7 @@ import 'package:spanapi/api.dart';
 
 final api_instance = FotaApi();
 final collectionId = collectionId_example; // String | 
-final body = CreateFirmwareRequest(); // CreateFirmwareRequest | 
+final body = CreateFirmwareBody(); // CreateFirmwareBody | 
 
 try {
     final result = api_instance.createFirmware(collectionId, body);
@@ -98,7 +98,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **String**|  | 
- **body** | [**CreateFirmwareRequest**](CreateFirmwareRequest.md)|  | 
+ **body** | [**CreateFirmwareBody**](CreateFirmwareBody.md)|  | 
 
 ### Return type
 
@@ -366,7 +366,7 @@ import 'package:spanapi/api.dart';
 final api_instance = FotaApi();
 final existingCollectionId = existingCollectionId_example; // String | 
 final imageId = imageId_example; // String | 
-final body = UpdateFirmwareRequest(); // UpdateFirmwareRequest | 
+final body = UpdateFirmwareBody(); // UpdateFirmwareBody | 
 
 try {
     final result = api_instance.updateFirmware(existingCollectionId, imageId, body);
@@ -382,7 +382,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **existingCollectionId** | **String**|  | 
  **imageId** | **String**|  | 
- **body** | [**UpdateFirmwareRequest**](UpdateFirmwareRequest.md)|  | 
+ **body** | [**UpdateFirmwareBody**](UpdateFirmwareBody.md)|  | 
 
 ### Return type
 

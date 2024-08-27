@@ -481,10 +481,10 @@ class CollectionsApi {
   /// * [String] collectionId (required):
   ///   The ID of the collection. This is assigned by the backend.
   ///
-  /// * [UpdateCollectionRequest] body (required):
+  /// * [UpdateCollectionBody] body (required):
   Future<Response> updateCollectionWithHttpInfo(
     String collectionId,
-    UpdateCollectionRequest body,
+    UpdateCollectionBody body,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}'
@@ -519,10 +519,10 @@ class CollectionsApi {
   /// * [String] collectionId (required):
   ///   The ID of the collection. This is assigned by the backend.
   ///
-  /// * [UpdateCollectionRequest] body (required):
+  /// * [UpdateCollectionBody] body (required):
   Future<Collection?> updateCollection(
     String collectionId,
-    UpdateCollectionRequest body,
+    UpdateCollectionBody body,
   ) async {
     final response = await updateCollectionWithHttpInfo(
       collectionId,

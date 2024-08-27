@@ -34,7 +34,7 @@ import 'package:spanapi/api.dart';
 
 final api_instance = OutputsApi();
 final collectionId = collectionId_example; // String | 
-final body = CreateOutputRequest(); // CreateOutputRequest | 
+final body = CreateOutputBody(); // CreateOutputBody | 
 
 try {
     final result = api_instance.createOutput(collectionId, body);
@@ -49,7 +49,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **String**|  | 
- **body** | [**CreateOutputRequest**](CreateOutputRequest.md)|  | 
+ **body** | [**CreateOutputBody**](CreateOutputBody.md)|  | 
 
 ### Return type
 
@@ -362,7 +362,7 @@ import 'package:spanapi/api.dart';
 final api_instance = OutputsApi();
 final existingCollectionId = existingCollectionId_example; // String | 
 final outputId = outputId_example; // String | 
-final body = UpdateOutputRequest(); // UpdateOutputRequest | 
+final body = UpdateOutputBody(); // UpdateOutputBody | 
 
 try {
     final result = api_instance.updateOutput(existingCollectionId, outputId, body);
@@ -378,7 +378,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **existingCollectionId** | **String**|  | 
  **outputId** | **String**|  | 
- **body** | [**UpdateOutputRequest**](UpdateOutputRequest.md)|  | 
+ **body** | [**UpdateOutputBody**](UpdateOutputBody.md)|  | 
 
 ### Return type
 

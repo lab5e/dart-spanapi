@@ -325,7 +325,7 @@ import 'package:spanapi/api.dart';
 
 final api_instance = CollectionsApi();
 final collectionId = collectionId_example; // String | The ID of the collection. This is assigned by the backend.
-final body = UpdateCollectionRequest(); // UpdateCollectionRequest | 
+final body = UpdateCollectionBody(); // UpdateCollectionBody | 
 
 try {
     final result = api_instance.updateCollection(collectionId, body);
@@ -340,7 +340,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **String**| The ID of the collection. This is assigned by the backend. | 
- **body** | [**UpdateCollectionRequest**](UpdateCollectionRequest.md)|  | 
+ **body** | [**UpdateCollectionBody**](UpdateCollectionBody.md)|  | 
 
 ### Return type
 

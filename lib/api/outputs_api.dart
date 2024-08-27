@@ -24,10 +24,10 @@ class OutputsApi {
   ///
   /// * [String] collectionId (required):
   ///
-  /// * [CreateOutputRequest] body (required):
+  /// * [CreateOutputBody] body (required):
   Future<Response> createOutputWithHttpInfo(
     String collectionId,
-    CreateOutputRequest body,
+    CreateOutputBody body,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/outputs'
@@ -59,10 +59,10 @@ class OutputsApi {
   ///
   /// * [String] collectionId (required):
   ///
-  /// * [CreateOutputRequest] body (required):
+  /// * [CreateOutputBody] body (required):
   Future<Output?> createOutput(
     String collectionId,
-    CreateOutputRequest body,
+    CreateOutputBody body,
   ) async {
     final response = await createOutputWithHttpInfo(
       collectionId,
@@ -500,11 +500,11 @@ class OutputsApi {
   ///
   /// * [String] outputId (required):
   ///
-  /// * [UpdateOutputRequest] body (required):
+  /// * [UpdateOutputBody] body (required):
   Future<Response> updateOutputWithHttpInfo(
     String existingCollectionId,
     String outputId,
-    UpdateOutputRequest body,
+    UpdateOutputBody body,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{existingCollectionId}/outputs/{outputId}'
@@ -539,11 +539,11 @@ class OutputsApi {
   ///
   /// * [String] outputId (required):
   ///
-  /// * [UpdateOutputRequest] body (required):
+  /// * [UpdateOutputBody] body (required):
   Future<Output?> updateOutput(
     String existingCollectionId,
     String outputId,
-    UpdateOutputRequest body,
+    UpdateOutputBody body,
   ) async {
     final response = await updateOutputWithHttpInfo(
       existingCollectionId,

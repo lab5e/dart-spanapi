@@ -27,7 +27,7 @@ void main() {
     //
     // Firmware images must have unique version numbers and have an unique checksum. The checksum is calculated when the firmware image is uploaded.
     //
-    //Future<Firmware> createFirmware(String collectionId, CreateFirmwareRequest body) async
+    //Future<Firmware> createFirmware(String collectionId, CreateFirmwareBody body) async
     test('test createFirmware', () async {
       // TODO
     });
@@ -71,7 +71,7 @@ void main() {
     //
     // Only the version and tags fields can be updated. The other fields will be ignored.
     //
-    //Future<Firmware> updateFirmware(String existingCollectionId, String imageId, UpdateFirmwareRequest body) async
+    //Future<Firmware> updateFirmware(String existingCollectionId, String imageId, UpdateFirmwareBody body) async
     test('test updateFirmware', () async {
       // TODO
     });

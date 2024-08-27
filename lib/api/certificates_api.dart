@@ -26,10 +26,10 @@ class CertificatesApi {
   ///
   /// * [String] collectionId (required):
   ///
-  /// * [CreateCertificateRequest] body (required):
+  /// * [CreateCertificateBody] body (required):
   Future<Response> createCertificateWithHttpInfo(
     String collectionId,
-    CreateCertificateRequest body,
+    CreateCertificateBody body,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/certificates/create'
@@ -63,10 +63,10 @@ class CertificatesApi {
   ///
   /// * [String] collectionId (required):
   ///
-  /// * [CreateCertificateRequest] body (required):
+  /// * [CreateCertificateBody] body (required):
   Future<CreateCertificateResponse?> createCertificate(
     String collectionId,
-    CreateCertificateRequest body,
+    CreateCertificateBody body,
   ) async {
     final response = await createCertificateWithHttpInfo(
       collectionId,
@@ -184,10 +184,10 @@ class CertificatesApi {
   ///
   /// * [String] collectionId (required):
   ///
-  /// * [SignCertificateRequest] body (required):
+  /// * [SignCertificateBody] body (required):
   Future<Response> signCertificateWithHttpInfo(
     String collectionId,
-    SignCertificateRequest body,
+    SignCertificateBody body,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/certificates/sign'
@@ -221,10 +221,10 @@ class CertificatesApi {
   ///
   /// * [String] collectionId (required):
   ///
-  /// * [SignCertificateRequest] body (required):
+  /// * [SignCertificateBody] body (required):
   Future<SignCertificateResponse?> signCertificate(
     String collectionId,
-    SignCertificateRequest body,
+    SignCertificateBody body,
   ) async {
     final response = await signCertificateWithHttpInfo(
       collectionId,
@@ -256,10 +256,10 @@ class CertificatesApi {
   ///
   /// * [String] collectionId (required):
   ///
-  /// * [VerifyCertificateRequest] body (required):
+  /// * [VerifyCertificateBody] body (required):
   Future<Response> verifyCertificateWithHttpInfo(
     String collectionId,
-    VerifyCertificateRequest body,
+    VerifyCertificateBody body,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/certificates/verify'
@@ -293,10 +293,10 @@ class CertificatesApi {
   ///
   /// * [String] collectionId (required):
   ///
-  /// * [VerifyCertificateRequest] body (required):
+  /// * [VerifyCertificateBody] body (required):
   Future<VerifyCertificateResponse?> verifyCertificate(
     String collectionId,
-    VerifyCertificateRequest body,
+    VerifyCertificateBody body,
   ) async {
     final response = await verifyCertificateWithHttpInfo(
       collectionId,

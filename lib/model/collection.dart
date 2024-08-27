@@ -19,6 +19,7 @@ class Collection {
     this.tags = const {},
     this.upstreamTimestamps = const [],
     this.downstreamTimestamps = const [],
+    this.enabled,
   });
 
   /// The ID of the collection. This is assigned by the backend.
@@ -54,6 +55,15 @@ class Collection {
 
   List<String> downstreamTimestamps;
 
+  /// Disabled flag for collection. If the collection is disabled it is in effect read only and inactive. You can't update a disabled collection.
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  bool? enabled;
+
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -63,7 +73,8 @@ class Collection {
           other.firmware == firmware &&
           other.tags == tags &&
           other.upstreamTimestamps == upstreamTimestamps &&
-          other.downstreamTimestamps == downstreamTimestamps;
+          other.downstreamTimestamps == downstreamTimestamps &&
+          other.enabled == enabled;
 
   @override
   int get hashCode =>
@@ -73,11 +84,12 @@ class Collection {
       (firmware == null ? 0 : firmware!.hashCode) +
       (tags.hashCode) +
       (upstreamTimestamps.hashCode) +
-      (downstreamTimestamps.hashCode);
+      (downstreamTimestamps.hashCode) +
+      (enabled == null ? 0 : enabled!.hashCode);
 
   @override
   String toString() =>
-      'Collection[collectionId=$collectionId, teamId=$teamId, firmware=$firmware, tags=$tags, upstreamTimestamps=$upstreamTimestamps, downstreamTimestamps=$downstreamTimestamps]';
+      'Collection[collectionId=$collectionId, teamId=$teamId, firmware=$firmware, tags=$tags, upstreamTimestamps=$upstreamTimestamps, downstreamTimestamps=$downstreamTimestamps, enabled=$enabled]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -99,6 +111,11 @@ class Collection {
     json[r'tags'] = this.tags;
     json[r'upstreamTimestamps'] = this.upstreamTimestamps;
     json[r'downstreamTimestamps'] = this.downstreamTimestamps;
+    if (this.enabled != null) {
+      json[r'enabled'] = this.enabled;
+    } else {
+      json[r'enabled'] = null;
+    }
     return json;
   }
 
@@ -133,6 +150,7 @@ class Collection {
         downstreamTimestamps: json[r'downstreamTimestamps'] is List
             ? (json[r'downstreamTimestamps'] as List).cast<String>()
             : const [],
+        enabled: mapValueOfType<bool>(json, r'enabled'),
       );
     }
     return null;
