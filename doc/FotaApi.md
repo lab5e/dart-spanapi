@@ -11,9 +11,11 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**clearFirmwareError**](FotaApi.md#clearfirmwareerror) | **DELETE** /span/collections/{collectionId}/devices/{deviceId}/fwerror | Clear FOTA error
 [**createFirmware**](FotaApi.md#createfirmware) | **POST** /span/collections/{collectionId}/firmware | Create firmware
+[**createLabeledFirmware**](FotaApi.md#createlabeledfirmware) | **POST** /span/collections/{collectionId}/firmware/labeled | BETA: Create a labeled firmware image
 [**deleteFirmware**](FotaApi.md#deletefirmware) | **DELETE** /span/collections/{collectionId}/firmware/{imageId} | Delete firmware
 [**firmwareUsage**](FotaApi.md#firmwareusage) | **GET** /span/collections/{collectionId}/firmware/{imageId}/usage | Firmware usage
 [**listFirmware**](FotaApi.md#listfirmware) | **GET** /span/collections/{collectionId}/firmware | List firmware
+[**listLabeledFirmware**](FotaApi.md#listlabeledfirmware) | **GET** /span/collections/{collectionId}/firmware/labeled | BETA: List the labeled firmware images for a collection
 [**retrieveFirmware**](FotaApi.md#retrievefirmware) | **GET** /span/collections/{collectionId}/firmware/{imageId} | Retrieve firmware
 [**retrieveFirmwareStats**](FotaApi.md#retrievefirmwarestats) | **GET** /span/collections/{collectionId}/firmware/{imageId}/stats | Retrieve firmware statistics
 [**updateFirmware**](FotaApi.md#updatefirmware) | **PATCH** /span/collections/{existingCollectionId}/firmware/{imageId} | Update firmware
@@ -111,6 +113,69 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **createLabeledFirmware**
+> CreateLabeledFirmwareResponse createLabeledFirmware(collectionId, version, label, imageRefPeriodImageRef, imageRefPeriodCreatedAt, imageRefPeriodFileName, imageRefPeriodLength, imageRefPeriodChecksum, imageRefPeriodSha256)
+
+BETA: Create a labeled firmware image
+
+Devices might need several different firmware images, depending on their configuration. Low-power devices usually have just a single firmware image but more complex devices might need several firmware images for their  subsystems. The firmware image must be uploaded prior to the call and the  returned data structure is included in the request.
+
+### Example
+```dart
+import 'package:spanapi/api.dart';
+// TODO Configure API key authorization: APIToken
+//defaultApiClient.getAuthentication<ApiKeyAuth>('APIToken').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('APIToken').apiKeyPrefix = 'Bearer';
+
+final api_instance = FotaApi();
+final collectionId = collectionId_example; // String | 
+final version = version_example; // String | 
+final label = label_example; // String | 
+final imageRefPeriodImageRef = imageRefPeriodImageRef_example; // String | 
+final imageRefPeriodCreatedAt = imageRefPeriodCreatedAt_example; // String | 
+final imageRefPeriodFileName = imageRefPeriodFileName_example; // String | 
+final imageRefPeriodLength = imageRefPeriodLength_example; // String | 
+final imageRefPeriodChecksum = imageRefPeriodChecksum_example; // String | 
+final imageRefPeriodSha256 = imageRefPeriodSha256_example; // String | 
+
+try {
+    final result = api_instance.createLabeledFirmware(collectionId, version, label, imageRefPeriodImageRef, imageRefPeriodCreatedAt, imageRefPeriodFileName, imageRefPeriodLength, imageRefPeriodChecksum, imageRefPeriodSha256);
+    print(result);
+} catch (e) {
+    print('Exception when calling FotaApi->createLabeledFirmware: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collectionId** | **String**|  | 
+ **version** | **String**|  | [optional] 
+ **label** | **String**|  | [optional] 
+ **imageRefPeriodImageRef** | **String**|  | [optional] 
+ **imageRefPeriodCreatedAt** | **String**|  | [optional] 
+ **imageRefPeriodFileName** | **String**|  | [optional] 
+ **imageRefPeriodLength** | **String**|  | [optional] 
+ **imageRefPeriodChecksum** | **String**|  | [optional] 
+ **imageRefPeriodSha256** | **String**|  | [optional] 
+
+### Return type
+
+[**CreateLabeledFirmwareResponse**](CreateLabeledFirmwareResponse.md)
+
+### Authorization
+
+[APIToken](../README.md#APIToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -242,6 +307,51 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ListFirmwareResponse**](ListFirmwareResponse.md)
+
+### Authorization
+
+[APIToken](../README.md#APIToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **listLabeledFirmware**
+> ListLabeledFirmwareResponse listLabeledFirmware(collectionId)
+
+BETA: List the labeled firmware images for a collection
+
+### Example
+```dart
+import 'package:spanapi/api.dart';
+// TODO Configure API key authorization: APIToken
+//defaultApiClient.getAuthentication<ApiKeyAuth>('APIToken').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('APIToken').apiKeyPrefix = 'Bearer';
+
+final api_instance = FotaApi();
+final collectionId = collectionId_example; // String | 
+
+try {
+    final result = api_instance.listLabeledFirmware(collectionId);
+    print(result);
+} catch (e) {
+    print('Exception when calling FotaApi->listLabeledFirmware: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collectionId** | **String**|  | 
+
+### Return type
+
+[**ListLabeledFirmwareResponse**](ListLabeledFirmwareResponse.md)
 
 ### Authorization
 

@@ -32,6 +32,15 @@ void main() {
       // TODO
     });
 
+    // BETA: Create a labeled firmware image
+    //
+    // Devices might need several different firmware images, depending on their configuration. Low-power devices usually have just a single firmware image but more complex devices might need several firmware images for their  subsystems. The firmware image must be uploaded prior to the call and the  returned data structure is included in the request.
+    //
+    //Future<CreateLabeledFirmwareResponse> createLabeledFirmware(String collectionId, { String version, String label, String imageRefPeriodImageRef, String imageRefPeriodCreatedAt, String imageRefPeriodFileName, String imageRefPeriodLength, String imageRefPeriodChecksum, String imageRefPeriodSha256 }) async
+    test('test createLabeledFirmware', () async {
+      // TODO
+    });
+
     // Delete firmware
     //
     //Future<Firmware> deleteFirmware(String collectionId, String imageId) async
@@ -50,6 +59,13 @@ void main() {
     //
     //Future<ListFirmwareResponse> listFirmware(String collectionId) async
     test('test listFirmware', () async {
+      // TODO
+    });
+
+    // BETA: List the labeled firmware images for a collection
+    //
+    //Future<ListLabeledFirmwareResponse> listLabeledFirmware(String collectionId) async
+    test('test listLabeledFirmware', () async {
       // TODO
     });
 

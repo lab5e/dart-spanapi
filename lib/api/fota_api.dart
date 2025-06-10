@@ -156,6 +156,158 @@ class FotaApi {
     return null;
   }
 
+  /// BETA: Create a labeled firmware image
+  ///
+  /// Devices might need several different firmware images, depending on their configuration. Low-power devices usually have just a single firmware image but more complex devices might need several firmware images for their  subsystems. The firmware image must be uploaded prior to the call and the  returned data structure is included in the request.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] collectionId (required):
+  ///
+  /// * [String] version:
+  ///
+  /// * [String] label:
+  ///
+  /// * [String] imageRefPeriodImageRef:
+  ///
+  /// * [String] imageRefPeriodCreatedAt:
+  ///
+  /// * [String] imageRefPeriodFileName:
+  ///
+  /// * [String] imageRefPeriodLength:
+  ///
+  /// * [String] imageRefPeriodChecksum:
+  ///
+  /// * [String] imageRefPeriodSha256:
+  Future<Response> createLabeledFirmwareWithHttpInfo(
+    String collectionId, {
+    String? version,
+    String? label,
+    String? imageRefPeriodImageRef,
+    String? imageRefPeriodCreatedAt,
+    String? imageRefPeriodFileName,
+    String? imageRefPeriodLength,
+    String? imageRefPeriodChecksum,
+    String? imageRefPeriodSha256,
+  }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/span/collections/{collectionId}/firmware/labeled'
+        .replaceAll('{collectionId}', collectionId);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (version != null) {
+      queryParams.addAll(_queryParams('', 'version', version));
+    }
+    if (label != null) {
+      queryParams.addAll(_queryParams('', 'label', label));
+    }
+    if (imageRefPeriodImageRef != null) {
+      queryParams.addAll(
+          _queryParams('', 'imageRef.imageRef', imageRefPeriodImageRef));
+    }
+    if (imageRefPeriodCreatedAt != null) {
+      queryParams.addAll(
+          _queryParams('', 'imageRef.createdAt', imageRefPeriodCreatedAt));
+    }
+    if (imageRefPeriodFileName != null) {
+      queryParams.addAll(
+          _queryParams('', 'imageRef.fileName', imageRefPeriodFileName));
+    }
+    if (imageRefPeriodLength != null) {
+      queryParams
+          .addAll(_queryParams('', 'imageRef.length', imageRefPeriodLength));
+    }
+    if (imageRefPeriodChecksum != null) {
+      queryParams.addAll(
+          _queryParams('', 'imageRef.checksum', imageRefPeriodChecksum));
+    }
+    if (imageRefPeriodSha256 != null) {
+      queryParams
+          .addAll(_queryParams('', 'imageRef.sha256', imageRefPeriodSha256));
+    }
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// BETA: Create a labeled firmware image
+  ///
+  /// Devices might need several different firmware images, depending on their configuration. Low-power devices usually have just a single firmware image but more complex devices might need several firmware images for their  subsystems. The firmware image must be uploaded prior to the call and the  returned data structure is included in the request.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] collectionId (required):
+  ///
+  /// * [String] version:
+  ///
+  /// * [String] label:
+  ///
+  /// * [String] imageRefPeriodImageRef:
+  ///
+  /// * [String] imageRefPeriodCreatedAt:
+  ///
+  /// * [String] imageRefPeriodFileName:
+  ///
+  /// * [String] imageRefPeriodLength:
+  ///
+  /// * [String] imageRefPeriodChecksum:
+  ///
+  /// * [String] imageRefPeriodSha256:
+  Future<CreateLabeledFirmwareResponse?> createLabeledFirmware(
+    String collectionId, {
+    String? version,
+    String? label,
+    String? imageRefPeriodImageRef,
+    String? imageRefPeriodCreatedAt,
+    String? imageRefPeriodFileName,
+    String? imageRefPeriodLength,
+    String? imageRefPeriodChecksum,
+    String? imageRefPeriodSha256,
+  }) async {
+    final response = await createLabeledFirmwareWithHttpInfo(
+      collectionId,
+      version: version,
+      label: label,
+      imageRefPeriodImageRef: imageRefPeriodImageRef,
+      imageRefPeriodCreatedAt: imageRefPeriodCreatedAt,
+      imageRefPeriodFileName: imageRefPeriodFileName,
+      imageRefPeriodLength: imageRefPeriodLength,
+      imageRefPeriodChecksum: imageRefPeriodChecksum,
+      imageRefPeriodSha256: imageRefPeriodSha256,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'CreateLabeledFirmwareResponse',
+      ) as CreateLabeledFirmwareResponse;
+    }
+    return null;
+  }
+
   /// Delete firmware
   ///
   /// Note: This method returns the HTTP [Response].
@@ -351,6 +503,67 @@ class FotaApi {
         await _decodeBodyBytes(response),
         'ListFirmwareResponse',
       ) as ListFirmwareResponse;
+    }
+    return null;
+  }
+
+  /// BETA: List the labeled firmware images for a collection
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] collectionId (required):
+  Future<Response> listLabeledFirmwareWithHttpInfo(
+    String collectionId,
+  ) async {
+    // ignore: prefer_const_declarations
+    final path = r'/span/collections/{collectionId}/firmware/labeled'
+        .replaceAll('{collectionId}', collectionId);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// BETA: List the labeled firmware images for a collection
+  ///
+  /// Parameters:
+  ///
+  /// * [String] collectionId (required):
+  Future<ListLabeledFirmwareResponse?> listLabeledFirmware(
+    String collectionId,
+  ) async {
+    final response = await listLabeledFirmwareWithHttpInfo(
+      collectionId,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'ListLabeledFirmwareResponse',
+      ) as ListLabeledFirmwareResponse;
     }
     return null;
   }

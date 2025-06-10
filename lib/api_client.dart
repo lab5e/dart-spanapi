@@ -265,6 +265,8 @@ class ApiClient {
           return CreateFirmwareBody.fromJson(value);
         case 'CreateGatewayBody':
           return CreateGatewayBody.fromJson(value);
+        case 'CreateLabeledFirmwareResponse':
+          return CreateLabeledFirmwareResponse.fromJson(value);
         case 'CreateOutputBody':
           return CreateOutputBody.fromJson(value);
         case 'DeleteDownstreamMessageResponse':
@@ -313,8 +315,12 @@ class ApiClient {
           return GatewayStatusTypeTransformer().decode(value);
         case 'GatewayType':
           return GatewayTypeTypeTransformer().decode(value);
+        case 'ImageUploadReference':
+          return ImageUploadReference.fromJson(value);
         case 'InetMetadata':
           return InetMetadata.fromJson(value);
+        case 'LabeledFirmware':
+          return LabeledFirmware.fromJson(value);
         case 'ListBlobResponse':
           return ListBlobResponse.fromJson(value);
         case 'ListCollectionResponse':
@@ -329,6 +335,8 @@ class ApiClient {
           return ListFirmwareResponse.fromJson(value);
         case 'ListGatewayResponse':
           return ListGatewayResponse.fromJson(value);
+        case 'ListLabeledFirmwareResponse':
+          return ListLabeledFirmwareResponse.fromJson(value);
         case 'ListOutputResponse':
           return ListOutputResponse.fromJson(value);
         case 'ListUpstreamMessagesResponse':
