@@ -15,6 +15,101 @@ class FotaApi {
 
   final ApiClient apiClient;
 
+  /// BETA: Assign a target image
+  ///
+  /// Assign a particular labeled image to a device or a collection
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] collectionId (required):
+  ///
+  /// * [String] imageId (required):
+  ///
+  /// * [String] label:
+  ///
+  /// * [String] deviceId:
+  Future<Response> assignTargetImageWithHttpInfo(
+    String collectionId,
+    String imageId, {
+    String? label,
+    String? deviceId,
+  }) async {
+    // ignore: prefer_const_declarations
+    final path =
+        r'/span/collections/{collectionId}/firmware/labeled/{imageId}/assign'
+            .replaceAll('{collectionId}', collectionId)
+            .replaceAll('{imageId}', imageId);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (label != null) {
+      queryParams.addAll(_queryParams('', 'label', label));
+    }
+    if (deviceId != null) {
+      queryParams.addAll(_queryParams('', 'deviceId', deviceId));
+    }
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'PATCH',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// BETA: Assign a target image
+  ///
+  /// Assign a particular labeled image to a device or a collection
+  ///
+  /// Parameters:
+  ///
+  /// * [String] collectionId (required):
+  ///
+  /// * [String] imageId (required):
+  ///
+  /// * [String] label:
+  ///
+  /// * [String] deviceId:
+  Future<AssignTargetImageResponse?> assignTargetImage(
+    String collectionId,
+    String imageId, {
+    String? label,
+    String? deviceId,
+  }) async {
+    final response = await assignTargetImageWithHttpInfo(
+      collectionId,
+      imageId,
+      label: label,
+      deviceId: deviceId,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'AssignTargetImageResponse',
+      ) as AssignTargetImageResponse;
+    }
+    return null;
+  }
+
   /// Clear FOTA error
   ///
   /// Note: This method returns the HTTP [Response].
@@ -170,27 +265,12 @@ class FotaApi {
   ///
   /// * [String] label:
   ///
-  /// * [String] imageRefPeriodImageRef:
-  ///
-  /// * [String] imageRefPeriodCreatedAt:
-  ///
-  /// * [String] imageRefPeriodFileName:
-  ///
-  /// * [String] imageRefPeriodLength:
-  ///
-  /// * [String] imageRefPeriodChecksum:
-  ///
-  /// * [String] imageRefPeriodSha256:
+  /// * [String] imageRef:
   Future<Response> createLabeledFirmwareWithHttpInfo(
     String collectionId, {
     String? version,
     String? label,
-    String? imageRefPeriodImageRef,
-    String? imageRefPeriodCreatedAt,
-    String? imageRefPeriodFileName,
-    String? imageRefPeriodLength,
-    String? imageRefPeriodChecksum,
-    String? imageRefPeriodSha256,
+    String? imageRef,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/span/collections/{collectionId}/firmware/labeled'
@@ -209,29 +289,8 @@ class FotaApi {
     if (label != null) {
       queryParams.addAll(_queryParams('', 'label', label));
     }
-    if (imageRefPeriodImageRef != null) {
-      queryParams.addAll(
-          _queryParams('', 'imageRef.imageRef', imageRefPeriodImageRef));
-    }
-    if (imageRefPeriodCreatedAt != null) {
-      queryParams.addAll(
-          _queryParams('', 'imageRef.createdAt', imageRefPeriodCreatedAt));
-    }
-    if (imageRefPeriodFileName != null) {
-      queryParams.addAll(
-          _queryParams('', 'imageRef.fileName', imageRefPeriodFileName));
-    }
-    if (imageRefPeriodLength != null) {
-      queryParams
-          .addAll(_queryParams('', 'imageRef.length', imageRefPeriodLength));
-    }
-    if (imageRefPeriodChecksum != null) {
-      queryParams.addAll(
-          _queryParams('', 'imageRef.checksum', imageRefPeriodChecksum));
-    }
-    if (imageRefPeriodSha256 != null) {
-      queryParams
-          .addAll(_queryParams('', 'imageRef.sha256', imageRefPeriodSha256));
+    if (imageRef != null) {
+      queryParams.addAll(_queryParams('', 'imageRef', imageRef));
     }
 
     const contentTypes = <String>[];
@@ -259,38 +318,18 @@ class FotaApi {
   ///
   /// * [String] label:
   ///
-  /// * [String] imageRefPeriodImageRef:
-  ///
-  /// * [String] imageRefPeriodCreatedAt:
-  ///
-  /// * [String] imageRefPeriodFileName:
-  ///
-  /// * [String] imageRefPeriodLength:
-  ///
-  /// * [String] imageRefPeriodChecksum:
-  ///
-  /// * [String] imageRefPeriodSha256:
+  /// * [String] imageRef:
   Future<CreateLabeledFirmwareResponse?> createLabeledFirmware(
     String collectionId, {
     String? version,
     String? label,
-    String? imageRefPeriodImageRef,
-    String? imageRefPeriodCreatedAt,
-    String? imageRefPeriodFileName,
-    String? imageRefPeriodLength,
-    String? imageRefPeriodChecksum,
-    String? imageRefPeriodSha256,
+    String? imageRef,
   }) async {
     final response = await createLabeledFirmwareWithHttpInfo(
       collectionId,
       version: version,
       label: label,
-      imageRefPeriodImageRef: imageRefPeriodImageRef,
-      imageRefPeriodCreatedAt: imageRefPeriodCreatedAt,
-      imageRefPeriodFileName: imageRefPeriodFileName,
-      imageRefPeriodLength: imageRefPeriodLength,
-      imageRefPeriodChecksum: imageRefPeriodChecksum,
-      imageRefPeriodSha256: imageRefPeriodSha256,
+      imageRef: imageRef,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -377,6 +416,79 @@ class FotaApi {
     return null;
   }
 
+  /// BETA: Remove a tagged firmware image
+  ///
+  /// Remove a tagged firmware image from the backing store and it's metadata
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] collectionId (required):
+  ///
+  /// * [String] imageId (required):
+  Future<Response> deleteLabeledImageWithHttpInfo(
+    String collectionId,
+    String imageId,
+  ) async {
+    // ignore: prefer_const_declarations
+    final path = r'/span/collections/{collectionId}/firmware/labeled/{imageId}'
+        .replaceAll('{collectionId}', collectionId)
+        .replaceAll('{imageId}', imageId);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'DELETE',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// BETA: Remove a tagged firmware image
+  ///
+  /// Remove a tagged firmware image from the backing store and it's metadata
+  ///
+  /// Parameters:
+  ///
+  /// * [String] collectionId (required):
+  ///
+  /// * [String] imageId (required):
+  Future<Object?> deleteLabeledImage(
+    String collectionId,
+    String imageId,
+  ) async {
+    final response = await deleteLabeledImageWithHttpInfo(
+      collectionId,
+      imageId,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'Object',
+      ) as Object;
+    }
+    return null;
+  }
+
   /// Firmware usage
   ///
   /// Note: This method returns the HTTP [Response].
@@ -446,6 +558,76 @@ class FotaApi {
     return null;
   }
 
+  /// BETA: Get state for a single device
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] collectionId (required):
+  ///
+  /// * [String] deviceId (required):
+  Future<Response> getImageStateWithHttpInfo(
+    String collectionId,
+    String deviceId,
+  ) async {
+    // ignore: prefer_const_declarations
+    final path =
+        r'/span/collections/{collectionId}/devices/{deviceId}/fotastate'
+            .replaceAll('{collectionId}', collectionId)
+            .replaceAll('{deviceId}', deviceId);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'PATCH',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// BETA: Get state for a single device
+  ///
+  /// Parameters:
+  ///
+  /// * [String] collectionId (required):
+  ///
+  /// * [String] deviceId (required):
+  Future<GetImageStateResponse?> getImageState(
+    String collectionId,
+    String deviceId,
+  ) async {
+    final response = await getImageStateWithHttpInfo(
+      collectionId,
+      deviceId,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'GetImageStateResponse',
+      ) as GetImageStateResponse;
+    }
+    return null;
+  }
+
   /// List firmware
   ///
   /// Note: This method returns the HTTP [Response].
@@ -503,6 +685,140 @@ class FotaApi {
         await _decodeBodyBytes(response),
         'ListFirmwareResponse',
       ) as ListFirmwareResponse;
+    }
+    return null;
+  }
+
+  /// BETA: List image assignments plus states
+  ///
+  /// List the status for the labeled firmware images in the collection
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] collectionId (required):
+  Future<Response> listImageStatesWithHttpInfo(
+    String collectionId,
+  ) async {
+    // ignore: prefer_const_declarations
+    final path = r'/span/collections/{collectionId}/firmware/labeled/states'
+        .replaceAll('{collectionId}', collectionId);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// BETA: List image assignments plus states
+  ///
+  /// List the status for the labeled firmware images in the collection
+  ///
+  /// Parameters:
+  ///
+  /// * [String] collectionId (required):
+  Future<ListImageStatesResponse?> listImageStates(
+    String collectionId,
+  ) async {
+    final response = await listImageStatesWithHttpInfo(
+      collectionId,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'ListImageStatesResponse',
+      ) as ListImageStatesResponse;
+    }
+    return null;
+  }
+
+  /// BETA: List version history for a single device
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] collectionId (required):
+  ///
+  /// * [String] deviceId (required):
+  Future<Response> listImageVersionHistoryWithHttpInfo(
+    String collectionId,
+    String deviceId,
+  ) async {
+    // ignore: prefer_const_declarations
+    final path = r'/span/collections/{collectionId}/devices/{deviceId}/fotalog'
+        .replaceAll('{collectionId}', collectionId)
+        .replaceAll('{deviceId}', deviceId);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'PATCH',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// BETA: List version history for a single device
+  ///
+  /// Parameters:
+  ///
+  /// * [String] collectionId (required):
+  ///
+  /// * [String] deviceId (required):
+  Future<ListImageVersionHistoryResponse?> listImageVersionHistory(
+    String collectionId,
+    String deviceId,
+  ) async {
+    final response = await listImageVersionHistoryWithHttpInfo(
+      collectionId,
+      deviceId,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'ListImageVersionHistoryResponse',
+      ) as ListImageVersionHistoryResponse;
     }
     return null;
   }

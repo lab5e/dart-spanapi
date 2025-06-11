@@ -10,15 +10,15 @@
 
 part of spanapi;
 
-class ImageUploadReference {
-  /// Returns a new [ImageUploadReference] instance.
-  ImageUploadReference({
-    this.imageRef,
-    this.createdAt,
-    this.fileName,
-    this.length,
-    this.checksum,
-    this.sha256,
+class ImageState {
+  /// Returns a new [ImageState] instance.
+  ImageState({
+    this.collectionId,
+    this.deviceId,
+    this.imageId,
+    this.updated,
+    this.state,
+    this.message,
   });
 
   ///
@@ -27,7 +27,7 @@ class ImageUploadReference {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? imageRef;
+  String? collectionId;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -35,7 +35,7 @@ class ImageUploadReference {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? createdAt;
+  String? deviceId;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -43,7 +43,7 @@ class ImageUploadReference {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? fileName;
+  String? imageId;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -51,7 +51,7 @@ class ImageUploadReference {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? length;
+  String? updated;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -59,7 +59,7 @@ class ImageUploadReference {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? checksum;
+  String? state;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -67,72 +67,72 @@ class ImageUploadReference {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? sha256;
+  String? message;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is ImageUploadReference &&
-          other.imageRef == imageRef &&
-          other.createdAt == createdAt &&
-          other.fileName == fileName &&
-          other.length == length &&
-          other.checksum == checksum &&
-          other.sha256 == sha256;
+      other is ImageState &&
+          other.collectionId == collectionId &&
+          other.deviceId == deviceId &&
+          other.imageId == imageId &&
+          other.updated == updated &&
+          other.state == state &&
+          other.message == message;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (imageRef == null ? 0 : imageRef!.hashCode) +
-      (createdAt == null ? 0 : createdAt!.hashCode) +
-      (fileName == null ? 0 : fileName!.hashCode) +
-      (length == null ? 0 : length!.hashCode) +
-      (checksum == null ? 0 : checksum!.hashCode) +
-      (sha256 == null ? 0 : sha256!.hashCode);
+      (collectionId == null ? 0 : collectionId!.hashCode) +
+      (deviceId == null ? 0 : deviceId!.hashCode) +
+      (imageId == null ? 0 : imageId!.hashCode) +
+      (updated == null ? 0 : updated!.hashCode) +
+      (state == null ? 0 : state!.hashCode) +
+      (message == null ? 0 : message!.hashCode);
 
   @override
   String toString() =>
-      'ImageUploadReference[imageRef=$imageRef, createdAt=$createdAt, fileName=$fileName, length=$length, checksum=$checksum, sha256=$sha256]';
+      'ImageState[collectionId=$collectionId, deviceId=$deviceId, imageId=$imageId, updated=$updated, state=$state, message=$message]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    if (this.imageRef != null) {
-      json[r'imageRef'] = this.imageRef;
+    if (this.collectionId != null) {
+      json[r'collectionId'] = this.collectionId;
     } else {
-      json[r'imageRef'] = null;
+      json[r'collectionId'] = null;
     }
-    if (this.createdAt != null) {
-      json[r'createdAt'] = this.createdAt;
+    if (this.deviceId != null) {
+      json[r'deviceId'] = this.deviceId;
     } else {
-      json[r'createdAt'] = null;
+      json[r'deviceId'] = null;
     }
-    if (this.fileName != null) {
-      json[r'fileName'] = this.fileName;
+    if (this.imageId != null) {
+      json[r'imageId'] = this.imageId;
     } else {
-      json[r'fileName'] = null;
+      json[r'imageId'] = null;
     }
-    if (this.length != null) {
-      json[r'length'] = this.length;
+    if (this.updated != null) {
+      json[r'updated'] = this.updated;
     } else {
-      json[r'length'] = null;
+      json[r'updated'] = null;
     }
-    if (this.checksum != null) {
-      json[r'checksum'] = this.checksum;
+    if (this.state != null) {
+      json[r'state'] = this.state;
     } else {
-      json[r'checksum'] = null;
+      json[r'state'] = null;
     }
-    if (this.sha256 != null) {
-      json[r'sha256'] = this.sha256;
+    if (this.message != null) {
+      json[r'message'] = this.message;
     } else {
-      json[r'sha256'] = null;
+      json[r'message'] = null;
     }
     return json;
   }
 
-  /// Returns a new [ImageUploadReference] instance and imports its values from
+  /// Returns a new [ImageState] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static ImageUploadReference? fromJson(dynamic value) {
+  static ImageState? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -142,33 +142,33 @@ class ImageUploadReference {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "ImageUploadReference[$key]" is missing from JSON.');
+              'Required key "ImageState[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "ImageUploadReference[$key]" has a null value in JSON.');
+              'Required key "ImageState[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return ImageUploadReference(
-        imageRef: mapValueOfType<String>(json, r'imageRef'),
-        createdAt: mapValueOfType<String>(json, r'createdAt'),
-        fileName: mapValueOfType<String>(json, r'fileName'),
-        length: mapValueOfType<String>(json, r'length'),
-        checksum: mapValueOfType<String>(json, r'checksum'),
-        sha256: mapValueOfType<String>(json, r'sha256'),
+      return ImageState(
+        collectionId: mapValueOfType<String>(json, r'collectionId'),
+        deviceId: mapValueOfType<String>(json, r'deviceId'),
+        imageId: mapValueOfType<String>(json, r'imageId'),
+        updated: mapValueOfType<String>(json, r'updated'),
+        state: mapValueOfType<String>(json, r'state'),
+        message: mapValueOfType<String>(json, r'message'),
       );
     }
     return null;
   }
 
-  static List<ImageUploadReference>? listFromJson(
+  static List<ImageState>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <ImageUploadReference>[];
+    final result = <ImageState>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = ImageUploadReference.fromJson(row);
+        final value = ImageState.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -177,12 +177,12 @@ class ImageUploadReference {
     return result.toList(growable: growable);
   }
 
-  static Map<String, ImageUploadReference> mapFromJson(dynamic json) {
-    final map = <String, ImageUploadReference>{};
+  static Map<String, ImageState> mapFromJson(dynamic json) {
+    final map = <String, ImageState>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ImageUploadReference.fromJson(entry.value);
+        final value = ImageState.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -191,16 +191,16 @@ class ImageUploadReference {
     return map;
   }
 
-  // maps a json object with a list of ImageUploadReference-objects as value to a dart map
-  static Map<String, List<ImageUploadReference>> mapListFromJson(
+  // maps a json object with a list of ImageState-objects as value to a dart map
+  static Map<String, List<ImageState>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<ImageUploadReference>>{};
+    final map = <String, List<ImageState>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ImageUploadReference.listFromJson(
+        final value = ImageState.listFromJson(
           entry.value,
           growable: growable,
         );

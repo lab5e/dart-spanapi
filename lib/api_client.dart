@@ -231,6 +231,8 @@ class ApiClient {
           return AddDownstreamMessageBody.fromJson(value);
         case 'Any':
           return Any.fromJson(value);
+        case 'AssignTargetImageResponse':
+          return AssignTargetImageResponse.fromJson(value);
         case 'Blob':
           return Blob.fromJson(value);
         case 'BlobStats':
@@ -277,6 +279,8 @@ class ApiClient {
           return DeviceCertificateResponse.fromJson(value);
         case 'DeviceConfig':
           return DeviceConfig.fromJson(value);
+        case 'DeviceImageState':
+          return DeviceImageState.fromJson(value);
         case 'DeviceMetadata':
           return DeviceMetadata.fromJson(value);
         case 'DeviceStats':
@@ -315,8 +319,12 @@ class ApiClient {
           return GatewayStatusTypeTransformer().decode(value);
         case 'GatewayType':
           return GatewayTypeTypeTransformer().decode(value);
-        case 'ImageUploadReference':
-          return ImageUploadReference.fromJson(value);
+        case 'GetImageStateResponse':
+          return GetImageStateResponse.fromJson(value);
+        case 'ImageState':
+          return ImageState.fromJson(value);
+        case 'ImageVersionEntry':
+          return ImageVersionEntry.fromJson(value);
         case 'InetMetadata':
           return InetMetadata.fromJson(value);
         case 'LabeledFirmware':
@@ -335,6 +343,10 @@ class ApiClient {
           return ListFirmwareResponse.fromJson(value);
         case 'ListGatewayResponse':
           return ListGatewayResponse.fromJson(value);
+        case 'ListImageStatesResponse':
+          return ListImageStatesResponse.fromJson(value);
+        case 'ListImageVersionHistoryResponse':
+          return ListImageVersionHistoryResponse.fromJson(value);
         case 'ListLabeledFirmwareResponse':
           return ListLabeledFirmwareResponse.fromJson(value);
         case 'ListOutputResponse':
